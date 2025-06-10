@@ -1,3 +1,4 @@
 rootProject.name = 'RandomEvents'
 include 'RandomEvents'
 include 'RandomEvents_Quests'
+include 'stubs'

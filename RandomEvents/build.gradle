@@ -11,6 +11,8 @@ dependencies {
     compileOnly 'com.github.koca2000:NoteBlockAPI:1.5.0'
     compileOnly 'com.github.PlaceholderAPI:PlaceholderAPI:2.11.3'
     compileOnly 'net.citizensnpcs:citizens-main:2.0.33-SNAPSHOT'
+    compileOnly 'commons-lang:commons-lang:2.6'
+    compileOnly project(':stubs')
 }
 
 sourceSets {

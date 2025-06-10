@@ -4,6 +4,10 @@ subprojects {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'windows-1252'
+    }
+
     repositories {
         mavenCentral()
         maven { url 'https://hub.spigotmc.org/nexus/content/repositories/public/' }
