@@ -1,0 +1,14 @@
+subprojects {
+    apply plugin: 'java'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://hub.spigotmc.org/nexus/content/repositories/public/' }
+        maven { url 'https://maven.citizensnpcs.co/repo' }
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://repo.minebench.de/' }
+    }
+}

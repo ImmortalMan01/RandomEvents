@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+archivesBaseName = 'RandomEvents'
+version = '2.9.5'
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.21.5-R0.1-SNAPSHOT'
+    compileOnly 'com.zaxxer:HikariCP:4.0.3'
+    compileOnly 'com.github.koca2000:NoteBlockAPI:1.5.0'
+    compileOnly 'com.github.PlaceholderAPI:PlaceholderAPI:2.11.3'
+    compileOnly 'net.citizensnpcs:citizens-main:2.0.33-SNAPSHOT'
+}
+
+sourceSets {
+    main {
+        java.srcDir 'src'
+        resources.srcDir '.'
+        resources.includes = ['plugin.yml','config.yml','defaultConfig.yml','Luzverde2.nbs','luzverde.nbs']
+    }
+}
+
+jar {
+    from('.') {
+        include 'plugin.yml','config.yml','defaultConfig.yml','Luzverde2.nbs','luzverde.nbs'
+    }
+}
