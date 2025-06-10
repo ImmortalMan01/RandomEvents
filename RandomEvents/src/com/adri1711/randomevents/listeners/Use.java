@@ -220,7 +220,7 @@ public class Use implements Listener {
 								player.getInventory().remove(player.getItemInHand());
 								player.updateInventory();
 							}
-							player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 60, 5));
+							player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 60, 5));
 							player.sendMessage(
 									plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getNowProtected());
 						} else if (player.getItemInHand().equals(plugin.getReventConfig().getCheckpointItem())) {
@@ -230,7 +230,7 @@ public class Use implements Listener {
 									plugin.getMatchActive().getMapHandler().getCheckpoints().get(player.getName()),
 									plugin);
 							if(plugin.getReventConfig().getRaceSlowEffect())
-							player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 60, 99));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 60, 99));
 
 						} else if (player.getItemInHand().equals(plugin.getReventConfig().getEndVanishItem())) {
 							evt.setCancelled(true);

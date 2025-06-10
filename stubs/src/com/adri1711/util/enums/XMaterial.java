@@ -1,11 +1,13 @@
 package com.adri1711.util.enums;
 
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 
 public class XMaterial {
     private final Material mat;
     private XMaterial(Material mat){ this.mat = mat; }
     public Material parseMaterial(){ return mat; }
+    public ItemStack parseItem(){ return mat == null ? null : new ItemStack(mat); }
     public static XMaterial valueOf(String name){ try { return new XMaterial(Material.valueOf(name)); } catch(Exception e){ return new XMaterial(null); } }
     public static final XMaterial AIR = valueOf("AIR");
     public static final XMaterial ANVIL = valueOf("ANVIL");
@@ -73,4 +75,12 @@ public class XMaterial {
     public static final XMaterial WOODEN_SHOVEL = valueOf("WOODEN_SHOVEL");
     public static final XMaterial WOODEN_SWORD = valueOf("WOODEN_SWORD");
     public static final XMaterial YELLOW_TERRACOTTA = valueOf("YELLOW_TERRACOTTA");
+    public static final XMaterial BLACK_WOOL = valueOf("BLACK_WOOL");
+    public static final XMaterial BLUE_WOOL = valueOf("BLUE_WOOL");
+    public static final XMaterial BROWN_WOOL = valueOf("BROWN_WOOL");
+    public static final XMaterial GRAY_WOOL = valueOf("GRAY_WOOL");
+    public static final XMaterial GREEN_WOOL = valueOf("GREEN_WOOL");
+    public static final XMaterial PURPLE_WOOL = valueOf("PURPLE_WOOL");
+    public static final XMaterial RED_WOOL = valueOf("RED_WOOL");
+    public static final XMaterial YELLOW_WOOL = valueOf("YELLOW_WOOL");
 }
