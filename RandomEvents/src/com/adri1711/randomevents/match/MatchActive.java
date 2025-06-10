@@ -1488,7 +1488,7 @@ public class MatchActive {
 					}
 					s = ChatColor.translateAlternateColorCodes('&', s);
 				} catch (Exception e) {
-					s = s.replaceAll("&", "ง");
+					s = s.replaceAll("&", "ยง");
 				}
 				p.sendMessage(s);
 			}
@@ -1516,7 +1516,7 @@ public class MatchActive {
 				s = ChatColor.translateAlternateColorCodes('&', s);
 
 			} catch (Exception e) {
-				s = s.replaceAll("&", "ง");
+				s = s.replaceAll("&", "ยง");
 			}
 			p.sendMessage(s);
 		}

@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+archivesBaseName = 'RandomEvents_Quests'
+version = '1.1'
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
+    compileOnly 'com.github.PikaMug:Quests:5.2.3'
+    compileOnly project(':RandomEvents')
+    compileOnly project(':stubs')
+}
+
+sourceSets {
+    main {
+        java.srcDir 'src'
+        resources.srcDir '.'
+        resources.includes = ['plugin.yml']
+    }
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from('.') { include 'plugin.yml' }
+}

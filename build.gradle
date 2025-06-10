@@ -1,0 +1,19 @@
+subprojects {
+    apply plugin: 'java'
+
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'windows-1252'
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://hub.spigotmc.org/nexus/content/repositories/public/' }
+        maven { url 'https://maven.citizensnpcs.co/repo' }
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://repo.minebench.de/' }
+        maven { url 'https://repo.codemc.org/repository/maven-public/' }
+    }
+}

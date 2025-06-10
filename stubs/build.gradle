@@ -1,0 +1,12 @@
+plugins { id 'java' }
+
+archivesBaseName = 'stubs'
+version = '1.0'
+
+sourceSets {
+    main { java.srcDir 'src' }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
+}

@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+archivesBaseName = 'RandomEvents'
+version = '2.9.5'
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
+    compileOnly 'com.zaxxer:HikariCP:4.0.3'
+    compileOnly 'com.github.koca2000:NoteBlockAPI:1.5.0'
+    compileOnly 'com.github.PlaceholderAPI:PlaceholderAPI:2.11.3'
+    compileOnly 'net.citizensnpcs:citizens-main:2.0.33-SNAPSHOT'
+    compileOnly 'commons-lang:commons-lang:2.6'
+    compileOnly project(':stubs')
+}
+
+sourceSets {
+    main {
+        java.srcDir 'src'
+        java.exclude 'com/adri1711/randomevents/util/UtilsProtocolLib.java'
+        resources.srcDir '.'
+        resources.includes = ['plugin.yml','config.yml','defaultConfig.yml','Luzverde2.nbs','luzverde.nbs']
+    }
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from('.') {
+        include 'plugin.yml','config.yml','defaultConfig.yml','Luzverde2.nbs','luzverde.nbs'
+    }
+}

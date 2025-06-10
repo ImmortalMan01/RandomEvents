@@ -373,27 +373,27 @@ public class ComandosExecutor {
 		for (Match m : plugin.getMatches()) {
 			if (player != null) {
 
-				player.sendMessage(((m.getEnabled() == null || m.getEnabled()) ? "§6" : "§c") + "§l"
+				player.sendMessage(((m.getEnabled() == null || m.getEnabled()) ? "Â§6" : "Â§c") + "Â§l"
 						+ plugin.getMatches().indexOf(m) + " - " + m.getMinigame().getMessage(plugin) + " -> "
 						+ m.getName().replaceAll(" ", "_") + " ( Min: " + m.getAmountPlayersMin() + ", Max: "
 						+ m.getAmountPlayers() + ") "
-						+ ((m.getEnabledSchedule() == null || m.getEnabledSchedule()) ? "" : "§c(Schedule Disabled)"));
+						+ ((m.getEnabledSchedule() == null || m.getEnabledSchedule()) ? "" : "Â§c(Schedule Disabled)"));
 			} else {
 				plugin.getLoggerP().info(plugin.getMatches().indexOf(m) + " - " + m.getMinigame().getMessage(plugin)
 						+ " -> " + m.getName().replaceAll(" ", "_") + " ( Min: " + m.getAmountPlayersMin() + ", Max: "
 						+ m.getAmountPlayers() + ") "
-						+ ((m.getEnabledSchedule() == null || m.getEnabledSchedule()) ? "" : "§c(Schedule Disabled)"));
+						+ ((m.getEnabledSchedule() == null || m.getEnabledSchedule()) ? "" : "Â§c(Schedule Disabled)"));
 			}
 		}
 
 	}
 
 	public void showKits(RandomEvents plugin, Player player) {
-		player.sendMessage(plugin.getLanguage().getTagPlugin() + "§e§lKits");
+		player.sendMessage(plugin.getLanguage().getTagPlugin() + "Â§eÂ§lKits");
 		for (Kit m : plugin.getKits()) {
 			if (player != null) {
 
-				player.sendMessage("§6§l" + plugin.getKits().indexOf(m) + " - " + m.getName());
+				player.sendMessage("Â§6Â§l" + plugin.getKits().indexOf(m) + " - " + m.getName());
 			} else {
 				plugin.getLoggerP().info(plugin.getKits().indexOf(m) + " - " + m.getName());
 			}
