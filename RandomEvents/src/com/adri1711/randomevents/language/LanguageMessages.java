@@ -517,7 +517,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -544,7 +544,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -571,7 +571,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -598,7 +598,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -625,7 +625,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -651,7 +651,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -677,7 +677,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -703,7 +703,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -729,7 +729,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -755,7 +755,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -781,7 +781,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -807,7 +807,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -833,7 +833,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -859,7 +859,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -886,7 +886,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 
@@ -913,7 +913,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -939,7 +939,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -965,7 +965,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -991,7 +991,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1017,7 +1017,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1043,7 +1043,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1069,7 +1069,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1095,7 +1095,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1121,7 +1121,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1147,7 +1147,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1173,7 +1173,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1199,7 +1199,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1225,7 +1225,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1251,7 +1251,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1277,7 +1277,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1303,7 +1303,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1329,7 +1329,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1355,7 +1355,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1381,7 +1381,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1407,7 +1407,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1433,7 +1433,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1459,7 +1459,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1485,7 +1485,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1511,7 +1511,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1537,7 +1537,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1563,7 +1563,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1589,7 +1589,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1615,7 +1615,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1641,7 +1641,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1667,7 +1667,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1693,7 +1693,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1719,7 +1719,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1749,7 +1749,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1775,7 +1775,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1801,7 +1801,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1827,7 +1827,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1853,7 +1853,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1879,7 +1879,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1905,7 +1905,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1931,7 +1931,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1957,7 +1957,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -1979,7 +1979,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2001,7 +2001,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2023,7 +2023,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2045,7 +2045,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2067,7 +2067,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2089,7 +2089,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2111,7 +2111,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2133,7 +2133,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2155,7 +2155,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2177,7 +2177,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2203,7 +2203,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2229,7 +2229,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2255,7 +2255,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2281,7 +2281,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2307,7 +2307,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2333,7 +2333,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2359,7 +2359,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2381,7 +2381,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2403,7 +2403,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2425,7 +2425,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2447,7 +2447,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2469,7 +2469,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2495,7 +2495,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2521,7 +2521,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2547,7 +2547,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2709,7 +2709,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2735,7 +2735,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2761,7 +2761,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2787,7 +2787,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2813,7 +2813,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2839,7 +2839,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2865,7 +2865,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2891,7 +2891,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2917,7 +2917,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2943,7 +2943,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2969,7 +2969,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -2995,7 +2995,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3021,7 +3021,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3047,7 +3047,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3073,7 +3073,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3099,7 +3099,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3125,7 +3125,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3151,7 +3151,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3217,7 +3217,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3243,7 +3243,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3269,7 +3269,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3295,7 +3295,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3321,7 +3321,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3347,7 +3347,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3373,7 +3373,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3399,7 +3399,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3425,7 +3425,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3451,7 +3451,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3477,7 +3477,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3503,7 +3503,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3529,7 +3529,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3555,7 +3555,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3581,7 +3581,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3607,7 +3607,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3633,7 +3633,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3659,7 +3659,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3685,7 +3685,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3711,7 +3711,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3737,7 +3737,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3763,7 +3763,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3789,7 +3789,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3815,7 +3815,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3841,7 +3841,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3867,7 +3867,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3893,7 +3893,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3919,7 +3919,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3945,7 +3945,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3971,7 +3971,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -3997,7 +3997,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4023,7 +4023,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4049,7 +4049,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4075,7 +4075,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4101,7 +4101,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4127,7 +4127,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4153,7 +4153,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4179,7 +4179,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4205,7 +4205,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4231,7 +4231,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4257,7 +4257,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4283,7 +4283,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4309,7 +4309,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4335,7 +4335,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4361,7 +4361,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4387,7 +4387,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4413,7 +4413,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4439,7 +4439,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4465,7 +4465,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4491,7 +4491,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4517,7 +4517,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4543,7 +4543,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4569,7 +4569,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4595,7 +4595,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4620,7 +4620,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4694,7 +4694,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4716,7 +4716,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4738,7 +4738,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4764,7 +4764,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4790,7 +4790,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4816,7 +4816,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4842,7 +4842,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4868,7 +4868,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4902,7 +4902,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4928,7 +4928,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4950,7 +4950,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4972,7 +4972,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -4994,7 +4994,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5016,7 +5016,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5038,7 +5038,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5084,7 +5084,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5106,7 +5106,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5128,7 +5128,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5150,7 +5150,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5172,7 +5172,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5214,7 +5214,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5240,7 +5240,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5266,7 +5266,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5292,7 +5292,10 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+                if (s == null) {
+                        s = Constantes.Messages.ITEM_RETURN_CHECKPOINT.getMessageDefault();
+                }
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5318,7 +5321,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5344,7 +5347,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5370,7 +5373,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5396,7 +5399,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5422,7 +5425,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5448,7 +5451,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5475,7 +5478,7 @@ public class LanguageMessages {
 				}
 				s = ChatColor.translateAlternateColorCodes('&', s);
 			} catch (Exception e) {
-				s = s.replaceAll("&", "ง");
+				s = s.replaceAll("&", "ยง");
 			}
 			defaultLore.add(s);
 		}
@@ -5502,7 +5505,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5528,7 +5531,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5550,7 +5553,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5572,7 +5575,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5662,7 +5665,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5688,7 +5691,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5714,7 +5717,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5736,7 +5739,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5758,7 +5761,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5780,7 +5783,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5802,7 +5805,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5824,7 +5827,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5846,7 +5849,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5868,7 +5871,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5890,7 +5893,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5912,7 +5915,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5934,7 +5937,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5956,7 +5959,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -5978,7 +5981,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6000,7 +6003,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6022,7 +6025,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6044,7 +6047,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6066,7 +6069,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6088,7 +6091,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6110,7 +6113,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6132,7 +6135,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6154,7 +6157,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6176,7 +6179,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6198,7 +6201,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6220,7 +6223,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6242,7 +6245,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6264,7 +6267,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6290,7 +6293,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6312,7 +6315,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6334,7 +6337,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6356,7 +6359,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6378,7 +6381,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6400,7 +6403,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6426,7 +6429,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6448,7 +6451,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6470,7 +6473,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6492,7 +6495,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6514,7 +6517,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6536,7 +6539,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6558,7 +6561,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6584,7 +6587,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6606,7 +6609,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6632,7 +6635,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6878,7 +6881,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6900,7 +6903,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6922,7 +6925,7 @@ public class LanguageMessages {
 			}
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
@@ -6957,7 +6960,7 @@ public class LanguageMessages {
 
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
@@ -6981,7 +6984,7 @@ public class LanguageMessages {
 
 			s = ChatColor.translateAlternateColorCodes('&', s);
 		} catch (Exception e) {
-			s = s.replaceAll("&", "ง");
+			s = s.replaceAll("&", "ยง");
 		}
 
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
