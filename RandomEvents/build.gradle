@@ -6,7 +6,7 @@ archivesBaseName = 'RandomEvents'
 version = '2.9.5'
 
 dependencies {
-    compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
     compileOnly 'com.zaxxer:HikariCP:4.0.3'
     compileOnly 'com.github.koca2000:NoteBlockAPI:1.5.0'
     compileOnly 'com.github.PlaceholderAPI:PlaceholderAPI:2.11.3'
@@ -25,6 +25,7 @@ sourceSets {
 }
 
 jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from('.') {
         include 'plugin.yml','config.yml','defaultConfig.yml','Luzverde2.nbs','luzverde.nbs'
     }

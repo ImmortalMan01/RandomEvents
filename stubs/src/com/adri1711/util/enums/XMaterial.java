@@ -3,84 +3,38 @@ package com.adri1711.util.enums;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-public class XMaterial {
-    private final Material mat;
-    private XMaterial(Material mat){ this.mat = mat; }
-    public Material parseMaterial(){ return mat; }
-    public ItemStack parseItem(){ return mat == null ? null : new ItemStack(mat); }
-    public static XMaterial valueOf(String name){ try { return new XMaterial(Material.valueOf(name)); } catch(Exception e){ return new XMaterial(null); } }
-    public static final XMaterial AIR = valueOf("AIR");
-    public static final XMaterial ANVIL = valueOf("ANVIL");
-    public static final XMaterial ARROW = valueOf("ARROW");
-    public static final XMaterial BEDROCK = valueOf("BEDROCK");
-    public static final XMaterial BEEF = valueOf("BEEF");
-    public static final XMaterial BLACK_TERRACOTTA = valueOf("BLACK_TERRACOTTA");
-    public static final XMaterial BLAZE_ROD = valueOf("BLAZE_ROD");
-    public static final XMaterial BLUE_TERRACOTTA = valueOf("BLUE_TERRACOTTA");
-    public static final XMaterial BOW = valueOf("BOW");
-    public static final XMaterial BROWN_TERRACOTTA = valueOf("BROWN_TERRACOTTA");
-    public static final XMaterial CHEST = valueOf("CHEST");
-    public static final XMaterial CHIPPED_ANVIL = valueOf("CHIPPED_ANVIL");
-    public static final XMaterial COAL_BLOCK = valueOf("COAL_BLOCK");
-    public static final XMaterial COOKED_BEEF = valueOf("COOKED_BEEF");
-    public static final XMaterial COOKED_PORKCHOP = valueOf("COOKED_PORKCHOP");
-    public static final XMaterial DAMAGED_ANVIL = valueOf("DAMAGED_ANVIL");
-    public static final XMaterial DIAMOND_HOE = valueOf("DIAMOND_HOE");
-    public static final XMaterial DIAMOND_SHOVEL = valueOf("DIAMOND_SHOVEL");
-    public static final XMaterial DIRT = valueOf("DIRT");
-    public static final XMaterial EGG = valueOf("EGG");
-    public static final XMaterial EMERALD = valueOf("EMERALD");
-    public static final XMaterial EMERALD_BLOCK = valueOf("EMERALD_BLOCK");
-    public static final XMaterial ENDER_EYE = valueOf("ENDER_EYE");
-    public static final XMaterial GLASS = valueOf("GLASS");
-    public static final XMaterial GOLDEN_HELMET = valueOf("GOLDEN_HELMET");
-    public static final XMaterial GOLDEN_HOE = valueOf("GOLDEN_HOE");
-    public static final XMaterial GOLDEN_SHOVEL = valueOf("GOLDEN_SHOVEL");
-    public static final XMaterial GOLDEN_SWORD = valueOf("GOLDEN_SWORD");
-    public static final XMaterial GRAY_TERRACOTTA = valueOf("GRAY_TERRACOTTA");
-    public static final XMaterial GREEN_TERRACOTTA = valueOf("GREEN_TERRACOTTA");
-    public static final XMaterial IRON_BOOTS = valueOf("IRON_BOOTS");
-    public static final XMaterial IRON_HOE = valueOf("IRON_HOE");
-    public static final XMaterial IRON_HORSE_ARMOR = valueOf("IRON_HORSE_ARMOR");
-    public static final XMaterial IRON_SHOVEL = valueOf("IRON_SHOVEL");
-    public static final XMaterial IRON_SWORD = valueOf("IRON_SWORD");
-    public static final XMaterial LEATHER_CHESTPLATE = valueOf("LEATHER_CHESTPLATE");
-    public static final XMaterial MAP = valueOf("MAP");
-    public static final XMaterial NETHER_STAR = valueOf("NETHER_STAR");
-    public static final XMaterial OAK_BOAT = valueOf("OAK_BOAT");
-    public static final XMaterial OAK_SIGN = valueOf("OAK_SIGN");
-    public static final XMaterial ORANGE_DYE = valueOf("ORANGE_DYE");
-    public static final XMaterial PURPLE_TERRACOTTA = valueOf("PURPLE_TERRACOTTA");
-    public static final XMaterial REDSTONE_BLOCK = valueOf("REDSTONE_BLOCK");
-    public static final XMaterial RED_DYE = valueOf("RED_DYE");
-    public static final XMaterial RED_TERRACOTTA = valueOf("RED_TERRACOTTA");
-    public static final XMaterial SADDLE = valueOf("SADDLE");
-    public static final XMaterial SKELETON_SKULL = valueOf("SKELETON_SKULL");
-    public static final XMaterial SNOW = valueOf("SNOW");
-    public static final XMaterial SNOWBALL = valueOf("SNOWBALL");
-    public static final XMaterial STONE = valueOf("STONE");
-    public static final XMaterial STONE_HOE = valueOf("STONE_HOE");
-    public static final XMaterial STONE_PRESSURE_PLATE = valueOf("STONE_PRESSURE_PLATE");
-    public static final XMaterial STONE_SHOVEL = valueOf("STONE_SHOVEL");
-    public static final XMaterial STONE_SWORD = valueOf("STONE_SWORD");
-    public static final XMaterial TNT = valueOf("TNT");
-    public static final XMaterial TOTEM_OF_UNDYING = valueOf("TOTEM_OF_UNDYING");
-    public static final XMaterial TROPICAL_FISH = valueOf("TROPICAL_FISH");
-    public static final XMaterial WATER = valueOf("WATER");
-    public static final XMaterial WATER_BUCKET = valueOf("WATER_BUCKET");
-    public static final XMaterial WHITE_STAINED_GLASS = valueOf("WHITE_STAINED_GLASS");
-    public static final XMaterial WHITE_STAINED_GLASS_PANE = valueOf("WHITE_STAINED_GLASS_PANE");
-    public static final XMaterial WHITE_TERRACOTTA = valueOf("WHITE_TERRACOTTA");
-    public static final XMaterial WOODEN_HOE = valueOf("WOODEN_HOE");
-    public static final XMaterial WOODEN_SHOVEL = valueOf("WOODEN_SHOVEL");
-    public static final XMaterial WOODEN_SWORD = valueOf("WOODEN_SWORD");
-    public static final XMaterial YELLOW_TERRACOTTA = valueOf("YELLOW_TERRACOTTA");
-    public static final XMaterial BLACK_WOOL = valueOf("BLACK_WOOL");
-    public static final XMaterial BLUE_WOOL = valueOf("BLUE_WOOL");
-    public static final XMaterial BROWN_WOOL = valueOf("BROWN_WOOL");
-    public static final XMaterial GRAY_WOOL = valueOf("GRAY_WOOL");
-    public static final XMaterial GREEN_WOOL = valueOf("GREEN_WOOL");
-    public static final XMaterial PURPLE_WOOL = valueOf("PURPLE_WOOL");
-    public static final XMaterial RED_WOOL = valueOf("RED_WOOL");
-    public static final XMaterial YELLOW_WOOL = valueOf("YELLOW_WOOL");
+public enum XMaterial {
+    AIR, ANVIL, ARROW, BEDROCK, BEEF,
+    BLACK_TERRACOTTA, BLAZE_ROD, BLUE_TERRACOTTA, BOW, BROWN_TERRACOTTA,
+    CHEST, CHIPPED_ANVIL, COAL_BLOCK, COOKED_BEEF, COOKED_PORKCHOP,
+    DAMAGED_ANVIL, DIAMOND_HOE, DIAMOND_SHOVEL, DIRT, EGG,
+    EMERALD, EMERALD_BLOCK, ENDER_EYE, GLASS, GOLDEN_HELMET,
+    GOLDEN_HOE, GOLDEN_SHOVEL, GOLDEN_SWORD, GRAY_TERRACOTTA, GREEN_TERRACOTTA,
+    IRON_BOOTS, IRON_HOE, IRON_HORSE_ARMOR, IRON_SHOVEL, IRON_SWORD,
+    LEATHER_CHESTPLATE, MAP, NETHER_STAR, OAK_BOAT, OAK_SIGN,
+    ORANGE_DYE, PURPLE_TERRACOTTA, REDSTONE_BLOCK, RED_DYE, RED_TERRACOTTA,
+    SADDLE, SKELETON_SKULL, SNOW, SNOWBALL, STONE,
+    STONE_HOE, STONE_PRESSURE_PLATE, STONE_SHOVEL, STONE_SWORD, TNT,
+    TOTEM_OF_UNDYING, TROPICAL_FISH, WATER, WATER_BUCKET, WHITE_STAINED_GLASS,
+    WHITE_STAINED_GLASS_PANE, WHITE_TERRACOTTA, WOODEN_HOE, WOODEN_SHOVEL, WOODEN_SWORD,
+    YELLOW_TERRACOTTA, BLACK_WOOL, BLUE_WOOL, BROWN_WOOL, GRAY_WOOL,
+    GREEN_WOOL, PURPLE_WOOL, RED_WOOL, YELLOW_WOOL,
+    TINTED_GLASS, BLACK_STAINED_GLASS, BLUE_STAINED_GLASS, BROWN_STAINED_GLASS,
+    CYAN_STAINED_GLASS, GRAY_STAINED_GLASS, GREEN_STAINED_GLASS,
+    LIGHT_BLUE_STAINED_GLASS, LIGHT_GRAY_STAINED_GLASS, LIME_STAINED_GLASS,
+    MAGENTA_STAINED_GLASS, ORANGE_STAINED_GLASS, PINK_STAINED_GLASS,
+    PURPLE_STAINED_GLASS, RED_STAINED_GLASS, YELLOW_STAINED_GLASS;
+
+    public ItemStack parseItem(){
+        Material mat;
+        try{ mat = Material.valueOf(name()); }catch(Exception ex){ mat = Material.AIR; }
+        return new ItemStack(mat);
+    }
+    public Material parseMaterial(){
+        try{ return Material.valueOf(name()); }catch(Exception ex){ return Material.AIR; }
+    }
+    public byte getData(){ return 0; }
+    public static XMaterial matchXMaterial(Material mat){
+        try{ return valueOf(mat.name()); }catch(Exception ex){ return AIR; }
+    }
 }

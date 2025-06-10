@@ -20,4 +20,5 @@ public class API1711 {
     public void setHorseSpeed(Object horse, double speed){}
     public void correctDirectionFireball(Object fireball, Object v){}
     public void send(Player p, String a, String b, java.util.List<String> c, String d, String e){}
+    public String getInventoryName(org.bukkit.event.inventory.InventoryClickEvent e){ return ""; }
 }

@@ -3632,7 +3632,7 @@ public class UtilsRandomEvents {
 
 	public static void invinciblePlayer(Player player, RandomEvents plugin) {
 		if (plugin.getReventConfig().getInvincibleAfterGame() > 0) {
-			player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE,
+			player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE,
 					plugin.getReventConfig().getInvincibleAfterGame(), 20));
 		}
 

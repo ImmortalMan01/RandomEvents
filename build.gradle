@@ -14,5 +14,6 @@ subprojects {
         maven { url 'https://maven.citizensnpcs.co/repo' }
         maven { url 'https://jitpack.io' }
         maven { url 'https://repo.minebench.de/' }
+        maven { url 'https://repo.codemc.org/repository/maven-public/' }
     }
 }

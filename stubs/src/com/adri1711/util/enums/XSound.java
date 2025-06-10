@@ -21,7 +21,7 @@ public enum XSound {
     private final Sound sound;
     XSound(String name){
         Sound s;
-        try{ s = Sound.valueOf(name); } catch(Exception ex){ s = Sound.BLOCK_NOTE_BLOCK_BASS; }
+        try{ s = Sound.valueOf(name); } catch(Exception ex){ s = Sound.NOTE_BASS; }
         this.sound = s;
     }
     public Sound parseSound(){ return sound; }
