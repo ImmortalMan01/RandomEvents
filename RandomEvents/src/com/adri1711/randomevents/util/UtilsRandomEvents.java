@@ -1088,14 +1088,14 @@ public class UtilsRandomEvents {
 		}
 		if (!message.isEmpty()) {
 			for (Player p : players) {
-				if (plugin.getReventConfig().isOptionalTitles() && allowTitle) {
-					plugin.getApi().usaTitle(p, "", message);
-				} else {
-					p.sendMessage(message);
-					if (forceTitle) {
-						plugin.getApi().usaTitle(p, "", message);
-					}
-				}
+                                if (plugin.getReventConfig().isOptionalTitles() && allowTitle) {
+                                        sendTitle(plugin, p, "", message);
+                                } else {
+                                        p.sendMessage(message);
+                                        if (forceTitle) {
+                                                sendTitle(plugin, p, "", message);
+                                        }
+                                }
 			}
 		}
 	}
@@ -1111,10 +1111,32 @@ public class UtilsRandomEvents {
 	// message += msg.replaceAll("<color>", "§") + "\n";
 	// }
 	// }
-	// for (Player p : players) {
-	// p.sendMessage(message);
-	// }
-	// }
+
+        public static void sendTitle(RandomEvents plugin, Player p, String title, String message) {
+                try {
+                        if (plugin.getApi() != null) {
+                                plugin.getApi().usaTitle(p, title, message);
+                        } else {
+                                p.sendTitle(title, message);
+                        }
+                } catch (Throwable e) {
+                        p.sendTitle(title, message);
+                }
+        }
+
+        // public static void mandaMensaje(RandomEvents plugin, List<Player>
+        // players, List<String> messages, Boolean tag) {
+        // String message = "";
+        // for (String msg : messages) {
+        // if (tag) {
+        // message += plugin.getLanguage().getTagPlugin() +
+        // msg.replaceAll("<color>", "§") + "\n";
+        // } else {
+        // message += msg.replaceAll("<color>", "§") + "\n";
+        // }
+        // }
+        // for (Player p : players) {
+        // p.sendMessage(message);
 
 	public static void tiraCohete(Location l) {
 		Firework fw = (Firework) l.getWorld().spawnEntity(l, EntityType.FIREWORK);

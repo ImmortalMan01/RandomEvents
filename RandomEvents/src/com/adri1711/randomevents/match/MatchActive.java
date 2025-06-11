@@ -3142,10 +3142,12 @@ public class MatchActive {
 		}
 		UtilsRandomEvents.mandaMensaje(plugin, getPlayerHandler().getPlayersSpectators(), plugin.getLanguage()
 				.getPlayerHasBomb().replace("%player%", getPlayerHandler().getPlayerContador().getName()), true);
-		if (plugin.getReventConfig().isUseTitleWhenGetBomb()) {
-			plugin.getApi().usaTitle(getPlayerHandler().getPlayerContador(), "", plugin.getLanguage().getPlayerHasBomb()
-					.replace("%player%", getPlayerHandler().getPlayerContador().getName()));
-		}
+                if (plugin.getReventConfig().isUseTitleWhenGetBomb()) {
+                        UtilsRandomEvents.sendTitle(plugin, getPlayerHandler().getPlayerContador(), "",
+                                        plugin.getLanguage().getPlayerHasBomb()
+                                                        .replace("%player%",
+                                                                        getPlayerHandler().getPlayerContador().getName()));
+                }
 		UtilsRandomEvents.playSound(plugin, getPlayerHandler().getPlayerContador(), XSound.ENTITY_VILLAGER_HURT);
 
 	}
