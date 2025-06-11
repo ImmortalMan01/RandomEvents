@@ -1225,15 +1225,15 @@ public class MatchActive {
 							plugin.getReventConfig().getDistanceClearEntities() * 1.0,
 							plugin.getReventConfig().getDistanceClearEntities() * 1.0,
 							plugin.getReventConfig().getDistanceClearEntities() * 1.0);
-					if (entities != null) {
-						for (Entity e : entities) {
-							if (e != null && (e instanceof Horse || e instanceof Boat)
-									|| (getPlugin().getApi().isCraftBoat(e) || getPlugin().getApi().isCraftEnderPearl(e)
-											|| getPlugin().getApi().isCraftHorse(e))) {
-								e.remove();
-							}
-						}
-					}
+                                        if (entities != null) {
+                                                for (Entity e : entities) {
+                                                        if (e != null && (e instanceof Horse || e instanceof Boat)
+                                                                        || (isCraftBoat(e) || isCraftEnderPearl(e)
+                                                                                || isCraftHorse(e))) {
+                                                                e.remove();
+                                                        }
+                                                }
+                                        }
 				} catch (Exception e) {
 
 				}
@@ -1345,16 +1345,16 @@ public class MatchActive {
 
 					Collection<Entity> entities = center.getWorld().getNearbyEntities(center,
 							center.distance(match.getLocation1()), 400, center.distance(match.getLocation1()));
-					for (Entity e : entities) {
-						if (e != null) {
-							if ((e instanceof EnderPearl || e instanceof Item || e instanceof Boat || e instanceof Horse
-									|| e instanceof EnderCrystal || e instanceof TNTPrimed || e instanceof Arrow
-									|| getPlugin().getApi().isCraftBoat(e) || getPlugin().getApi().isCraftEnderPearl(e)
-									|| getPlugin().getApi().isCraftHorse(e) || getPlugin().getApi().isCraftItem(e))) {
-								e.remove();
-							}
-						}
-					}
+                                        for (Entity e : entities) {
+                                                if (e != null) {
+                                                        if ((e instanceof EnderPearl || e instanceof Item || e instanceof Boat || e instanceof Horse
+                                                                        || e instanceof EnderCrystal || e instanceof TNTPrimed || e instanceof Arrow
+                                                                        || isCraftBoat(e) || isCraftEnderPearl(e)
+                                                                        || isCraftHorse(e) || isCraftItem(e))) {
+                                                                e.remove();
+                                                        }
+                                                }
+                                        }
 
 				}
 			}
@@ -1364,16 +1364,16 @@ public class MatchActive {
 							plugin.getReventConfig().getDistanceClearEntities() * 1.0,
 							plugin.getReventConfig().getDistanceClearEntities() * 1.0,
 							plugin.getReventConfig().getDistanceClearEntities() * 1.0);
-					if (entities != null) {
-						for (Entity e : entities) {
-							if (e != null && (e instanceof EnderPearl || e instanceof Item || e instanceof EnderCrystal
-									|| e instanceof TNTPrimed || e instanceof Arrow
-									|| getPlugin().getApi().isCraftBoat(e) || getPlugin().getApi().isCraftEnderPearl(e)
-									|| getPlugin().getApi().isCraftHorse(e) || getPlugin().getApi().isCraftItem(e))) {
-								e.remove();
-							}
-						}
-					}
+                                        if (entities != null) {
+                                                for (Entity e : entities) {
+                                                        if (e != null && (e instanceof EnderPearl || e instanceof Item || e instanceof EnderCrystal
+                                                                        || e instanceof TNTPrimed || e instanceof Arrow
+                                                                        || isCraftBoat(e) || isCraftEnderPearl(e)
+                                                                        || isCraftHorse(e) || isCraftItem(e))) {
+                                                                e.remove();
+                                                        }
+                                                }
+                                        }
 				} catch (Exception e) {
 
 				}
@@ -4428,15 +4428,27 @@ public class MatchActive {
 			case BLOCK_PARTY:
 			case HIDE_AND_SEEK:
 			case GLASS_WALK:
-				getPlayerHandler().getOldScoreboards().put(p.getName(), p.getScoreboard());
-				FastBoard fBoard = plugin.getApi().createFastBoard(p);
+                                getPlayerHandler().getOldScoreboards().put(p.getName(), p.getScoreboard());
+                                FastBoard fBoard;
+                                try {
+                                        // Use the API implementation if available. Older versions of
+                                        // Lib1711 may not provide this method, so fall back to the
+                                        // direct constructor if it fails.
+                                        if (plugin.getApi() != null) {
+                                                fBoard = plugin.getApi().createFastBoard(p);
+                                        } else {
+                                                fBoard = new FastBoard(p);
+                                        }
+                                } catch (Throwable t) {
+                                        fBoard = new FastBoard(p);
+                                }
 
-				fBoard.updateTitle(plugin.getLanguage().getScoreboardTitle());
+                                fBoard.updateTitle(plugin.getLanguage().getScoreboardTitle());
 
-				fBoard.updateLines(UtilsRandomEvents.prepareLines(plugin, this, p));
+                                fBoard.updateLines(UtilsRandomEvents.prepareLines(plugin, this, p));
 
-				getPlayerHandler().getScoreboards().put(p.getName(), fBoard);
-				break;
+                                getPlayerHandler().getScoreboards().put(p.getName(), fBoard);
+                                break;
 			default:
 				break;
 			}
@@ -4966,12 +4978,40 @@ public class MatchActive {
 		this.rounds = rounds;
 	}
 
-	public Boolean getStarting() {
-		return starting;
-	}
+        public Boolean getStarting() {
+                return starting;
+        }
 
-	public void setStarting(Boolean starting) {
-		this.starting = starting;
-	}
+        public void setStarting(Boolean starting) {
+                this.starting = starting;
+        }
+
+        // ---------------------------------------------------------------------
+        // Helper methods to replace calls to the Lib1711 API when it is not
+        // available. The original API provided methods such as isCraftBoat or
+        // isCraftHorse which are missing on older versions. These fallbacks use
+        // standard Bukkit classes so the plugin keeps working even when the
+        // dependency is outdated.
+        // ---------------------------------------------------------------------
+
+        private boolean isCraftBoat(Object e) {
+                return e instanceof org.bukkit.entity.Boat
+                                || e.getClass().getSimpleName().equalsIgnoreCase("CraftBoat");
+        }
+
+        private boolean isCraftEnderPearl(Object e) {
+                return e instanceof org.bukkit.entity.EnderPearl
+                                || e.getClass().getSimpleName().equalsIgnoreCase("CraftEnderPearl");
+        }
+
+        private boolean isCraftHorse(Object e) {
+                return e instanceof org.bukkit.entity.Horse
+                                || e.getClass().getSimpleName().toLowerCase().contains("crafthorse");
+        }
+
+        private boolean isCraftItem(Object e) {
+                return e instanceof org.bukkit.entity.Item
+                                || e.getClass().getSimpleName().equalsIgnoreCase("CraftItem");
+        }
 
 }
