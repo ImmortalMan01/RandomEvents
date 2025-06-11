@@ -34,9 +34,11 @@ public enum ComandosEnum {
 	
 	CMD_LIST("list", 1, "randomevent.admin.matches", "getMenuMatches", "showRandomEvents", true, true),
 	
-	CMD_KITS("kits", 1, "randomevent.kits", "getKitsCmd", "showKits", true, true),
-	
-	CMD_KITS_EDIT("kitedit", 2, "randomevent.kits.edit", "getKitsEditCmd", "editKit", true, true),
+        CMD_KITS("kits", 1, "randomevent.kits", "getKitsCmd", "showKits", true, true),
+
+        CMD_KITS_EDIT_HELP("kitedit", 1, "randomevent.kits.edit", "getKitsEditCmd", "showKitsEditHelp", true, true),
+
+        CMD_KITS_EDIT("kitedit", 2, "randomevent.kits.edit", "getKitsEditCmd", "editKit", true, true),
 
 	CMD_NEXT("next", 1, "randomevent.next", "getNext", "nextRandomEvents", true, true),
 	
