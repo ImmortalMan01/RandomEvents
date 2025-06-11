@@ -1290,21 +1290,29 @@ public class UtilsRandomEvents {
 		return p;
 	}
 
-	public static MatchActive escogeMatchActiveAleatoria(RandomEvents plugin, List<Match> matches, Boolean forzada) {
-		Match m = null;
-		List<Match> matchAvailables = new ArrayList<Match>();
+       public static MatchActive escogeMatchActiveAleatoria(RandomEvents plugin, List<Match> matches, Boolean forzada) {
+               if (matches == null || matches.isEmpty()) {
+                       return null;
+               }
 
-		for (Match match : matches) {
-			if (match.getEnabled() == null || match.getEnabled()) {
-				matchAvailables.add(match);
-			}
-		}
-		m = matches.get(plugin.getRandom().nextInt(matchAvailables.size()));
+               List<Match> matchAvailables = new ArrayList<Match>();
 
-		MatchActive matchActive = new MatchActive(m, plugin, forzada);
+               for (Match match : matches) {
+                       if (match.getEnabled() == null || match.getEnabled()) {
+                               matchAvailables.add(match);
+                       }
+               }
 
-		return matchActive;
-	}
+               if (matchAvailables.isEmpty()) {
+                       return null;
+               }
+
+               Match m = matchAvailables.get(plugin.getRandom().nextInt(matchAvailables.size()));
+
+               MatchActive matchActive = new MatchActive(m, plugin, forzada);
+
+               return matchActive;
+       }
 
 	public static void borraInventario(Player player, RandomEvents plugin) {
 		if (plugin.getReventConfig().isInventoryManagement()

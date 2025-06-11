@@ -471,24 +471,35 @@ public class ComandosExecutor {
 
 	}
 
-	public void forceRandomEvent(RandomEvents plugin, Player player) {
-		if (plugin.getMatchActive() == null) {
-			plugin.setForzado(Boolean.TRUE);
-			plugin.setMatchActive(
-					UtilsRandomEvents.escogeMatchActiveAleatoria(plugin, plugin.getMatchesAvailable(), true));
-			try {
-				Bukkit.getPluginManager().callEvent(new ReventSpawnEvent(plugin.getMatchActive(), true));
-			} catch (Exception e) {
-				plugin.getLoggerP().info("[RandomEvents] WARN :: Couldnt fire the ReventSpawnEvent.");
-			}
-			if (player != null)
-				player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getMatchBeginSoon());
-		} else {
-			if (player != null)
-				player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getMatchBegun());
-		}
+       public void forceRandomEvent(RandomEvents plugin, Player player) {
+               if (plugin.getMatchActive() == null) {
+                       MatchActive mActive = UtilsRandomEvents.escogeMatchActiveAleatoria(plugin,
+                                       plugin.getMatchesAvailable(), true);
 
-	}
+                       if (mActive == null) {
+                               if (player != null) {
+                                       player.sendMessage(plugin.getLanguage().getTagPlugin()
+                                                       + plugin.getLanguage().getInvalidInput());
+                               }
+                               return;
+                       }
+
+                       plugin.setForzado(Boolean.TRUE);
+                       plugin.setMatchActive(mActive);
+                       try {
+                               Bukkit.getPluginManager().callEvent(new ReventSpawnEvent(plugin.getMatchActive(), true));
+                       } catch (Exception e) {
+                               plugin.getLoggerP().info("[RandomEvents] WARN :: Couldnt fire the ReventSpawnEvent.");
+                       }
+                       if (player != null)
+                               player.sendMessage(
+                                               plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getMatchBeginSoon());
+               } else {
+                       if (player != null)
+                               player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getMatchBegun());
+               }
+
+       }
 
 	public void forceTournamentRandomEvent(RandomEvents plugin, Player player) {
 		if (plugin.getTournamentActive() == null) {
