@@ -2,7 +2,8 @@ name: RandomEvents
 main: com.adri1711.randomevents.RandomEvents
 version: 2.9.5
 api-version: 1.21
-depend: [Lib1711]
+# Removed hard dependency on Lib1711 as the required
+# functionality is now bundled directly with the plugin
 softdepend: [CrackShot, PlaceholderAPI, WorldEdit, WorldGuard, Multiworld, Multiverse-Core, NametagEdit, LibsDisguises, NoteBlockAPI, Citizens]
 commands:
    revent:
