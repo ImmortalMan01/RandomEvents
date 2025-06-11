@@ -373,43 +373,55 @@ public class UtilsSQL {
 		}
 	}
 
-	public static void getCreditsText(Player p, Player playerBal, RandomEvents plugin) {
-		Map<String, Integer> creditos = new HashMap<String, Integer>();
-		String query = "";
-		if (plugin.getReventConfig().isMysqlUUIDMode()) {
-			query = Queries.SELECT_ALL_CREDITS_UUID_MODE.replaceAll(Queries.UUID, playerBal.getUniqueId().toString());
-		} else {
-			query = Queries.SELECT_ALL_CREDITS_NAME_MODE.replaceAll(Queries.NAME, playerBal.getName());
+        public static void getCreditsText(Player p, Player playerBal, RandomEvents plugin) {
+                Map<String, Integer> creditos = new HashMap<String, Integer>();
 
-		}
-		new QueryBukkitRunnable(plugin.getHikari().getHikari(), query, new Callback<ResultSet, SQLException>() {
-			@Override
-			public void call(ResultSet resultSet, SQLException thrown) {
-				if (thrown == null) {
-					try {
-						while (resultSet.next()) {
-							if (creditos.containsKey(resultSet.getString("event"))) {
-								creditos.put(resultSet.getString("event"),
-										creditos.get(resultSet.getString("event")) + resultSet.getInt("credits"));
+                if (plugin.getReventConfig().isMysqlEnabled()) {
+                        String query = "";
+                        if (plugin.getReventConfig().isMysqlUUIDMode()) {
+                                query = Queries.SELECT_ALL_CREDITS_UUID_MODE.replaceAll(Queries.UUID,
+                                                playerBal.getUniqueId().toString());
+                        } else {
+                                query = Queries.SELECT_ALL_CREDITS_NAME_MODE.replaceAll(Queries.NAME, playerBal.getName());
 
-							} else {
-								creditos.put(resultSet.getString("event"), resultSet.getInt("credits"));
-							}
+                        }
+                        new QueryBukkitRunnable(plugin.getHikari().getHikari(), query,
+                                        new Callback<ResultSet, SQLException>() {
+                                                @Override
+                                                public void call(ResultSet resultSet, SQLException thrown) {
+                                                        if (thrown == null) {
+                                                                try {
+                                                                        while (resultSet.next()) {
+                                                                                if (creditos.containsKey(resultSet.getString("event"))) {
+                                                                                        creditos.put(resultSet.getString("event"),
+                                                                                                        creditos.get(resultSet.getString("event"))
+                                                                                                                        + resultSet.getInt("credits"));
 
-						}
-						Bukkit.getServer().getScheduler().runTask((Plugin) plugin, new Runnable() {
-							public void run() {
-								UtilsRandomEvents.sendCreditsInfo(p, playerBal, creditos, plugin);
-							}
-						});
-					} catch (SQLException e) {
-						plugin.getLoggerP().info(e.toString());
-					}
-				} else {
-				}
-			}
-		}).runTaskAsynchronously(plugin);
-	}
+                                                                                } else {
+                                                                                        creditos.put(resultSet.getString("event"),
+                                                                                                        resultSet.getInt("credits"));
+                                                                                }
+
+                                                                        }
+                                                                        Bukkit.getServer().getScheduler().runTask((Plugin) plugin,
+                                                                                        new Runnable() {
+                                                                                                public void run() {
+                                                                                                        UtilsRandomEvents.sendCreditsInfo(p, playerBal,
+                                                                                                                        creditos, plugin);
+                                                                                                }
+                                                                                        });
+                                                                } catch (SQLException e) {
+                                                                        plugin.getLoggerP().info(e.toString());
+                                                                }
+                                                        } else {
+                                                        }
+                                                }
+                                        }).runTaskAsynchronously(plugin);
+                } else {
+                        // If MySQL is disabled simply show no credits
+                        UtilsRandomEvents.sendCreditsInfo(p, playerBal, creditos, plugin);
+                }
+        }
 
 	public static void addCredits(Player p, String event, Integer credits, RandomEvents plugin) {
 		String query = "";
