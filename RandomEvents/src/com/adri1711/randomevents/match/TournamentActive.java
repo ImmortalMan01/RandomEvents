@@ -269,7 +269,7 @@ public class TournamentActive {
 								for (String pri : primerasPartes) {
 									p.sendMessage(pri);
 								}
-								plugin.getApi().send(p,
+								UtilsRandomEvents.sendClickableMessage(p,
 										firstPart.replaceAll("\\n", "<jump>")
 												.replaceAll("%neededPlayers%", tournament.getMinPlayers().toString())
 												.replaceAll("%maxPlayers%", tournament.getMaxPlayers().toString())
@@ -309,7 +309,7 @@ public class TournamentActive {
 				String info = plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getTournamentAlive()
 						+ Constantes.SALTO_LINEA;
 				for (Player p : playersGanadores) {
-					info += "ง6งl" + p.getName() + ", ";
+					info += "ยง6ยงl" + p.getName() + ", ";
 				}
 				info = info.substring(0, info.length() - 2);
 				for (Player p : playersSpectators) {

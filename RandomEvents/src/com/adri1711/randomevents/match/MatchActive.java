@@ -4174,15 +4174,15 @@ public class MatchActive {
 								for (String pri : primerasPartes) {
 									p.sendMessage(pri);
 								}
-								plugin.getApi().send(p,
-										firstPart.replaceAll("%players%", "" + getPlayerHandler().getPlayers().size())
-												.replaceAll("%neededPlayers%", match.getAmountPlayersMin().toString())
-												.replaceAll("%maxPlayers%", match.getAmountPlayers().toString()),
-										plugin.getLanguage().getClickHere(), new ArrayList<String>(),
-										"/revent join " + password,
-										lastPart.replaceAll("%players%", "" + getPlayerHandler().getPlayers().size())
-												.replaceAll("%neededPlayers%", match.getAmountPlayersMin().toString())
-												.replaceAll("%maxPlayers%", match.getAmountPlayers().toString()));
+                                                                UtilsRandomEvents.sendClickableMessage(p,
+                                                                                firstPart.replaceAll("%players%", "" + getPlayerHandler().getPlayers().size())
+                                                                                                .replaceAll("%neededPlayers%", match.getAmountPlayersMin().toString())
+                                                                                                .replaceAll("%maxPlayers%", match.getAmountPlayers().toString()),
+                                                                                plugin.getLanguage().getClickHere(), new ArrayList<String>(),
+                                                                                "/revent join " + password,
+                                                                                lastPart.replaceAll("%players%", "" + getPlayerHandler().getPlayers().size())
+                                                                                                .replaceAll("%neededPlayers%", match.getAmountPlayersMin().toString())
+                                                                                                .replaceAll("%maxPlayers%", match.getAmountPlayers().toString()));
 								for (int i = 0; i < ultimasPartes.size(); i++) {
 									if (i != 0)
 										p.sendMessage(ultimasPartes.get(i));
@@ -4347,18 +4347,18 @@ public class MatchActive {
 									for (String pri : primerasPartes) {
 										p.sendMessage(pri);
 									}
-									plugin.getApi().send(p, firstPart
-											.replaceAll("%players%", "" + getPlayerHandler().getPlayers().size())
-											.replaceAll("%neededPlayers%", match.getAmountPlayersMin().toString())
-											.replaceAll("%maxPlayers%",
-													match.getAmountPlayers().toString()),
-											plugin.getLanguage().getClickHere(), new ArrayList<String>(),
-											"/revent join " + password,
-											lastPart.replaceAll("%players%",
-													"" + getPlayerHandler().getPlayers().size())
-													.replaceAll("%neededPlayers%",
-															match.getAmountPlayersMin().toString())
-													.replaceAll("%maxPlayers%", match.getAmountPlayers().toString()));
+                                                                        UtilsRandomEvents.sendClickableMessage(p, firstPart
+                                                                               .replaceAll("%players%", "" + getPlayerHandler().getPlayers().size())
+                                                                               .replaceAll("%neededPlayers%", match.getAmountPlayersMin().toString())
+                                                                               .replaceAll("%maxPlayers%",
+                                                                               match.getAmountPlayers().toString()),
+                                                                               plugin.getLanguage().getClickHere(), new ArrayList<String>(),
+                                                                               "/revent join " + password,
+                                                                               lastPart.replaceAll("%players%",
+                                                                               "" + getPlayerHandler().getPlayers().size())
+                                                                               .replaceAll("%neededPlayers%",
+                                                                               match.getAmountPlayersMin().toString())
+                                                                               .replaceAll("%maxPlayers%", match.getAmountPlayers().toString()));
 									for (int i = 0; i < ultimasPartes.size(); i++) {
 										if (i != 0)
 											p.sendMessage(ultimasPartes.get(i));

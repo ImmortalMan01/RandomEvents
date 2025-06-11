@@ -80,6 +80,10 @@ import com.adri1711.util.enums.XMaterial;
 import com.adri1711.util.enums.XParticle;
 import com.adri1711.util.enums.XSound;
 import com.google.common.io.Files;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 
 public class UtilsRandomEvents {
 
@@ -3896,20 +3900,42 @@ public class UtilsRandomEvents {
 
 	}
 
-	public static Match buscaPartidaPorFichero(RandomEvents plugin, String number) {
-		Match m = null;
-		for (Match match : plugin.getMatches()) {
-			String s = getMatchNameByMatch(match);
-			if (s.toUpperCase().equals(number.toUpperCase())) {
-				m = match;
-			}
-		}
-		return m;
-	}
+        public static Match buscaPartidaPorFichero(RandomEvents plugin, String number) {
+                Match m = null;
+                for (Match match : plugin.getMatches()) {
+                        String s = getMatchNameByMatch(match);
+                        if (s.toUpperCase().equals(number.toUpperCase())) {
+                                m = match;
+                        }
+                }
+                return m;
+        }
 
-	public static String getMatchNameByMatch(Match match) {
-		return match.getMinigame().getCodigo() + "_"
-				+ ChatColor.stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_");
-	}
+        public static void sendClickableMessage(CommandSender player, String firstPart, String clickable,
+                        List<String> hover, String command, String lastPart) {
+                TextComponent firstText = new TextComponent(firstPart);
+                TextComponent clickableText = new TextComponent(clickable);
+                if (hover != null && !hover.isEmpty()) {
+                        String over = String.join("\n", hover);
+                        clickableText.setHoverEvent(
+                                        new HoverEvent(HoverEvent.Action.SHOW_TEXT,
+                                                        new ComponentBuilder(over).create()));
+                }
+                if (command != null)
+                        clickableText.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, command));
+                TextComponent lastText = new TextComponent(lastPart);
+                firstText.addExtra(clickableText);
+                firstText.addExtra(lastText);
+                if (player instanceof Player) {
+                        ((Player) player).spigot().sendMessage(firstText);
+                } else {
+                        player.sendMessage(TextComponent.toLegacyText(firstText));
+                }
+        }
+
+        public static String getMatchNameByMatch(Match match) {
+                return match.getMinigame().getCodigo() + "_"
+                                + ChatColor.stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_");
+        }
 
 }
