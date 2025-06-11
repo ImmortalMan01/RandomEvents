@@ -631,8 +631,8 @@ public class MatchActive {
 			}
 
 		}
-		UtilsRandomEvents.spawnParticles(Particle1711.valueOf(plugin.getReventConfig().getParticleDeath()), plugin,
-				lastLocation);
+                UtilsRandomEvents.spawnParticles(Particle1711.safeValueOf(plugin.getReventConfig().getParticleDeath()), plugin,
+                                lastLocation);
 		if (comprueba)
 			compruebaPartida();
 
@@ -2481,11 +2481,11 @@ public class MatchActive {
 			task = new BukkitRunnable() {
 				public void run() {
 
-					if (getPlayerHandler().getPlayerContador() != null) {
-						UtilsRandomEvents.spawnParticles(
-								Particle1711.valueOf(plugin.getReventConfig().getParticleTNTTag()), plugin,
-								getPlayerHandler().getPlayerContador().getLocation());
-					}
+                                        if (getPlayerHandler().getPlayerContador() != null) {
+                                                UtilsRandomEvents.spawnParticles(
+                                                                Particle1711.safeValueOf(plugin.getReventConfig().getParticleTNTTag()), plugin,
+                                                                getPlayerHandler().getPlayerContador().getLocation());
+                                        }
 				}
 			};
 			task.runTaskTimer(plugin, 0, 5L);
