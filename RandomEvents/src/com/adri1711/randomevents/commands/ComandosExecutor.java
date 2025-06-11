@@ -388,18 +388,23 @@ public class ComandosExecutor {
 
 	}
 
-	public void showKits(RandomEvents plugin, Player player) {
-		player.sendMessage(plugin.getLanguage().getTagPlugin() + "§e§lKits");
-		for (Kit m : plugin.getKits()) {
-			if (player != null) {
+        public void showKits(RandomEvents plugin, Player player) {
+                player.sendMessage(plugin.getLanguage().getTagPlugin() + "§e§lKits");
+                for (Kit m : plugin.getKits()) {
+                        if (player != null) {
 
-				player.sendMessage("§6§l" + plugin.getKits().indexOf(m) + " - " + m.getName());
-			} else {
-				plugin.getLoggerP().info(plugin.getKits().indexOf(m) + " - " + m.getName());
-			}
-		}
+                                player.sendMessage("§6§l" + plugin.getKits().indexOf(m) + " - " + m.getName());
+                        } else {
+                                plugin.getLoggerP().info(plugin.getKits().indexOf(m) + " - " + m.getName());
+                        }
+                }
 
-	}
+        }
+
+        public void showKitsEditHelp(RandomEvents plugin, Player player) {
+                showKits(plugin, player);
+                player.sendMessage(plugin.getLanguage().getKitsEditCmd());
+        }
 
 	public void nextRandomEvents(RandomEvents plugin, Player player) {
 		if (plugin.getSchedules() != null && !plugin.getSchedules().isEmpty()) {
