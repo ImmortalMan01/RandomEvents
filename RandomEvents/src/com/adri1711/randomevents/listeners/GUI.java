@@ -21,6 +21,7 @@ import com.adri1711.randomevents.match.Kit;
 import com.adri1711.randomevents.match.Match;
 import com.adri1711.randomevents.match.MatchActive;
 import com.adri1711.randomevents.util.Constantes;
+import com.adri1711.randomevents.util.InventoryUtils;
 import com.adri1711.randomevents.util.UtilsRandomEvents;
 import com.adri1711.randomevents.util.UtilsSQL;
 import com.adri1711.util.enums.XMaterial;
@@ -67,23 +68,25 @@ public class GUI implements Listener {
 			}
 		}
 
-		if (ChatColor.stripColor(plugin.getApi().getInventoryName(event)) != null
-				&& ChatColor.stripColor(plugin.getApi().getInventoryName(event))
-						.contains(ChatColor.stripColor(plugin.getLanguage().getStatsGuiName()))) {
-			event.setCancelled(true);
-		} else if (ChatColor.stripColor(plugin.getApi().getInventoryName(event)) != null
-				&& ChatColor.stripColor(plugin.getApi().getInventoryName(event))
-						.contains(ChatColor.stripColor(plugin.getLanguage().getCreditsGuiName()))) {
-			useCreditsGui(event);
-		} else if (ChatColor.stripColor(plugin.getApi().getInventoryName(event)) != null
-				&& ChatColor.stripColor(plugin.getApi().getInventoryName(event))
-						.contains(ChatColor.stripColor(plugin.getLanguage().getKitGuiName()))) {
-			useKitGUI(event);
+                String invTitle = InventoryUtils.getInventoryTitle(event);
 
-		} else if (ChatColor.stripColor(plugin.getApi().getInventoryName(event)) != null
-				&& ChatColor.stripColor(plugin.getApi().getInventoryName(event))
-						.contains(ChatColor.stripColor(plugin.getLanguage().getTeamGuiName()))) {
-			useTeamGUI(event);
+                if (invTitle != null
+                                && ChatColor.stripColor(invTitle)
+                                                .contains(ChatColor.stripColor(plugin.getLanguage().getStatsGuiName()))) {
+                        event.setCancelled(true);
+                } else if (invTitle != null
+                                && ChatColor.stripColor(invTitle)
+                                                .contains(ChatColor.stripColor(plugin.getLanguage().getCreditsGuiName()))) {
+                        useCreditsGui(event);
+                } else if (invTitle != null
+                                && ChatColor.stripColor(invTitle)
+                                                .contains(ChatColor.stripColor(plugin.getLanguage().getKitGuiName()))) {
+                        useKitGUI(event);
+
+                } else if (invTitle != null
+                                && ChatColor.stripColor(invTitle)
+                                                .contains(ChatColor.stripColor(plugin.getLanguage().getTeamGuiName()))) {
+                        useTeamGUI(event);
 
 		}
 	}
