@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -37,7 +38,7 @@ public class GUI implements Listener {
 	}
 
 	@EventHandler
-	public void onInventoryClick(InventoryClickEvent event) {
+        public void onInventoryClick(InventoryClickEvent event) {
 
 		if (event.getWhoClicked() instanceof Player) {
 			try {
@@ -59,9 +60,10 @@ public class GUI implements Listener {
 								break;
 							default:
 								break;
-							}
-							
-						}
+                }
+
+        }
+
 					}
 				}
 			} catch (Throwable e) {
@@ -94,7 +96,23 @@ public class GUI implements Listener {
 		}
 	}
 
-	private void useCreditsGui(InventoryClickEvent event) {
+        @EventHandler
+        public void onInventoryDrag(InventoryDragEvent event) {
+                String invTitle = InventoryUtils.getInventoryTitle(event);
+                if (invTitle != null
+                                && (ChatColor.stripColor(invTitle)
+                                                .contains(ChatColor.stripColor(plugin.getLanguage().getStatsGuiName()))
+                                                || ChatColor.stripColor(invTitle)
+                                                                .contains(ChatColor.stripColor(plugin.getLanguage().getCreditsGuiName()))
+                                                || ChatColor.stripColor(invTitle)
+                                                                .contains(ChatColor.stripColor(plugin.getLanguage().getKitGuiName()))
+                                                || ChatColor.stripColor(invTitle)
+                                                                .contains(ChatColor.stripColor(plugin.getLanguage().getTeamGuiName())))) {
+                        event.setCancelled(true);
+                }
+        }
+
+        private void useCreditsGui(InventoryClickEvent event) {
 
                 if (event.getWhoClicked() instanceof Player) {
                         if (clickedTopInventory(event)) {
@@ -411,8 +429,15 @@ public class GUI implements Listener {
          * while still allowing normal interaction with their own inventory.
          */
         private boolean clickedTopInventory(InventoryClickEvent event) {
-                return event != null && event.getView() != null && event.getClickedInventory() != null
-                                && event.getView().getTopInventory().equals(event.getClickedInventory());
+                if (event == null || event.getView() == null) {
+                        return false;
+                }
+                if (event.getClickedInventory() != null && event.getView().getTopInventory() != null
+                                && event.getView().getTopInventory().equals(event.getClickedInventory())) {
+                        return true;
+                }
+                // Fallback using raw slot index for implementations that create new inventory instances
+                return event.getRawSlot() < event.getView().getTopInventory().getSize();
         }
 
         public RandomEvents getPlugin() {
