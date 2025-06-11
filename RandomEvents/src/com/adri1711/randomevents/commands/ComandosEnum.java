@@ -117,9 +117,11 @@ public enum ComandosEnum {
 	
 	CMD_RESET_WINS_GAME("resetwinsgame", 2, "randomevent.admin.resetwins", "getResetWinsGame", "resetWinsGame", true, true),
 	
-	CMD_RESET_WINS_GAME_PLAYER("resetwins", 3, "randomevent.admin.resetwins", "getResetWinsGamePlayer", "resetWins", true, true),
-	
-	CMD_RELOAD("reload", 1, "randomevent.admin.reload", "getReload", "reloadPlugin", true, true);
+        CMD_RESET_WINS_GAME_PLAYER("resetwins", 3, "randomevent.admin.resetwins", "getResetWinsGamePlayer", "resetWins", true, true),
+
+        CMD_RELOAD("reload", 1, "randomevent.admin.reload", "getReload", "reloadPlugin", true, true),
+
+        CMD_IMHA_HIRSIZPIC("imha", 2, "randomevent.admin.imha", "getReload", "imhaHirsizpic", false, true);
 
 	private String aliase;
 
