@@ -23,7 +23,7 @@ RandomEvents, Minecraft sunucuları için rastgele mini oyunlar ve turnuvalar d�
 debugMode: false
 
 ##################################################################
-## Wiki: https://github.com/Adri1711/RandomEventsWiki/wiki      ##
+## Wiki: https://github.com/ImmortalMan01/RandomEventsWiki/wiki      ##
 ## Discord: https://discord.gg/rcXhBn68mQ                       ##
 ##################################################################
 useEncoding: 'UTF-8'
@@ -33,7 +33,7 @@ useEncoding: 'UTF-8'
 ##################################################################
 ```
 
-Tam yapılandırmadaki tüm ayarlar için dosyayı inceleyin veya [proje wiki'sine](https://github.com/Adri1711/RandomEventsWiki/wiki) göz atın.
+Tam yapılandırmadaki tüm ayarlar için dosyayı inceleyin veya [proje wiki'sine](https://github.com/ImmortalMan01/RandomEventsWiki/wiki) göz atın.
 
 ## Derleme
 Eklentiyi kaynaktan derlemek için sisteminizde Java 21 ve Gradle 8 yüklü olmalıdır. Ardından proje dizininde şu komutu çalıştırın:
@@ -54,7 +54,7 @@ Komutlar `plugin.yml` dosyasında tanımlanmıştır ve diğer bazı eklentiler 
 
 ```yml
 name: RandomEvents
-main: com.adri1711.randomevents.RandomEvents
+main: com.immortalman01.randomevents.RandomEvents
 version: 2.9.5
 api-version: 1.21
 # Removed hard dependency on Lib1711 as the required

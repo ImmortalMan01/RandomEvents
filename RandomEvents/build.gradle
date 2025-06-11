@@ -18,7 +18,7 @@ dependencies {
 sourceSets {
     main {
         java.srcDir 'src'
-        java.exclude 'com/adri1711/randomevents/util/UtilsProtocolLib.java'
+        java.exclude 'com/immortalman01/randomevents/util/UtilsProtocolLib.java'
         resources.srcDir '.'
         resources.includes = ['plugin.yml','config.yml','defaultConfig.yml','Luzverde2.nbs','luzverde.nbs']
     }
