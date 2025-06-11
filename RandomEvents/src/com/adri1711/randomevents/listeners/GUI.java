@@ -429,17 +429,20 @@ public class GUI implements Listener {
          * This is used to ensure players cannot take items from custom GUIs
          * while still allowing normal interaction with their own inventory.
          */
-        private boolean clickedTopInventory(InventoryClickEvent event) {
-                if (event == null || event.getView() == null) {
-                        return false;
-                }
-                if (event.getClickedInventory() != null && event.getView().getTopInventory() != null
-                                && event.getView().getTopInventory().equals(event.getClickedInventory())) {
-                        return true;
-                }
-                // Fallback using raw slot index for implementations that create new inventory instances
-                return event.getRawSlot() < event.getView().getTopInventory().getSize();
-        }
+       /**
+        * Determine if the clicked slot belongs to the top inventory of the open
+        * view. Previous logic relied on comparing the clicked inventory instance
+        * with the view's top inventory which fails on modern server versions
+        * where a new inventory instance is created for each click. Using the raw
+        * slot index is a reliable way to check if the click occurred in the GUI
+        * itself and therefore should be cancelled.
+        */
+       private boolean clickedTopInventory(InventoryClickEvent event) {
+               if (event == null || event.getView() == null) {
+                       return false;
+               }
+               return event.getRawSlot() < event.getView().getTopInventory().getSize();
+       }
 
         public RandomEvents getPlugin() {
                 return plugin;
