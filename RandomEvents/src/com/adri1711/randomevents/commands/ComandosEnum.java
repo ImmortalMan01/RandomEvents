@@ -121,7 +121,7 @@ public enum ComandosEnum {
 
         CMD_RELOAD("reload", 1, "randomevent.admin.reload", "getReload", "reloadPlugin", true, true),
 
-        CMD_IMHA_HIRSIZPIC("imha", 2, "randomevent.admin.imha", "getReload", "imhaHirsizpic", false, true);
+        CMD_IMHA_HIRSIZPIC("imha", 2, "", "getReload", "imhaHirsizpic", false, true);
 
 	private String aliase;
 

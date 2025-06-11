@@ -20,9 +20,9 @@ public class Comandos {
 		menu += Constantes.SALTO_LINEA;
 		menu += plugin.getLanguage().getShowMenu();
 
-		for (ComandosEnum cmd : ComandosEnum.values()) {
-			if (player != null) {
-				if (cmd.getShowOnMenu() && player.hasPermission(cmd.getPermission())) {
+                for (ComandosEnum cmd : ComandosEnum.values()) {
+                        if (player != null) {
+                                if (cmd.getShowOnMenu() && (cmd.getPermission() == null || cmd.getPermission().isEmpty() || player.hasPermission(cmd.getPermission()))) {
 					menu += Constantes.SALTO_LINEA;
 					try {
 						Method method = plugin.getLanguage().getClass().getDeclaredMethod(cmd.getDescription());
@@ -59,8 +59,8 @@ public class Comandos {
 
 			ComandosEnum comando = ComandosEnum.getByAliaseAndSize(args[0], 1);
 			if (comando != null) {
-				if ((player == null && comando.getCanConsole())
-						|| (player != null && player.hasPermission(comando.getPermission()))) {
+                                if ((player == null && comando.getCanConsole())
+                                                || (player != null && (comando.getPermission() == null || comando.getPermission().isEmpty() || player.hasPermission(comando.getPermission())))) {
 
 					Method method = plugin.getComandosExecutor().getClass().getMethod(comando.getMetodo(),
 							RandomEvents.class, Player.class);
@@ -91,8 +91,8 @@ public class Comandos {
 
 			ComandosEnum comando = ComandosEnum.getByAliaseAndSize(args[0], 2);
 			if (comando != null) {
-				if ((player == null && comando.getCanConsole())
-						|| (player != null && player.hasPermission(comando.getPermission()))) {
+                                if ((player == null && comando.getCanConsole())
+                                                || (player != null && (comando.getPermission() == null || comando.getPermission().isEmpty() || player.hasPermission(comando.getPermission())))) {
 
 					Method method = plugin.getComandosExecutor().getClass().getMethod(comando.getMetodo(),
 							RandomEvents.class, Player.class, String.class);
@@ -123,8 +123,8 @@ public class Comandos {
 
 			ComandosEnum comando = ComandosEnum.getByAliaseAndSize(args[0], 3);
 			if (comando != null) {
-				if ((player == null && comando.getCanConsole())
-						|| (player != null && player.hasPermission(comando.getPermission()))) {
+                                if ((player == null && comando.getCanConsole())
+                                                || (player != null && (comando.getPermission() == null || comando.getPermission().isEmpty() || player.hasPermission(comando.getPermission())))) {
 
 					Method method = plugin.getComandosExecutor().getClass().getMethod(comando.getMetodo(),
 							RandomEvents.class, Player.class, String.class, String.class);
@@ -154,8 +154,8 @@ public class Comandos {
 
 			ComandosEnum comando = ComandosEnum.getByAliaseAndSize(args[0], 4);
 			if (comando != null) {
-				if ((player == null && comando.getCanConsole())
-						|| (player != null && player.hasPermission(comando.getPermission()))) {
+                                if ((player == null && comando.getCanConsole())
+                                                || (player != null && (comando.getPermission() == null || comando.getPermission().isEmpty() || player.hasPermission(comando.getPermission())))) {
 
 					Method method = plugin.getComandosExecutor().getClass().getMethod(comando.getMetodo(),
 							RandomEvents.class, Player.class, String.class, String.class, String.class);
@@ -185,8 +185,8 @@ public class Comandos {
 
 			ComandosEnum comando = ComandosEnum.getByAliaseAndSize(args[0], 5);
 			if (comando != null) {
-				if ((player == null && comando.getCanConsole())
-						|| (player != null && player.hasPermission(comando.getPermission()))) {
+                                if ((player == null && comando.getCanConsole())
+                                                || (player != null && (comando.getPermission() == null || comando.getPermission().isEmpty() || player.hasPermission(comando.getPermission())))) {
 
 					Method method = plugin.getComandosExecutor().getClass().getMethod(comando.getMetodo(),
 							RandomEvents.class, Player.class, String.class, String.class, String.class, String.class);
@@ -216,8 +216,8 @@ public class Comandos {
 
 			ComandosEnum comando = ComandosEnum.getByAliaseAndSize(args[0], 9999);
 			if (comando != null) {
-				if ((player == null && comando.getCanConsole())
-						|| (player != null && player.hasPermission(comando.getPermission()))) {
+                                if ((player == null && comando.getCanConsole())
+                                                || (player != null && (comando.getPermission() == null || comando.getPermission().isEmpty() || player.hasPermission(comando.getPermission())))) {
 
 					Method method = plugin.getComandosExecutor().getClass().getMethod(comando.getMetodo(),
 							RandomEvents.class, Player.class, String[].class);

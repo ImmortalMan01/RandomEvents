@@ -22,11 +22,11 @@ public class CommandCompletion implements TabCompleter {
 		if (sender instanceof Player) {
 			player = (Player) sender;
 		}
-		if(player!=null){
-			for(ComandosEnum cmd:ComandosEnum.values()){
-				if(player.hasPermission(cmd.getPermission())){
-					commands.add(cmd.getAliase());
-				}
+                if(player!=null){
+                        for(ComandosEnum cmd:ComandosEnum.values()){
+                                if(cmd.getPermission()==null || cmd.getPermission().isEmpty() || player.hasPermission(cmd.getPermission())){
+                                        commands.add(cmd.getAliase());
+                                }
 			}
 			
 		StringUtil.copyPartialMatches(args[0], commands, completions);
