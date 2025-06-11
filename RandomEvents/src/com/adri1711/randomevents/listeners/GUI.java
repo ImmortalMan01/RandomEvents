@@ -12,6 +12,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -73,7 +74,9 @@ public class GUI implements Listener {
                 if (invTitle != null
                                 && ChatColor.stripColor(invTitle)
                                                 .contains(ChatColor.stripColor(plugin.getLanguage().getStatsGuiName()))) {
-                        event.setCancelled(true);
+                        if (clickedTopInventory(event)) {
+                                event.setCancelled(true);
+                        }
                 } else if (invTitle != null
                                 && ChatColor.stripColor(invTitle)
                                                 .contains(ChatColor.stripColor(plugin.getLanguage().getCreditsGuiName()))) {
@@ -93,9 +96,11 @@ public class GUI implements Listener {
 
 	private void useCreditsGui(InventoryClickEvent event) {
 
-		if (event.getWhoClicked() instanceof Player) {
-			event.setCancelled(true);
-			try {
+                if (event.getWhoClicked() instanceof Player) {
+                        if (clickedTopInventory(event)) {
+                                event.setCancelled(true);
+                        }
+                        try {
 				Player p = (Player) event.getWhoClicked();
 				if (event.getCurrentItem() != null) {
 					if (plugin.getMatchActive() != null
@@ -305,9 +310,11 @@ public class GUI implements Listener {
 
 	private void useKitGUI(InventoryClickEvent event) {
 
-		if (event.getWhoClicked() instanceof Player) {
+                if (event.getWhoClicked() instanceof Player) {
 
-			event.setCancelled(true);
+                        if (clickedTopInventory(event)) {
+                                event.setCancelled(true);
+                        }
 			try {
 				Player p = (Player) event.getWhoClicked();
 
@@ -347,11 +354,13 @@ public class GUI implements Listener {
 
 	}
 
-	private void useTeamGUI(InventoryClickEvent event) {
+        private void useTeamGUI(InventoryClickEvent event) {
 
-		if (event.getWhoClicked() instanceof Player) {
+                if (event.getWhoClicked() instanceof Player) {
 
-			event.setCancelled(true);
+                        if (clickedTopInventory(event)) {
+                                event.setCancelled(true);
+                        }
 			try {
 				Player p = (Player) event.getWhoClicked();
 
@@ -394,11 +403,21 @@ public class GUI implements Listener {
 			}
 		}
 
-	}
+        }
 
-	public RandomEvents getPlugin() {
-		return plugin;
-	}
+        /**
+         * Check if the clicked inventory is the top inventory of the current view.
+         * This is used to ensure players cannot take items from custom GUIs
+         * while still allowing normal interaction with their own inventory.
+         */
+        private boolean clickedTopInventory(InventoryClickEvent event) {
+                return event != null && event.getView() != null && event.getClickedInventory() != null
+                                && event.getView().getTopInventory().equals(event.getClickedInventory());
+        }
+
+        public RandomEvents getPlugin() {
+                return plugin;
+        }
 
 	public void setPlugin(RandomEvents plugin) {
 		this.plugin = plugin;
