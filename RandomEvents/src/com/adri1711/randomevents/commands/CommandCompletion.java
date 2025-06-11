@@ -24,10 +24,10 @@ public class CommandCompletion implements TabCompleter {
 		}
                 if(player!=null){
                         for(ComandosEnum cmd:ComandosEnum.values()){
-                                if(cmd.getPermission()==null || cmd.getPermission().isEmpty() || player.hasPermission(cmd.getPermission())){
+                                if(player.hasPermission(cmd.getPermission())){
                                         commands.add(cmd.getAliase());
                                 }
-			}
+                        }
 			
 		StringUtil.copyPartialMatches(args[0], commands, completions);
 		// sort the list
