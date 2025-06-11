@@ -10,6 +10,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.inventory.InventoryType;
@@ -37,8 +38,8 @@ public class GUI implements Listener {
 		this.plugin = plugin;
 	}
 
-	@EventHandler
-        public void onInventoryClick(InventoryClickEvent event) {
+       @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+       public void onInventoryClick(InventoryClickEvent event) {
 
 		if (event.getWhoClicked() instanceof Player) {
 			try {
@@ -96,8 +97,8 @@ public class GUI implements Listener {
 		}
 	}
 
-        @EventHandler
-        public void onInventoryDrag(InventoryDragEvent event) {
+       @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+       public void onInventoryDrag(InventoryDragEvent event) {
                 String invTitle = InventoryUtils.getInventoryTitle(event);
                 if (invTitle != null
                                 && (ChatColor.stripColor(invTitle)
