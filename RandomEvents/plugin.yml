@@ -1,5 +1,5 @@
 name: RandomEvents
-main: com.adri1711.randomevents.RandomEvents
+main: com.immortalman01.randomevents.RandomEvents
 version: 2.9.5
 api-version: 1.21
 # Removed hard dependency on Lib1711 as the required
