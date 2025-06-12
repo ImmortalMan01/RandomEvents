@@ -218,13 +218,13 @@ public class Chat implements Listener {
 
 							} catch (Exception e) {
 								player.sendMessage(plugin.getLanguage().getInvalidInput());
-								player.sendMessage(c.getMessage());
+								player.sendMessage(c.getMessage(plugin));
 								actua = Boolean.FALSE;
 
 							}
 						} else {
 							if (plugin.getPlayerKit().keySet().contains(player.getName())) {
-								player.sendMessage(c.getMessage());
+								player.sendMessage(c.getMessage(plugin));
 								plugin.getPlayersCreationKit().put(player.getName(), c.getPosition());
 								actua = Boolean.FALSE;
 							} else {
@@ -294,7 +294,7 @@ public class Chat implements Listener {
 
 						} catch (Exception e) {
 							player.sendMessage(plugin.getLanguage().getInvalidInput());
-							player.sendMessage(c.getMessage());
+							player.sendMessage(c.getMessage(plugin));
 							actua = Boolean.FALSE;
 
 						}
@@ -308,7 +308,7 @@ public class Chat implements Listener {
 					switch (CreacionKit.getByPosition(position)) {
 
 					default:
-						player.sendMessage(c.getMessage());
+						player.sendMessage(c.getMessage(plugin));
 						break;
 					}
 					actua = Boolean.FALSE;
@@ -335,7 +335,7 @@ public class Chat implements Listener {
 			} else {
 				c = CreacionKit.getByPosition(plugin.getPlayersCreationKit().get(player.getName()));
 				if (c != null && !pasado) {
-					player.sendMessage(c.getMessage());
+					player.sendMessage(c.getMessage(plugin));
 				}
 			}
 		} else {
@@ -430,13 +430,13 @@ public class Chat implements Listener {
 
 							} catch (Exception e) {
 								player.sendMessage(plugin.getLanguage().getInvalidInput());
-								player.sendMessage(c.getMessage());
+								player.sendMessage(c.getMessage(plugin));
 								actua = Boolean.FALSE;
 
 							}
 						} else {
 							if (plugin.getPlayerWaterDrop().keySet().contains(player.getName())) {
-								player.sendMessage(c.getMessage());
+								player.sendMessage(c.getMessage(plugin));
 								plugin.getPlayersCreationWaterDrop().put(player.getName(), c.getPosition());
 								actua = Boolean.FALSE;
 							} else {
@@ -506,7 +506,7 @@ public class Chat implements Listener {
 
 						} catch (Exception e) {
 							player.sendMessage(plugin.getLanguage().getInvalidInput());
-							player.sendMessage(c.getMessage());
+							player.sendMessage(c.getMessage(plugin));
 							actua = Boolean.FALSE;
 
 						}
@@ -520,7 +520,7 @@ public class Chat implements Listener {
 					switch (CreacionWaterDrop.getByPosition(position)) {
 
 					default:
-						player.sendMessage(c.getMessage());
+						player.sendMessage(c.getMessage(plugin));
 						break;
 					}
 					actua = Boolean.FALSE;
@@ -547,7 +547,7 @@ public class Chat implements Listener {
 			} else {
 				c = CreacionWaterDrop.getByPosition(plugin.getPlayersCreationWaterDrop().get(player.getName()));
 				if (c != null && !pasado) {
-					player.sendMessage(c.getMessage());
+					player.sendMessage(c.getMessage(plugin));
 				}
 			}
 		} else {

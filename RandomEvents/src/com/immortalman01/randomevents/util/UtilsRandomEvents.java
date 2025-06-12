@@ -3097,8 +3097,12 @@ public class UtilsRandomEvents {
 	public static String enviaInfoCreacionKit(Kit kit, Player player, RandomEvents plugin) {
 		String info = plugin.getLanguage().getTagPlugin() + " ";
 
-		for (CreacionKit c : CreacionKit.values()) {
-			info += Constantes.SALTO_LINEA + "§e§l " + c.getPosition() + " - " + c.toString();
+                for (CreacionKit c : CreacionKit.values()) {
+                        String name = plugin.getLanguage()
+                                        .getTranslation("creation.kit_" + c.name().toLowerCase() + ".name");
+                        if (name == null)
+                                name = c.toString();
+                        info += Constantes.SALTO_LINEA + "§e§l " + c.getPosition() + " - " + name;
 
 			switch (c) {
 

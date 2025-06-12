@@ -16,8 +16,8 @@ public enum CreacionWaterDrop {
 
 	CANCEL(999, "§6§lYou are about to cancel a Water drop, put 'Y' to confirm or 'N' to continue creating");
 
-	private Integer position;
-	private String message;
+        private Integer position;
+        private String message;
 
 
 	private CreacionWaterDrop(Integer position, String message) {
@@ -46,9 +46,15 @@ public enum CreacionWaterDrop {
 		this.position = position;
 	}
 
-	public String getMessage() {
-		return message;
-	}
+        public String getMessage() {
+                return message;
+        }
+
+        public String getMessage(com.immortalman01.randomevents.RandomEvents plugin) {
+                String key = "creation." + this.name().toLowerCase() + ".message";
+                String res = plugin.getLanguage().getTranslation(key);
+                return res != null ? res : message;
+        }
 
 
 
