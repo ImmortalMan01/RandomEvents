@@ -342,7 +342,7 @@ public class Chat implements Listener {
 			plugin.getPlayerKit().remove(player.getName());
 			plugin.getPlayersCreationKit().remove(player.getName());
 			if (plugin.getPlayerMatches().containsKey(player.getName())) {
-				player.sendMessage(Creacion.KITS.getMessage());
+                                player.sendMessage(Creacion.KITS.getMessage(plugin));
 				for (Kit m : plugin.getKits()) {
 					player.sendMessage("§6§l" + plugin.getKits().indexOf(m) + " - " + m.getName());
 				}
@@ -553,7 +553,7 @@ public class Chat implements Listener {
 		} else {
 			plugin.getPlayerWaterDrop().remove(player.getName());
 			plugin.getPlayersCreationWaterDrop().remove(player.getName());
-			player.sendMessage(Creacion.WATER_DROP_SCENES.getMessage());
+                        player.sendMessage(Creacion.WATER_DROP_SCENES.getMessage(plugin));
 			for (WaterDropStep m : plugin.getWaterDrops()) {
 				player.sendMessage("§6§l" + plugin.getWaterDrops().indexOf(m) + " - " + m.getName());
 			}
@@ -1295,13 +1295,13 @@ public class Chat implements Listener {
 
 							} catch (Exception e) {
 								player.sendMessage(plugin.getLanguage().getInvalidInput());
-								player.sendMessage(c.getMessage(match));
+								player.sendMessage(c.getMessage(plugin, match));
 								actua = Boolean.FALSE;
 
 							}
 						} else {
 							if (plugin.getPlayerMatches().keySet().contains(player.getName())) {
-								player.sendMessage(c.getMessage(match));
+								player.sendMessage(c.getMessage(plugin, match));
 								plugin.getPlayersCreation().put(player.getName(), c.getPosition());
 								actua = Boolean.FALSE;
 							} else {
@@ -1478,7 +1478,7 @@ public class Chat implements Listener {
 
 						} catch (Exception e) {
 							player.sendMessage(plugin.getLanguage().getInvalidInput());
-							player.sendMessage(c.getMessage(match));
+							player.sendMessage(c.getMessage(plugin, match));
 							actua = Boolean.FALSE;
 
 						}
@@ -1502,7 +1502,7 @@ public class Chat implements Listener {
 						}
 						break;
 					case WATER_DROP_SCENES:
-						player.sendMessage(c.getMessage(match));
+						player.sendMessage(c.getMessage(plugin, match));
 						for (WaterDropStep m : plugin.getWaterDrops()) {
 							player.sendMessage("§6§l" + plugin.getWaterDrops().indexOf(m) + " - " + m.getName());
 						}
@@ -1510,7 +1510,7 @@ public class Chat implements Listener {
 
 						break;
 					case KITS:
-						player.sendMessage(c.getMessage(match));
+						player.sendMessage(c.getMessage(plugin, match));
 						for (Kit m : plugin.getKits()) {
 							player.sendMessage("§6§l" + plugin.getKits().indexOf(m) + " - " + m.getName());
 						}
@@ -1518,7 +1518,7 @@ public class Chat implements Listener {
 
 						break;
 					default:
-						player.sendMessage(c.getMessage(match));
+						player.sendMessage(c.getMessage(plugin, match));
 						break;
 					}
 					actua = Boolean.FALSE;
@@ -1537,7 +1537,7 @@ public class Chat implements Listener {
 					break;
 				case BATTLE_NAME:
 					if (!plugin.getEditando().contains(player.getName())) {
-						player.sendMessage(c.getMessage(match));
+						player.sendMessage(c.getMessage(plugin, match));
 						plugin.getPlayersCreation().put(player.getName(), c.getPosition());
 					}
 					break;
@@ -1549,7 +1549,7 @@ public class Chat implements Listener {
 
 					break;
 				case WATER_DROP_SCENES:
-					player.sendMessage(c.getMessage(match));
+					player.sendMessage(c.getMessage(plugin, match));
 					plugin.getPlayersCreation().put(player.getName(), c.getPosition());
 					for (WaterDropStep m : plugin.getWaterDrops()) {
 						player.sendMessage("§6§l" + plugin.getWaterDrops().indexOf(m) + " - " + m.getName());
@@ -1558,7 +1558,7 @@ public class Chat implements Listener {
 
 					break;
 				case KITS:
-					player.sendMessage(c.getMessage(match));
+					player.sendMessage(c.getMessage(plugin, match));
 					plugin.getPlayersCreation().put(player.getName(), c.getPosition());
 
 					for (Kit m : plugin.getKits()) {
@@ -1577,7 +1577,7 @@ public class Chat implements Listener {
 					break;
 
 				default:
-					player.sendMessage(c.getMessage(match));
+					player.sendMessage(c.getMessage(plugin, match));
 					plugin.getPlayersCreation().put(player.getName(), c.getPosition());
 
 					break;
@@ -1595,7 +1595,7 @@ public class Chat implements Listener {
 			} else {
 				c = Creacion.getByPosition(plugin.getPlayersCreation().get(player.getName()));
 				if (c != null && !pasado) {
-					player.sendMessage(c.getMessage(match));
+					player.sendMessage(c.getMessage(plugin, match));
 				}
 			}
 		} else {

@@ -218,9 +218,15 @@ public enum Creacion {
 		return position;
 	}
 
-	public String getName() {
-		return name;
-	}
+        public String getName(com.immortalman01.randomevents.RandomEvents plugin) {
+                String key = "creation." + this.name().toLowerCase() + ".name";
+                String res = plugin.getLanguage().getTranslation(key);
+                return res != null ? res : name;
+        }
+
+        public String getName() {
+                return name;
+        }
 
 	public void setName(String name) {
 		this.name = name;
@@ -230,20 +236,27 @@ public enum Creacion {
 		this.position = position;
 	}
 
-	public String getMessage() {
-		return message;
-	}
+        public String getMessage(com.immortalman01.randomevents.RandomEvents plugin) {
+                String key = "creation." + this.name().toLowerCase() + ".message";
+                String res = plugin.getLanguage().getTranslation(key);
+                return res != null ? res : message;
+        }
 
-	public String getMessage(Match m) {
-		if (m == null || m.getAmountPlayers() == null) {
-			return message;
-		} else {
-			return message.replaceAll("%entities%", "" + m.getEntitySpawns().size())
-					.replaceAll("%players%", "" + m.getSpawns().size())
-					.replaceAll("%maxPlayers%", "" + m.getAmountPlayers())
-					.replaceAll("%maxTeams%", "" + m.getNumberOfTeams());
-		}
-	}
+        public String getMessage() {
+                return message;
+        }
+
+        public String getMessage(com.immortalman01.randomevents.RandomEvents plugin, Match m) {
+                String base = getMessage(plugin);
+                if (m == null || m.getAmountPlayers() == null) {
+                        return base;
+                } else {
+                        return base.replaceAll("%entities%", "" + m.getEntitySpawns().size())
+                                        .replaceAll("%players%", "" + m.getSpawns().size())
+                                        .replaceAll("%maxPlayers%", "" + m.getAmountPlayers())
+                                        .replaceAll("%maxTeams%", "" + m.getNumberOfTeams());
+                }
+        }
 
 	public static List<Creacion> getCreaciones(Match m) {
 		List<Creacion> creaciones = new ArrayList<Creacion>();
