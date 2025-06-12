@@ -117,7 +117,7 @@ minigameName.TeamSurvivalGames: Takım Hayatta Kalma Oyunları
 minigameName.BlockParty: Blok Partisi
 minigameName.HideAndSeek: Saklambaç
 minigameName.GlassWalk: Cam Yolu
-menu.helpMenu: '----------------- RandomeVents ---------------------'
+menu.helpMenu: '----------------- RandomEvents ---------------------'
 menu.showMenu: "/revent:\n          -> Bu menüyü gösteriyor"
 menu.join: "/Revent Birleştirme:\n          -> Rastgele Etkinliğe Katılın"
 menu.spec: "/Revent Spec:\n          -> Rastgele olayı izleyin"
@@ -163,9 +163,9 @@ menu.admin.givecreditsspecific: "/revent giveCredits <VerentName> <inger> <mater
 menu.admin.balcreditsown: "/Revent kredileri:\n          -> kredilerinizi gösterir"
 menu.admin.balcreditsother: "/revent kredileri <Terces>:\n          -> oyuncu kredilerini\
   \ gösterir"
-menu.admin.ban: "/Revent Ban <Berter> <time>:\n          -> RandomeVents'ten bir oyuncuyu\
+menu.admin.ban: "/Revent Ban <Berter> <time>:\n          -> RandomEvents'ten bir oyuncuyu\
   \ yasaklayın"
-menu.admin.unban: "/Revent Ungan <Berer>:\n          -> RandoMevents'ten bir oyuncuyu\
+menu.admin.unban: "/Revent Ungan <Berer>:\n          -> RandomEvents'ten bir oyuncuyu\
   \ kaldırın"
 menu.admin.create: "/Revent Oluştur:\n          -> Rastgele bir olay yaratmaya başlayın"
 menu.admin.delete: "/revent sil <sume>:\n          -> Rastgele bir olayı sil"
@@ -200,10 +200,10 @@ menu.admin.resetWinsGame: "/revent resetwinsgame <Mamam>:\n          -> Bir oyun
 menu.admin.resetWinsGamePlayer: "/revent resetwins <A2 oyun> <oyuncu>:\n         \
   \ -> Bir oyun ve oyuncu için tüm kazançları sıfırlayın"
 menu.admin.reload: "/revent yeniden yükleme:\n          -> Eklentiyi yeniden yükleyin"
-tagPlugin: RandoMevents >>
-tagChat: '[RandoMevents]'
+tagPlugin: RandomEvents >>
+tagChat: '[RandomEvents]'
 comun.banPlayer: Oyuncu %Oyuncu %Bastırıldı %zamana kadar %
-comun.unbanPlayer: Oyuncu % Oyuncu % RandoMevents'den yasaklandı
+comun.unbanPlayer: Oyuncu % Oyuncu % RandomEvents'den yasaklandı
 comun.playerNotBanned: Oyuncu randomeventlerden yasaklanmadı
 comun.noScheduledEvents: Planlanmış randomevents yok
 comun.announcementDisabled: Duyuruları devre dışı bıraktınız
@@ -224,7 +224,7 @@ comun.cmdNotAllowed: Bu komutu burada kullanamazsın
 creation.endOfArenaCreation: Başarıyla bir randomeevents yarattınız!
 creation.endOfKitCreation: Bir kiti başarıyla düzenlediniz!
 creation.endOfScheduleCreation: Başarıyla bir program oluşturdunuz!
-creation.cancelOfArenaCreation: Bir RandoMevents'in oluşturulmasını iptal ettiniz!
+creation.cancelOfArenaCreation: Bir RandomEvents'in oluşturulmasını iptal ettiniz!
 match.alreadyPlayingMatch: Başlarsa maçı terk edemezsin
 match.matchBegun: Etkinlik başladı, şimdi katılamıyorsun
 match.matches: 'Maçlar:'
