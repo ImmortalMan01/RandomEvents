@@ -25,8 +25,40 @@ import net.md_5.bungee.api.ChatColor;
 public class LanguageMessages {
 	private File file;
 	private FileConfiguration fileConfig;
-	private RandomEvents plugin;
-	private Pattern pattern = Pattern.compile("&#[a-fA-F0-9]{6}");
+    private RandomEvents plugin;
+    private Pattern pattern = Pattern.compile("&#[a-fA-F0-9]{6}");
+
+    private String colorize(String s) {
+        if (s == null) {
+            return null;
+        }
+        try {
+            Matcher match = pattern.matcher(s);
+            Map<String, ChatColor> mapa = new HashMap<String, ChatColor>();
+            while (match.find()) {
+                String color = s.substring(match.start() + 1, match.end());
+                Method method = ChatColor.class.getMethod("of", String.class);
+                ChatColor chatc = (ChatColor) method.invoke(null, color);
+                mapa.put("&" + color, chatc);
+            }
+            for (Entry<String, ChatColor> ent : mapa.entrySet()) {
+                s = s.replaceAll(ent.getKey(), ent.getValue() + "");
+            }
+            s = ChatColor.translateAlternateColorCodes('&', s);
+        } catch (Exception e) {
+            s = s.replaceAll("&", "§");
+        }
+        s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+        return s;
+    }
+
+    public String getTranslation(String path) {
+        String s = fileConfig.getString(path);
+        if (s == null) {
+            return null;
+        }
+        return colorize(s);
+    }
 
 	private String tagChat;
 	private String invalidInput;

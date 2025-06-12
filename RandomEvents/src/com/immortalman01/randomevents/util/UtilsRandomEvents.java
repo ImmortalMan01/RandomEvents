@@ -2050,15 +2050,15 @@ public class UtilsRandomEvents {
 	public static String enviaInfoCreacion(Match match, Player player, RandomEvents plugin) {
 		String info = plugin.getLanguage().getTagPlugin() + " ";
 		if (match.getMinigame() == null) {
-			info += Constantes.SALTO_LINEA + "§e§l " + Creacion.MINIGAME_TYPE.ordinal() + " - "
-					+ Creacion.MINIGAME_TYPE.getMessage();
+                        info += Constantes.SALTO_LINEA + "§e§l " + Creacion.MINIGAME_TYPE.ordinal() + " - "
+                                        + Creacion.MINIGAME_TYPE.getMessage(plugin);
 
 		} else {
 
 			for (Creacion c : Creacion.getCreaciones(match)) {
 				if (!match.getMinigame().equals(MinigameType.WDROP)
 						|| (match.getMinigame().equals(MinigameType.WDROP) && !c.equals(Creacion.ARENA_SPAWNS))) {
-					info += Constantes.SALTO_LINEA + "§e§l " + c.getPosition() + " - " + c.getName();
+                                        info += Constantes.SALTO_LINEA + "§e§l " + c.getPosition() + " - " + c.getName(plugin);
 
 					switch (c) {
 

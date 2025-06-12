@@ -335,3 +335,7 @@ minigame.description.BLOCKPARTY: Bloklar kaybolduğunda düşmemeye çalışın;
   renklerle arayın ve hayatta kalın; Kazanana kadar!
 minigame.description.HIDEANDSEEK: Arayanlardan saklanın ya da belki de; Maçınızı kazanmak
   için!
+creation.minigame_type.name: Minigame Türü
+creation.minigame_type.message: "&6&lMinigame türünü seçin (Sohbete 0 yazın)"
+creation.battle_name.name: Etkinlik Adı
+creation.battle_name.message: "&6&lRandomEvent oluşturmayı başlattınız. Maçın adını yazın"
