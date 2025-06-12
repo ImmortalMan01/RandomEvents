@@ -5,7 +5,8 @@ subprojects {
     targetCompatibility = JavaVersion.VERSION_21
 
     tasks.withType(JavaCompile).configureEach {
-        options.encoding = 'windows-1252'
+        // Use UTF-8 so source files with special characters compile correctly
+        options.encoding = 'UTF-8'
     }
 
     repositories {
