@@ -43,6 +43,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Team;
+import org.bukkit.Effect;
 import org.bukkit.util.Vector;
 
 import com.immortalman01.randomevents.RandomEvents;
@@ -3201,10 +3202,17 @@ public class MatchActive {
 			Date now = new Date();
 			long dif = (endDate - now.getTime()) / 1000;
 
-			if (dif <= 0) {
+                        if (dif <= 0) {
 
-				UtilsRandomEvents.playSound(plugin, getPlayerHandler().getPlayersSpectators(),
-						XSound.ENTITY_GENERIC_EXPLODE);
+                                Player bomba = getPlayerHandler().getPlayerContador();
+                                if (bomba != null) {
+                                        Location loc = bomba.getLocation();
+                                        loc.getWorld().playEffect(loc, Effect.EXPLOSION_HUGE, 0);
+                                        loc.getWorld().playSound(loc, XSound.ENTITY_GENERIC_EXPLODE.parseSound(), 1.0F, 1.0F);
+                                }
+
+                                UtilsRandomEvents.playSound(plugin, getPlayerHandler().getPlayersSpectators(),
+                                                XSound.ENTITY_GENERIC_EXPLODE);
 
 				List<Player> muertos = new ArrayList<Player>();
 				if (plugin.getReventConfig().isMultipleKillOnExplosion()) {
