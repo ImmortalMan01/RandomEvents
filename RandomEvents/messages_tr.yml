@@ -213,17 +213,10 @@ match.alreadyPlayingMatch: Başlarsa maçı terk edemezsin
 match.matchBegun: Etkinlik başladı, şimdi katılamıyorsun
 match.matches: 'Maçlar:'
 match.alreadyMatch: Biri hala çalışırken başka bir etkinlik oluşturamazsınız
-announce.announceFirst: "████████\n████████\n████████ Rastgele olay\n████████ %Tip\
-  \ %\n████████ [%Oyuncular%/%gerekli oyuncılar%] \n████████ %ClickHere % \n████████\n\
-  ████████"
-announce.announceNext: Rastgele Olay >>%Tip%%BURADA TIKLAYIN [%Oyuncular%/%İhtiyaç
-  sahibi oyuncular%]
-announce.announceFirstTournament: "████████\n████████\n████████ Turnuva rastgele etkinliği\n\
-  ████████  \n████████ [%Oyuncular%/%gerekli oyuncılar%] \n████████ %ClickHere % \n\
-  ████████\n████████"
-announce.announceNextTournament: Turnuva Rastgele Etkinlik >>%ClickHere%[%Oyuncular%/%ihtiyaç
-  duyan oyuncılar%]
-announce.clickHere: '[Katılmak için buraya tıklayın]'
+announce.announceFirst: "████████\n████████\n████████ Rastgele olay\n████████ %Tip%\n████████ [%Oyuncular%/%gerekli oyuncılar%] \n████████ %clickhere% \n████████\n████████"
+announce.announceNext: Rastgele Olay >>%Tip% %clickhere% [%Oyuncular%/%İhtiyaç sahibi oyuncular%]
+announce.announceFirstTournament: "████████\n████████\n████████ Turnuva rastgele etkinliği\n████████\n████████ [%Oyuncular%/%gerekli oyuncılar%] \n████████ %clickhere% \n████████\n████████"
+announce.announceNextTournament: Turnuva Rastgele Etkinlik >> %clickhere% [%Oyuncular%/%ihtiyaç duyan oyuncular%]
 announce.raceTournament: Oyuncu % Oyuncu % hedefe ulaştı ( % Oyuncular % / % ihtiyaç
   duyan oyuncılar %)
 announce.youBeast: Sen canavarsın, arenaya ışınlanana kadar bekle
