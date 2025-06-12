@@ -8,6 +8,34 @@ import org.bukkit.event.inventory.InventoryDragEvent;
 public class InventoryUtils {
 
     /**
+     * Convert an Adventure Component to a legacy string if possible. This
+     * method uses reflection to avoid compile-time dependency on the
+     * Adventure API which only exists on modern server versions.
+     */
+    private static String componentToString(Object component) {
+        if (component == null) {
+            return null;
+        }
+        try {
+            Class<?> compClass = Class.forName("net.kyori.adventure.text.Component");
+            if (compClass.isInstance(component)) {
+                Class<?> serializerClass = Class
+                        .forName("net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer");
+                Method legacySection = serializerClass.getMethod("legacySection");
+                Object serializer = legacySection.invoke(null);
+                Method serialize = serializer.getClass().getMethod("serialize", compClass);
+                Object result = serialize.invoke(serializer, component);
+                if (result != null) {
+                    return result.toString();
+                }
+            }
+        } catch (Exception ignore) {
+            // Ignore and fallback to toString
+        }
+        return component.toString();
+    }
+
+    /**
      * Obtain the title of an inventory from an InventoryClickEvent using
      * reflection to remain compatible across Minecraft versions.
      * 
@@ -26,7 +54,7 @@ public class InventoryUtils {
                 Method getTitle = view.getClass().getMethod("getTitle");
                 Object result = getTitle.invoke(view);
                 if (result != null) {
-                    return result.toString();
+                    return componentToString(result);
                 }
             } catch (NoSuchMethodException ignored) {
                 // Older versions may have title() or none
@@ -34,7 +62,7 @@ public class InventoryUtils {
                     Method title = view.getClass().getMethod("title");
                     Object result = title.invoke(view);
                     if (result != null) {
-                        return result.toString();
+                        return componentToString(result);
                     }
                 } catch (NoSuchMethodException ex) {
                     // ignore
@@ -50,14 +78,14 @@ public class InventoryUtils {
                 Method getTitle = inventory.getClass().getMethod("getTitle");
                 Object result = getTitle.invoke(inventory);
                 if (result != null) {
-                    return result.toString();
+                    return componentToString(result);
                 }
             } catch (NoSuchMethodException ignored) {
                 try {
                     Method getName = inventory.getClass().getMethod("getName");
                     Object result = getName.invoke(inventory);
                     if (result != null) {
-                        return result.toString();
+                        return componentToString(result);
                     }
                 } catch (NoSuchMethodException ex) {
                     // ignore
@@ -86,14 +114,14 @@ public class InventoryUtils {
                 Method getTitle = view.getClass().getMethod("getTitle");
                 Object result = getTitle.invoke(view);
                 if (result != null) {
-                    return result.toString();
+                    return componentToString(result);
                 }
             } catch (NoSuchMethodException ignored) {
                 try {
                     Method title = view.getClass().getMethod("title");
                     Object result = title.invoke(view);
                     if (result != null) {
-                        return result.toString();
+                        return componentToString(result);
                     }
                 } catch (NoSuchMethodException ex) {
                     // ignore
@@ -109,14 +137,14 @@ public class InventoryUtils {
                 Method getTitle = inventory.getClass().getMethod("getTitle");
                 Object result = getTitle.invoke(inventory);
                 if (result != null) {
-                    return result.toString();
+                    return componentToString(result);
                 }
             } catch (NoSuchMethodException ignored) {
                 try {
                     Method getName = inventory.getClass().getMethod("getName");
                     Object result = getName.invoke(inventory);
                     if (result != null) {
-                        return result.toString();
+                        return componentToString(result);
                     }
                 } catch (NoSuchMethodException ex) {
                     // ignore
