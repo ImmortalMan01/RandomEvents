@@ -78,6 +78,20 @@ kit.defaultName: '&6&lKit: %kit_name%'
 kit.defaultLore:
 - '&eSeç!'
 - '&eBununla kazan!'
+creation.kit_name.name: 'Kit Adı'
+creation.kit_name.message: '&6&lKit adını yazın'
+creation.kit_item_descriptive.name: 'Kit Simgesi'
+creation.kit_item_descriptive.message: '&6&lEline eşyayı al ve ''Done'' yaz (Özel isim veya açıklama olabilir, yoksa varsayılan değerler kullanılır)'
+creation.kit_permission_optional.name: 'İzin (Opsiyonel)'
+creation.kit_permission_optional.message: '&6&lBu kiti kullanmak için gereken izni yazın'
+creation.kit_inventory.name: 'Kit Envanteri'
+creation.kit_inventory.message: '&6&lOyuncular için envanteri al ve ''Done'' yaz'
+creation.kit_save.name: 'Kaydet'
+creation.kit_save.message: '&6&lBir kiti kaydetmek üzeresiniz, onaylamak için ''Y'', devam etmek için ''N'' yazın'
+creation.kit_delete.name: 'Alanı Temizle'
+creation.kit_delete.message: '&6&lSilmek istediğiniz alanı seçin'
+creation.kit_cancel.name: 'İptal'
+creation.kit_cancel.message: '&6&lBir kit oluşturmayı iptal etmek üzeresiniz, onaylamak için ''Y'', devam etmek için ''N'' yazın'
 minigameName.BattleRoyale: Battle Royale
 minigameName.DuoBattleRoyale: İkili Battle Royale
 minigameName.KnightsBattle: Şövalye Savaşı
