@@ -1247,8 +1247,8 @@ public class MatchActive {
 					Boolean ejecutaComando = Boolean.TRUE;
 					String[] trozosComandos = comando.split(" ");
 
-					if (trozosComandos[0].trim().equals(Constantes.PROBABILITY_CMD)) {
-						Integer probabilidad = Integer.valueOf(trozosComandos[1]);
+                                        if (trozosComandos[0].trim().equals(Constantes.PROBABILITY_CMD)) {
+                                                Integer probabilidad = UtilsRandomEvents.parseProbability(trozosComandos[1]);
 						Integer aleatorio = random.nextInt(100);
 
 						if (aleatorio > probabilidad) {
