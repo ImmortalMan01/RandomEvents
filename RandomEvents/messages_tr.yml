@@ -142,6 +142,7 @@ menu.admin.forcebegin: "   &6/revent forcebegin:\n          &e-> Maça başlamak
 menu.admin.force: "   &6/revent begin:\n          &e-> Rastgele bir etkinliğe başlar"
 menu.admin.tforce: "   &6/revent tbegin:\n          &e-> Turnuva rastgele bir etkinliğe başlar"
 menu.admin.forceSpecific: "   &6/revent begin <sayi>:\n          &e-> Belirli bir rastgele olaya başlar"
+menu.guicmd: "   &6/revent gui:\n          &e-> Etkinlikleri gösteren menüyü açar"
 menu.admin.givecreditsrandom: "   &6/revent givecredits <oyuncu> <miktar>:\n          &e-> Rastgele seçilmiş bir etkinliğin kredisini ver"
 menu.admin.givecreditsspecific: "   &6/revent givecredits <etkinlikAdi> <oyuncu> <miktar>:\n          &e-> Belirli bir etkinliğin kredisini bir oyuncuya ver"
 menu.admin.balcreditsown: "   &6/revent credits:\n          &e-> Kredilerinizi gösterir"
