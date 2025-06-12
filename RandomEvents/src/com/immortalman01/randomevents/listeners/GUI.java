@@ -75,8 +75,13 @@ public class GUI implements Listener {
 
                Inventory topInventory = event.getView().getTopInventory();
                boolean pluginMenu = topInventory != null && topInventory.getHolder() instanceof RandomEventsHolder;
-
                if (pluginMenu) {
+                       // Cancel any attempts to move items from or to the menu.
+                       // Using isShiftClick covers quick move actions while
+                       // clickedTopInventory handles normal clicks in the menu.
+                       if (clickedTopInventory(event) || event.isShiftClick()) {
+                               event.setCancelled(true);
+                       }
                        String invTitle = InventoryUtils.getInventoryTitle(event);
 
                        if (invTitle != null
