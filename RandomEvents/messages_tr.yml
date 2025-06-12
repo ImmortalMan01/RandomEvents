@@ -1,116 +1,353 @@
-# Turkish translations for RandomEvents
-creation.invalidInput: "&c&lGeçersiz giriş, lütfen tekrar deneyin"
-comun.error: "&c&lBir hata oluştu, sunucu kaydını kontrol edin."
-comun.invalidCmd: "&c&lGeçersiz komut, geçerli komutları görmek için /randomevent yazın"
-comun.noPermission: "&c&lBunu yapmak için izniniz yok!"
-comun.pluginReload: "&6&lEklenti yeniden yüklendi!"
-match.matchFull: "&c&lOyun zaten dolu"
-match.waitingForPlayers: "&6&lOyuncular bekleniyor. ( %players% / %neededPlayers% )"
-comun.spawnSet: "&6&lSpawn başarıyla ayarlandı"
-match.notInMatch: "&c&lBir etkinlikte değilsiniz"
-match.matchJoin: "&6&l[+] %player%"
-match.matchLeave: "&c&l[-] %player%"
-match.winRandomEvents: "&6&lTebrikler! Etkinliği kazandınız"
-announce.eventAnnounce: "&6&l%type% türündeki &e&l'%event%'&6&l etkinliği başlıyor: "
-announce.eventStopped: "&6&l%type% türündeki &e&l'%event%'&6&l etkinliği durduruldu."
-announce.eventCancelled: "&6&l%type% türündeki &e&l'%event%'&6&l etkinliği oyuncu eksikliğinden iptal edildi."
-announce.tournamentCancelled: "&6&lTurnuva yeterli oyuncu olmadığı için iptal edildi."
-comun.invalidPassword: "&c&lEtkinlik için şifre hatalı"
-comun.startingMatch: "&6&lMaç %time% saniye içinde başlıyor"
-comun.idleDamage: "&c&lAFK olduğunuz için zarar görüyorsunuz..."
-comun.youAreBanned: "&c&lRandomEvents etkinliğinden %time% tarihine kadar yasaklandınız"
-comun.nextEvent: "&c&lSonraki RandomEvent:"
-comun.nextEventIsRandom: "&6&lRandomEvent"
-comun.nextEventName: "&6&lEtkinlik: "
-scoreboard.title: "      &a&lRandomEvents      "
-scoreboard.points: "&6%name% - &e%points%"
-scoreboard.pointsteam: "%team_color%%name% - &e%points%"
-scoreboard.step: "&6%name% - &e(%actual%/%max%)"
-scoreboard.alive: "&a✔ %name%"
-scoreboard.dead: "&c☠ %name%"
-scoreboard.team.alive: "&a✔ %team_color%%name%"
-scoreboard.team.dead: "&c☠ %team_color%%name%"
-scoreboard.teamformat: "&6Takım: %team_color%%name%"
-scoreboard.teampoints: "%team_color%%team_name%: &e%points%"
-scoreboard.teammate: "&6Takım arkadaşı: &e%name%"
-scoreboard.beast: "&6Canavar: &e%name%"
-scoreboard.seekers: "&6Arayan: &e%name%"
-scoreboard.holder: "&6Sahip: &e%name%"
-scoreboard.round: "&3Tur: &e%round%"
-scoreboard.time: "&b%time%"
-stats.guiname: "&bRandomEvents_İstatistik"
-stats.alltime: "&6&lTüm_Zamanlar"
-credits.guiname: "&bRandomEvents_Mevcut"
-credits.guipage: "&6Sayfa"
-comun.leaveCommand: "&6&lArtık seyircisiniz. Çıkmak için &e&l/revent leave &6&lyazın"
-comun.errorSavingInventory: "&c&lEnvanter kaydedilirken hata oluştu, eşyalarınızı saklayıp tekrar deneyin"
-stats.statsDisabled: "&c&lİstatistikler devre dışı"
-stats.statsTries: "&cDeneme: "
-stats.statsWins: "&2Kazanç: "
-stats.statsWinsRatio: "&eKazanç Oranı: "
-pvp.death: "&c☠ %victim%"
-pvp.kill: "&a%killer% &4⚔ &c%victim%"
-pvp.bowkill: "&a%killer% &4⚔ &c%victim%  &e( %distance% blok )"
-comun.eventDeleted: "&c&lRandomEvent silindi!"
-comun.eventDisabled: "&c&lRandomEvent devre dışı bırakıldı!"
-comun.eventEnabled: "&6&lRandomEvent etkinleştirildi!"
-comun.eventIsDisabled: "&c&lRandomEvent devre dışı!"
-comun.playerOffline: "&c&lOyuncu çevrimdışı!"
-comun.eventInvalid: "&c&lRandomEvent geçersiz!"
-comun.resetCoinsAll: "&6&lTüm oyuncuların paraları sıfırlandı"
-comun.resetTriesAll: "&6&lTüm deneme sayıları sıfırlandı"
-comun.resetWinsAll: "&6&lTüm kazançlar sıfırlandı"
-comun.resetCoinsPlayer: "&6&l%player% oyuncusunun paraları silindi"
-comun.resetTriesPlayer: "&6&l%player% oyuncusunun deneme sayıları sıfırlandı"
-comun.resetWinsPlayer: "&6&l%player% oyuncusunun kazançları silindi"
-item.returnCheckpoint: "&2&lKontrol noktasına dön"
-item.hidePlayer: "&c&lOyuncuları gizle"
-item.showPlayer: "&2&lOyuncuları göster"
-kit.guiName: "&6&lRandomEvents Kitleri"
-team.guiName: "&6&lTakımlar"
-kit.chosen: "&6&l%kit_name% kiti seçildi"
-kit.itemName: "&6&lKitler"
-team.itemName: "&6&lTakım"
-kit.defaultName: "&6&lKit: %kit_name%"
-kit.defaultLore: 
-  - "&eSeç!"
-  - "&eBununla kazan!"
-minigameName.BattleRoyale: "Battle Royale"
-minigameName.DuoBattleRoyale: "İkili Battle Royale"
-minigameName.KnightsBattle: "Şövalye Savaşı"
-minigameName.TopKiller: "En Çok Öldüren"
-minigameName.DuoTopKiller: "İkili En Çok Öldüren"
-minigameName.KnockbackDuel: "Knockback Düellosu"
-minigameName.ArrowRain: "Ok Yağmuru"
-minigameName.AnvilSpleef: "Örs Spleef"
-minigameName.GemCarrier: "Elmas Taşıyıcı"
-minigameName.TNTTag: "TNT Etiketi"
-minigameName.BoatRace: "Tekne Yarışı"
-minigameName.HorseRace: "At Yarışı"
-minigameName.EscapeBeast: "Canavardan Kaçış"
-minigameName.Race: "Yarış"
-minigameName.TNTRun: "TNT Koşusu"
-minigameName.Spleef: "Spleef"
-minigameName.Splegg: "Splegg"
-minigameName.OITC: "Chamber'da Tek"
-minigameName.SurvivalGames: "Hayatta Kalma Oyunları"
-minigameName.DuoSurvivalGames: "İkili Hayatta Kalma Oyunları"
-minigameName.Skywars: "SkyWars"
-minigameName.DuoSkywars: "İkili SkyWars"
-minigameName.WaterDrop: "Dropper"
-minigameName.QuakeCraft: "Quake Craft"
-minigameName.Paintball: "Paintball"
-minigameName.PaintballTopKill: "Paintball En Çok Öldüren"
-minigameName.KingHill: "Yokuş Kralı"
-minigameName.FishSlap: "Balık Tokadı"
-minigameName.Hoehoehoe: "Çapala Çapala"
-minigameName.Splatoon: "Splatoon"
-minigameName.Bombardment: "Bombardıman"
-minigameName.RedGreenLight: "Yeşil Işık-Kırmızı Işık"
-minigameName.TeamBattleRoyale: "Takım Battle Royale"
-minigameName.TeamTopKiller: "Takım En Çok Öldüren"
-minigameName.TeamSkywars: "Takım SkyWars"
-minigameName.TeamSurvivalGames: "Takım Hayatta Kalma Oyunları"
-minigameName.BlockParty: "Blok Partisi"
-minigameName.HideAndSeek: "Saklambaç"
-minigameName.GlassWalk: "Cam Yolu"
+creation.invalidInput: '&c&lGeçersiz giriş, lütfen tekrar deneyin'
+comun.error: '&c&lBir hata oluştu, sunucu kaydını kontrol edin.'
+comun.invalidCmd: '&c&lGeçersiz komut, geçerli komutları görmek için /randomevent
+  yazın'
+comun.noPermission: '&c&lBunu yapmak için izniniz yok!'
+comun.pluginReload: '&6&lEklenti yeniden yüklendi!'
+match.matchFull: '&c&lOyun zaten dolu'
+match.waitingForPlayers: '&6&lOyuncular bekleniyor. ( %players% / %neededPlayers%
+  )'
+comun.spawnSet: '&6&lSpawn başarıyla ayarlandı'
+match.notInMatch: '&c&lBir etkinlikte değilsiniz'
+match.matchJoin: '&6&l[+] %player%'
+match.matchLeave: '&c&l[-] %player%'
+match.winRandomEvents: '&6&lTebrikler! Etkinliği kazandınız'
+announce.eventAnnounce: '&6&l%type% türündeki &e&l''%event%''&6&l etkinliği başlıyor: '
+announce.eventStopped: '&6&l%type% türündeki &e&l''%event%''&6&l etkinliği durduruldu.'
+announce.eventCancelled: '&6&l%type% türündeki &e&l''%event%''&6&l etkinliği oyuncu
+  eksikliğinden iptal edildi.'
+announce.tournamentCancelled: '&6&lTurnuva yeterli oyuncu olmadığı için iptal edildi.'
+comun.invalidPassword: '&c&lEtkinlik için şifre hatalı'
+comun.startingMatch: '&6&lMaç %time% saniye içinde başlıyor'
+comun.idleDamage: '&c&lAFK olduğunuz için zarar görüyorsunuz...'
+comun.youAreBanned: '&c&lRandomEvents etkinliğinden %time% tarihine kadar yasaklandınız'
+comun.nextEvent: '&c&lSonraki RandomEvent:'
+comun.nextEventIsRandom: '&6&lRandomEvent'
+comun.nextEventName: '&6&lEtkinlik: '
+scoreboard.title: '      &a&lRandomEvents      '
+scoreboard.points: '&6%name% - &e%points%'
+scoreboard.pointsteam: '%team_color%%name% - &e%points%'
+scoreboard.step: '&6%name% - &e(%actual%/%max%)'
+scoreboard.alive: '&a✔ %name%'
+scoreboard.dead: '&c☠ %name%'
+scoreboard.team.alive: '&a✔ %team_color%%name%'
+scoreboard.team.dead: '&c☠ %team_color%%name%'
+scoreboard.teamformat: '&6Takım: %team_color%%name%'
+scoreboard.teampoints: '%team_color%%team_name%: &e%points%'
+scoreboard.teammate: '&6Takım arkadaşı: &e%name%'
+scoreboard.beast: '&6Canavar: &e%name%'
+scoreboard.seekers: '&6Arayan: &e%name%'
+scoreboard.holder: '&6Sahip: &e%name%'
+scoreboard.round: '&3Tur: &e%round%'
+scoreboard.time: '&b%time%'
+stats.guiname: '&bRandomEvents_İstatistik'
+stats.alltime: '&6&lTüm_Zamanlar'
+credits.guiname: '&bRandomEvents_Mevcut'
+credits.guipage: '&6Sayfa'
+comun.leaveCommand: '&6&lArtık seyircisiniz. Çıkmak için &e&l/revent leave &6&lyazın'
+comun.errorSavingInventory: '&c&lEnvanter kaydedilirken hata oluştu, eşyalarınızı
+  saklayıp tekrar deneyin'
+stats.statsDisabled: '&c&lİstatistikler devre dışı'
+stats.statsTries: '&cDeneme: '
+stats.statsWins: '&2Kazanç: '
+stats.statsWinsRatio: '&eKazanç Oranı: '
+pvp.death: '&c☠ %victim%'
+pvp.kill: '&a%killer% &4⚔ &c%victim%'
+pvp.bowkill: '&a%killer% &4⚔ &c%victim%  &e( %distance% blok )'
+comun.eventDeleted: '&c&lRandomEvent silindi!'
+comun.eventDisabled: '&c&lRandomEvent devre dışı bırakıldı!'
+comun.eventEnabled: '&6&lRandomEvent etkinleştirildi!'
+comun.eventIsDisabled: '&c&lRandomEvent devre dışı!'
+comun.playerOffline: '&c&lOyuncu çevrimdışı!'
+comun.eventInvalid: '&c&lRandomEvent geçersiz!'
+comun.resetCoinsAll: '&6&lTüm oyuncuların paraları sıfırlandı'
+comun.resetTriesAll: '&6&lTüm deneme sayıları sıfırlandı'
+comun.resetWinsAll: '&6&lTüm kazançlar sıfırlandı'
+comun.resetCoinsPlayer: '&6&l%player% oyuncusunun paraları silindi'
+comun.resetTriesPlayer: '&6&l%player% oyuncusunun deneme sayıları sıfırlandı'
+comun.resetWinsPlayer: '&6&l%player% oyuncusunun kazançları silindi'
+item.returnCheckpoint: '&2&lKontrol noktasına dön'
+item.hidePlayer: '&c&lOyuncuları gizle'
+item.showPlayer: '&2&lOyuncuları göster'
+kit.guiName: '&6&lRandomEvents Kitleri'
+team.guiName: '&6&lTakımlar'
+kit.chosen: '&6&l%kit_name% kiti seçildi'
+kit.itemName: '&6&lKitler'
+team.itemName: '&6&lTakım'
+kit.defaultName: '&6&lKit: %kit_name%'
+kit.defaultLore:
+- '&eSeç!'
+- '&eBununla kazan!'
+minigameName.BattleRoyale: Battle Royale
+minigameName.DuoBattleRoyale: İkili Battle Royale
+minigameName.KnightsBattle: Şövalye Savaşı
+minigameName.TopKiller: En Çok Öldüren
+minigameName.DuoTopKiller: İkili En Çok Öldüren
+minigameName.KnockbackDuel: Knockback Düellosu
+minigameName.ArrowRain: Ok Yağmuru
+minigameName.AnvilSpleef: Örs Spleef
+minigameName.GemCarrier: Elmas Taşıyıcı
+minigameName.TNTTag: TNT Etiketi
+minigameName.BoatRace: Tekne Yarışı
+minigameName.HorseRace: At Yarışı
+minigameName.EscapeBeast: Canavardan Kaçış
+minigameName.Race: Yarış
+minigameName.TNTRun: TNT Koşusu
+minigameName.Spleef: Spleef
+minigameName.Splegg: Splegg
+minigameName.OITC: Chamber'da Tek
+minigameName.SurvivalGames: Hayatta Kalma Oyunları
+minigameName.DuoSurvivalGames: İkili Hayatta Kalma Oyunları
+minigameName.Skywars: SkyWars
+minigameName.DuoSkywars: İkili SkyWars
+minigameName.WaterDrop: Dropper
+minigameName.QuakeCraft: Quake Craft
+minigameName.Paintball: Paintball
+minigameName.PaintballTopKill: Paintball En Çok Öldüren
+minigameName.KingHill: Yokuş Kralı
+minigameName.FishSlap: Balık Tokadı
+minigameName.Hoehoehoe: Çapala Çapala
+minigameName.Splatoon: Splatoon
+minigameName.Bombardment: Bombardıman
+minigameName.RedGreenLight: Yeşil Işık-Kırmızı Işık
+minigameName.TeamBattleRoyale: Takım Battle Royale
+minigameName.TeamTopKiller: Takım En Çok Öldüren
+minigameName.TeamSkywars: Takım SkyWars
+minigameName.TeamSurvivalGames: Takım Hayatta Kalma Oyunları
+minigameName.BlockParty: Blok Partisi
+minigameName.HideAndSeek: Saklambaç
+minigameName.GlassWalk: Cam Yolu
+menu.helpMenu: '----------------- RandomeVents ---------------------'
+menu.showMenu: "/revent:\n          -> Bu menüyü gösteriyor"
+menu.join: "/Revent Birleştirme:\n          -> Rastgele Etkinliğe Katılın"
+menu.spec: "/Revent Spec:\n          -> Rastgele olayı izleyin"
+menu.tjoin: "/revent tjoin:\n          -> Turnuva rastgele etkinliğine katılın"
+menu.leave: "/Revent İzin:\n          -> Rastgele olayı bırakın"
+menu.tleave: "/revent tleave:\n          -> Turnuva Rastgele Etkinliğinden Bırakın"
+menu.stats: "/Revent İstatistikleri:\n          -> İstatistikleri göster"
+menu.statsOther: "/revent istatistikleri <Tarist>:\n          -> Bir oyuncunun istatistiklerini\
+  \ göster"
+menu.admin.forcestop: "/Revent Forcestop:\n          -> Rastgele olayın durmasını\
+  \ zorla"
+menu.admin.spawnset: "/Revent Yaygınlığı:\n          -> Rastgele bir olayı bitirdikten\
+  \ sonra oyuncuların ışınlanacağı yumurtlamayı ayarlayın"
+menu.admin.tspawnset: "/revent tspawnset:\n          -> Bir turnuva rastgele etkinliğe\
+  \ katıldıktan sonra oyuncuların ışınlanacağı yumurtlamayı ayarlayın"
+menu.admin.matches: "/revent eşleşmeleri:\n          -> Mevcut tüm rastgele olayları\
+  \ göster"
+menu.kits.list: "/revent kitleri:\n          -> Mevcut tüm kitleri göster"
+menu.kits.edit: "/revent kitedit <Id>:\n          -> bir kit düzenleyin"
+menu.checkpoint: "/Revent Kontrol Noktası:\n          -> Kullanıcının kontrol noktasına\
+  \ geri dönmesini sağlar"
+menu.next: "/SONRAKİ REVENT:\n          -> Bir sonraki planlanan rastgele olayları\
+  \ göster"
+menu.nextTimer: "/Revent NextTimer:\n          -> Sonraki zamanlanmış rastgele olayları\
+  \ göster"
+menu.admin.currentdate: "/Revent Tarihi:\n          -> Programın geçerli tarihini\
+  \ gösterir"
+menu.admin.schedule: "/Revent Programı <Pazartesi: Salı ...> <thour> <inesika>:\n\
+  \          -> Rastgele bir olay için bir program oluşturun"
+menu.admin.scheduleSpecific: "/Revent Programı <Pazartesi: Salı ...> <thour> <ineshing>\
+  \ <Idmatch>:\n          -> Rastgele bir olay ve belirli eşleşme için bir program\
+  \ oluşturun"
+menu.admin.forcebegin: "/Revent Forcebegin:\n          -> Maça başlamak için güç"
+menu.admin.force: "/revent başlangıç:\n          -> rastgele bir etkinliğe başlar"
+menu.admin.tforce: "/revent tbegin:\n          -> Turnuva rastgele bir etkinliğe başlar"
+menu.admin.forceSpecific: "/Revent Begin <Number>:\n          -> belirli bir rastgele\
+  \ olaya başlar"
+menu.guicmd: "/revent gui:\n          -> Mevcut olayları gösterir GUI"
+menu.admin.givecreditsrandom: "/revent giveCredits <Terces> <mater>:\n          ->\
+  \ Bir oyuncuya rastgele seçilmiş bir etkinliğin kredisi verin"
+menu.admin.givecreditsspecific: "/revent giveCredits <VerentName> <inger> <mater>:\n\
+  \          -> Belirli bir etkinliğin kredilerini bir oyuncuya verin"
+menu.admin.balcreditsown: "/Revent kredileri:\n          -> kredilerinizi gösterir"
+menu.admin.balcreditsother: "/revent kredileri <Terces>:\n          -> oyuncu kredilerini\
+  \ gösterir"
+menu.admin.ban: "/Revent Ban <Berter> <time>:\n          -> RandomeVents'ten bir oyuncuyu\
+  \ yasaklayın"
+menu.admin.unban: "/Revent Ungan <Berer>:\n          -> RandoMevents'ten bir oyuncuyu\
+  \ kaldırın"
+menu.admin.create: "/Revent Oluştur:\n          -> Rastgele bir olay yaratmaya başlayın"
+menu.admin.delete: "/revent sil <sume>:\n          -> Rastgele bir olayı sil"
+menu.admin.disable: "/Revent Devre Dışı Bırak <Numara>:\n          -> rastgele bir\
+  \ olayı devre dışı bırakır"
+menu.admin.enable: "/revent enable <Sumar>:\n          -> rastgele bir olayı etkinleştirir"
+menu.admin.disableschedule: "/revent dağıtır.\n          -> Programda rastgele bir\
+  \ olayı devre dışı bırakır"
+menu.admin.enableschedule: "/Revent, <Numara> 'i etkinleştirir:\n          -> Programda\
+  \ rastgele bir etkinlik sağlar"
+menu.admin.edit: "/Revent Düzenle <Numara>:\n          -> rastgele bir olayı düzenler"
+menu.admin.tp: "/revent tp <Sune>:\n          -> Rastgele bir etkinliğe ışınlanma"
+menu.toggleAnnouncement: "/Revent ToggleanNoundemaned:\n          -> Rastgele bir\
+  \ olay yumurtlamasının duyurusunu değiştirin"
+menu.admin.cancel: "/Revent İptal:\n          -> Rastgele bir olayın oluşturulmasını\
+  \ iptal ediyor"
+menu.admin.resetCoins: "/Revent ResetCredits:\n          -> Tüm kredileri sıfırlayın"
+menu.admin.resetCoinsPlayer: "/revent resetcredits <Terces>:\n          -> Bir oyuncu\
+  \ için tüm kredileri sıfırlayın"
+menu.admin.resetTries: "/Revent Resettres:\n          -> Tüm denemeleri sıfırla"
+menu.admin.resetTriesPlayer: "/revent sıfırlama <player>:\n          -> Bir oyuncu\
+  \ için tüm denemeleri sıfırlayın"
+menu.admin.resetTriesGame: "/revent resettriesgame <Mamam>:\n          -> Bir oyun\
+  \ için tüm denemeleri sıfırlayın"
+menu.admin.resetTriesGamePlayer: "/revent sıfatları <Mamam> <iNer>:\n          ->\
+  \ Bir oyun ve oyuncu için tüm denemeleri sıfırlayın"
+menu.admin.resetWins: "/Revent Resetwins:\n          -> Tüm kazançları sıfırlayın"
+menu.admin.resetWinsPlayer: "/revent resetwins <Berter>:\n          -> Bir oyuncu\
+  \ için tüm kazançları sıfırlayın"
+menu.admin.resetWinsGame: "/revent resetwinsgame <Mamam>:\n          -> Bir oyun için\
+  \ tüm kazançları sıfırlayın"
+menu.admin.resetWinsGamePlayer: "/revent resetwins <A2 oyun> <oyuncu>:\n         \
+  \ -> Bir oyun ve oyuncu için tüm kazançları sıfırlayın"
+menu.admin.reload: "/revent yeniden yükleme:\n          -> Eklentiyi yeniden yükleyin"
+tagPlugin: RandoMevents >>
+tagChat: '[RandoMevents]'
+comun.banPlayer: Oyuncu %Oyuncu %Bastırıldı %zamana kadar %
+comun.unbanPlayer: Oyuncu % Oyuncu % RandoMevents'den yasaklandı
+comun.playerNotBanned: Oyuncu randomeventlerden yasaklanmadı
+comun.noScheduledEvents: Planlanmış randomevents yok
+comun.announcementDisabled: Duyuruları devre dışı bıraktınız
+comun.announcementEnabled: Duyurularınız tekrar etkinleştirildi!
+creation.cancelOfMatchCreation: Olay oluşturma iptal edildi
+creation.lacksInfoCreation: Etkinlik oluşturulamıyor, bilgi yok, alanları tekrar kontrol
+  ediyor
+comun.shrink: Harita Sınırı % zaman içinde % saniye içinde daralıyor
+comun.refill: Göğüs yeniden dolduruldu.
+comun.refillTime: 'Yeniden doldurma zamanı:'
+comun.shrinkTime: 'Büzülme süresi:'
+comun.warmupEnd: Isınma sonu % zaman % saniye
+comun.playersMove: Oyuncular % zaman % saniye hareket edebilecek
+comun.secondsRemaining3: '3'
+comun.secondsRemaining2: '2'
+comun.secondsRemaining1: '1'
+comun.cmdNotAllowed: Bu komutu burada kullanamazsın
+creation.endOfArenaCreation: Başarıyla bir randomeevents yarattınız!
+creation.endOfKitCreation: Bir kiti başarıyla düzenlediniz!
+creation.endOfScheduleCreation: Başarıyla bir program oluşturdunuz!
+creation.cancelOfArenaCreation: Bir RandoMevents'in oluşturulmasını iptal ettiniz!
+match.alreadyPlayingMatch: Başlarsa maçı terk edemezsin
+match.matchBegun: Etkinlik başladı, şimdi katılamıyorsun
+match.matches: 'Maçlar:'
+match.alreadyMatch: Biri hala çalışırken başka bir etkinlik oluşturamazsınız
+announce.announceFirst: "████████\n████████\n████████ Rastgele olay\n████████ %Tip\
+  \ %\n████████ [%Oyuncular%/%gerekli oyuncılar%] \n████████ %ClickHere % \n████████\n\
+  ████████"
+announce.announceNext: Rastgele Olay >>%Tip%%BURADA TIKLAYIN [%Oyuncular%/%İhtiyaç
+  sahibi oyuncular%]
+announce.announceFirstTournament: "████████\n████████\n████████ Turnuva rastgele etkinliği\n\
+  ████████  \n████████ [%Oyuncular%/%gerekli oyuncılar%] \n████████ %ClickHere % \n\
+  ████████\n████████"
+announce.announceNextTournament: Turnuva Rastgele Etkinlik >>%ClickHere%[%Oyuncular%/%ihtiyaç
+  duyan oyuncılar%]
+announce.clickHere: '[Katılmak için buraya tıklayın]'
+announce.raceTournament: Oyuncu % Oyuncu % hedefe ulaştı ( % Oyuncular % / % ihtiyaç
+  duyan oyuncılar %)
+announce.youBeast: Sen canavarsın, arenaya ışınlanana kadar bekle
+match.tournamentAlive: 'Bu oyuncular hala turnuvada hayatta kalıyor:'
+match.winners: '%Oyuncular Rastgele Etkinlik ''%Olay%'' kazandı! Tebrikler!'
+match.winnersTournament: '% Oyuncular Turnuva rastgele etkinliğini kazandı! Tebrikler!'
+match.winnersPoints: '%Oyuncular%puanla%puanla rastgele ''%etkinlik'' kazandı! Tebrikler!'
+comun.disposeLeatherItems: Güvenlik nedeniyle lütfen etkinliğe girmeden önce deri
+  eşyalarınızı bırakın
+comun.clearInventory: Randomevent'e katılmadan önce envanteri temizleyin
+comun.daysFormat: '% gün% H'
+comun.hoursFormat: '% saat% saat'
+comun.minutesFormat: '% dakika% m'
+comun.secondsFormat: '% saniye% s'
+match.showAlone: Yalnız oynuyorsun, iyi şanslar!
+match.showTeam: 'Ekibiniz: %Oyuncular %'
+match.timeRemaining: '% Dakika% Kalan'
+match.nowPoints: Şimdi % puanınız var % puan
+match.nowGems: Oyuncu % Player % şimdi % puan % Gems var
+match.nowProtected: Şimdi 3 saniye korunuyorsunuz
+match.matchBeginSoon: Rastgele olay yakında başlayacak
+match.lostGems: '% Oyuncu Tüm Taşları Kaybetti'
+match.greenRedLightMove: TAŞINMAK
+match.greenRedLightStop: DURMAK
+match.playerWinning: Oyuncu % Player % yeterli mücevher var, onu öldür ya da maç bitecek
+match.playerWinningSeconds: '% Oyuncu% saniye% saniye kazanır'
+match.bombSeconds: Bomba % saniye % saniye içinde patlar
+match.playerHasBomb: Oyuncu % Oyuncu % bomba var
+match.bombExplode: Oyuncu % Oyuncu % patladı
+credits.addedother: '%kredi%kredi%player%için eklendi%'
+credits.addedown: '% krediler% etkinlik için% kredi hesabınıza eklendi'
+credits.balance: '% kredi% kredi'
+credits.cooldown: Bekleme noktasında
+credits.eventrunning: Etkinlik çalışıyor!
+credits.ready: Hazır
+minigame.description.GLASSWALK: Sahte cama dikkat edin, ulaşılacak kişi olun; Times
+  0'a ulaşmadan önceki hedef; yoksa hepiniz öleceksiniz.
+minigame.description.BR: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya takım
+  hayatta kalabilir.
+minigame.description.BRT2: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya takım
+  hayatta kalabilir.
+minigame.description.LJ: Sadece 1 oyuncunun olduğu şiddetli bir savaş; atı ile hayatta
+  kalabilir.
+minigame.description.TKLL: Sadece en güçlü suikastçı bu etkinliği kazanabilir, oyuncuları
+  puan almak için öldürebilir; Daha fazla puanı olan oyuncu ödülleri alacak
+minigame.description.TKLLT2: Sadece en güçlü suikastçı bu etkinliği kazanabilir, oyuncuları
+  puan almak için öldürebilir; Daha fazla puanı olan takım ödülleri alacak
+minigame.description.KBD: Saldırı gücünüzün önemli olmadığı bir savaş, bir strateji
+  yapmanız gerekecek; Düşmanları arenadan uzaklaştırmak için onları öldürmek için!;
+  Duran son kişi!
+minigame.description.EARR: Eğer varsa gökten gelen oklardan kaçının; Başını kaybetmek
+  istemiyorum!
+minigame.description.GEMC: Rastgele mücevherler arenada ortaya çıkacak. 10 mücevher
+  ulaşana kadar hepsini almaya çalışın; Ya da onları alan düşmanlardan çalar. 10 saniye
+  durun; Daha fazla 10 mücevher taşıyor ve ellerinizi ödüle alacaksınız!
+minigame.description.BOMB: Bomba ile koşun ve onlara vermek ve kendi ölümünüzden kaçınmak
+  için düşmanlara çarpın.;  Zaman zaman bomba patlayacak ve sahip olan oyuncuyu alacak;
+  Ve onun yakınındaki herkes öldü.
+minigame.description.BOAT_RUN: En hızlı denizci olun ve daha önce bitiş çizgisine
+  ulaşın; Takipçileriniz!
+minigame.description.HORSE_RUN: En hızlı at sürücüsü olun ve daha önce bitiş çizgisine
+  ulaşın; Takipçileriniz!
+minigame.description.ESCAPE_FROM_BEAST: Canavar mini oyundan klasik koşu!; Tüm senaryoyu
+  tamamlayarak canavarı yenin ve yeterli ekipman alın; Canavara zarar vermek için!
+minigame.description.RACE: Koşun ve hedefe ilk ulaşan kişi olun; Ödülünüzü almak için!
+minigame.description.WDROP: Koşun ve güvenli bırakın!; Son hedefe ilk ulaşan kişi
+  olmak; Ödülünüzü almak için!
+minigame.description.TNTRUN: Hayatınız için koş, arkanızdaki TNT kaybolacak; Maçı
+  kazanmak için onların üzerinde kalmaya çalışın!
+minigame.description.SPLEEF: Diğer oyuncuların fotlarındaki blokları kırarak düşmesini
+  sağlayın; Ödülü kazanmak için güvende kalan kişi olun!
+minigame.description.SPLEGG: Başka bir Spleef türü ama bu sefer yumurta atmak için
+  tabancanızı kullanın; Bu zemini kıracak!
+minigame.description.OITC: Oklar letal olan oyun, puan almak için düşmanlarınıza çarptı;
+  Ve eğer oklardan çıkarsan ... iyi şanslar!
+minigame.description.SG: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya takım
+  hayatta kalabilir.
+minigame.description.TSG: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya takım
+  hayatta kalabilir.
+minigame.description.SW: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya takım
+  hayatta kalabilir.
+minigame.description.TSW: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya takım
+  hayatta kalabilir.
+minigame.description.ANVIL_SPLEEF: Eğer iseniz gökyüzünden gelen örslerden kaçının;
+  Başını kaybetmek istemiyorum!
+minigame.description.QUAKE: Atlamak için sol tıklayın, çekim yapmak için sağ tıklayın!;
+  Düşmanlarınızı vur!; Hepsini ölün!
+minigame.description.PBALL: Düşmanlarınızı kartopu ile vur!;; Hepsini ölün!
+minigame.description.KOTH: Tüm puanları almak için bölgedeki kişi olun!; Tüm düşmanlarını
+  öldür!
+minigame.description.HOE: Tüm zemini renginizle boyayın!; Renkli maçı kazanın!
+minigame.description.FISHSLAP: Tırmanışta kalın ve!; Balık tokatlarının farkında olun!
+minigame.description.SPLATOON: Tüm alanı boyayın; Maçı kazanmak için renginize!
+minigame.description.TSGTEAMS: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya
+  takım hayatta kalabilir.
+minigame.description.TSWTEAMS: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya
+  takım hayatta kalabilir.
+minigame.description.TKLLTEAMS: Sadece en güçlü suikastçı bu etkinliği kazanabilir,
+  oyuncuları puan almak için öldürebilir; Daha fazla puanı olan takım ödülleri alacak
+minigame.description.PBALLTK: Düşmanlarınıza kartopu atın; sadece en güçlü suikastçı
+  bu etkinliği kazanabilir, oyuncuları puan almak için öldürebilir; Daha fazla puanı
+  olan takım ödülleri alacak
+minigame.description.BRTEAMS: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya takım
+  hayatta kalabilir.
+minigame.description.REDGREEN: Hedefe ilk ulaşan kişi olun, ama dikkat et; Sadece
+  müzik açıkken yürüyün.
+minigame.description.BOMBARDMENT: Kaçınmak; Maçı kazanmak için ateş topları!
+minigame.description.BLOCKPARTY: Bloklar kaybolduğunda düşmemeye çalışın; bloğu doğru
+  renklerle arayın ve hayatta kalın; Kazanana kadar!
+minigame.description.HIDEANDSEEK: Arayanlardan saklanın ya da belki de; Maçınızı kazanmak
+  için!
