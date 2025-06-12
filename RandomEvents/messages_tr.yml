@@ -117,52 +117,35 @@ minigameName.TeamSurvivalGames: Takım Hayatta Kalma Oyunları
 minigameName.BlockParty: Blok Partisi
 minigameName.HideAndSeek: Saklambaç
 minigameName.GlassWalk: Cam Yolu
-menu.helpMenu: '----------------- RandomEvents ---------------------'
-menu.showMenu: "/revent:\n          -> Bu menüyü gösteriyor"
-menu.join: "/Revent Birleştirme:\n          -> Rastgele Etkinliğe Katılın"
-menu.spec: "/Revent Spec:\n          -> Rastgele olayı izleyin"
-menu.tjoin: "/revent tjoin:\n          -> Turnuva rastgele etkinliğine katılın"
-menu.leave: "/Revent İzin:\n          -> Rastgele olayı bırakın"
-menu.tleave: "/revent tleave:\n          -> Turnuva Rastgele Etkinliğinden Bırakın"
-menu.stats: "/Revent İstatistikleri:\n          -> İstatistikleri göster"
-menu.statsOther: "/revent istatistikleri <Tarist>:\n          -> Bir oyuncunun istatistiklerini\
-  \ göster"
-menu.admin.forcestop: "/Revent Forcestop:\n          -> Rastgele olayın durmasını\
-  \ zorla"
-menu.admin.spawnset: "/Revent Yaygınlığı:\n          -> Rastgele bir olayı bitirdikten\
-  \ sonra oyuncuların ışınlanacağı yumurtlamayı ayarlayın"
-menu.admin.tspawnset: "/revent tspawnset:\n          -> Bir turnuva rastgele etkinliğe\
-  \ katıldıktan sonra oyuncuların ışınlanacağı yumurtlamayı ayarlayın"
-menu.admin.matches: "/revent eşleşmeleri:\n          -> Mevcut tüm rastgele olayları\
-  \ göster"
-menu.kits.list: "/revent kitleri:\n          -> Mevcut tüm kitleri göster"
-menu.kits.edit: "/revent kitedit <Id>:\n          -> bir kit düzenleyin"
-menu.checkpoint: "/Revent Kontrol Noktası:\n          -> Kullanıcının kontrol noktasına\
-  \ geri dönmesini sağlar"
-menu.next: "/SONRAKİ REVENT:\n          -> Bir sonraki planlanan rastgele olayları\
-  \ göster"
-menu.nextTimer: "/Revent NextTimer:\n          -> Sonraki zamanlanmış rastgele olayları\
-  \ göster"
-menu.admin.currentdate: "/Revent Tarihi:\n          -> Programın geçerli tarihini\
-  \ gösterir"
-menu.admin.schedule: "/Revent Programı <Pazartesi: Salı ...> <thour> <inesika>:\n\
-  \          -> Rastgele bir olay için bir program oluşturun"
-menu.admin.scheduleSpecific: "/Revent Programı <Pazartesi: Salı ...> <thour> <ineshing>\
-  \ <Idmatch>:\n          -> Rastgele bir olay ve belirli eşleşme için bir program\
-  \ oluşturun"
-menu.admin.forcebegin: "/Revent Forcebegin:\n          -> Maça başlamak için güç"
-menu.admin.force: "/revent başlangıç:\n          -> rastgele bir etkinliğe başlar"
-menu.admin.tforce: "/revent tbegin:\n          -> Turnuva rastgele bir etkinliğe başlar"
-menu.admin.forceSpecific: "/Revent Begin <Number>:\n          -> belirli bir rastgele\
-  \ olaya başlar"
-menu.guicmd: "/revent gui:\n          -> Mevcut olayları gösterir GUI"
-menu.admin.givecreditsrandom: "/revent giveCredits <Terces> <mater>:\n          ->\
-  \ Bir oyuncuya rastgele seçilmiş bir etkinliğin kredisi verin"
-menu.admin.givecreditsspecific: "/revent giveCredits <VerentName> <inger> <mater>:\n\
-  \          -> Belirli bir etkinliğin kredilerini bir oyuncuya verin"
-menu.admin.balcreditsown: "/Revent kredileri:\n          -> kredilerinizi gösterir"
-menu.admin.balcreditsother: "/revent kredileri <Terces>:\n          -> oyuncu kredilerini\
-  \ gösterir"
+menu.helpMenu: "&6----------------- &e&lRandomEvents &6---------------------"
+menu.showMenu: "   &6/revent:\n          &e-> Bu menüyü gösteriyor"
+menu.join: "   &6/revent join:\n          &e-> Rastgele Etkinliğe Katılın"
+menu.spec: "   &6/revent spec:\n          &e-> Rastgele olayı izleyin"
+menu.tjoin: "   &6/revent tjoin:\n          &e-> Turnuva rastgele etkinliğine katılın"
+menu.leave: "   &6/revent leave:\n          &e-> Rastgele olayı bırakın"
+menu.tleave: "   &6/revent tleave:\n          &e-> Turnuva Rastgele Etkinliğinden Bırakın"
+menu.stats: "   &6/revent stats:\n          &e-> İstatistikleri göster"
+menu.statsOther: "   &6/revent stats <oyuncu>:\n          &e-> Bir oyuncunun istatistiklerini göster"
+menu.admin.forcestop: "   &6/revent forcestop:\n          &e-> Rastgele olayın durmasını zorla"
+menu.admin.spawnset: "   &6/revent spawnset:\n          &e-> Rastgele bir olayı bitirdikten sonra oyuncuların ışınlanacağı spawnı ayarlayın"
+menu.admin.tspawnset: "   &6/revent tspawnset:\n          &e-> Bir turnuva rastgele etkinliğe katıldıktan sonra oyuncuların ışınlanacağı spawnı ayarlayın"
+menu.admin.matches: "   &6/revent matches:\n          &e-> Mevcut tüm rastgele olayları göster"
+menu.kits.list: "   &6/revent kits:\n          &e-> Mevcut tüm kitleri göster"
+menu.kits.edit: "   &6/revent kitedit <id>:\n          &e-> Bir kiti düzenleyin"
+menu.checkpoint: "   &6/revent checkpoint:\n          &e-> Kullanıcının kontrol noktasına geri dönmesini sağlar"
+menu.next: "   &6/revent next:\n          &e-> Bir sonraki planlanan rastgele olayları göster"
+menu.nextTimer: "   &6/revent nexttimer:\n          &e-> Sonraki zamanlanmış rastgele olayları göster"
+menu.admin.currentdate: "   &6/revent date:\n          &e-> Programın geçerli tarihini göster"
+menu.admin.schedule: "   &6/revent schedule <gun> <saat> <dakika>:\n          &e-> Rastgele bir olay için bir program oluşturun"
+menu.admin.scheduleSpecific: "   &6/revent schedule <gun> <saat> <dakika> <idmatch>:\n          &e-> Rastgele bir olay ve belirli maç için bir program oluşturun"
+menu.admin.forcebegin: "   &6/revent forcebegin:\n          &e-> Maça başlamak için güç"
+menu.admin.force: "   &6/revent begin:\n          &e-> Rastgele bir etkinliğe başlar"
+menu.admin.tforce: "   &6/revent tbegin:\n          &e-> Turnuva rastgele bir etkinliğe başlar"
+menu.admin.forceSpecific: "   &6/revent begin <sayi>:\n          &e-> Belirli bir rastgele olaya başlar"
+menu.admin.givecreditsrandom: "   &6/revent givecredits <oyuncu> <miktar>:\n          &e-> Rastgele seçilmiş bir etkinliğin kredisini ver"
+menu.admin.givecreditsspecific: "   &6/revent givecredits <etkinlikAdi> <oyuncu> <miktar>:\n          &e-> Belirli bir etkinliğin kredisini bir oyuncuya ver"
+menu.admin.balcreditsown: "   &6/revent credits:\n          &e-> Kredilerinizi gösterir"
+menu.admin.balcreditsother: "   &6/revent credits <oyuncu>:\n          &e-> Oyuncu kredilerini gösterir"
 menu.admin.ban: "/Revent Ban <Berter> <time>:\n          -> RandomEvents'ten bir oyuncuyu\
   \ yasaklayın"
 menu.admin.unban: "/Revent Ungan <Berer>:\n          -> RandomEvents'ten bir oyuncuyu\
@@ -200,8 +183,8 @@ menu.admin.resetWinsGame: "/revent resetwinsgame <Mamam>:\n          -> Bir oyun
 menu.admin.resetWinsGamePlayer: "/revent resetwins <A2 oyun> <oyuncu>:\n         \
   \ -> Bir oyun ve oyuncu için tüm kazançları sıfırlayın"
 menu.admin.reload: "/revent yeniden yükleme:\n          -> Eklentiyi yeniden yükleyin"
-tagPlugin: RandomEvents >>
-tagChat: '[RandomEvents]'
+tagPlugin: "&a&lRandomEvents &f&l>>"
+tagChat: "&f[&eRandomEvents&f]"
 comun.banPlayer: Oyuncu %Oyuncu %Bastırıldı %zamana kadar %
 comun.unbanPlayer: Oyuncu % Oyuncu % RandomEvents'den yasaklandı
 comun.playerNotBanned: Oyuncu randomeventlerden yasaklanmadı
