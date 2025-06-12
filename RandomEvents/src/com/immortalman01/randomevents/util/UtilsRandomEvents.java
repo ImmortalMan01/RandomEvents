@@ -3599,7 +3599,7 @@ public class UtilsRandomEvents {
 		return res;
 	}
 
-	public static Integer getTeamMorePlayers(RandomEvents plugin, Map<Integer, Set<Player>> teams) {
+public static Integer getTeamMorePlayers(RandomEvents plugin, Map<Integer, Set<Player>> teams) {
 
 		Integer max = 0;
 		Integer res = 0;
@@ -3611,9 +3611,24 @@ public class UtilsRandomEvents {
 			}
 
 		}
-		return res;
+return res;
 
-	}
+}
+
+public static int parseProbability(String value) {
+if (value == null) {
+return 0;
+}
+String digits = value.replaceAll("[^0-9]", "");
+if (digits.isEmpty()) {
+return 0;
+}
+try {
+return Integer.parseInt(digits);
+} catch (NumberFormatException e) {
+return 0;
+}
+}
 
 	public static void doCommandsKill(Player p, RandomEvents plugin) {
 		for (String cmd : plugin.getReventConfig().getCommandsOnKill()) {
@@ -3621,8 +3636,8 @@ public class UtilsRandomEvents {
 			Boolean ejecutaComando = Boolean.TRUE;
 			String[] trozosComandos = cmd.split(" ");
 
-			if (trozosComandos[0].trim().equals(Constantes.PROBABILITY_CMD)) {
-				Integer probabilidad = Integer.valueOf(trozosComandos[1]);
+if (trozosComandos[0].trim().equals(Constantes.PROBABILITY_CMD)) {
+Integer probabilidad = parseProbability(trozosComandos[1]);
 				Integer aleatorio = plugin.getRandom().nextInt(100);
 
 				if (aleatorio > probabilidad) {
