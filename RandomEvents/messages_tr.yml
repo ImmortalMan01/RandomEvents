@@ -200,8 +200,8 @@ menu.admin.resetWinsGamePlayer: "/revent resetwins <A2 oyun> <oyuncu>:\n        
 menu.admin.reload: "/revent yeniden yükleme:\n          -> Eklentiyi yeniden yükleyin"
 tagPlugin: "&a&lRandomEvents &f&l>>"
 tagChat: "&f[&eRandomEvents&f]"
-comun.banPlayer: Oyuncu %Oyuncu %Bastırıldı %zamana kadar %
-comun.unbanPlayer: Oyuncu % Oyuncu % RandomEvents'den yasaklandı
+comun.banPlayer: Oyuncu %player% %time% tarihine kadar yasaklandı
+comun.unbanPlayer: Oyuncu %player% RandomEvents'den yasaklandı
 comun.playerNotBanned: Oyuncu randomeventlerden yasaklanmadı
 comun.noScheduledEvents: Planlanmış randomevents yok
 comun.announcementDisabled: Duyuruları devre dışı bıraktınız
@@ -209,12 +209,12 @@ comun.announcementEnabled: Duyurularınız tekrar etkinleştirildi!
 creation.cancelOfMatchCreation: Olay oluşturma iptal edildi
 creation.lacksInfoCreation: Etkinlik oluşturulamıyor, bilgi yok, alanları tekrar kontrol
   ediyor
-comun.shrink: Harita Sınırı % zaman içinde % saniye içinde daralıyor
+comun.shrink: Harita Sınırı %time% saniye içinde daralıyor
 comun.refill: Göğüs yeniden dolduruldu.
 comun.refillTime: 'Yeniden doldurma zamanı:'
 comun.shrinkTime: 'Büzülme süresi:'
-comun.warmupEnd: Isınma sonu % zaman % saniye
-comun.playersMove: Oyuncular % zaman % saniye hareket edebilecek
+comun.warmupEnd: Isınma sonu %time% saniye
+comun.playersMove: Oyuncular %time% saniye hareket edebilecek
 comun.secondsRemaining3: '3'
 comun.secondsRemaining2: '2'
 comun.secondsRemaining1: '1'
@@ -227,43 +227,37 @@ match.alreadyPlayingMatch: Başlarsa maçı terk edemezsin
 match.matchBegun: Etkinlik başladı, şimdi katılamıyorsun
 match.matches: 'Maçlar:'
 match.alreadyMatch: Biri hala çalışırken başka bir etkinlik oluşturamazsınız
-announce.announceFirst: "████████\n████████\n████████ Rastgele olay\n████████ %Tip%\n████████ [%Oyuncular%/%gerekli oyuncılar%] \n████████ %clickhere% \n████████\n████████"
-announce.announceNext: Rastgele Olay >>%Tip% %clickhere% [%Oyuncular%/%İhtiyaç sahibi oyuncular%]
-announce.announceFirstTournament: "████████\n████████\n████████ Turnuva rastgele etkinliği\n████████\n████████ [%Oyuncular%/%gerekli oyuncılar%] \n████████ %clickhere% \n████████\n████████"
-announce.announceNextTournament: Turnuva Rastgele Etkinlik >> %clickhere% [%Oyuncular%/%ihtiyaç duyan oyuncular%]
-announce.raceTournament: Oyuncu % Oyuncu % hedefe ulaştı ( % Oyuncular % / % ihtiyaç
-  duyan oyuncılar %)
+announce.announceFirst: "████████\n████████\n████████ Rastgele olay\n████████ %type%\n████████ [%players%/%neededPlayers%] \n████████ %clickhere% \n████████\n████████"
+announce.announceNext: Rastgele Olay >>%type% %clickhere% [%players%/%neededPlayers%]
+announce.announceFirstTournament: "████████\n████████\n████████ Turnuva rastgele etkinliği\n████████\n████████ [%players%/%neededPlayers%] \n████████ %clickhere% \n████████\n████████"
+announce.announceNextTournament: Turnuva Rastgele Etkinlik >> %clickhere% [%players%/%neededPlayers%]
+announce.raceTournament: Oyuncu %player% hedefe ulaştı ( %players% / %neededPlayers% )
 announce.youBeast: Sen canavarsın, arenaya ışınlanana kadar bekle
 match.tournamentAlive: 'Bu oyuncular hala turnuvada hayatta kalıyor:'
-match.winners: '%Oyuncular Rastgele Etkinlik ''%Olay%'' kazandı! Tebrikler!'
-match.winnersTournament: '% Oyuncular Turnuva rastgele etkinliğini kazandı! Tebrikler!'
-match.winnersPoints: '%Oyuncular%puanla%puanla rastgele ''%etkinlik'' kazandı! Tebrikler!'
-comun.disposeLeatherItems: Güvenlik nedeniyle lütfen etkinliğe girmeden önce deri
-  eşyalarınızı bırakın
-comun.clearInventory: Randomevent'e katılmadan önce envanteri temizleyin
+match.winners: '%players% Rastgele Etkinlik ''%event%'' kazandı! Tebrikler!'
+match.winnersTournament: '%players% Turnuva rastgele etkinliğini kazandı! Tebrikler!'
+match.winnersPoints: '%players% rastgele ''%event%'' %points% puanla kazandı! Tebrikler!'
+comun.disposeLeatherItems: Güvenlik nedeniyle lütfen etkinliğe girmeden önce deri eşyalarınızı bırakın
 comun.daysFormat: '% gün% H'
 comun.hoursFormat: '% saat% saat'
 comun.minutesFormat: '% dakika% m'
 comun.secondsFormat: '% saniye% s'
 match.showAlone: Yalnız oynuyorsun, iyi şanslar!
-match.showTeam: 'Ekibiniz: %Oyuncular %'
-match.timeRemaining: '% Dakika% Kalan'
-match.nowPoints: Şimdi % puanınız var % puan
-match.nowGems: Oyuncu % Player % şimdi % puan % Gems var
-match.nowProtected: Şimdi 3 saniye korunuyorsunuz
+match.showTeam: 'Ekibiniz: %players%'
+match.timeRemaining: '%minutes% Kalan'
+match.nowPoints: Şimdi %points% puanınız var
+match.nowGems: Oyuncu %player% şimdi %points% Gems var
 match.matchBeginSoon: Rastgele olay yakında başlayacak
-match.lostGems: '% Oyuncu Tüm Taşları Kaybetti'
-match.greenRedLightMove: TAŞINMAK
+match.lostGems: '%player% Tüm Taşları Kaybetti'
 match.greenRedLightStop: DURMAK
-match.playerWinning: Oyuncu % Player % yeterli mücevher var, onu öldür ya da maç bitecek
-match.playerWinningSeconds: '% Oyuncu% saniye% saniye kazanır'
-match.bombSeconds: Bomba % saniye % saniye içinde patlar
-match.playerHasBomb: Oyuncu % Oyuncu % bomba var
-match.bombExplode: Oyuncu % Oyuncu % patladı
-credits.addedother: '%kredi%kredi%player%için eklendi%'
-credits.addedown: '% krediler% etkinlik için% kredi hesabınıza eklendi'
-credits.balance: '% kredi% kredi'
-credits.cooldown: Bekleme noktasında
+match.playerWinning: Oyuncu %player% yeterli mücevher var, onu öldür ya da maç bitecek
+match.playerWinningSeconds: '%player% %seconds% saniye içinde kazanır'
+match.bombSeconds: Bomba %seconds% saniye içinde patlar
+match.playerHasBomb: Oyuncu %player% bomba var
+match.bombExplode: Oyuncu %player% patladı
+credits.addedother: '%credits% kredi %event% için %player% oyuncusuna eklendi'
+credits.addedown: '%credits% kredi %event% etkinliği için hesabınıza eklendi'
+credits.balance: '%credits% kredi'
 credits.eventrunning: Etkinlik çalışıyor!
 credits.ready: Hazır
 minigame.description.GLASSWALK: Sahte cama dikkat edin, ulaşılacak kişi olun; Times
