@@ -74,6 +74,7 @@ import com.immortalman01.randomevents.match.utils.BannedPlayers;
 import com.immortalman01.randomevents.match.utils.Cuboid;
 import com.immortalman01.randomevents.match.utils.InventoryPers;
 import com.immortalman01.randomevents.stats.Stats;
+import com.immortalman01.randomevents.util.RandomEventsHolder;
 import com.immortalman01.util.enums.Particle1711;
 import com.immortalman01.util.enums.ParticleDisplay;
 import com.immortalman01.util.enums.XMaterial;
@@ -1615,8 +1616,9 @@ public class UtilsRandomEvents {
 	}
 
 	public static Inventory createGUI(String name, Stats estadisticas, RandomEvents plugin) {
-		Inventory inv = Bukkit.createInventory(null, plugin.getReventConfig().getStatsSize(),
-				plugin.getLanguage().getStatsGuiName() + name);
+               Inventory inv = Bukkit.createInventory(new RandomEventsHolder(),
+                               plugin.getReventConfig().getStatsSize(),
+                               plugin.getLanguage().getStatsGuiName() + name);
 		for (MinigameType minigame : MinigameType.values()) {
 			Integer position = -1;
 			try {
@@ -3283,7 +3285,8 @@ public class UtilsRandomEvents {
 
 	public static Inventory createGUICredits(Player p, Map<String, Integer> creditos, Integer page,
 			RandomEvents plugin) {
-		Inventory inv = Bukkit.createInventory(null, 45, plugin.getLanguage().getCreditsGuiName());
+               Inventory inv = Bukkit.createInventory(new RandomEventsHolder(), 45,
+                               plugin.getLanguage().getCreditsGuiName());
 		ItemStack nextPage = new ItemStack(XMaterial.OAK_SIGN.parseMaterial());
 		ItemStack backPage = new ItemStack(XMaterial.OAK_SIGN.parseMaterial());
 		ItemMeta nextPageMeta = nextPage.getItemMeta();
@@ -3385,14 +3388,16 @@ public class UtilsRandomEvents {
 
 	public static Inventory createGUIKits(Player p, Integer page, RandomEvents plugin, MatchActive matchActive) {
 
-		Inventory inv = Bukkit.createInventory(null, 45, plugin.getLanguage().getKitGuiName());
+               Inventory inv = Bukkit.createInventory(new RandomEventsHolder(), 45,
+                               plugin.getLanguage().getKitGuiName());
 
 		if (matchActive != null) {
 			Match match = matchActive.getMatch();
 			List<Kit> kitsAvailable = UtilsRandomEvents.kitsAvailable(p, match.getKits(), plugin);
 
 			Integer size = UtilsRandomEvents.sizeGUIKits(kitsAvailable);
-			inv = Bukkit.createInventory(null, size, plugin.getLanguage().getKitGuiName());
+                       inv = Bukkit.createInventory(new RandomEventsHolder(), size,
+                                       plugin.getLanguage().getKitGuiName());
 			ItemStack nextPage = new ItemStack(XMaterial.OAK_SIGN.parseMaterial());
 			ItemStack backPage = new ItemStack(XMaterial.OAK_SIGN.parseMaterial());
 			ItemMeta nextPageMeta = nextPage.getItemMeta();
@@ -3438,7 +3443,8 @@ public class UtilsRandomEvents {
 
 	public static Inventory createGUITeams(Player p, Integer page, RandomEvents plugin, MatchActive matchActive) {
 
-		Inventory inv = Bukkit.createInventory(null, 9, plugin.getLanguage().getTeamGuiName());
+               Inventory inv = Bukkit.createInventory(new RandomEventsHolder(), 9,
+                               plugin.getLanguage().getTeamGuiName());
 
 		if (matchActive != null) {
 			Match match = matchActive.getMatch();

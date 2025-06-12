@@ -27,6 +27,7 @@ import com.immortalman01.randomevents.util.Constantes;
 import com.immortalman01.randomevents.util.InventoryUtils;
 import com.immortalman01.randomevents.util.UtilsRandomEvents;
 import com.immortalman01.randomevents.util.UtilsSQL;
+import com.immortalman01.randomevents.util.RandomEventsHolder;
 import com.immortalman01.util.enums.XMaterial;
 import com.immortalman01.util.enums.XSound;
 
@@ -72,45 +73,42 @@ public class GUI implements Listener {
 			}
 		}
 
-                String invTitle = InventoryUtils.getInventoryTitle(event);
+               Inventory topInventory = event.getView().getTopInventory();
+               boolean pluginMenu = topInventory != null && topInventory.getHolder() instanceof RandomEventsHolder;
 
-                if (invTitle != null
-                                && ChatColor.stripColor(invTitle)
-                                                .contains(ChatColor.stripColor(plugin.getLanguage().getStatsGuiName()))) {
-                        if (clickedTopInventory(event)) {
-                                event.setCancelled(true);
-                        }
-                } else if (invTitle != null
-                                && ChatColor.stripColor(invTitle)
-                                                .contains(ChatColor.stripColor(plugin.getLanguage().getCreditsGuiName()))) {
-                        useCreditsGui(event);
-                } else if (invTitle != null
-                                && ChatColor.stripColor(invTitle)
-                                                .contains(ChatColor.stripColor(plugin.getLanguage().getKitGuiName()))) {
-                        useKitGUI(event);
+               if (pluginMenu) {
+                       String invTitle = InventoryUtils.getInventoryTitle(event);
 
-                } else if (invTitle != null
-                                && ChatColor.stripColor(invTitle)
-                                                .contains(ChatColor.stripColor(plugin.getLanguage().getTeamGuiName()))) {
-                        useTeamGUI(event);
+                       if (invTitle != null
+                                       && ChatColor.stripColor(invTitle)
+                                                       .contains(ChatColor.stripColor(plugin.getLanguage().getStatsGuiName()))) {
+                               if (clickedTopInventory(event)) {
+                                       event.setCancelled(true);
+                               }
+                       } else if (invTitle != null
+                                       && ChatColor.stripColor(invTitle)
+                                                       .contains(ChatColor.stripColor(plugin.getLanguage().getCreditsGuiName()))) {
+                               useCreditsGui(event);
+                       } else if (invTitle != null
+                                       && ChatColor.stripColor(invTitle)
+                                                       .contains(ChatColor.stripColor(plugin.getLanguage().getKitGuiName()))) {
+                               useKitGUI(event);
 
-		}
-	}
+                       } else if (invTitle != null
+                                       && ChatColor.stripColor(invTitle)
+                                                       .contains(ChatColor.stripColor(plugin.getLanguage().getTeamGuiName()))) {
+                               useTeamGUI(event);
+
+                       }
+               }
+       }
 
        @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
        public void onInventoryDrag(InventoryDragEvent event) {
-                String invTitle = InventoryUtils.getInventoryTitle(event);
-                if (invTitle != null
-                                && (ChatColor.stripColor(invTitle)
-                                                .contains(ChatColor.stripColor(plugin.getLanguage().getStatsGuiName()))
-                                                || ChatColor.stripColor(invTitle)
-                                                                .contains(ChatColor.stripColor(plugin.getLanguage().getCreditsGuiName()))
-                                                || ChatColor.stripColor(invTitle)
-                                                                .contains(ChatColor.stripColor(plugin.getLanguage().getKitGuiName()))
-                                                || ChatColor.stripColor(invTitle)
-                                                                .contains(ChatColor.stripColor(plugin.getLanguage().getTeamGuiName())))) {
-                        event.setCancelled(true);
-                }
+               Inventory topInventory = event.getView().getTopInventory();
+               if (topInventory != null && topInventory.getHolder() instanceof RandomEventsHolder) {
+                       event.setCancelled(true);
+               }
         }
 
         private void useCreditsGui(InventoryClickEvent event) {
