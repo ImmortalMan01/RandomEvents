@@ -1,143 +1,362 @@
+# Generated from Constantes.java
+menu.helpMenu: "&6----------------- &e&lRandomEvents &6---------------------"
+menu.showMenu: "   &6/revent:\n          &e-> Shows this menu"
+menu.join: "   &6/revent join:\n          &e-> Join the Random Event"
+menu.spec: "   &6/revent spec:\n          &e-> Spectate the Random Event"
+menu.tjoin: "   &6/revent tjoin:\n          &e-> Join the Tournament Random Event"
+menu.leave: "   &6/revent leave:\n          &e-> Leave the Random Event"
+menu.tleave: "   &6/revent tleave:\n          &e-> Leave the Tournament Random Event"
+menu.stats: "   &6/revent stats:\n          &e-> Show the stats"
+menu.statsOther: "   &6/revent stats <player>:\n          &e-> Show the stats of a player"
+menu.admin.forcestop: "   &6/revent forcestop:\n          &e-> Force the stop of the Random Event"
+menu.admin.spawnset: "   &6/revent spawnset:\n          &e-> Set the spawn, where players will be teleported after finishing a Random Event"
+menu.admin.tspawnset: "   &6/revent tspawnset:\n          &e-> Set the spawn where players will be teleported after joining a Tournament Random Event"
+menu.admin.matches: "   &6/revent matches:\n          &e-> Show all Random Events available"
+menu.kits.list: "   &6/revent kits:\n          &e-> Show all Kits available"
+menu.kits.edit: "   &6/revent kitedit <id>:\n          &e-> Edit a kit"
+menu.checkpoint: "   &6/revent checkpoint:\n          &e-> Makes the user go back to the checkpoint"
+menu.next: "   &6/revent next:\n          &e-> Show next scheduled Random Events"
+menu.nextTimer: "   &6/revent nexttimer:\n          &e-> Show next timed Random Events"
+menu.admin.currentdate: "   &6/revent date:\n          &e-> Shows the current date for the schedule"
+menu.admin.schedule: "   &6/revent schedule <monday:tuesday...> <hour> <minute>:\n          &e-> Create a schedule for a Random Event"
+menu.admin.scheduleSpecific: "   &6/revent schedule <monday:tuesday...> <hour> <minute> <idmatch>:\n          &e-> Create a schedule for a Random Event and specific match"
+menu.admin.forcebegin: "   &6/revent forcebegin:\n          &e-> Force to begin the match"
+menu.admin.force: "   &6/revent begin:\n          &e-> Begins a Random Event"
+menu.admin.tforce: "   &6/revent tbegin:\n          &e-> Begins a Tournament Random Event"
+menu.admin.forceSpecific: "   &6/revent begin <number>:\n          &e-> Begins a specific random event"
+menu.guicmd: "   &6/revent gui:\n          &e-> Shows the available events gui"
+menu.admin.givecreditsrandom: "   &6/revent givecredits <player> <amount>:\n          &e-> Give credits of a random chosen event to a player"
+menu.admin.givecreditsspecific: "   &6/revent givecredits <reventname> <player> <amount>:\n          &e-> Give credits of the specific event to a player"
+menu.admin.balcreditsown: "   &6/revent credits:\n          &e-> Shows your credits"
+menu.admin.balcreditsother: "   &6/revent credits <player>:\n          &e-> Shows the player credits"
+menu.admin.ban: "   &6/revent ban <player> <time>:\n          &e-> Ban a player from RandomEvents"
+menu.admin.unban: "   &6/revent unban <player>:\n          &e-> Unban a player from RandomEvents"
+menu.admin.create: "   &6/revent create:\n          &e-> Begin the creation of a Random Event"
+menu.admin.delete: "   &6/revent delete <number>:\n          &e-> Delete a Random Event"
+menu.admin.disable: "   &6/revent disable <number>:\n          &e-> Disables a Random Event"
+menu.admin.enable: "   &6/revent enable <number>:\n          &e-> Enables a Random Event"
+menu.admin.disableschedule: "   &6/revent disableschedule <number>:\n          &e-> Disables a Random Event on Schedule"
+menu.admin.enableschedule: "   &6/revent enableschedule <number>:\n          &e-> Enables a Random Event on Schedule"
+menu.admin.edit: "   &6/revent edit <number>:\n          &e-> Edits a Random Event"
+menu.admin.tp: "   &6/revent tp <number>:\n          &e-> Teleport to a Random Event"
+menu.toggleAnnouncement: "   &6/revent toggleannouncement:\n          &e-> Toggle the announcement of a Random Event spawning"
+menu.admin.cancel: "   &6/revent cancel:\n          &e-> Cancels the creation of a Random Event"
+menu.admin.resetCoins: "   &6/revent resetcredits:\n          &e-> Reset all credits "
+menu.admin.resetCoinsPlayer: "   &6/revent resetcredits <player>:\n          &e-> Reset all credits for a player "
+menu.admin.resetTries: "   &6/revent resettries:\n          &e-> Reset all tries "
+menu.admin.resetTriesPlayer: "   &6/revent resettries <player>:\n          &e-> Reset all tries for a player "
+menu.admin.resetTriesGame: "   &6/revent resettriesgame <game>:\n          &e-> Reset all tries for a game "
+menu.admin.resetTriesGamePlayer: "   &6/revent resettries <game> <player>:\n          &e-> Reset all tries for a game and a player "
+menu.admin.resetWins: "   &6/revent resetwins:\n          &e-> Reset all wins "
+menu.admin.resetWinsPlayer: "   &6/revent resetwins <player>:\n          &e-> Reset all wins for a player "
+menu.admin.resetWinsGame: "   &6/revent resetwinsgame <game>:\n          &e-> Reset all wins for a game "
+menu.admin.resetWinsGamePlayer: "   &6/revent resetwins <game> <player>:\n          &e-> Reset all wins for a game and a player "
+menu.admin.reload: "   &6/revent reload:\n          &e-> Reload the plugin"
+tagPlugin: "&a&lRandomEvents &f&l>>"
+tagChat: "&f[&eRandomEvents&f]"
 creation.invalidInput: "&c&lInvalid input, try another one"
-creation.cancelOfMatchCreation: "&c&lEvent creation canceled"
-creation.lacksInfoCreation: "&c&lEvent cant be created, it lacks information, check the fields again"
+comun.startingMatch: "&6&lMatch starting in %time% seconds"
+comun.idleDamage: "&c&lTaking damage for afk..."
+comun.youAreBanned: "&c&lYou are banned from RandomEvents until %time%"
+comun.banPlayer: "&c&lPlayer %player% banned until %time%"
+comun.unbanPlayer: "&c&lPlayer %player% unbanned from RandomEvents"
+comun.playerNotBanned: "&c&lPlayer is not banned from RandomEvents"
+comun.noScheduledEvents: "&c&lThere are not RandomEvents scheduled"
+comun.nextEvent: "&c&lNext RandomEvent:"
+comun.announcementDisabled: "&a&lYou have disabled the announcements"
+comun.announcementEnabled: "&a&lYour announcements are enabled again!"
+comun.nextEventIsRandom: "&6&lRandomEvent"
+comun.nextEventName: "&6&lEvent: "
+creation.cancelOfMatchCreation: "&c&lEvent creation canceled "
+creation.lacksInfoCreation: "&c&lEvent cant be created, it lacks information, check the fields again "
+comun.shrink: "&c&lMap border shrinking in %time% seconds"
+comun.refill: "&e&lChest have been refilled."
+comun.refillTime: "&a&lRefill time:"
+comun.shrinkTime: "&a&lShrink time:"
+comun.warmupEnd: "&c&lWarmup end in %time% seconds"
+comun.playersMove: "&c&lPlayers will be able to move in %time% seconds"
+comun.secondsRemaining3: "&6&l3"
+comun.secondsRemaining2: "&6&l2"
+comun.secondsRemaining1: "&6&l1"
+comun.error: "&c&lSome error ocurred, check the server log."
+comun.cmdNotAllowed: "&c&lYou cant use this command here"
+comun.invalidCmd: "&c&lInvalid command, do /randomevent or /revent to see the valid commands"
+comun.noPermission: "&c&lYou don't have permission to do that!"
 creation.endOfArenaCreation: "&6&lYou successfully created a RandomEvents!"
 creation.endOfKitCreation: "&6&lYou successfully edited a Kit!"
 creation.endOfScheduleCreation: "&6&lYou successfully created a Schedule!"
 creation.cancelOfArenaCreation: "&6&lYou canceled the creation of a RandomEvents!"
-creation.minigame_type.name: "Minigame"
-creation.minigame_type.message: "&6&lChoose Minigame type (Put 0 in chat)"
-creation.battle_name.name: "Event Name"
-creation.battle_name.message: "&6&lYou began the creation of the RandomEvent. Write the match's name"
-creation.permission_optional.name: "Permission (Optional)"
-creation.permission_optional.message: "&6&lWrite the match's permission"
-creation.amount_players.name: "Maximum Player Amount"
-creation.amount_players.message: "&6&lWrite the number of players allowed to enter the RandomEvent"
-creation.amount_players_min.name: "Minimum Player Amount"
-creation.amount_players_min.message: "&6&lWrite the minimum number of players to begin the RandomEvent"
-creation.spawn_player.name: "Player Spawn"
-creation.spawn_player.message: "&6&lGo to the arena you created and write 'Done' to set the lobby spawn for the players"
-creation.arena_spawns.name: "Arena Spawns"
-creation.arena_spawns.message: "&6&lGo to the arena you created and write 'Done' to set each spawn location for the players (%players%/%maxPlayers%) or 'Next' to end the spawns"
-creation.another_arena_spawns.name: "Another Arena Spawns"
-creation.another_arena_spawns.message: "&6&lPut another player spawn, say 'Done' (%players%/%maxPlayers%)"
-creation.spectator_spawns.name: "Spectator Spawns"
-creation.spectator_spawns.message: "&6&lSay 'Done' to put a spectator spawn and 'Next' to go to the next step"
-creation.rewards.name: "Rewards commands"
-creation.rewards.message: "&6&lWrite a command to reward the winners. Use %player% and it will be replaced for the player's name. Put reprob <probability from 1 to 100> before the command to set a prob to execute the reward"
-creation.another_rewards.name: "Another Rewards commands"
-creation.another_rewards.message: "&6&lPut another reward for the winners or just say 'Done' to begin the next step"
-creation.kits.name: "Kits"
-creation.kits.message: "&6&lChoose a Kit to add to the match"
-creation.timer_mob_spawn.name: "Mob Spawn Timer"
-creation.timer_mob_spawn.message: "&6&lWrite the number of seconds (it can have decimals) to respawn each mob"
-creation.mob_name.name: "Mob Name"
-creation.mob_name.message: "&6&lChoose Mob"
-creation.mob_spawn.name: "Mob Spawns"
-creation.mob_spawn.message: "&6&lGo to the arena you created and write 'Done' to set the spawn location of the mob, 'New' to choose another mob or 'End' to end the creation of the RandomEvent"
-creation.play_time.name: "Match Time"
-creation.play_time.message: "&6&lChoose the play time in seconds"
-creation.arrow_location1.name: "Arrow Region Location 1"
-creation.arrow_location1.message: "&6&lSet the first location of the cuboid of spawn of arrows, say 'Done'"
-creation.arrow_location2.name: "Arrow Region Location 2"
-creation.arrow_location2.message: "&6&lSet the second location of the cuboid of spawn of arrows, say 'Done'"
-creation.timer_arrow_spawn.name: "Arrow Throw timer"
-creation.timer_arrow_spawn.message: "&6&lWrite the number of seconds (it can have decimals) to respawn each arrow"
-creation.gem_location1.name: "Gem Region Location 1"
-creation.gem_location1.message: "&6&lSet the first location of the cuboid of spawn of gems, say 'Done'"
-creation.gem_location2.name: "Gem Region Location 2"
-creation.gem_location2.message: "&6&lSet the second location of the cuboid of spawn of gems, say 'Done'"
-creation.timer_gem_spawn.name: "Gem Spawn timer"
-creation.timer_gem_spawn.message: "&6&lWrite the number of seconds (it can have decimals) to respawn each gem"
-creation.timer_bomb.name: "Bomb timer"
-creation.timer_bomb.message: "&6&lWrite the number of seconds to fire the bomb"
-creation.seconds_to_spawn_beast.name: "Beast/Seekers  Spawn seconds"
-creation.seconds_to_spawn_beast.message: "&6&lWrite the number of seconds to spawn the beast"
-creation.spawn_beast.name: "Beast/Seekers Spawn"
-creation.spawn_beast.message: "&6&lGo to the arena you created and write 'Done' to set the beast spawn."
-creation.inventory_beast.name: "Beast/Seekers Inventory"
-creation.inventory_beast.message: "&6&lTake the inventory for the beast and say 'Done'"
-creation.inventory_runners.name: "Runners Inventory (After reaching goal)"
-creation.inventory_runners.message: "&6&lTake the inventory for the players when they reach the goal and say 'Done'"
-creation.entity_spawns.name: "Entity Spawns"
-creation.entity_spawns.message: "&6&lGo to the arena you created and write 'Done' to set each spawn location for the entities or 'Next' to make the entities appear on player location. (%entities%/%maxPlayers%)"
-creation.another_entity_spawns.name: "Another Entity Spawns"
-creation.another_entity_spawns.message: "&6&lPut another entity spawn, say 'Done' . (%entities%/%maxPlayers%)"
-creation.goal_location1.name: "Goal Region Location 1"
-creation.goal_location1.message: "&6&lSet the first location of the cuboid of the goal, say 'Done'"
-creation.goal_location2.name: "Goal Region Location 2"
-creation.goal_location2.message: "&6&lSet the second location of the cuboid of the goal, say 'Done'"
-creation.material_spleef.name: "Spleef Material"
-creation.material_spleef.message: "&6&lGet the block you want to set mineable for spleef on your hand and say 'Done'"
-creation.another_material_spleef.name: "Another Spleef Material"
-creation.another_material_spleef.message: "&6&lGet another block you want to set mineable for spleef on your hand and say 'Done' or say 'Next' to end the spleef materials"
-creation.map_location1.name: "Map Region Location 1"
-creation.map_location1.message: "&6&lSet the first location of the cuboid of the map, say 'Done'"
-creation.map_location2.name: "Map Region Location 2"
-creation.map_location2.message: "&6&lSet the second location of the cuboid of the map, say 'Done'"
-creation.inventory_chests.name: "Chests Inventory"
-creation.inventory_chests.message: "&6&lTake the inventory that will have a probability to appear in chests and say 'Done' to set it or 'Add' to add the items"
-creation.warmup_time.name: "Warmup Time"
-creation.warmup_time.message: "&6&lChoose the warmup time in seconds"
-creation.shrink_time.name: "Shrink Time"
-creation.shrink_time.message: "&6&lChoose to shrink the border in seconds"
-creation.blocks_allowed.name: "Allowed Blocks"
-creation.blocks_allowed.message: "&6&lPut in your hand a block allowed to break/place in the map and say 'Done'"
-creation.no_move_time.name: "Player Stuck Time"
-creation.no_move_time.message: "&6&lChoose to allow players to move in seconds"
-creation.timer_anvil_spawn.name: "Anvil Spawn timer"
-creation.timer_anvil_spawn.message: "&6&lWrite the number of seconds (it can have decimals) to respawn each anvil"
-creation.water_drop_scenes.name: "Water Drop Scenes"
-creation.water_drop_scenes.message: "&6&lChoose a scene to add to the event"
-creation.number_of_teams.name: "Number of teams"
-creation.number_of_teams.message: "&6&lChoose a number of teams between 2 and 8"
-creation.team_spawns.name: "Team Spawns"
-creation.team_spawns.message: "&6&lGo to the arena you created and write 'Done' to set each spawn location for the team (%players%/%maxTeams%)"
-creation.another_team_spawns.name: "Another Team Spawns"
-creation.another_team_spawns.message: "&6&lPut another team spawn, say 'Done' (%players%/%maxTeams%)"
-creation.koth_location1.name: "KoTH Region Location 1"
-creation.koth_location1.message: "&6&lSet the first location of the cuboid of the Koth, say 'Done'"
-creation.koth_location2.name: "KoTH Region Location 2"
-creation.koth_location2.message: "&6&lSet the second location of the cuboid of the Koth, say 'Done'"
-creation.cannon_spawns.name: "Cannon Spawns"
-creation.cannon_spawns.message: "&6&lGo to the arena you created and write 'Done' to set each spawn location for cannons or 'Next' to stop."
-creation.tnt_tag_head.name: "TNT Head"
-creation.tnt_tag_head.message: "&6&lTake the item to put in the head and say 'Done'."
-creation.id_npc.name: "NPC ID (Citizens Required)"
-creation.id_npc.message: "&6&lPut the Citizens ID of the NPC for the game."
-creation.use_own_inventory.name: "Use own inventory?"
-creation.use_own_inventory.message: ""
-creation.all_blocks_allowed.name: "Allow all blocks?"
-creation.all_blocks_allowed.message: "&6&lChanged blocks allowed"
-creation.gamemode.name: "Forced gamemode (Optional)"
-creation.gamemode.message: "&6&lPut the gamemode (SURVIVAL, CREATIVE, SPECTATOR, ADVENTURE) or put 'N'"
-creation.shrink_blocks.name: "Blocks Shrinked"
-creation.shrink_blocks.message: "&6&lChoose how many blocks to shrink each time"
-creation.refill_chest.name: "Chest Refill time"
-creation.refill_chest.message: "&6&lChoose time to refill chests in seconds"
-creation.timer_block_disappear.name: "Block Disappear timer"
-creation.timer_block_disappear.message: "&6&lChoose time to make the blocks disappear in seconds"
-creation.timer_decrease_time.name: "Decrease timer"
-creation.timer_decrease_time.message: "&6&lChoose the &eticks &6&lto decrease each round (20 ticks is 1 second)"
-creation.color_appear_time.name: "Color timer"
-creation.color_appear_time.message: "&6&lChoose the seconds for the color to show"
-creation.color_appear_decrease_time.name: "Decrease Color timer"
-creation.color_appear_decrease_time.message: "&6&lChoose the &eticks &6&lto decrease each round (20 ticks is 1 second)"
-creation.number_of_seekers.name: "Amount of Seekers"
-creation.number_of_seekers.message: "&6&lWrite the number of players that will be seekers"
-creation.glass_location1.name: "Glass Region Location 1"
-creation.glass_location1.message: "&6&lSet the first location of the cuboid of the map, say 'Done'"
-creation.glass_location2.name: "Glass Region Location 2"
-creation.glass_location2.message: "&6&lSet the second location of the cuboid of the map, say 'Done'"
-creation.commands_on_start_optional.name: "Commands on start (Optional)"
-creation.commands_on_start_optional.message: "&6&lSet a command for the start of the game or just put 'Done' to stop setting commands"
-creation.commands_on_kill_optional.name: "Commands on kill (Optional)"
-creation.commands_on_kill_optional.message: "&6&lSet a command for kills on the game or just put 'Done' to stop setting commands ( use %player% (killer) or %victim% (killed) )"
-creation.commands_on_elimination_optional.name: "Commands on elimination (Optional)"
-creation.commands_on_elimination_optional.message: "&6&lSet a command for the elimination of a player of the game or just put 'Done' to stop setting commands"
-creation.save.name: "Save"
-creation.save.message: "&6&lYou are about to save a Random Event, put 'Y' to confirm or 'N' to continue creating"
-creation.delete.name: "Clear a field"
-creation.delete.message: "&6&lChoose the field you want to remove"
-creation.cancel.name: "Cancel"
-creation.cancel.message: "&6&lYou are about to cancel a Random Event, put 'Y' to confirm or 'N' to continue creating"
+comun.pluginReload: "&6&lPlugin reloaded!"
+match.matchFull: "&c&lThe match is already full"
+match.alreadyPlayingMatch: "&c&lYou can't leave the match if it has begun"
+match.matchBegun: "&c&lThe event has begun, you cant join now"
+match.matches: "&6&lMatches:"
+match.alreadyMatch: "&c&lYou can't create another event while one is still running"
+match.waitingForPlayers: "&6&lWaiting for players. ( %players% / %neededPlayers% )"
+comun.spawnSet: "&6&lYou have set the spawn succesfully"
+match.notInMatch: "&c&lYou are not in an event"
+match.matchJoin: "&6&l[+] %player%"
+match.matchLeave: "&c&l[-] %player%"
+match.winRandomEvents: "&6&lCongratulations! You won the event"
+announce.eventAnnounce: "&6&lThe event &e&l'%event%'&6&l of type  &e&l'%type%'&6&l, begins in: "
+announce.eventStopped: "&6&lThe event &e&l'%event%'&6&l of type  &e&l'%type%'&6&l, was forced to stop."
+announce.eventCancelled: "&6&lThe event &e&l'%event%'&6&l of type  &e&l'%type%'&6&l, was cancelled for lack of players."
+announce.tournamentCancelled: "&6&lThe tournament was cancelled for lacking players."
+comun.invalidPassword: "&c&lInvalid password for the event"
+announce.announceFirst: "\n&f████████\n&f█&8██████&f█\n&f█&8█&f█████&f█  &5&lRandom Event\n&f█&8█&f██&8███&f█  &c%type%\n&f█&8█&f████&8█&f█  &8[ &a%players%/%neededPlayers% &8] \n&f█&8█&f████&8█&f█  %clickhere% \n&f█&8██████&f█\n&f████████"
+announce.announceNext: "&6&lRandom Event &e&l>> &c%type% %clickhere% &8[ &a%players%/%neededPlayers% &8] "
+announce.announceFirstTournament: "\n&f████████\n&f█&8██████&f█\n&f█&8█&f█████&f█  &5&lTournament Random Event\n&f█&8█&f██&8███&f█  \n&f█&8█&f████&8█&f█  &8[ &a%players%/%neededPlayers% &8] \n&f█&8█&f████&8█&f█  %clickhere% \n&f█&8██████&f█\n&f████████"
+announce.announceNextTournament: "&6&lTournament Random Event &e&l>>  %clickhere% &8[ &a%players%/%neededPlayers% &8] "
+announce.clickHere: "&b[Click here to join]"
+announce.raceTournament: "&6&lThe player %player% has reached the goal ( %players% / %neededPlayers% )"
+announce.youBeast: "&6&lYou are the beast, wait until you get teleported to the arena"
+match.tournamentAlive: "&e&lThese players still survive on the tournament :"
+match.winners: "&e&l%players% &6&lwon the Random Event &e&l'%event%'&6&l ! Congratulations!"
+match.winnersTournament: "&e&l%players% &6&lwon the Tournament Random Event ! Congratulations!"
+match.winnersPoints: "&e&l%players% &6&lwon the Random Event '%event%' with %points% points ! Congratulations!"
+comun.disposeLeatherItems: "&c&lFor security reasons please leave your leather items before entering the event"
+comun.clearInventory: "&c&lClear the inventory before joining the RandomEvent"
+comun.daysFormat: "&6&l%days% h"
+comun.hoursFormat: "&6&l%hours% h"
+comun.minutesFormat: "&6&l%minutes% m"
+comun.secondsFormat: "&6&l%seconds% s"
+match.showAlone: "&6&lYou are playing alone, good luck!"
+match.showTeam: "&6&lYour team is: &e&l%players%"
+match.timeRemaining: "&6&l%minutes% remaining"
+match.nowPoints: "&6&lYou have now &e&l%points% &6&lpoints"
+match.nowGems: "&6&lThe player &e&l%player% &6&lhas now &e&l%points% &6&lgems"
+match.nowProtected: "&6&lYou are now protected for 3 seconds"
+match.matchBeginSoon: "&6&lThe Random Event will begin soon"
+match.lostGems: "&e&l%player% &6&llost all gems"
+match.greenRedLightMove: "&a&lMOVE"
+match.greenRedLightStop: "&c&lSTOP"
+match.playerWinning: "&6&lThe player &e&l%player% &6&lhas enough gems, kill him or the match will end"
+match.playerWinningSeconds: "&e&l%player% &6&lwins in %seconds% seconds"
+match.bombSeconds: "&6&lBomb explodes in %seconds% seconds"
+match.playerHasBomb: "&6&lThe player &e&l%player% &6&lhas the bomb"
+match.bombExplode: "&6&lThe player &e&l%player% &6&lblew up"
+comun.leaveCommand: "&6&lYou are now a spectator. Use &e&l/revent leave &6&lto leave spectator mode"
+comun.errorSavingInventory: "&c&lYour inventory failed on save, please save your items and try again"
+stats.statsDisabled: "&c&lThe stats are disabled"
+stats.statsTries: "&cTries: "
+stats.statsWins: "&2Wins: "
+stats.statsWinsRatio: "&eWin Ratio: "
+pvp.death: "&c☠ %victim%"
+pvp.kill: "&a%killer% &4⚔ &c%victim%"
+pvp.bowkill: "&a%killer% &4⚔ &c%victim%  &e( %distance% blocks )"
+scoreboard.title: "      &a&lRandomEvents      "
+scoreboard.points: "&6%name% - &e%points%"
+scoreboard.pointsteam: "%team_color%%name% - &e%points%"
+scoreboard.step: "&6%name% - &e(%actual%/%max%)"
+scoreboard.alive: "&a✔ %name%"
+scoreboard.dead: "&c☠ %name%"
+scoreboard.team.alive: "&a✔ %team_color%%name%"
+scoreboard.team.dead: "&c☠ %team_color%%name%"
+scoreboard.teamformat: "&6Team: %team_color%%name%"
+scoreboard.teampoints: "%team_color%%team_name%: &e%points%"
+scoreboard.teammate: "&6Mate: &e%name%"
+scoreboard.beast: "&6Beast: &e%name%"
+scoreboard.seekers: "&6Seeker: &e%name%"
+scoreboard.holder: "&6Holder: &e%name%"
+scoreboard.round: "&3Round: &e%round%"
+scoreboard.time: "&b%time%"
+stats.guiname: "&bRandomEvents_Stats "
+stats.alltime: "&6&lAll_Time"
+credits.guiname: "&bRandomEvents_Available"
+credits.guipage: "&6Page"
+credits.addedother: "&6&l%credits% credits for %event% added to %player% "
+credits.addedown: "&6&l%credits% credits for %event% added to your account"
+credits.balance: "&6&l%credits% credits"
+credits.cooldown: "&b&lOn cooldown"
+credits.eventrunning: "&c&lEvent running!"
+credits.ready: "&a&lReady"
+comun.eventDeleted: "&c&lThe RandomEvents was deleted!"
+comun.eventDisabled: "&c&lThe RandomEvents was disabled!"
+comun.eventEnabled: "&6&lThe RandomEvents was enabled!"
+comun.eventIsDisabled: "&c&lThe RandomEvents is disabled!"
+comun.playerOffline: "&c&lThe player is offline!"
+comun.eventInvalid: "&c&lThe RandomEvents is invalid!"
+comun.resetCoinsAll: "&6&lThe coins have been deleted for all players"
+comun.resetTriesAll: "&6&lThe tries have been deleted for all players"
+comun.resetWinsAll: "&6&lThe wins have been deleted for all players"
+comun.resetCoinsPlayer: "&6&lThe coins have been deleted for %player%"
+comun.resetTriesPlayer: "&6&lThe tries have been deleted for %player%"
+comun.resetWinsPlayer: "&6&lThe wins have been deleted for %player%"
+item.returnCheckpoint: "&2&lReturn to checkpoint"
+item.hidePlayer: "&c&lHide players"
+item.showPlayer: "&2&lShow players"
+kit.guiName: "&6&lRandomEvents Kits"
+team.guiName: "&6&lTeams"
+kit.chosen: "&6&lYou chosed %kit_name%"
+kit.itemName: "&6&lKits"
+team.itemName: "&6&lTeam"
+kit.defaultName: "&6&lKit: %kit_name%"
+kit.defaultLore:
+- '&eChoose it!'
+- '&eWin with this one!.'
+minigameName.BattleRoyale: "Battle Royale"
+minigameName.DuoBattleRoyale: "Duo Battle Royale"
+minigameName.KnightsBattle: "Knights Battle"
+minigameName.TopKiller: "Top Killer"
+minigameName.DuoTopKiller: "Duo Top Killer"
+minigameName.KnockbackDuel: "Knockback Duel"
+minigameName.ArrowRain: "Arrow Rain"
+minigameName.AnvilSpleef: "Anvil Spleef"
+minigameName.GemCarrier: "Gem Carrier"
+minigameName.TNTTag: "TNT Tag"
+minigameName.BoatRace: "Boat Race"
+minigameName.HorseRace: "Horse Race"
+minigameName.EscapeBeast: "Escape from the Beast"
+minigameName.Race: "Race"
+minigameName.TNTRun: "TNT Run"
+minigameName.Spleef: "Spleef"
+minigameName.Splegg: "Splegg"
+minigameName.OITC: "One in the Chamber"
+minigameName.SurvivalGames: "Survival Games"
+minigameName.DuoSurvivalGames: "Duo Survival Games"
+minigameName.Skywars: "Skywars"
+minigameName.DuoSkywars: "Duo Skywars"
+minigameName.WaterDrop: "Dropper"
+minigameName.QuakeCraft: "Quake Craft"
+minigameName.Paintball: "Paintball"
+minigameName.PaintballTopKill: "Paintball Top Kill"
+minigameName.KingHill: "King of the Hill"
+minigameName.FishSlap: "Fish Slap"
+minigameName.Hoehoehoe: "Hoe hoe hoe"
+minigameName.Splatoon: "Splatoon"
+minigameName.Bombardment: "Bombardment"
+minigameName.RedGreenLight: "Red Light-Green Light"
+minigameName.TeamBattleRoyale: "Team Battle Royale"
+minigameName.TeamTopKiller: "Team Top Killer"
+minigameName.TeamSkywars: "Team Skywars"
+minigameName.TeamSurvivalGames: "Team Survival Games"
+minigameName.BlockParty: "Block Party"
+minigameName.HideAndSeek: "Hide and Seek"
+minigameName.GlassWalk: "Glass Walk"
+minigame.description.GLASSWALK:
+- '&eWatch out the fake glass, be the one to reach'
+- '&e the goal before the times hits 0 '
+- '&eor you will all die.'
+minigame.description.BR:
+- '&eA fierce battle where just 1 player'
+- '&e or team can remain alive.'
+minigame.description.BRT2:
+- '&eA fierce battle where just 1 player'
+- '&e or team can remain alive.'
+minigame.description.LJ:
+- '&eA fierce battle where just 1 player'
+- '&e with his horse can remain alive.'
+minigame.description.TKLL:
+- '&eOnly the most powerful assasin can win this event, kill players to get points,'
+- '&e the player with more points will get the rewards'
+minigame.description.TKLLT2:
+- '&eOnly the most powerful assasin can win this event, kill players to get points,'
+- '&e the team with more points will get the rewards'
+minigame.description.KBD:
+- '&eA battle where your attack power does not matter, you will have to make an strategy'
+- '&e to get the enemies thrown away from the arena to get them killed!'
+- '&e Be the last one who stands!'
+minigame.description.EARR:
+- '&eAvoid the arrows coming from the sky if you'
+- '&e dont want to lose your head!'
+minigame.description.GEMC:
+- '&eRandom gems will spawn in the arena. Try to get all of them until you reach 10 gems'
+- '&e or steal it from the enemies that has them. Stand 10 seconds'
+- '&e more carrying your 10 gems and you will get your hands on the reward!'
+minigame.description.BOMB:
+- '&eRun with the bomb and hit enemies to give it to them and avoid your own death.'
+- ' &e From time to time the bomb will explode and will get the player that had it'
+- '&e and everyone near him dead.'
+minigame.description.BOAT_RUN:
+- '&eBe the fastest sailor and reach the finish line before'
+- '&e your pursuers!'
+minigame.description.HORSE_RUN:
+- '&eBe the fastest horse rider and reach the finish line before'
+- '&e your pursuers!'
+minigame.description.ESCAPE_FROM_BEAST:
+- '&eThe classic Run from the beast minigame!'
+- '&e Beat the beast by completing all the scenario and get enough equipment'
+- '&e to make damage to the beast!'
+minigame.description.RACE:
+- '&eRun and be the first to reach the goal'
+- '&e to get your reward!'
+minigame.description.WDROP:
+- '&eRun and drop safe!'
+- '&e be the first to reach the last goal'
+- '&e to get your reward!'
+minigame.description.TNTRUN:
+- '&eRun for your life, the tnt behind you will disappear,'
+- '&e try to stay over them to win the match!'
+minigame.description.SPLEEF:
+- '&eMake the other players fall by breaking the blocks on their feets,'
+- '&e be the one to stay safe to win the reward!'
+minigame.description.SPLEGG:
+- '&eAnother type of Spleef but this time use your pistol to throw eggs'
+- '&e that will break the floor!'
+minigame.description.OITC:
+- '&eGame that arrows are letal, hit your enemies to get points'
+- '&e and if you get out of arrows... Good luck!'
+minigame.description.SG:
+- '&eA fierce battle where just 1 player'
+- '&e or team can remain alive.'
+minigame.description.TSG:
+- '&eA fierce battle where just 1 player'
+- '&e or team can remain alive.'
+minigame.description.SW:
+- '&eA fierce battle where just 1 player'
+- '&e or team can remain alive.'
+minigame.description.TSW:
+- '&eA fierce battle where just 1 player'
+- '&e or team can remain alive.'
+minigame.description.ANVIL_SPLEEF:
+- '&eAvoid the anvils coming from the sky if you'
+- '&e dont want to lose your head!'
+minigame.description.QUAKE:
+- '&eLeft Click to jump, Right click to shoot!'
+- '&eShoot your enemies!'
+- '&e Get all of them dead!'
+minigame.description.PBALL:
+- '&eShoot your enemies with the snowballs!'
+- '&e Get all of them dead!'
+minigame.description.KOTH:
+- '&eBe the one on the zone to get all the points!'
+- '&e Kill all your enemies!'
+minigame.description.HOE:
+- '&ePaint all the floor with your color!'
+- '&e Win the colorful match!'
+minigame.description.FISHSLAP:
+- '&eStay on the climb and !'
+- '&e be aware of the fish slaps!'
+minigame.description.SPLATOON:
+- '&ePaint all the field'
+- '&e to your color to win the match!'
+minigame.description.TSGTEAMS:
+- '&eA fierce battle where just 1 player'
+- '&e or team can remain alive.'
+minigame.description.TSWTEAMS:
+- '&eA fierce battle where just 1 player'
+- '&e or team can remain alive.'
+minigame.description.TKLLTEAMS:
+- '&eOnly the most powerful assasin can win this event, kill players to get points,'
+- '&e the team with more points will get the rewards'
+minigame.description.PBALLTK:
+- '&eThrow snowballs to your enemies'
+- '&eOnly the most powerful assasin can win this event, kill players to get points,'
+- '&e the team with more points will get the rewards'
+minigame.description.BRTEAMS:
+- '&eA fierce battle where just 1 player'
+- '&e or team can remain alive.'
+minigame.description.REDGREEN:
+- '&eBe the first to reach the goal, but watch out'
+- '&e just walk when the music is on.'
+minigame.description.BOMBARDMENT:
+- '&eAvoid'
+- '&e the fireballs to win the match!'
+minigame.description.BLOCKPARTY:
+- '&eTry not to fall when the blocks disappear'
+- '&eSearch the block with the correct colors and stay alive'
+- '&e until your win!'
+minigame.description.HIDEANDSEEK:
+- '&eHide from the seekers or maybe be'
+- '&ethe seeker to kill every hider on the map'
+- '&e to win your match!'
