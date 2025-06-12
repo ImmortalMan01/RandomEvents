@@ -585,12 +585,12 @@ public class RandomEvents extends JavaPlugin {
 		this.playersEntity = playersEntity;
 	}
 
-	public void reiniciaPartida(Boolean forzada) {
-		if (forzada) {
-			forzado = Boolean.FALSE;
-		}
-		comienzaTemporizador();
-	}
+        public void reiniciaPartida(Boolean forzada) {
+                if (forzada) {
+                        this.forzado = Boolean.FALSE;
+                }
+                comienzaTemporizador();
+        }
 
 	public Boolean getForzado() {
 		return forzado;
