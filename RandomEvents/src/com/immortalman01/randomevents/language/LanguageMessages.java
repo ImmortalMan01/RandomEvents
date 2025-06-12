@@ -3,6 +3,7 @@ package com.immortalman01.randomevents.language;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -337,18 +338,24 @@ public class LanguageMessages {
 	private List<String> minigameDescriptionBLOCKPARTY;
 	private List<String> minigameDescriptionHIDEANDSEEK;
 
-	public LanguageMessages(RandomEvents plugin) {
-		this.file = new File(plugin.getDataFolder(), "messages.yml");
-		File fileOld = new File(plugin.getDataFolder(), "messages_backup.yml");
-		this.fileConfig = (FileConfiguration) YamlConfiguration.loadConfiguration(this.file);
+       public LanguageMessages(RandomEvents plugin) {
+               String lang = plugin.getConfig().getString("language", "en");
+               String name = lang.equalsIgnoreCase("tr") ? "messages_tr.yml" : "messages.yml";
+               this.file = new File(plugin.getDataFolder(), name);
+               File fileOld = new File(plugin.getDataFolder(), "messages_backup.yml");
+               this.fileConfig = (FileConfiguration) YamlConfiguration.loadConfiguration(this.file);
 
 		this.plugin = plugin;
-		if (!this.file.exists()) {
+               if (!this.file.exists()) {
 
-			try {
-				this.file.createNewFile();
+                       try {
+                               this.file.createNewFile();
 
-				fileConfig = setFileConfigDefault(fileConfig);
+                               if (lang.equalsIgnoreCase("tr")) {
+                                       fileConfig = setFileConfigDefaultTr(fileConfig);
+                               } else {
+                                       fileConfig = setFileConfigDefault(fileConfig);
+                               }
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -467,12 +474,29 @@ public class LanguageMessages {
 		return fileConfig;
 	}
 
-	private FileConfiguration setFileConfigDefault(FileConfiguration fileConfig) {
-		for (Constantes.Messages m : Constantes.Messages.values()) {
-			fileConfig.set(m.getYmlField(), m.getMessageDefault());
-		}
-		return fileConfig;
-	}
+        private FileConfiguration setFileConfigDefault(FileConfiguration fileConfig) {
+                for (Constantes.Messages m : Constantes.Messages.values()) {
+                        fileConfig.set(m.getYmlField(), m.getMessageDefault());
+                }
+                return fileConfig;
+        }
+
+       private FileConfiguration setFileConfigDefaultTr(FileConfiguration fileConfig) {
+               try {
+                       java.io.InputStream is = plugin.getResource("messages_tr.yml");
+                       if (is != null) {
+                               FileConfiguration trConfig = YamlConfiguration.loadConfiguration(new java.io.InputStreamReader(is, "UTF-8"));
+                               for (String key : trConfig.getKeys(false)) {
+                                       fileConfig.set(key, trConfig.get(key));
+                               }
+                       } else {
+                               fileConfig = setFileConfigDefault(fileConfig);
+                       }
+               } catch (Exception e) {
+                       fileConfig = setFileConfigDefault(fileConfig);
+               }
+               return fileConfig;
+       }
 
 	public File getFile() {
 		return this.file;

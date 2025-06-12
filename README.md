@@ -27,6 +27,7 @@ debugMode: false
 ## Discord: https://discord.gg/rcXhBn68mQ                       ##
 ##################################################################
 useEncoding: 'UTF-8'
+language: 'en'
 
 ##################################################################
 ##                                                GENERAL                      #
