@@ -507,8 +507,22 @@ public class LanguageMessages {
 	}
 
         private FileConfiguration setFileConfigDefault(FileConfiguration fileConfig) {
-                for (Constantes.Messages m : Constantes.Messages.values()) {
-                        fileConfig.set(m.getYmlField(), m.getMessageDefault());
+                try {
+                        java.io.InputStream is = plugin.getResource("messages.yml");
+                        if (is != null) {
+                                FileConfiguration enConfig = YamlConfiguration.loadConfiguration(new java.io.InputStreamReader(is, "UTF-8"));
+                                for (String key : enConfig.getKeys(false)) {
+                                        fileConfig.set(key, enConfig.get(key));
+                                }
+                        } else {
+                                for (Constantes.Messages m : Constantes.Messages.values()) {
+                                        fileConfig.set(m.getYmlField(), m.getMessageDefault());
+                                }
+                        }
+                } catch (Exception e) {
+                        for (Constantes.Messages m : Constantes.Messages.values()) {
+                                fileConfig.set(m.getYmlField(), m.getMessageDefault());
+                        }
                 }
                 return fileConfig;
         }
