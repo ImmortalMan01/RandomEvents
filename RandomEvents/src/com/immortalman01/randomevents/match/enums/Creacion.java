@@ -239,7 +239,14 @@ public enum Creacion {
         public String getMessage(com.immortalman01.randomevents.RandomEvents plugin) {
                 String key = "creation." + this.name().toLowerCase() + ".message";
                 String res = plugin.getLanguage().getTranslation(key);
-                return res != null ? res : message;
+                String base = res != null ? res : message;
+                if (!this.equals(CANCEL)) {
+                        String tip = plugin.getLanguage().getCancelTip();
+                        if (tip != null && !tip.isEmpty()) {
+                                base += Constantes.SALTO_LINEA + tip;
+                        }
+                }
+                return base;
         }
 
         public String getMessage() {

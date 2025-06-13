@@ -1,5 +1,7 @@
 package com.immortalman01.randomevents.match.enums;
 
+import com.immortalman01.randomevents.util.Constantes;
+
 public enum CreacionKit {
 
         NAME(0, "§6§lChoose Name"),
@@ -53,7 +55,14 @@ public enum CreacionKit {
         public String getMessage(com.immortalman01.randomevents.RandomEvents plugin) {
                 String key = "creation.kit_" + this.name().toLowerCase() + ".message";
                 String res = plugin.getLanguage().getTranslation(key);
-                return res != null ? res : message;
+                String base = res != null ? res : message;
+                if (!this.equals(CANCEL)) {
+                        String tip = plugin.getLanguage().getCancelTip();
+                        if (tip != null && !tip.isEmpty()) {
+                                base += Constantes.SALTO_LINEA + tip;
+                        }
+                }
+                return base;
         }
 
 

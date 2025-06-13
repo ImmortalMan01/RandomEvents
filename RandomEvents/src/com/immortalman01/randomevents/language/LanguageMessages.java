@@ -185,8 +185,9 @@ public class LanguageMessages {
 	private String create;
 	private String edit;
 	private String tp;
-	private String cancel;
-	private String reload;
+        private String cancel;
+        private String cancelTip;
+        private String reload;
 	private String checkpoint;
 	private String forcebegin;
 	private String kitsCmd;
@@ -3957,8 +3958,8 @@ public class LanguageMessages {
 		this.tp = tp;
 	}
 
-	public String getCancel() {
-		String s = cancel;
+        public String getCancel() {
+                String s = cancel;
 		try {
 			Matcher match = pattern.matcher(s);
 			Map<String, ChatColor> mapa = new HashMap<String, ChatColor>();
@@ -3976,8 +3977,34 @@ public class LanguageMessages {
 			s = s.replaceAll("&", "§");
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
-		return s;
-	}
+                return s;
+        }
+
+        public String getCancelTip() {
+                String s = cancelTip;
+                try {
+                        Matcher match = pattern.matcher(s);
+                        Map<String, ChatColor> mapa = new HashMap<String, ChatColor>();
+                        while (match.find()) {
+                                String color = s.substring(match.start() + 1, match.end());
+                                Method method = ChatColor.class.getMethod("of", String.class);
+                                ChatColor chatc = (ChatColor) method.invoke(null, color);
+                                mapa.put("&" + color, chatc);
+                        }
+                        for (Entry<String, ChatColor> ent : mapa.entrySet()) {
+                                s = s.replaceAll(ent.getKey(), ent.getValue() + "");
+                        }
+                        s = ChatColor.translateAlternateColorCodes('&', s);
+                } catch (Exception e) {
+                        s = s.replaceAll("&", "§");
+                }
+                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+                return s;
+        }
+
+        public void setCancelTip(String cancelTip) {
+                this.cancelTip = cancelTip;
+        }
 
 	public void setCancel(String cancel) {
 		this.cancel = cancel;
