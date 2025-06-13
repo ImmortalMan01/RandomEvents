@@ -3197,19 +3197,27 @@ public class MatchActive {
 
 	}
 
-	public void checkTNTTag() {
-		if (getPlaying()) {
-			Date now = new Date();
-			long dif = (endDate - now.getTime()) / 1000;
+        public void checkTNTTag() {
+                if (getPlaying()) {
+                        Date now = new Date();
+                        long dif = (endDate - now.getTime()) / 1000;
 
+                        Player bomba = getPlayerHandler().getPlayerContador();
+
+                        if (bomba == null) {
+                                if (getPlayerHandler().getPlayersObj().size() > limitPlayers) {
+                                        bombRandom();
+                                        endDate = Double.valueOf(new Date().getTime() + 1000 * getMatch().getSecondsMobSpawn()).longValue();
+                                } else {
+                                        compruebaPartida();
+                                }
+                                return;
+                        }
                         if (dif <= 0) {
 
-                                Player bomba = getPlayerHandler().getPlayerContador();
-                                if (bomba != null) {
-                                        Location loc = bomba.getLocation();
-                                        loc.getWorld().playEffect(loc, Effect.EXPLOSION_HUGE, 0);
-                                        loc.getWorld().playSound(loc, XSound.ENTITY_GENERIC_EXPLODE.parseSound(), 1.0F, 1.0F);
-                                }
+                                Location loc = bomba.getLocation();
+                                loc.getWorld().playEffect(loc, Effect.EXPLOSION_HUGE, 0);
+                                loc.getWorld().playSound(loc, XSound.ENTITY_GENERIC_EXPLODE.parseSound(), 1.0F, 1.0F);
 
                                 UtilsRandomEvents.playSound(plugin, getPlayerHandler().getPlayersSpectators(),
                                                 XSound.ENTITY_GENERIC_EXPLODE);
