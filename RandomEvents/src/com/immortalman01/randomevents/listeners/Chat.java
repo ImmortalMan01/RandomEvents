@@ -123,22 +123,38 @@ public class Chat implements Listener {
 		}
 	}
 
-	private void checkMessageCreationKit(String message, Player player, Integer position) {
-		Kit kit = plugin.getPlayerKit().get(player.getName());
-		Boolean actualiza = Boolean.TRUE;
-		Boolean actua = Boolean.TRUE;
-		Boolean pasado = Boolean.FALSE;
-		if (kit == null)
-			kit = new Kit();
+        private void checkMessageCreationKit(String message, Player player, Integer position) {
+                Kit kit = plugin.getPlayerKit().get(player.getName());
+                Boolean actualiza = Boolean.TRUE;
+                Boolean actua = Boolean.TRUE;
+                Boolean pasado = Boolean.FALSE;
+                if (kit == null)
+                        kit = new Kit();
 
-		CreacionKit c = null;
-		if (position != null) {
-			c = CreacionKit.getByPosition(position);
-		} else {
-			try {
-				position = Integer.valueOf(message);
-				if (CreacionKit.getByPosition(Integer.valueOf(message)) != null) {
-					c = CreacionKit.getByPosition(Integer.valueOf(message));
+                if (message.equalsIgnoreCase("cancel")) {
+                        plugin.getComandosExecutor().cancelCreationRandomEvent(plugin, player);
+                        return;
+                }
+
+                CreacionKit c = null;
+                if (position != null) {
+                        try {
+                                int pos = Integer.parseInt(message);
+                                if (CreacionKit.getByPosition(pos) != null) {
+                                        plugin.getPlayersCreationKit().put(player.getName(), pos);
+                                        c = CreacionKit.getByPosition(pos);
+                                        actua = Boolean.FALSE;
+                                } else {
+                                        c = CreacionKit.getByPosition(position);
+                                }
+                        } catch (Exception ex) {
+                                c = CreacionKit.getByPosition(position);
+                        }
+                } else {
+                        try {
+                                position = Integer.valueOf(message);
+                                if (CreacionKit.getByPosition(Integer.valueOf(message)) != null) {
+                                        c = CreacionKit.getByPosition(Integer.valueOf(message));
 					actua = Boolean.FALSE;
 				}
 			} catch (Exception e) {
@@ -352,22 +368,38 @@ public class Chat implements Listener {
 		}
 	}
 
-	private void checkMessageCreationWaterDrop(String message, Player player, Integer position) {
-		WaterDropStep waterDrop = plugin.getPlayerWaterDrop().get(player.getName());
-		Boolean actualiza = Boolean.TRUE;
-		Boolean actua = Boolean.TRUE;
-		Boolean pasado = Boolean.FALSE;
-		if (waterDrop == null)
-			waterDrop = new WaterDropStep();
+        private void checkMessageCreationWaterDrop(String message, Player player, Integer position) {
+                WaterDropStep waterDrop = plugin.getPlayerWaterDrop().get(player.getName());
+                Boolean actualiza = Boolean.TRUE;
+                Boolean actua = Boolean.TRUE;
+                Boolean pasado = Boolean.FALSE;
+                if (waterDrop == null)
+                        waterDrop = new WaterDropStep();
 
-		CreacionWaterDrop c = null;
-		if (position != null) {
-			c = CreacionWaterDrop.getByPosition(position);
-		} else {
-			try {
-				position = Integer.valueOf(message);
-				if (CreacionWaterDrop.getByPosition(Integer.valueOf(message)) != null) {
-					c = CreacionWaterDrop.getByPosition(Integer.valueOf(message));
+                if (message.equalsIgnoreCase("cancel")) {
+                        plugin.getComandosExecutor().cancelCreationRandomEvent(plugin, player);
+                        return;
+                }
+
+                CreacionWaterDrop c = null;
+                if (position != null) {
+                        try {
+                                int pos = Integer.parseInt(message);
+                                if (CreacionWaterDrop.getByPosition(pos) != null) {
+                                        plugin.getPlayersCreationWaterDrop().put(player.getName(), pos);
+                                        c = CreacionWaterDrop.getByPosition(pos);
+                                        actua = Boolean.FALSE;
+                                } else {
+                                        c = CreacionWaterDrop.getByPosition(position);
+                                }
+                        } catch (Exception ex) {
+                                c = CreacionWaterDrop.getByPosition(position);
+                        }
+                } else {
+                        try {
+                                position = Integer.valueOf(message);
+                                if (CreacionWaterDrop.getByPosition(Integer.valueOf(message)) != null) {
+                                        c = CreacionWaterDrop.getByPosition(Integer.valueOf(message));
 					actua = Boolean.FALSE;
 				}
 			} catch (Exception e) {
@@ -562,22 +594,40 @@ public class Chat implements Listener {
 		}
 	}
 
-	private void checkMessageCreation(String message, Player player, Integer position) {
-		Match match = plugin.getPlayerMatches().get(player.getName());
-		Boolean actualiza = Boolean.TRUE;
-		Boolean actua = Boolean.TRUE;
-		Boolean pasado = Boolean.FALSE;
-		if (match == null)
-			match = new Match();
+        private void checkMessageCreation(String message, Player player, Integer position) {
+                Match match = plugin.getPlayerMatches().get(player.getName());
+                Boolean actualiza = Boolean.TRUE;
+                Boolean actua = Boolean.TRUE;
+                Boolean pasado = Boolean.FALSE;
+                if (match == null)
+                        match = new Match();
 
-		Creacion c = null;
-		if (position != null) {
-			c = Creacion.getByPosition(position);
-		} else {
-			try {
-				position = Integer.valueOf(message);
-				if (Creacion.getByPosition(Integer.valueOf(message)) != null) {
-					c = Creacion.getByPosition(Integer.valueOf(message));
+                if (message.equalsIgnoreCase("cancel")) {
+                        plugin.getComandosExecutor().cancelCreationRandomEvent(plugin, player);
+                        return;
+                }
+
+                Creacion c = null;
+                if (position != null) {
+                        try {
+                                int pos = Integer.parseInt(message);
+                                if ((position.equals(Creacion.ARENA_SPAWNS.getPosition())
+                                                || position.equals(Creacion.ANOTHER_ARENA_SPAWNS.getPosition()))
+                                                && Creacion.getByPosition(pos) != null) {
+                                        plugin.getPlayersCreation().put(player.getName(), pos);
+                                        c = Creacion.getByPosition(pos);
+                                        actua = Boolean.FALSE;
+                                } else {
+                                        c = Creacion.getByPosition(position);
+                                }
+                        } catch (Exception ex) {
+                                c = Creacion.getByPosition(position);
+                        }
+                } else {
+                        try {
+                                position = Integer.valueOf(message);
+                                if (Creacion.getByPosition(Integer.valueOf(message)) != null) {
+                                        c = Creacion.getByPosition(Integer.valueOf(message));
 					actua = Boolean.FALSE;
 				}
 			} catch (Exception e) {
