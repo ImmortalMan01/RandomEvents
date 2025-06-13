@@ -265,82 +265,45 @@ credits.balance: '%credits% kredi'
 credits.cooldown: "&b&lBeklemede"
 credits.eventrunning: Etkinlik çalışıyor!
 credits.ready: Hazır
-minigame.description.GLASSWALK: Sahte cama dikkat edin, ulaşılacak kişi olun; Times
-  0'a ulaşmadan önceki hedef; yoksa hepiniz öleceksiniz.
-minigame.description.BR: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya takım
-  hayatta kalabilir.
-minigame.description.BRT2: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya takım
-  hayatta kalabilir.
-minigame.description.LJ: Sadece 1 oyuncunun olduğu şiddetli bir savaş; atı ile hayatta
-  kalabilir.
-minigame.description.TKLL: Sadece en güçlü suikastçı bu etkinliği kazanabilir, oyuncuları
-  puan almak için öldürebilir; Daha fazla puanı olan oyuncu ödülleri alacak
-minigame.description.TKLLT2: Sadece en güçlü suikastçı bu etkinliği kazanabilir, oyuncuları
-  puan almak için öldürebilir; Daha fazla puanı olan takım ödülleri alacak
-minigame.description.KBD: Saldırı gücünüzün önemli olmadığı bir savaş, bir strateji
-  yapmanız gerekecek; Düşmanları arenadan uzaklaştırmak için onları öldürmek için!;
-  Duran son kişi!
-minigame.description.EARR: Eğer varsa gökten gelen oklardan kaçının; Başını kaybetmek
-  istemiyorum!
-minigame.description.GEMC: Rastgele mücevherler arenada ortaya çıkacak. 10 mücevher
-  ulaşana kadar hepsini almaya çalışın; Ya da onları alan düşmanlardan çalar. 10 saniye
-  durun; Daha fazla 10 mücevher taşıyor ve ellerinizi ödüle alacaksınız!
-minigame.description.BOMB: Bomba ile koşun ve onlara vermek ve kendi ölümünüzden kaçınmak
-  için düşmanlara çarpın.;  Zaman zaman bomba patlayacak ve sahip olan oyuncuyu alacak;
-  Ve onun yakınındaki herkes öldü.
-minigame.description.BOAT_RUN: En hızlı denizci olun ve daha önce bitiş çizgisine
-  ulaşın; Takipçileriniz!
-minigame.description.HORSE_RUN: En hızlı at sürücüsü olun ve daha önce bitiş çizgisine
-  ulaşın; Takipçileriniz!
-minigame.description.ESCAPE_FROM_BEAST: Canavar mini oyundan klasik koşu!; Tüm senaryoyu
-  tamamlayarak canavarı yenin ve yeterli ekipman alın; Canavara zarar vermek için!
-minigame.description.RACE: Koşun ve hedefe ilk ulaşan kişi olun; Ödülünüzü almak için!
-minigame.description.WDROP: Koşun ve güvenli bırakın!; Son hedefe ilk ulaşan kişi
-  olmak; Ödülünüzü almak için!
-minigame.description.TNTRUN: Hayatınız için koş, arkanızdaki TNT kaybolacak; Maçı
-  kazanmak için onların üzerinde kalmaya çalışın!
-minigame.description.SPLEEF: Diğer oyuncuların fotlarındaki blokları kırarak düşmesini
-  sağlayın; Ödülü kazanmak için güvende kalan kişi olun!
-minigame.description.SPLEGG: Başka bir Spleef türü ama bu sefer yumurta atmak için
-  tabancanızı kullanın; Bu zemini kıracak!
-minigame.description.OITC: Oklar letal olan oyun, puan almak için düşmanlarınıza çarptı;
-  Ve eğer oklardan çıkarsan ... iyi şanslar!
-minigame.description.SG: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya takım
-  hayatta kalabilir.
-minigame.description.TSG: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya takım
-  hayatta kalabilir.
-minigame.description.SW: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya takım
-  hayatta kalabilir.
-minigame.description.TSW: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya takım
-  hayatta kalabilir.
-minigame.description.ANVIL_SPLEEF: Eğer iseniz gökyüzünden gelen örslerden kaçının;
-  Başını kaybetmek istemiyorum!
-minigame.description.QUAKE: Atlamak için sol tıklayın, çekim yapmak için sağ tıklayın!;
-  Düşmanlarınızı vur!; Hepsini ölün!
-minigame.description.PBALL: Düşmanlarınızı kartopu ile vur!;; Hepsini ölün!
-minigame.description.KOTH: Tüm puanları almak için bölgedeki kişi olun!; Tüm düşmanlarını
-  öldür!
-minigame.description.HOE: Tüm zemini renginizle boyayın!; Renkli maçı kazanın!
-minigame.description.FISHSLAP: Tırmanışta kalın ve!; Balık tokatlarının farkında olun!
-minigame.description.SPLATOON: Tüm alanı boyayın; Maçı kazanmak için renginize!
-minigame.description.TSGTEAMS: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya
-  takım hayatta kalabilir.
-minigame.description.TSWTEAMS: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya
-  takım hayatta kalabilir.
-minigame.description.TKLLTEAMS: Sadece en güçlü suikastçı bu etkinliği kazanabilir,
-  oyuncuları puan almak için öldürebilir; Daha fazla puanı olan takım ödülleri alacak
-minigame.description.PBALLTK: Düşmanlarınıza kartopu atın; sadece en güçlü suikastçı
-  bu etkinliği kazanabilir, oyuncuları puan almak için öldürebilir; Daha fazla puanı
-  olan takım ödülleri alacak
-minigame.description.BRTEAMS: Sadece 1 oyuncunun olduğu şiddetli bir savaş; veya takım
-  hayatta kalabilir.
-minigame.description.REDGREEN: Hedefe ilk ulaşan kişi olun, ama dikkat et; Sadece
-  müzik açıkken yürüyün.
-minigame.description.BOMBARDMENT: Kaçınmak; Maçı kazanmak için ateş topları!
-minigame.description.BLOCKPARTY: Bloklar kaybolduğunda düşmemeye çalışın; bloğu doğru
-  renklerle arayın ve hayatta kalın; Kazanana kadar!
-minigame.description.HIDEANDSEEK: Arayanlardan saklanın ya da belki de; Maçınızı kazanmak
-  için!
+minigame.description.GLASSWALK: '&eSahte camlara dikkat et, süre dolmadan;&e hedefe ulaşan kişi ol yoksa hepiniz ölürsünüz.'
+minigame.description.BR: '&eSadece 1 oyuncu;&e veya takımın hayatta kalabileceği amansız bir savaş.'
+minigame.description.BRT2: '&eSadece 1 oyuncu;&e veya takımın hayatta kalabileceği amansız bir savaş.'
+minigame.description.LJ: '&eSadece 1 oyuncunun;&e atıyla hayatta kalabileceği amansız bir savaş.'
+minigame.description.TKLL: '&eBu etkinliği sadece en güçlü suikastçı kazanabilir, oyuncuları öldürerek;&e puan topla, en çok puanı alan ödülleri kazanır'
+minigame.description.TKLLT2: '&eBu etkinliği sadece en güçlü suikastçı kazanabilir, oyuncuları öldürerek;&e puan topla, en çok puanı alan takım ödülleri kazanır'
+minigame.description.KBD: '&eSaldırı gücünün önemli olmadığı bir savaş, rakiplerini arenadan dışarı fırlatmanın;&e yollarını bulmalı ve onları öldürmelisin!;&e Ayakta kalan son kişi ol!'
+minigame.description.EARR: '&eGökyüzünden gelen oklardan kaç;&e kafanı kaybetmek istemiyorsan!'
+minigame.description.GEMC: '&eArenada rastgele mücevherler belirecek. 10 mücevhere ulaşana kadar hepsini toplamaya çalış;&e veya mücevheri olan düşmanlardan çal. 10 mücevherle;&e 10 saniye boyunca hayatta kalırsan ödül senin olacak!'
+minigame.description.BOMB: '&eBombayla koş ve düşmanlarına vur, bombayı onlara geçir;&e ve kendi ölümünden kaç. Zaman zaman bomba patlayacak ve bombayı tutan oyuncu;&e ve yanındakiler ölecek.'
+minigame.description.BOAT_RUN: '&eEn hızlı denizci ol ve bitiş çizgisine;&e takipçilerinden önce ulaş!'
+minigame.description.HORSE_RUN: '&eEn hızlı at binicisi ol ve bitiş çizgisine;&e takipçilerinden önce ulaş!'
+minigame.description.ESCAPE_FROM_BEAST: '&eKlasik Canavardan Kaç mini oyununu oyna!;&e Senaryoyu tamamla, yeterli ekipman topla;&e ve canavara hasar vermek için hazır ol!'
+minigame.description.RACE: '&eKoş ve hedefe ilk ulaşan ol;&e ödülünü kap!'
+minigame.description.WDROP: '&eKoş ve güvenli bir şekilde düş!;&e Son hedefe ilk ulaşan ol;&e ödülünü al!'
+minigame.description.TNTRUN: '&eHayatta kalmak için koş, arkandaki TNT blokları yok olacak,;&e blokların üstünde kal ve maçı kazan!'
+minigame.description.SPLEEF: '&eDiğer oyuncuları bloklarını kırarak aşağı düşür,;&e ayakta kalan ve ödülü alan ol!'
+minigame.description.SPLEGG: '&eSpleef''in farklı bir türü; bu sefer tabancanla yumurta at;&e ve zemini kır!'
+minigame.description.OITC: '&eOkların ölümcül olduğu bir oyun, düşmanlarını vurarak puan kazan;&e okların biterse... İyi şanslar!'
+minigame.description.SG: '&eSadece 1 oyuncu;&e veya takımın hayatta kalabileceği amansız bir savaş.'
+minigame.description.TSG: '&eSadece 1 oyuncu;&e veya takımın hayatta kalabileceği amansız bir savaş.'
+minigame.description.SW: '&eSadece 1 oyuncu;&e veya takımın hayatta kalabileceği amansız bir savaş.'
+minigame.description.TSW: '&eSadece 1 oyuncu;&e veya takımın hayatta kalabileceği amansız bir savaş.'
+minigame.description.ANVIL_SPLEEF: '&eGökyüzünden gelen örslerden kaç;&e kafanı kaybetmek istemiyorsan!'
+minigame.description.QUAKE: '&eSol tıkla zıpla, sağ tıkla ateş et!;&eDüşmanlarını vur!;&e Hepsini öldür!'
+minigame.description.PBALL: '&eDüşmanlarını kartopuyla vur!;&e Hepsini öldür!'
+minigame.description.KOTH: '&eBölgedeki tek kişi ol ve tüm puanları kap!;&eTüm düşmanlarını öldür!'
+minigame.description.HOE: '&eTüm zemini kendi renginle boya!;&eRenkli maçı kazan!'
+minigame.description.FISHSLAP: '&eYukarıda kal ve dikkatli ol!;&e Balık tokatlarına karşı tetikte ol!'
+minigame.description.SPLATOON: '&eTüm alanı kendi renginle boya;&e maçı kazan!'
+minigame.description.TSGTEAMS: '&eSadece 1 oyuncu;&e veya takımın hayatta kalabileceği amansız bir savaş.'
+minigame.description.TSWTEAMS: '&eSadece 1 oyuncu;&e veya takımın hayatta kalabileceği amansız bir savaş.'
+minigame.description.TKLLTEAMS: '&eBu etkinliği sadece en güçlü suikastçı kazanabilir, oyuncuları öldürerek puan topla,;&e en çok puanı alan takım ödülleri kazanır'
+minigame.description.PBALLTK: '&eDüşmanlarına kartopu at;&eBu etkinliği sadece en güçlü suikastçı kazanabilir, oyuncuları öldürerek puan topla,;&e en çok puanı alan takım ödülleri kazanır'
+minigame.description.BRTEAMS: '&eSadece 1 oyuncu;&e veya takımın hayatta kalabileceği amansız bir savaş.'
+minigame.description.REDGREEN: '&eHedefe ilk ulaşan ol ama dikkat et;&e sadece müzik çalarken yürü.'
+minigame.description.BOMBARDMENT: '&eAteş toplarından kaç;&e maçı kazanmak için hayatta kal!'
+minigame.description.BLOCKPARTY: '&eBloklar kaybolurken düşmemeye çalış;&eDoğru renkli bloğu bul ve hayatta kal;&e ta ki kazanana kadar!'
+minigame.description.HIDEANDSEEK: '&eSaklananlardan saklan ya da belki;&eharitanın her yerindeki saklananları bulup öldürerek arayan ol;&e ve maçı kazan!'
 creation.minigame_type.name: Minigame Türü
 creation.minigame_type.message: "&6&lMinigame türünü seçin (Sohbete 0 yazın)"
 creation.battle_name.name: Etkinlik Adı
