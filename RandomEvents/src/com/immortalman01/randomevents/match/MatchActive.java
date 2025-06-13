@@ -3215,9 +3215,21 @@ public class MatchActive {
                         }
                         if (dif <= 0) {
 
-                                Location loc = bomba.getLocation();
-                                loc.getWorld().playEffect(loc, Effect.EXPLOSION_HUGE, 0);
-                                loc.getWorld().playSound(loc, XSound.ENTITY_GENERIC_EXPLODE.parseSound(), 1.0F, 1.0F);
+                               Location loc = bomba.getLocation();
+                               try {
+                                       Class<?> particleClass = Class.forName("org.bukkit.Particle");
+                                       Object particle = Enum.valueOf((Class<? extends Enum>) particleClass, "EXPLOSION_HUGE");
+                                       loc.getWorld().getClass()
+                                                       .getMethod("spawnParticle", particleClass, Location.class, int.class)
+                                                       .invoke(loc.getWorld(), particle, loc, 1);
+                               } catch (Exception ex) {
+                                       try {
+                                               loc.getWorld().playEffect(loc, Effect.valueOf("EXPLOSION_HUGE"), 0);
+                                       } catch (Throwable ignore) {
+                                               loc.getWorld().playEffect(loc, Effect.EXPLOSION_LARGE, 0);
+                                       }
+                               }
+                               loc.getWorld().playSound(loc, XSound.ENTITY_GENERIC_EXPLODE.parseSound(), 1.0F, 1.0F);
 
                                 UtilsRandomEvents.playSound(plugin, getPlayerHandler().getPlayersSpectators(),
                                                 XSound.ENTITY_GENERIC_EXPLODE);
