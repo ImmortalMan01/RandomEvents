@@ -231,6 +231,7 @@ announce.announceFirst: "████████\n████████\n█
 announce.announceNext: Rastgele Olay >>%type% %clickhere% [%players%/%neededPlayers%]
 announce.announceFirstTournament: "████████\n████████\n████████ Turnuva rastgele etkinliği\n████████\n████████ [%players%/%neededPlayers%] \n████████ %clickhere% \n████████\n████████"
 announce.announceNextTournament: Turnuva Rastgele Etkinlik >> %clickhere% [%players%/%neededPlayers%]
+announce.clickHere: "&b[Katılmak için buraya tıklayın]"
 announce.raceTournament: Oyuncu %player% hedefe ulaştı ( %players% / %neededPlayers% )
 announce.youBeast: Sen canavarsın, arenaya ışınlanana kadar bekle
 match.tournamentAlive: 'Bu oyuncular hala turnuvada hayatta kalıyor:'
@@ -238,6 +239,7 @@ match.winners: '%players% Rastgele Etkinlik ''%event%'' kazandı! Tebrikler!'
 match.winnersTournament: '%players% Turnuva rastgele etkinliğini kazandı! Tebrikler!'
 match.winnersPoints: '%players% rastgele ''%event%'' %points% puanla kazandı! Tebrikler!'
 comun.disposeLeatherItems: Güvenlik nedeniyle lütfen etkinliğe girmeden önce deri eşyalarınızı bırakın
+comun.clearInventory: "&c&lRandomEvent'e katılmadan önce envanteri temizleyin"
 comun.daysFormat: '% gün% H'
 comun.hoursFormat: '% saat% saat'
 comun.minutesFormat: '% dakika% m'
@@ -247,8 +249,10 @@ match.showTeam: 'Ekibiniz: %players%'
 match.timeRemaining: '%minutes% Kalan'
 match.nowPoints: Şimdi %points% puanınız var
 match.nowGems: Oyuncu %player% şimdi %points% Gems var
+match.nowProtected: "&6&lŞimdi 3 saniye korunuyorsunuz"
 match.matchBeginSoon: Rastgele olay yakında başlayacak
 match.lostGems: '%player% Tüm Taşları Kaybetti'
+match.greenRedLightMove: "&a&lHAREKET"
 match.greenRedLightStop: DURMAK
 match.playerWinning: Oyuncu %player% yeterli mücevher var, onu öldür ya da maç bitecek
 match.playerWinningSeconds: '%player% %seconds% saniye içinde kazanır'
@@ -258,6 +262,7 @@ match.bombExplode: Oyuncu %player% patladı
 credits.addedother: '%credits% kredi %event% için %player% oyuncusuna eklendi'
 credits.addedown: '%credits% kredi %event% etkinliği için hesabınıza eklendi'
 credits.balance: '%credits% kredi'
+credits.cooldown: "&b&lBeklemede"
 credits.eventrunning: Etkinlik çalışıyor!
 credits.ready: Hazır
 minigame.description.GLASSWALK: Sahte cama dikkat edin, ulaşılacak kişi olun; Times
