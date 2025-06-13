@@ -70,6 +70,22 @@ commands:
       usage: /randomevent
 ```
 
+## Mini Oyun Rehberi
+
+### Battle Royale
+Oyuncular ya da takımlar haritada hayatta kalmak için savaşır. Tek bir kişi
+veya ekip ayakta kaldığında maç biter ve kazanan belirlenir. Üyelerinizle
+birlikte ekipman toplayıp rakiplerinizi elemeye çalışın.
+
+### Spleef
+Her oyuncu ellerindeki küreklerle zemindeki blokları kırarak rakiplerini aşağı
+düşürmeye çalışır. Zeminde kalabilen son oyuncu yarışı kazanır. Dilerseniz
+kar topu gibi ekstra öğeleri etkinleştirerek tempoyu artırabilirsiniz.
+
+### TNT Run
+Koştuğunuz her blok kısa süre sonra kaybolur. Aşağı düşmemek için sürekli
+hızlı hareket edin ve kalan son oyuncu olmaya çalışın.
+
 ## Lisans
 Bu proje MIT Lisansı ile yayınlanmıştır. Detaylar için `LICENSE.txt` dosyasına bakabilirsiniz.
 
