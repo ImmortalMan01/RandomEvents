@@ -611,12 +611,13 @@ public class Chat implements Listener {
                 if (position != null) {
                         try {
                                 int pos = Integer.parseInt(message);
-                                if ((position.equals(Creacion.ARENA_SPAWNS.getPosition())
-                                                || position.equals(Creacion.ANOTHER_ARENA_SPAWNS.getPosition()))
-                                                && Creacion.getByPosition(pos) != null) {
+                                if (Creacion.getByPosition(pos) != null) {
                                         plugin.getPlayersCreation().put(player.getName(), pos);
                                         c = Creacion.getByPosition(pos);
                                         actua = Boolean.FALSE;
+                                        if (c.equals(Creacion.ARENA_SPAWNS)) {
+                                                match.setSpawns(new ArrayList<Location>());
+                                        }
                                 } else {
                                         c = Creacion.getByPosition(position);
                                 }
