@@ -255,8 +255,11 @@ public class Constantes {
 		END_OF_SCHEDULE_CREATION("endOfScheduleCreation", "creation.endOfScheduleCreation",
 				"&6&lYou successfully created a Schedule!"),
 
-		CANCEL_OF_ARENA_CREATION("cancelOfArenaCreation", "creation.cancelOfArenaCreation",
-				"&6&lYou canceled the creation of a RandomEvents!"),
+                CANCEL_OF_ARENA_CREATION("cancelOfArenaCreation", "creation.cancelOfArenaCreation",
+                                "&6&lYou canceled the creation of a RandomEvents!"),
+
+                CANCEL_TIP("cancelTip", "creation.cancel_tip",
+                                "&7Type 'Cancel' at any time to exit setup"),
 
 		PLUGIN_RELOAD("pluginReload", "comun.pluginReload", "&6&lPlugin reloaded!"),
 
