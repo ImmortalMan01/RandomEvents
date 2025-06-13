@@ -92,16 +92,16 @@ creation.kit_delete.name: 'Alanı Temizle'
 creation.kit_delete.message: '&6&lSilmek istediğiniz alanı seçin'
 creation.kit_cancel.name: 'İptal'
 creation.kit_cancel.message: '&6&lBir kit oluşturmayı iptal etmek üzeresiniz, onaylamak için ''Y'', devam etmek için ''N'' yazın'
-minigameName.BattleRoyale: Battle Royale
-minigameName.DuoBattleRoyale: İkili Battle Royale
-minigameName.KnightsBattle: Şövalye Savaşı
+minigameName.BattleRoyale: Savaş Royale
+minigameName.DuoBattleRoyale: İkili Savaş Royale
+minigameName.KnightsBattle: Şövalyeler Savaşı
 minigameName.TopKiller: En Çok Öldüren
 minigameName.DuoTopKiller: İkili En Çok Öldüren
-minigameName.KnockbackDuel: Knockback Düellosu
+minigameName.KnockbackDuel: Geri Tepme Düellosu
 minigameName.ArrowRain: Ok Yağmuru
 minigameName.AnvilSpleef: Örs Spleef
-minigameName.GemCarrier: Elmas Taşıyıcı
-minigameName.TNTTag: TNT Etiketi
+minigameName.GemCarrier: Mücevher Taşıyıcı
+minigameName.TNTTag: TNT Yakalamaca
 minigameName.BoatRace: Tekne Yarışı
 minigameName.HorseRace: At Yarışı
 minigameName.EscapeBeast: Canavardan Kaçış
@@ -109,28 +109,28 @@ minigameName.Race: Yarış
 minigameName.TNTRun: TNT Koşusu
 minigameName.Spleef: Spleef
 minigameName.Splegg: Splegg
-minigameName.OITC: Chamber'da Tek
+minigameName.OITC: Tek Mermi
 minigameName.SurvivalGames: Hayatta Kalma Oyunları
 minigameName.DuoSurvivalGames: İkili Hayatta Kalma Oyunları
-minigameName.Skywars: SkyWars
-minigameName.DuoSkywars: İkili SkyWars
-minigameName.WaterDrop: Dropper
-minigameName.QuakeCraft: Quake Craft
+minigameName.Skywars: Gökyüzü Savaşları
+minigameName.DuoSkywars: İkili Gökyüzü Savaşları
+minigameName.WaterDrop: Düşüş
+minigameName.QuakeCraft: Deprem Savaşı
 minigameName.Paintball: Paintball
 minigameName.PaintballTopKill: Paintball En Çok Öldüren
-minigameName.KingHill: Yokuş Kralı
+minigameName.KingHill: Tepe Kralı
 minigameName.FishSlap: Balık Tokadı
-minigameName.Hoehoehoe: Çapala Çapala
+minigameName.Hoehoehoe: Çapa çapa çapa
 minigameName.Splatoon: Splatoon
 minigameName.Bombardment: Bombardıman
-minigameName.RedGreenLight: Yeşil Işık-Kırmızı Işık
-minigameName.TeamBattleRoyale: Takım Battle Royale
-minigameName.TeamTopKiller: Takım En Çok Öldüren
-minigameName.TeamSkywars: Takım SkyWars
-minigameName.TeamSurvivalGames: Takım Hayatta Kalma Oyunları
+minigameName.RedGreenLight: Kırmızı Işık-Yeşil Işık
+minigameName.TeamBattleRoyale: Takımlı Savaş Royale
+minigameName.TeamTopKiller: Takımlı En Çok Öldüren
+minigameName.TeamSkywars: Takımlı Gökyüzü Savaşları
+minigameName.TeamSurvivalGames: Takımlı Hayatta Kalma Oyunları
 minigameName.BlockParty: Blok Partisi
 minigameName.HideAndSeek: Saklambaç
-minigameName.GlassWalk: Cam Yolu
+minigameName.GlassWalk: Cam Yürüyüşü
 menu.helpMenu: "&6----------------- &e&lRandomEvents &6---------------------"
 menu.showMenu: "   &6/revent:\n          &e-> Bu menüyü gösteriyor"
 menu.join: "   &6/revent join:\n          &e-> Rastgele Etkinliğe Katılın"
