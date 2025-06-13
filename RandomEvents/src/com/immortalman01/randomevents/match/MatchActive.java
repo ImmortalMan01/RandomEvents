@@ -3226,7 +3226,11 @@ public class MatchActive {
                                        try {
                                                loc.getWorld().playEffect(loc, Effect.valueOf("EXPLOSION_HUGE"), 0);
                                        } catch (Throwable ignore) {
-                                               loc.getWorld().playEffect(loc, Effect.EXPLOSION_LARGE, 0);
+                                               try {
+                                                       loc.getWorld().playEffect(loc, Effect.valueOf("EXPLOSION_LARGE"), 0);
+                                               } catch (Throwable ignore2) {
+                                                       loc.getWorld().createExplosion(loc.getX(), loc.getY(), loc.getZ(), 0F, false, false);
+                                               }
                                        }
                                }
                                loc.getWorld().playSound(loc, XSound.ENTITY_GENERIC_EXPLODE.parseSound(), 1.0F, 1.0F);
