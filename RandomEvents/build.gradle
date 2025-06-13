@@ -20,13 +20,13 @@ sourceSets {
         java.srcDir 'src'
         java.exclude 'com/immortalman01/randomevents/util/UtilsProtocolLib.java'
         resources.srcDir '.'
-        resources.includes = ['plugin.yml','config.yml','defaultConfig.yml','messages_tr.yml','Luzverde2.nbs','luzverde.nbs']
+        resources.includes = ['plugin.yml','config.yml','defaultConfig.yml','messages.yml','messages_tr.yml','Luzverde2.nbs','luzverde.nbs']
     }
 }
 
 jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from('.') {
-        include 'plugin.yml','config.yml','defaultConfig.yml','messages_tr.yml','Luzverde2.nbs','luzverde.nbs'
+        include 'plugin.yml','config.yml','defaultConfig.yml','messages.yml','messages_tr.yml','Luzverde2.nbs','luzverde.nbs'
     }
 }
