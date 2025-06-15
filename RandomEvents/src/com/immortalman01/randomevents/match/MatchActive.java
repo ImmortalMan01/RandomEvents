@@ -1340,12 +1340,14 @@ public class MatchActive {
 		case TSG_REAL:
 		case TSW_REAL:
 		case GEM_CRAWLER:
-			if (getMapHandler() != null && getMapHandler().getCuboid() != null) {
-				Location center = getMapHandler().getCuboid().getCenter();
-				if (center != null) {
+                        if (getMapHandler() != null && getMapHandler().getCuboid() != null) {
+                                Location center = getMapHandler().getCuboid().getCenter();
+                                if (center != null && center.getWorld() != null && match.getLocation1() != null
+                                                && match.getLocation1().getWorld() != null) {
 
-					Collection<Entity> entities = center.getWorld().getNearbyEntities(center,
-							center.distance(match.getLocation1()), 400, center.distance(match.getLocation1()));
+                                        double radius = center.distance(match.getLocation1());
+                                        Collection<Entity> entities = center.getWorld().getNearbyEntities(center,
+                                                        radius, 400, radius);
                                         for (Entity e : entities) {
                                                 if (e != null) {
                                                         if ((e instanceof EnderPearl || e instanceof Item || e instanceof Boat || e instanceof Horse
