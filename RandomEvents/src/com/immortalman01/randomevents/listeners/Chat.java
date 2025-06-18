@@ -343,9 +343,8 @@ public class Chat implements Listener {
 			}
 		}
 
-		if (actualiza) {
-			plugin.getPlayerKit().put(player.getName(), kit);
-			plugin.getPlayerKit().put(player.getName(), kit);
+                if (actualiza) {
+                        plugin.getPlayerKit().put(player.getName(), kit);
 			if (actua) {
 				player.sendMessage(UtilsRandomEvents.enviaInfoCreacionKit(kit, player, plugin));
 			} else {

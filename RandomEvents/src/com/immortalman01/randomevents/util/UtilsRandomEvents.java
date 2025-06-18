@@ -290,24 +290,25 @@ public class UtilsRandomEvents {
 
 				pw.close();
 				plugin.getPlayersCreationKit().remove(player.getName());
-				plugin.getPlayerKit().remove(player.getName());
+                                plugin.getPlayerKit().remove(player.getName());
 
-				Kit kitAux = null;
-				for (Kit m : plugin.getKits()) {
-					if (m.getName().equals(kit.getName())) {
-						kitAux = m;
-					}
+                                Kit kitAux = null;
+                                for (Kit m : plugin.getKits()) {
+                                        if (m.getName().equals(kit.getName())) {
+                                                kitAux = m;
+                                        }
 
-				}
-				if (kitAux == null) {
-					plugin.getKits().add(kit);
-				} else {
-					if (plugin.getMatches().indexOf(kitAux) != -1) {
-						plugin.getKits().set(plugin.getMatches().indexOf(kitAux), kit);
-					} else {
-						plugin.getKits().add(kit);
-					}
-				}
+                                }
+                                if (kitAux == null) {
+                                        plugin.getKits().add(kit);
+                                } else {
+                                        int index = plugin.getKits().indexOf(kitAux);
+                                        if (index != -1) {
+                                                plugin.getKits().set(index, kit);
+                                        } else {
+                                                plugin.getKits().add(kit);
+                                        }
+                                }
 				if (player != null) {
 
 					player.sendMessage(
@@ -3484,15 +3485,18 @@ public class UtilsRandomEvents {
 		return inv;
 	}
 
-	private static Integer sizeGUIKits(List<Kit> kitsAvailable) {
-		Integer size = kitsAvailable.size();
-		if (size > 45) {
-			size = 45;
-		} else {
-			size = size + (9 - size % 9);
-		}
-		return size;
-	}
+        private static Integer sizeGUIKits(List<Kit> kitsAvailable) {
+                int total = kitsAvailable.size();
+                if (total == 0) {
+                        return 9;
+                }
+
+                int size = ((int) Math.ceil(total / 9.0)) * 9;
+                if (size > 45) {
+                        size = 45;
+                }
+                return size;
+        }
 
 	public static List<Kit> kitsAvailable(Player p, List<String> kits, RandomEvents plugin) {
 		List<Kit> kitsAvailable = new ArrayList<Kit>();
