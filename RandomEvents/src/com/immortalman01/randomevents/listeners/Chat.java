@@ -1128,11 +1128,7 @@ public class Chat implements Listener {
 						break;
                                         case REFILL_CHEST:
                                                 match.setTimeRefill(Integer.valueOf(message.trim()));
-                                                // Go directly to the next step so numeric values are not
-                                                // interpreted as a new menu option.
-                                                plugin.getPlayersCreation().put(player.getName(),
-                                                                Creacion.TIMER_BLOCK_DISAPPEAR.getPosition());
-                                                actua = Boolean.FALSE;
+                                                plugin.getPlayersCreation().remove(player.getName());
 
                                                 break;
 					case TIMER_BLOCK_DISAPPEAR:
