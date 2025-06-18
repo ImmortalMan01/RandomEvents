@@ -617,7 +617,10 @@ public class Chat implements Listener {
                                 boolean parseStep = true;
                                 if (current != null && (current.equals(Creacion.AMOUNT_PLAYERS)
                                                 || current.equals(Creacion.AMOUNT_PLAYERS_MIN)
-                                                || current.equals(Creacion.KITS))) {
+                                                || current.equals(Creacion.KITS)
+                                                || current.equals(Creacion.WARMUP_TIME)
+                                                || current.equals(Creacion.NO_MOVE_TIME)
+                                                || current.equals(Creacion.REFILL_CHEST))) {
                                         // These steps expect a numeric value. Don't interpret it as a step change.
                                         parseStep = false;
                                 }
