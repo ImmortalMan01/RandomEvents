@@ -609,20 +609,26 @@ public class Chat implements Listener {
 
                 Creacion c = null;
                 if (position != null) {
-                        try {
-                                int pos = Integer.parseInt(message);
-                                if (Creacion.getByPosition(pos) != null) {
-                                        plugin.getPlayersCreation().put(player.getName(), pos);
-                                        c = Creacion.getByPosition(pos);
-                                        actua = Boolean.FALSE;
-                                        if (c.equals(Creacion.ARENA_SPAWNS)) {
-                                                match.setSpawns(new ArrayList<Location>());
+                        if (position.equals(Creacion.MINIGAME_TYPE.getPosition())) {
+                                // When selecting a minigame we don't want to interpret the input
+                                // as another creation step. Let the MINIGAME_TYPE case handle it.
+                                c = Creacion.MINIGAME_TYPE;
+                        } else {
+                                try {
+                                        int pos = Integer.parseInt(message);
+                                        if (Creacion.getByPosition(pos) != null) {
+                                                plugin.getPlayersCreation().put(player.getName(), pos);
+                                                c = Creacion.getByPosition(pos);
+                                                actua = Boolean.FALSE;
+                                                if (c.equals(Creacion.ARENA_SPAWNS)) {
+                                                        match.setSpawns(new ArrayList<Location>());
+                                                }
+                                        } else {
+                                                c = Creacion.getByPosition(position);
                                         }
-                                } else {
+                                } catch (Exception ex) {
                                         c = Creacion.getByPosition(position);
                                 }
-                        } catch (Exception ex) {
-                                c = Creacion.getByPosition(position);
                         }
                 } else {
                         try {
