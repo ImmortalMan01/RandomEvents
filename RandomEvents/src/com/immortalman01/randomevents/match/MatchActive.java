@@ -1535,10 +1535,9 @@ public class MatchActive {
 
 			res = (List<String>) method.invoke(plugin.getLanguage());
 
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+                } catch (Exception e) {
+                        plugin.getLoggerP().warning(e.toString());
+                }
 		return res;
 	}
 
