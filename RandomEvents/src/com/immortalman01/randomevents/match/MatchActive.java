@@ -1244,12 +1244,12 @@ public class MatchActive {
 		setCanBreak(Boolean.FALSE);
 		if (tournamentObj == null) {
 
-			for (Player p : getPlayerHandler().getPlayersSpectators()) {
-				try {
-					List<Entity> entities = p.getNearbyEntities(
-							plugin.getReventConfig().getDistanceClearEntities() * 1.0,
-							plugin.getReventConfig().getDistanceClearEntities() * 1.0,
-							plugin.getReventConfig().getDistanceClearEntities() * 1.0);
+                        for (Player p : getPlayerHandler().getPlayersSpectators()) {
+                                try {
+                                        List<Entity> entities = p.getNearbyEntities(
+                                                        plugin.getReventConfig().getDistanceClearEntities() * 1.0,
+                                                        plugin.getReventConfig().getDistanceClearEntities() * 1.0,
+                                                        plugin.getReventConfig().getDistanceClearEntities() * 1.0);
                                         if (entities != null) {
                                                 for (Entity e : entities) {
                                                         if (e != null && (e instanceof Horse || e instanceof Boat)
@@ -1259,11 +1259,13 @@ public class MatchActive {
                                                         }
                                                 }
                                         }
-				} catch (Exception e) {
+                                } catch (Exception e) {
 
-				}
-				echaDePartida(p, false, true, true, false, false, false);
-			}
+                                }
+                                if (!ganadores.contains(p)) {
+                                        echaDePartida(p, false, true, true, false, false, false);
+                                }
+                        }
                         for (Player player : ganadores) {
                                 // UtilsStats.aumentaStats(player.getName(),
                                 // getMatch().getName(),
