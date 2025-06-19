@@ -3571,18 +3571,22 @@ public class MatchActive {
 
 	}
 
-	public void iniciaPlayer(Player p) {
-		teleportaPlayer(p);
-		ponInventarioMatch(p);
-		UtilsSQL.updateTries(p, match.getMinigame(), plugin);
-	}
+        public void iniciaPlayer(Player p) {
+                teleportaPlayer(p);
+                // Player is now actively participating, remove from spectator list
+                getPlayerHandler().getPlayersSpectators().remove(p);
+                ponInventarioMatch(p);
+                UtilsSQL.updateTries(p, match.getMinigame(), plugin);
+        }
 
-	public void iniciaPlayerTeam(Player p) {
-		teleportaPlayer(p);
-		ponInventarioMatch(p);
-		if (plugin.getReventConfig().isUseTeamChestplate()) {
-			p.getInventory().setChestplate(Petos.getPeto(getEquipo(p)).getPeto());
-		}
+        public void iniciaPlayerTeam(Player p) {
+                teleportaPlayer(p);
+                // Player is now actively participating, remove from spectator list
+                getPlayerHandler().getPlayersSpectators().remove(p);
+                ponInventarioMatch(p);
+                if (plugin.getReventConfig().isUseTeamChestplate()) {
+                        p.getInventory().setChestplate(Petos.getPeto(getEquipo(p)).getPeto());
+                }
 		p.updateInventory();
 		crearTeam(p);
 		UtilsSQL.updateTries(p, match.getMinigame(), plugin);
@@ -3608,11 +3612,13 @@ public class MatchActive {
 
 	}
 
-	public void iniciaPlayerBeast(Player p) {
-		UtilsRandomEvents.teleportaPlayer(p, getMatch().getBeastSpawn(), plugin);
-		p.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getYouBeast());
-		UtilsSQL.updateTries(p, match.getMinigame(), plugin);
-		ponInventarioBeast(p);
+        public void iniciaPlayerBeast(Player p) {
+                UtilsRandomEvents.teleportaPlayer(p, getMatch().getBeastSpawn(), plugin);
+                p.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getYouBeast());
+                UtilsSQL.updateTries(p, match.getMinigame(), plugin);
+                // Player is now actively participating, remove from spectator list
+                getPlayerHandler().getPlayersSpectators().remove(p);
+                ponInventarioBeast(p);
 
 		Bukkit.getServer().getScheduler().runTaskLater((Plugin) getPlugin(), new Runnable() {
 			public void run() {
