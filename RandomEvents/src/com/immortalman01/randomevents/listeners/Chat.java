@@ -578,7 +578,6 @@ public class Chat implements Listener {
 
 		if (actualiza) {
 			plugin.getPlayerWaterDrop().put(player.getName(), waterDrop);
-			plugin.getPlayerWaterDrop().put(player.getName(), waterDrop);
 			if (actua) {
 				player.sendMessage(UtilsRandomEvents.enviaInfoCreacionWaterDrop(waterDrop, player, plugin));
 			} else {
