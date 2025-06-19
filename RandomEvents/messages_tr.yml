@@ -211,7 +211,7 @@ creation.lacksInfoCreation: Etkinlik oluşturulamıyor, bilgi yok, alanları tek
   ediyor
 creation.tooManySpawns: Tüm gereken doğma noktaları zaten ayarlandı
 comun.shrink: Harita Sınırı %time% saniye içinde daralıyor
-comun.refill: Göğüs yeniden dolduruldu.
+comun.refill: Sandıklar yeniden dolduruldu.
 comun.refillTime: 'Sandıkların yenilenme süresi:'
 comun.shrinkTime: 'Büzülme süresi:'
 comun.warmupEnd: Isınma sonu %time% saniye
