@@ -1251,35 +1251,37 @@ public class MatchActive {
 				}
 				echaDePartida(p, false, true, true, false, false, false);
 			}
-			for (Player player : ganadores) {
-				// UtilsStats.aumentaStats(player.getName(),
-				// getMatch().getName(),
-				// StatsEnum.PARTIDAS_SUPERADAS, plugin);
-				for (String comando : match.getRewards()) {
-					Boolean ejecutaComando = Boolean.TRUE;
-					String[] trozosComandos = comando.split(" ");
+                        for (Player player : ganadores) {
+                                // UtilsStats.aumentaStats(player.getName(),
+                                // getMatch().getName(),
+                                // StatsEnum.PARTIDAS_SUPERADAS, plugin);
+                                for (String comando : match.getRewards()) {
+                                        Boolean ejecutaComando = Boolean.TRUE;
+                                        String[] trozosComandos = comando.split(" ");
 
                                         if (trozosComandos[0].trim().equals(Constantes.PROBABILITY_CMD)) {
                                                 Integer probabilidad = UtilsRandomEvents.parseProbability(trozosComandos[1]);
-						Integer aleatorio = random.nextInt(100);
+                                                Integer aleatorio = random.nextInt(100);
 
-						if (aleatorio > probabilidad) {
-							ejecutaComando = Boolean.FALSE;
-						}
-						String nuevoCmd = "";
-						if (trozosComandos.length > 2) {
-							for (int i = 2; i < trozosComandos.length; i++) {
-								nuevoCmd += trozosComandos[i] + " ";
-							}
-							comando = nuevoCmd.substring(0, nuevoCmd.length() - 1);
-						}
-					}
-					if (ejecutaComando) {
-						Bukkit.dispatchCommand((CommandSender) Bukkit.getConsoleSender(),
-								comando.replaceAll("%player%", player.getName()));
-					}
-				}
-			}
+                                                if (aleatorio > probabilidad) {
+                                                        ejecutaComando = Boolean.FALSE;
+                                                }
+                                                String nuevoCmd = "";
+                                                if (trozosComandos.length > 2) {
+                                                        for (int i = 2; i < trozosComandos.length; i++) {
+                                                                nuevoCmd += trozosComandos[i] + " ";
+                                                        }
+                                                        comando = nuevoCmd.substring(0, nuevoCmd.length() - 1);
+                                                }
+                                        }
+                                        if (ejecutaComando) {
+                                                Bukkit.dispatchCommand((CommandSender) Bukkit.getConsoleSender(),
+                                                                comando.replaceAll("%player%", player.getName()));
+                                        }
+                                }
+                                // Teleport winners back to spawn after rewards
+                                echaDePartida(player, false, true, true, false, false, false);
+                        }
 			if (getPlayerHandler().getPlayerContador() != null) {
 				UtilsRandomEvents.removeGlow(plugin, getPlayerHandler().getPlayerContador(),
 						getPlayerHandler().getPlayersTotalObj());
