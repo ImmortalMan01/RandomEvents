@@ -127,6 +127,8 @@ public class GsonFactory {
                 Map<String, Object> newMap = recursiveSerialization(serializable);
                 newMap.put(CLASS_KEY, ConfigurationSerialization.getAlias(serializable.getClass()));
                 map.put(entry.getKey(), newMap);
+            } else {
+                map.put(entry.getKey(), o2);
             }
         }
         map.put(CLASS_KEY, ConfigurationSerialization.getAlias(o.getClass()));
@@ -403,15 +405,17 @@ public class GsonFactory {
     	private static Map<String, Object> recursiveSerialization(ConfigurationSerializable o) {
     		Map<String, Object> originalMap = o.serialize();
     		Map<String, Object> map = new HashMap<String, Object>();
-    		for(Entry<String, Object> entry : originalMap.entrySet()) {
-    			Object o2 = entry.getValue();
-    			if(o2 instanceof ConfigurationSerializable) {
-    				ConfigurationSerializable serializable = (ConfigurationSerializable) o2;
-    				Map<String, Object> newMap = recursiveSerialization(serializable);
-    				newMap.put("SERIAL-ADAPTER-CLASS-KEY", ConfigurationSerialization.getAlias(serializable.getClass()));
-    				map.put(entry.getKey(), newMap);
-    			}
-    		}
+                for(Entry<String, Object> entry : originalMap.entrySet()) {
+                        Object o2 = entry.getValue();
+                        if(o2 instanceof ConfigurationSerializable) {
+                                ConfigurationSerializable serializable = (ConfigurationSerializable) o2;
+                                Map<String, Object> newMap = recursiveSerialization(serializable);
+                                newMap.put("SERIAL-ADAPTER-CLASS-KEY", ConfigurationSerialization.getAlias(serializable.getClass()));
+                                map.put(entry.getKey(), newMap);
+                        } else {
+                                map.put(entry.getKey(), o2);
+                        }
+                }
     		map.put("SERIAL-ADAPTER-CLASS-KEY", ConfigurationSerialization.getAlias(o.getClass()));
     		return map;
     	}
