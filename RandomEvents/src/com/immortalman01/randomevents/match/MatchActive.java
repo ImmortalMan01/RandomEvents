@@ -755,12 +755,20 @@ public class MatchActive {
 				UtilsRandomEvents.invinciblePlayer(player, plugin);
 				UtilsRandomEvents.teleportaPlayer(player, plugin.getSpawn(), plugin, true);
 			} else {
-				UtilsRandomEvents.teleportaPlayer(player,
-						match.getSpectatorSpawns().get(getRandom().nextInt(match.getSpectatorSpawns().size())), plugin);
-				player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getLeaveCommand());
-				if (plugin.getReventConfig().isAdvancedSpectatorMode()) {
-					player.setGameMode(GameMode.SPECTATOR);
-				}
+                                UtilsRandomEvents.teleportaPlayer(player,
+                                                match.getSpectatorSpawns().get(getRandom().nextInt(match.getSpectatorSpawns().size())), plugin);
+                                player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getLeaveCommand());
+
+                                // Always put eliminated players into full spectator mode
+                                if (!getPlayerHandler().getPlayersSpectators().contains(player)) {
+                                        getPlayerHandler().getPlayersSpectators().add(player);
+                                }
+                                player.setGameMode(GameMode.SPECTATOR);
+                                for (Player pl : Bukkit.getOnlinePlayers()) {
+                                        if (!pl.equals(player)) {
+                                                pl.hidePlayer(plugin, player);
+                                        }
+                                }
 
 			}
 			player.setHealth(player.getMaxHealth());
