@@ -1206,8 +1206,14 @@ public class Chat implements Listener {
                                                 break;
                                         case TIMER_MOB_SPAWN:
                                                 try {
-                                                        match.setSecondsMobSpawn(Double.valueOf(message.trim()));
-                                                        plugin.getPlayersCreation().remove(player.getName());
+                                                        double value = Double.parseDouble(message.trim());
+                                                        if (value > 0) {
+                                                                match.setSecondsMobSpawn(value);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
                                                 } catch (Exception e) {
                                                         player.sendMessage(plugin.getLanguage().getInvalidInput());
                                                         actua = Boolean.FALSE;
@@ -1215,45 +1221,133 @@ public class Chat implements Listener {
                                                 break;
 					case PLAY_TIME:
 					case SHRINK_TIME:
-						match.setTiempoPartida(Integer.valueOf(message.trim()));
-						plugin.getPlayersCreation().remove(player.getName());
+                                                try {
+                                                        int time = Integer.parseInt(message.trim());
+                                                        if (time > 0) {
+                                                                match.setTiempoPartida(time);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
 
-						break;
+                                                break;
                                         case REFILL_CHEST:
-                                                match.setTimeRefill(Integer.valueOf(message.trim()));
-                                                plugin.getPlayersCreation().remove(player.getName());
+                                                try {
+                                                        int val = Integer.parseInt(message.trim());
+                                                        if (val > 0) {
+                                                                match.setTimeRefill(val);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
 
                                                 break;
 					case TIMER_BLOCK_DISAPPEAR:
-						match.setBlockTimer(Integer.valueOf(message.trim()));
-						plugin.getPlayersCreation().remove(player.getName());
+                                                try {
+                                                        int val = Integer.parseInt(message.trim());
+                                                        if (val > 0) {
+                                                                match.setBlockTimer(val);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
 
-						break;
+                                                break;
 					case TIMER_DECREASE_TIME:
-						match.setBlockDecreaseTimer(Integer.valueOf(message.trim()));
-						plugin.getPlayersCreation().remove(player.getName());
+                                                try {
+                                                        int val = Integer.parseInt(message.trim());
+                                                        if (val > 0) {
+                                                                match.setBlockDecreaseTimer(val);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
 
-						break;
+                                                break;
 					case COLOR_APPEAR_TIME:
-						match.setColorTimer(Integer.valueOf(message.trim()));
-						plugin.getPlayersCreation().remove(player.getName());
+                                                try {
+                                                        int val = Integer.parseInt(message.trim());
+                                                        if (val > 0) {
+                                                                match.setColorTimer(val);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
 
-						break;
+                                                break;
 					case COLOR_APPEAR_DECREASE_TIME:
-						match.setColorDecreaseTimer(Integer.valueOf(message.trim()));
-						plugin.getPlayersCreation().remove(player.getName());
+                                                try {
+                                                        int val = Integer.parseInt(message.trim());
+                                                        if (val > 0) {
+                                                                match.setColorDecreaseTimer(val);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
 
-						break;
+                                                break;
 					case SHRINK_BLOCKS:
-						match.setShrinkBlocks(Integer.valueOf(message.trim()));
-						plugin.getPlayersCreation().remove(player.getName());
+                                                try {
+                                                        int val = Integer.parseInt(message.trim());
+                                                        if (val > 0) {
+                                                                match.setShrinkBlocks(val);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
 
-						break;
+                                                break;
 					case NO_MOVE_TIME:
-						match.setSecondsToBegin(Integer.valueOf(message.trim()));
-						plugin.getPlayersCreation().remove(player.getName());
+                                                try {
+                                                        int val = Integer.parseInt(message.trim());
+                                                        if (val > 0) {
+                                                                match.setSecondsToBegin(val);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
 
-						break;
+                                                break;
 					case ARROW_LOCATION1:
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
 							match.setLocation1(player.getLocation());
@@ -1392,26 +1486,31 @@ public class Chat implements Listener {
 
 						}
 						break;
-					case TIMER_ARROW_SPAWN:
-					case TIMER_ANVIL_SPAWN:
-					case TIMER_GEM_SPAWN:
-					case SECONDS_TO_SPAWN_BEAST:
-					case TIMER_BOMB:
-					case WARMUP_TIME:
-						try {
-							match.setSecondsMobSpawn(Double.valueOf(message.trim()));
-							plugin.getPlayersCreation().remove(player.getName());
+                                        case TIMER_ARROW_SPAWN:
+                                        case TIMER_ANVIL_SPAWN:
+                                        case TIMER_GEM_SPAWN:
+                                        case SECONDS_TO_SPAWN_BEAST:
+                                        case TIMER_BOMB:
+                                        case WARMUP_TIME:
+                                                try {
+                                                        double val = Double.parseDouble(message.trim());
+                                                        if (val > 0) {
+                                                                match.setSecondsMobSpawn(val);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        }
 
-							// actualiza =
-							// UtilsRandomEvents.pasaACreation(plugin,
-							// player, Creacion.END.getPosition(), match);
-						} catch (Exception e) {
-							player.sendMessage(plugin.getLanguage().getInvalidInput());
-							// actualiza =
-							// UtilsRandomEvents.pasaACreation(plugin,
-							// player, position, match);
-						}
-						break;
+                                                        // actualiza =
+                                                        // UtilsRandomEvents.pasaACreation(plugin,
+                                                        // player, Creacion.END.getPosition(), match);
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        // actualiza =
+                                                        // UtilsRandomEvents.pasaACreation(plugin,
+                                                        // player, position, match);
+                                                }
+                                                break;
 					case WATER_DROP_SCENES:
 						try {
 							Integer value = Integer.valueOf(message);
