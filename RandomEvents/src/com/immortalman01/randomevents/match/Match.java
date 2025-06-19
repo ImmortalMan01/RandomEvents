@@ -532,11 +532,26 @@ public class Match implements Comparable<Match> {
 		return true;
 	}
 
-	@Override
-	public int compareTo(Match match) {
+        @Override
+        public int compareTo(Match match) {
 
-		return Integer.valueOf(minigame.ordinal()).compareTo(Integer.valueOf(match.getMinigame().ordinal()));
-	}
+                Objects.requireNonNull(match, "match");
+
+                MinigameType thisGame = this.minigame;
+                MinigameType otherGame = match.getMinigame();
+
+                if (thisGame == null && otherGame == null) {
+                        return 0;
+                }
+                if (thisGame == null) {
+                        return -1;
+                }
+                if (otherGame == null) {
+                        return 1;
+                }
+
+                return Integer.valueOf(thisGame.ordinal()).compareTo(Integer.valueOf(otherGame.ordinal()));
+        }
 
 	public Integer getNumberOfTeams() {
 		return numberOfTeams;
