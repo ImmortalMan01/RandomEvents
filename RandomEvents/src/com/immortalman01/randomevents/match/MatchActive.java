@@ -1299,28 +1299,35 @@ public class MatchActive {
 				UtilsRandomEvents.removeGlow(plugin, getPlayerHandler().getPlayerContador(),
 						getPlayerHandler().getPlayersTotalObj());
 			}
-			if (cancelled) {
-				List<Player> playersOnline = new ArrayList<Player>();
-				playersOnline.addAll(Bukkit.getOnlinePlayers());
-				UtilsRandomEvents.mandaMensaje(plugin, playersOnline,
-						plugin.getLanguage().getEventCancelled().replaceAll("%event%", match.getName())
-								.replaceAll("%type%", match.getMinigame().getMessage(plugin)),
-						true);
+                        if (cancelled) {
+                                List<Player> playersOnline = new ArrayList<Player>();
+                                playersOnline.addAll(Bukkit.getOnlinePlayers());
+                                UtilsRandomEvents.mandaMensaje(plugin, playersOnline,
+                                                plugin.getLanguage().getEventCancelled().replaceAll("%event%", match.getName())
+                                                                .replaceAll("%type%", match.getMinigame().getMessage(plugin)),
+                                                true);
 
-			} else if (abrupto) {
-				List<Player> playersOnline = new ArrayList<Player>();
-				playersOnline.addAll(Bukkit.getOnlinePlayers());
-				UtilsRandomEvents.mandaMensaje(plugin, playersOnline,
-						plugin.getLanguage().getEventStopped().replaceAll("%event%", match.getName())
-								.replaceAll("%type%", match.getMinigame().getMessage(plugin)),
-						true);
+                        } else if (abrupto) {
+                                List<Player> playersOnline = new ArrayList<Player>();
+                                playersOnline.addAll(Bukkit.getOnlinePlayers());
+                                UtilsRandomEvents.mandaMensaje(plugin, playersOnline,
+                                                plugin.getLanguage().getEventStopped().replaceAll("%event%", match.getName())
+                                                                .replaceAll("%type%", match.getMinigame().getMessage(plugin)),
+                                                true);
 
-			}
-			try {
-				Bukkit.getPluginManager().callEvent(new ReventEndEvent(this, ganadores));
-			} catch (Exception e) {
-				plugin.getLoggerP().info("[RandomEvents] WARN :: Couldnt fire the ReventEndEvent.");
-			}
+                        } else {
+                                List<Player> playersOnline = new ArrayList<Player>();
+                                playersOnline.addAll(Bukkit.getOnlinePlayers());
+                                UtilsRandomEvents.mandaMensaje(plugin, playersOnline,
+                                                plugin.getLanguage().getEventEnded().replaceAll("%event%", match.getName()),
+                                                true);
+
+                        }
+                        try {
+                                Bukkit.getPluginManager().callEvent(new ReventEndEvent(this, ganadores));
+                        } catch (Exception e) {
+                                plugin.getLoggerP().info("[RandomEvents] WARN :: Couldnt fire the ReventEndEvent.");
+                        }
 			reiniciaValoresPartida();
 		}
 	}

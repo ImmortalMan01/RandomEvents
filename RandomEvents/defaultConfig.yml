@@ -5,9 +5,6 @@
 debugMode: false
 
 ##################################################################
-## Wiki: https://github.com/ImmortalMan01/RandomEventsWiki/wiki   	##
-## Discord: https://discord.gg/rcXhBn68mQ                       ##
-##################################################################
 useEncoding: 'UTF-8'
 prefix: '&a&lRandomEvents &f&l>>'
 language: 'en'
@@ -131,7 +128,6 @@ commandsOnMatchBegin:
     - 'god %player% off'
 ##Commands that will be done when the match ends
 commandsOnMatchEnd:
-    - 'broadcast %event% has ended'
 ##Allowed cmds in matchs. (DONT USE CAPS HERE)
 allowedCmds:
     - msg
