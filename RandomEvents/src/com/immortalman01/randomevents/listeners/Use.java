@@ -99,11 +99,11 @@ public class Use implements Listener {
 			if (plugin.getMatchActive().getAllowMove()) {
 
 				if ((evt.getAction() == Action.LEFT_CLICK_AIR || evt.getAction() == Action.LEFT_CLICK_BLOCK)
-						&& (player.getItemInHand().getType() == (XMaterial.WOODEN_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.IRON_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.GOLDEN_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.DIAMOND_HOE.parseMaterial()))
+						&& (player.getInventory().getItemInMainHand().getType() == (XMaterial.WOODEN_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.IRON_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.GOLDEN_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.DIAMOND_HOE.parseMaterial()))
 						&& plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.QUAKECRAFT)
 						&& !plugin.getMatchActive().getCooldownJump().containsKey(player)) {
 
@@ -116,11 +116,11 @@ public class Use implements Listener {
 					UtilsRandomEvents.playSound(plugin, player, XSound.ENTITY_ENDERMAN_TELEPORT);
 
 				} else if ((evt.getAction() == Action.RIGHT_CLICK_BLOCK)
-						&& (player.getItemInHand().getType() == (XMaterial.WOODEN_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.IRON_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.GOLDEN_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.DIAMOND_HOE.parseMaterial()))
+						&& (player.getInventory().getItemInMainHand().getType() == (XMaterial.WOODEN_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.IRON_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.GOLDEN_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.DIAMOND_HOE.parseMaterial()))
 						&& plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.HOEHOEHOE)) {
 
 					if (plugin.getMatchActive().getMatch().getAllMaterialAllowed()
@@ -153,11 +153,11 @@ public class Use implements Listener {
 					}
 
 				} else if ((evt.getAction() == Action.RIGHT_CLICK_BLOCK || evt.getAction() == Action.RIGHT_CLICK_AIR)
-						&& (player.getItemInHand().getType() == (XMaterial.WOODEN_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.IRON_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.GOLDEN_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.DIAMOND_HOE.parseMaterial()))
+						&& (player.getInventory().getItemInMainHand().getType() == (XMaterial.WOODEN_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.IRON_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.GOLDEN_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.DIAMOND_HOE.parseMaterial()))
 						&& plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLATOON)) {
 
 					player.launchProjectile(Egg.class);
@@ -199,32 +199,32 @@ public class Use implements Listener {
 					}
 				} else if (evt.getAction() == Action.RIGHT_CLICK_AIR || evt.getAction() == Action.RIGHT_CLICK_BLOCK) {
 
-					if (player.getItemInHand() != null
-							&& player.getItemInHand().getType() != XMaterial.AIR.parseMaterial()) {
-						if (player.getItemInHand().getItemMeta() != null
-								&& player.getItemInHand().getItemMeta().getDisplayName() != null
-								&& player.getItemInHand().getItemMeta().getDisplayName()
+					if (player.getInventory().getItemInMainHand() != null
+							&& player.getInventory().getItemInMainHand().getType() != XMaterial.AIR.parseMaterial()) {
+						if (player.getInventory().getItemInMainHand().getItemMeta() != null
+								&& player.getInventory().getItemInMainHand().getItemMeta().getDisplayName() != null
+								&& player.getInventory().getItemInMainHand().getItemMeta().getDisplayName()
 										.equals(plugin.getLanguage().getKitItemName())) {
 							evt.setCancelled(true);
 							player.openInventory(
 									UtilsRandomEvents.createGUIKits(player, 0, plugin, plugin.getMatchActive()));
-						} else if (player.getItemInHand().getItemMeta() != null
-								&& player.getItemInHand().getItemMeta().getDisplayName() != null
-								&& player.getItemInHand().getItemMeta().getDisplayName().equals(
+						} else if (player.getInventory().getItemInMainHand().getItemMeta() != null
+								&& player.getInventory().getItemInMainHand().getItemMeta().getDisplayName() != null
+								&& player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(
 										plugin.getReventConfig().getPowerUpItem().getItemMeta().getDisplayName())) {
 
-							if (player.getItemInHand().getAmount() > 1) {
-								player.getItemInHand().setAmount(player.getItemInHand().getAmount() - 1);
+							if (player.getInventory().getItemInMainHand().getAmount() > 1) {
+								player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount() - 1);
 								player.updateInventory();
 
 							} else {
-								player.getInventory().remove(player.getItemInHand());
+								player.getInventory().remove(player.getInventory().getItemInMainHand());
 								player.updateInventory();
 							}
                                                         player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 60, 5));
 							player.sendMessage(
 									plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getNowProtected());
-						} else if (player.getItemInHand().equals(plugin.getReventConfig().getCheckpointItem())) {
+						} else if (player.getInventory().getItemInMainHand().equals(plugin.getReventConfig().getCheckpointItem())) {
 							evt.setCancelled(true);
 
 							UtilsRandomEvents.teleportaPlayer(player,
@@ -233,34 +233,34 @@ public class Use implements Listener {
                                                         if(plugin.getReventConfig().getRaceSlowEffect())
             player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 60, 99));
 
-						} else if (player.getItemInHand().equals(plugin.getReventConfig().getEndVanishItem())) {
+						} else if (player.getInventory().getItemInMainHand().equals(plugin.getReventConfig().getEndVanishItem())) {
 							evt.setCancelled(true);
 							UtilsRandomEvents.showPlayers(player,
 									plugin.getMatchActive().getPlayerHandler().getPlayersObj(), plugin);
 							UtilsRandomEvents.playSound(plugin, player, XSound.ENTITY_PLAYER_LEVELUP);
 
-						} else if (player.getItemInHand().equals(plugin.getReventConfig().getVanishItem())) {
+						} else if (player.getInventory().getItemInMainHand().equals(plugin.getReventConfig().getVanishItem())) {
 							evt.setCancelled(true);
 							UtilsRandomEvents.hidePlayers(player,
 									plugin.getMatchActive().getPlayerHandler().getPlayersObj(), plugin);
 							UtilsRandomEvents.playSound(plugin, player, XSound.ENTITY_PLAYER_LEVELUP);
 
-						} else if (player.getItemInHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
+						} else if (player.getInventory().getItemInMainHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
 								&& plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEGG)) {
 							player.launchProjectile(Egg.class);
 
-						} else if ((player.getItemInHand().getType() == (XMaterial.WOODEN_SHOVEL.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.STONE_SHOVEL.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.IRON_SHOVEL.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.GOLDEN_SHOVEL.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.DIAMOND_SHOVEL.parseMaterial()))
+						} else if ((player.getInventory().getItemInMainHand().getType() == (XMaterial.WOODEN_SHOVEL.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.STONE_SHOVEL.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.IRON_SHOVEL.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.GOLDEN_SHOVEL.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.DIAMOND_SHOVEL.parseMaterial()))
 								&& plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEGG)) {
 							player.launchProjectile(Egg.class);
-						} else if ((player.getItemInHand().getType() == (XMaterial.WOODEN_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.IRON_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.GOLDEN_HOE.parseMaterial())
-								|| player.getItemInHand().getType() == (XMaterial.DIAMOND_HOE.parseMaterial()))
+						} else if ((player.getInventory().getItemInMainHand().getType() == (XMaterial.WOODEN_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.IRON_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.GOLDEN_HOE.parseMaterial())
+								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.DIAMOND_HOE.parseMaterial()))
 								&& plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.QUAKECRAFT)
 								&& !plugin.getMatchActive().getCooldownShoot().containsKey(player)) {
 							try {
@@ -359,16 +359,16 @@ public class Use implements Listener {
 				&& plugin.getMatchActive().getPlayerHandler().getPlayers().contains(player.getName())) {
 			if (evt.getAction() == Action.RIGHT_CLICK_AIR || evt.getAction() == Action.RIGHT_CLICK_BLOCK) {
 
-				if (player.getItemInHand() != null
-						&& player.getItemInHand().getType() != XMaterial.AIR.parseMaterial()) {
-					if (player.getItemInHand().getItemMeta() != null
-							&& player.getItemInHand().getItemMeta().getDisplayName() != null && player.getItemInHand()
+				if (player.getInventory().getItemInMainHand() != null
+						&& player.getInventory().getItemInMainHand().getType() != XMaterial.AIR.parseMaterial()) {
+					if (player.getInventory().getItemInMainHand().getItemMeta() != null
+							&& player.getInventory().getItemInMainHand().getItemMeta().getDisplayName() != null && player.getInventory().getItemInMainHand()
 									.getItemMeta().getDisplayName().equals(plugin.getLanguage().getKitItemName())) {
 						evt.setCancelled(true);
 						player.openInventory(
 								UtilsRandomEvents.createGUIKits(player, 0, plugin, plugin.getMatchActive()));
-					} else if (player.getItemInHand().getItemMeta() != null
-							&& player.getItemInHand().getItemMeta().getDisplayName() != null && player.getItemInHand()
+					} else if (player.getInventory().getItemInMainHand().getItemMeta() != null
+							&& player.getInventory().getItemInMainHand().getItemMeta().getDisplayName() != null && player.getInventory().getItemInMainHand()
 									.getItemMeta().getDisplayName().equals(plugin.getLanguage().getTeamItemName())) {
 						evt.setCancelled(true);
 						player.openInventory(

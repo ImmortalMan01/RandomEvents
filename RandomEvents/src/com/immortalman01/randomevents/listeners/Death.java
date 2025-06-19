@@ -81,9 +81,9 @@ public class Death implements Listener {
 							}
 							Boolean totem = false;
 
-							if (player.getInventory().getItemInHand() != null && player.getInventory().getItemInHand()
+                                                        if (player.getInventory().getItemInMainHand() != null && player.getInventory().getItemInMainHand()
 									.getType() == (XMaterial.TOTEM_OF_UNDYING.parseMaterial())) {
-								player.getInventory().setItemInHand(null);
+                                                                player.getInventory().setItemInMainHand(null);
 								player.updateInventory();
 								totem = true;
 							} else {
@@ -327,9 +327,9 @@ public class Death implements Listener {
 					Boolean totem = false;
 					if (((player.getHealth() - ev.getFinalDamage()) <= 0)) {
 
-						if (player.getInventory().getItemInHand() != null && player.getInventory().getItemInHand()
+                                                if (player.getInventory().getItemInMainHand() != null && player.getInventory().getItemInMainHand()
 								.getType() == (XMaterial.TOTEM_OF_UNDYING.parseMaterial())) {
-							player.getInventory().setItemInHand(null);
+                                                        player.getInventory().setItemInMainHand(null);
 							player.updateInventory();
 							totem = true;
 						} else {
@@ -970,9 +970,9 @@ public class Death implements Listener {
 
 					Boolean totem = false;
 
-					if (player.getInventory().getItemInHand() != null && player.getInventory().getItemInHand()
+                                        if (player.getInventory().getItemInMainHand() != null && player.getInventory().getItemInMainHand()
 							.getType() == (XMaterial.TOTEM_OF_UNDYING.parseMaterial())) {
-						player.getInventory().setItemInHand(null);
+                                                player.getInventory().setItemInMainHand(null);
 						player.updateInventory();
 						totem = true;
 					} else {

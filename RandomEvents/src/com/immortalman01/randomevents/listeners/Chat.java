@@ -179,7 +179,7 @@ public class Chat implements Listener {
 						break;
 					case ITEM_DESCRIPTIVE:
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
-							kit.setItem(player.getItemInHand());
+							kit.setItem(player.getInventory().getItemInMainHand());
 							plugin.getPlayersCreationKit().remove(player.getName());
 						}
 						break;
@@ -919,7 +919,7 @@ public class Chat implements Listener {
 					case TNT_TAG_HEAD:
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
 
-							match.setHead(player.getItemInHand());
+							match.setHead(player.getInventory().getItemInMainHand());
 
 							plugin.getPlayersCreation().remove(player.getName());
 
@@ -1214,14 +1214,14 @@ public class Chat implements Listener {
 						break;
 					case BLOCKS_ALLOWED:
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
-							if (player.getItemInHand() != null
-									&& player.getItemInHand().getType() != (XMaterial.AIR.parseMaterial())) {
+							if (player.getInventory().getItemInMainHand() != null
+									&& player.getInventory().getItemInMainHand().getType() != (XMaterial.AIR.parseMaterial())) {
 								try {
-									MaterialData mat = new MaterialData(player.getItemInHand().getType(),
-											player.getItemInHand().getData().getData());
+									MaterialData mat = new MaterialData(player.getInventory().getItemInMainHand().getType(),
+											player.getInventory().getItemInMainHand().getData().getData());
 									match.getDatas().add(mat);
 								} catch (Throwable eb) {
-									match.getDatas().add(player.getItemInHand().getData());
+									match.getDatas().add(player.getInventory().getItemInMainHand().getData());
 								}
 								plugin.getPlayersCreation().remove(player.getName());
 
@@ -1234,14 +1234,14 @@ public class Chat implements Listener {
 					case MATERIAL_SPLEEF:
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
 
-							if (player.getItemInHand() != null
-									&& player.getItemInHand().getType() != (XMaterial.AIR.parseMaterial())) {
+							if (player.getInventory().getItemInMainHand() != null
+									&& player.getInventory().getItemInMainHand().getType() != (XMaterial.AIR.parseMaterial())) {
 								try {
-									MaterialData mat = new MaterialData(player.getItemInHand().getType(),
-											player.getItemInHand().getData().getData());
+									MaterialData mat = new MaterialData(player.getInventory().getItemInMainHand().getType(),
+											player.getInventory().getItemInMainHand().getData().getData());
 									match.getDatas().add(mat);
 								} catch (Throwable eb) {
-									match.getDatas().add(player.getItemInHand().getData());
+									match.getDatas().add(player.getInventory().getItemInMainHand().getData());
 								}
 								plugin.getPlayersCreation().remove(player.getName());
 								plugin.getPlayersCreation().put(player.getName(),
@@ -1266,14 +1266,14 @@ public class Chat implements Listener {
 					case ANOTHER_MATERIAL_SPLEEF:
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
 
-							if (player.getItemInHand() != null
-									&& player.getItemInHand().getType() != (XMaterial.AIR.parseMaterial())) {
+							if (player.getInventory().getItemInMainHand() != null
+									&& player.getInventory().getItemInMainHand().getType() != (XMaterial.AIR.parseMaterial())) {
 								try {
-									MaterialData mat = new MaterialData(player.getItemInHand().getType(),
-											player.getItemInHand().getData().getData());
+									MaterialData mat = new MaterialData(player.getInventory().getItemInMainHand().getType(),
+											player.getInventory().getItemInMainHand().getData().getData());
 									match.getDatas().add(mat);
 								} catch (Throwable eb) {
-									match.getDatas().add(player.getItemInHand().getData());
+									match.getDatas().add(player.getInventory().getItemInMainHand().getData());
 								}
 								plugin.getPlayersCreation().remove(player.getName());
 								actua = Boolean.FALSE;
