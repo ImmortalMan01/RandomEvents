@@ -77,34 +77,40 @@ public class Chat implements Listener {
 	public void onPlayerChat(AsyncPlayerChatEvent event) {
 		Player player = event.getPlayer();
 
-		if (plugin.getPlayerWaterDrop().containsKey(player.getName())) {
-			if (plugin.getReventConfig().isDebugMode()) {
-				plugin.getLoggerP().info("RandomEvents :: Message of creation: " + event.getMessage());
-			}
-			checkMessageCreationWaterDrop(ChatColor.stripColor(event.getMessage().trim()), player,
-					plugin.getPlayersCreationWaterDrop().get(player.getName()));
+                if (plugin.getPlayerWaterDrop().containsKey(player.getName())) {
+                        if (plugin.getReventConfig().isDebugMode()) {
+                                plugin.getLoggerP().info("RandomEvents :: Message of creation: " + event.getMessage());
+                        }
+                        Bukkit.getScheduler().runTask(plugin, () -> {
+                                checkMessageCreationWaterDrop(ChatColor.stripColor(event.getMessage().trim()), player,
+                                                plugin.getPlayersCreationWaterDrop().get(player.getName()));
+                        });
 
-			event.setCancelled(Boolean.TRUE);
+                        event.setCancelled(Boolean.TRUE);
 
-		} else if (plugin.getPlayerKit().containsKey(player.getName())) {
-			if (plugin.getReventConfig().isDebugMode()) {
-				plugin.getLoggerP().info("RandomEvents :: Message of creation: " + event.getMessage());
-			}
+                } else if (plugin.getPlayerKit().containsKey(player.getName())) {
+                        if (plugin.getReventConfig().isDebugMode()) {
+                                plugin.getLoggerP().info("RandomEvents :: Message of creation: " + event.getMessage());
+                        }
 
-			checkMessageCreationKit(ChatColor.stripColor(event.getMessage().trim()), player,
-					plugin.getPlayersCreationKit().get(player.getName()));
+                        Bukkit.getScheduler().runTask(plugin, () -> {
+                                checkMessageCreationKit(ChatColor.stripColor(event.getMessage().trim()), player,
+                                                plugin.getPlayersCreationKit().get(player.getName()));
+                        });
 
-			event.setCancelled(Boolean.TRUE);
+                        event.setCancelled(Boolean.TRUE);
 
-		} else if (plugin.getPlayerMatches().containsKey(player.getName())) {
-			if (plugin.getReventConfig().isDebugMode()) {
-				plugin.getLoggerP().info("RandomEvents :: Message of creation: " + event.getMessage());
-			}
+                } else if (plugin.getPlayerMatches().containsKey(player.getName())) {
+                        if (plugin.getReventConfig().isDebugMode()) {
+                                plugin.getLoggerP().info("RandomEvents :: Message of creation: " + event.getMessage());
+                        }
 
-			checkMessageCreation(ChatColor.stripColor(event.getMessage().trim()), player,
-					plugin.getPlayersCreation().get(player.getName()));
+                        Bukkit.getScheduler().runTask(plugin, () -> {
+                                checkMessageCreation(ChatColor.stripColor(event.getMessage().trim()), player,
+                                                plugin.getPlayersCreation().get(player.getName()));
+                        });
 
-			event.setCancelled(Boolean.TRUE);
+                        event.setCancelled(Boolean.TRUE);
 
 		} else {
 			if (plugin.getReventConfig().isMatchPrivateMatch() && plugin.getMatchActive() != null
