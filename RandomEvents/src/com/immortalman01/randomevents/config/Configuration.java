@@ -44,7 +44,6 @@ public class Configuration extends CommentConfiguration {
         }
         catch(IOException e) {
             e.printStackTrace();
-            System.out.println("Attempting to fix error...");
             createData();
             saveData();
         }
@@ -80,15 +79,6 @@ public class Configuration extends CommentConfiguration {
         if(this.file.exists()) {
             this.file.delete();
         }
-    }
- 
-    public static void main(String[] args) {
-        Configuration cfg = new Configuration((JavaPlugin) null, "config.yml"); // You'd reference your JavaPlugin here, ofc
-
-        System.out.println(cfg.getInt("Test.path.integer"));
-   
-        cfg.set("Test.path.integer", 99);
-        cfg.saveData();
     }
 
 }
