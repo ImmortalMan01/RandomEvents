@@ -259,9 +259,9 @@ public class UtilsRandomEvents {
 
 	}
 
-	public static void terminaCreacionKit(RandomEvents plugin, Player player, Kit kit) {
-		if (kit == null)
-			kit = plugin.getPlayerKit().get(player.getName());
+       public static void terminaCreacionKit(RandomEvents plugin, Player player, Kit kit) {
+               if (kit == null && player != null)
+                       kit = plugin.getPlayerKit().get(player.getName());
 		try {
 			String json = UtilidadesJson.fromKitToJSON(plugin, kit);
 			if (json != null) {
@@ -288,9 +288,11 @@ public class UtilsRandomEvents {
 
 				pw.flush();
 
-				pw.close();
-				plugin.getPlayersCreationKit().remove(player.getName());
-                                plugin.getPlayerKit().remove(player.getName());
+                               pw.close();
+                               if (player != null) {
+                                       plugin.getPlayersCreationKit().remove(player.getName());
+                                       plugin.getPlayerKit().remove(player.getName());
+                               }
 
                                 Kit kitAux = null;
                                 for (Kit m : plugin.getKits()) {
