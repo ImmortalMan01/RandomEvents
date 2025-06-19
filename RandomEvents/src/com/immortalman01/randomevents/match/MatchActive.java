@@ -3439,10 +3439,9 @@ public class MatchActive {
 		task2 = new BukkitRunnable() {
 			public void run() {
 				switch (getMatch().getMinigame()) {
-				case GLASS_WALK:
-					// TODO
-					checkGlassWalk();
-					break;
+                               case GLASS_WALK:
+                                       checkGlassWalk();
+                                       break;
 				default:
 					checkTimeMatch();
 					break;
