@@ -92,45 +92,45 @@ creation.kit_delete.name: 'Alanı Temizle'
 creation.kit_delete.message: '&6&lSilmek istediğiniz alanı seçin'
 creation.kit_cancel.name: 'İptal'
 creation.kit_cancel.message: '&6&lBir kit oluşturmayı iptal etmek üzeresiniz, onaylamak için ''Y'', devam etmek için ''N'' yazın'
-minigameName.BattleRoyale: Savaş Royale
-minigameName.DuoBattleRoyale: İkili Savaş Royale
-minigameName.KnightsBattle: Şövalyeler Savaşı
-minigameName.TopKiller: En Çok Öldüren
-minigameName.DuoTopKiller: İkili En Çok Öldüren
-minigameName.KnockbackDuel: Geri Tepme Düellosu
-minigameName.ArrowRain: Ok Yağmuru
-minigameName.AnvilSpleef: Örs Spleef
-minigameName.GemCarrier: Mücevher Taşıyıcı
-minigameName.TNTTag: TNT Yakalamaca
-minigameName.BoatRace: Tekne Yarışı
-minigameName.HorseRace: At Yarışı
-minigameName.EscapeBeast: Canavardan Kaçış
-minigameName.Race: Yarış
-minigameName.TNTRun: TNT Koşusu
-minigameName.Spleef: Spleef
-minigameName.Splegg: Splegg
-minigameName.OITC: Tek Mermi
-minigameName.SurvivalGames: Hayatta Kalma Oyunları
-minigameName.DuoSurvivalGames: İkili Hayatta Kalma Oyunları
-minigameName.Skywars: Gökyüzü Savaşları
-minigameName.DuoSkywars: İkili Gökyüzü Savaşları
-minigameName.WaterDrop: Düşüş
-minigameName.QuakeCraft: Deprem Savaşı
-minigameName.Paintball: Paintball
-minigameName.PaintballTopKill: Paintball En Çok Öldüren
-minigameName.KingHill: Tepe Kralı
-minigameName.FishSlap: Balık Tokadı
-minigameName.Hoehoehoe: Çapa çapa çapa
-minigameName.Splatoon: Splatoon
-minigameName.Bombardment: Bombardıman
-minigameName.RedGreenLight: Kırmızı Işık-Yeşil Işık
-minigameName.TeamBattleRoyale: Takımlı Savaş Royale
-minigameName.TeamTopKiller: Takımlı En Çok Öldüren
-minigameName.TeamSkywars: Takımlı Gökyüzü Savaşları
-minigameName.TeamSurvivalGames: Takımlı Hayatta Kalma Oyunları
-minigameName.BlockParty: Blok Partisi
-minigameName.HideAndSeek: Saklambaç
-minigameName.GlassWalk: Cam Yürüyüşü
+minigameName.BattleRoyale: "Battle Royale"
+minigameName.DuoBattleRoyale: "Duo Battle Royale"
+minigameName.KnightsBattle: "Knights Battle"
+minigameName.TopKiller: "Top Killer"
+minigameName.DuoTopKiller: "Duo Top Killer"
+minigameName.KnockbackDuel: "Knockback Duel"
+minigameName.ArrowRain: "Arrow Rain"
+minigameName.AnvilSpleef: "Anvil Spleef"
+minigameName.GemCarrier: "Gem Carrier"
+minigameName.TNTTag: "TNT Tag"
+minigameName.BoatRace: "Boat Race"
+minigameName.HorseRace: "Horse Race"
+minigameName.EscapeBeast: "Escape from the Beast"
+minigameName.Race: "Race"
+minigameName.TNTRun: "TNT Run"
+minigameName.Spleef: "Spleef"
+minigameName.Splegg: "Splegg"
+minigameName.OITC: "One in the Chamber"
+minigameName.SurvivalGames: "Survival Games"
+minigameName.DuoSurvivalGames: "Duo Survival Games"
+minigameName.Skywars: "Skywars"
+minigameName.DuoSkywars: "Duo Skywars"
+minigameName.WaterDrop: "Dropper"
+minigameName.QuakeCraft: "Quake Craft"
+minigameName.Paintball: "Paintball"
+minigameName.PaintballTopKill: "Paintball Top Kill"
+minigameName.KingHill: "King of the Hill"
+minigameName.FishSlap: "Fish Slap"
+minigameName.Hoehoehoe: "Hoe hoe hoe"
+minigameName.Splatoon: "Splatoon"
+minigameName.Bombardment: "Bombardment"
+minigameName.RedGreenLight: "Red Light-Green Light"
+minigameName.TeamBattleRoyale: "Team Battle Royale"
+minigameName.TeamTopKiller: "Team Top Killer"
+minigameName.TeamSkywars: "Team Skywars"
+minigameName.TeamSurvivalGames: "Team Survival Games"
+minigameName.BlockParty: "Block Party"
+minigameName.HideAndSeek: "Hide and Seek"
+minigameName.GlassWalk: "Glass Walk"
 menu.helpMenu: "&6----------------- &e&lRandomEvents &6---------------------"
 menu.showMenu: "   &6/revent:\n          &e-> Bu menüyü gösteriyor"
 menu.join: "   &6/revent join:\n          &e-> Rastgele Etkinliğe Katılın"
