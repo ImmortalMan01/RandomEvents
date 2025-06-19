@@ -4088,10 +4088,13 @@ public class LanguageMessages {
 		this.checkpoint = checkpoint;
 	}
 
-	public String getScoreboardTitle() {
-		String s = scoreboardTitle;
-		try {
-			Matcher match = pattern.matcher(s);
+       public String getScoreboardTitle() {
+                String s = scoreboardTitle;
+                if (s != null) {
+                        s = s.replace("%prefix%", getTagPlugin());
+                }
+                try {
+                        Matcher match = pattern.matcher(s);
 			Map<String, ChatColor> mapa = new HashMap<String, ChatColor>();
 			while (match.find()) {
 				String color = s.substring(match.start() + 1, match.end());

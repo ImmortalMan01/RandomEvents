@@ -399,7 +399,7 @@ public class Constantes {
 
 		BOW_KILL("bowKill", "pvp.bowkill", "&a%killer% &4⚔ &c%victim%  &e( %distance% blocks )"),
 
-		SCOREBOARD_TITLE("scoreboardTitle", "scoreboard.title", "      &a&lRandomEvents      "),
+                SCOREBOARD_TITLE("scoreboardTitle", "scoreboard.title", "      &a&l%prefix%      "),
 
 		SCOREBOARD_POINTS_FORMAT("scoreboardPoints", "scoreboard.points", "&6%name% - &e%points%"),
 
