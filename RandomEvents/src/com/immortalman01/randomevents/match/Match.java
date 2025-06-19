@@ -473,11 +473,21 @@ public class Match implements Comparable<Match> {
 				return false;
 		} else if (!location1.equals(other.location1))
 			return false;
-		if (location2 == null) {
-			if (other.location2 != null)
-				return false;
-		} else if (!location2.equals(other.location2))
-			return false;
+               if (location2 == null) {
+                        if (other.location2 != null)
+                                return false;
+                } else if (!location2.equals(other.location2))
+                        return false;
+               if (auxLocation1 == null) {
+                        if (other.auxLocation1 != null)
+                                return false;
+               } else if (!auxLocation1.equals(other.auxLocation1))
+                        return false;
+               if (auxLocation2 == null) {
+                        if (other.auxLocation2 != null)
+                                return false;
+               } else if (!auxLocation2.equals(other.auxLocation2))
+                        return false;
                if (!Objects.equals(material, other.material))
                        return false;
 		if (minigame != other.minigame)
