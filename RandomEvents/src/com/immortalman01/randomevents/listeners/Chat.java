@@ -783,40 +783,46 @@ public class Chat implements Listener {
 
 						}
 						break;
-					case ARENA_SPAWNS:
-						if (message.equalsIgnoreCase(Constantes.DONE)) {
-							if (match.getSpawns().size() != match.getAmountPlayers()) {
+                                        case ARENA_SPAWNS:
+                                                if (match.getAmountPlayers() == null) {
+                                                        player.sendMessage(plugin.getLanguage().getLacksInfoCreation());
+                                                        actua = Boolean.FALSE;
+                                                } else if (message.equalsIgnoreCase(Constantes.DONE)) {
+                                                        if (match.getSpawns().size() != match.getAmountPlayers()) {
 
-								match.getSpawns().add(player.getLocation());
-								if (match.getSpawns().size() == match.getAmountPlayers()) {
-									plugin.getPlayersCreation().remove(player.getName());
+                                                                match.getSpawns().add(player.getLocation());
+                                                                if (match.getSpawns().size() == match.getAmountPlayers()) {
+                                                                        plugin.getPlayersCreation().remove(player.getName());
 
-								} else {
-									plugin.getPlayersCreation().put(player.getName(),
-											Creacion.ANOTHER_ARENA_SPAWNS.getPosition());
-									actua = Boolean.FALSE;
-								}
-							}
-						} else if (message.equalsIgnoreCase(Constantes.NEXT)) {
-							plugin.getPlayersCreation().remove(player.getName());
-						}
-						break;
-					case TEAM_SPAWNS:
-						if (message.equalsIgnoreCase(Constantes.DONE)) {
-							if (match.getSpawns().size() != match.getNumberOfTeams()) {
+                                                                } else {
+                                                                        plugin.getPlayersCreation().put(player.getName(),
+                                                                               Creacion.ANOTHER_ARENA_SPAWNS.getPosition());
+                                                                        actua = Boolean.FALSE;
+                                                                }
+                                                        }
+                                                } else if (message.equalsIgnoreCase(Constantes.NEXT)) {
+                                                        plugin.getPlayersCreation().remove(player.getName());
+                                                }
+                                                break;
+                                        case TEAM_SPAWNS:
+                                                if (match.getNumberOfTeams() == null) {
+                                                        player.sendMessage(plugin.getLanguage().getLacksInfoCreation());
+                                                        actua = Boolean.FALSE;
+                                                } else if (message.equalsIgnoreCase(Constantes.DONE)) {
+                                                        if (match.getSpawns().size() != match.getNumberOfTeams()) {
 
-								match.getSpawns().add(player.getLocation());
-								if (match.getSpawns().size() == match.getNumberOfTeams()) {
-									plugin.getPlayersCreation().remove(player.getName());
+                                                                match.getSpawns().add(player.getLocation());
+                                                                if (match.getSpawns().size() == match.getNumberOfTeams()) {
+                                                                        plugin.getPlayersCreation().remove(player.getName());
 
-								} else {
-									plugin.getPlayersCreation().put(player.getName(),
-											Creacion.ANOTHER_TEAM_SPAWNS.getPosition());
-									actua = Boolean.FALSE;
-								}
-							}
-						}
-						break;
+                                                                } else {
+                                                                        plugin.getPlayersCreation().put(player.getName(),
+                                                                               Creacion.ANOTHER_TEAM_SPAWNS.getPosition());
+                                                                        actua = Boolean.FALSE;
+                                                                }
+                                                        }
+                                                }
+                                                break;
 					case CANNON_SPAWNS:
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
 
@@ -830,42 +836,48 @@ public class Chat implements Listener {
 						}
 
 						break;
-					case ENTITY_SPAWNS:
-						if (message.equalsIgnoreCase(Constantes.DONE)) {
-							if (match.getEntitySpawns().size() != match.getAmountPlayers()) {
+                                        case ENTITY_SPAWNS:
+                                                if (match.getAmountPlayers() == null) {
+                                                        player.sendMessage(plugin.getLanguage().getLacksInfoCreation());
+                                                        actua = Boolean.FALSE;
+                                                } else if (message.equalsIgnoreCase(Constantes.DONE)) {
+                                                        if (match.getEntitySpawns().size() != match.getAmountPlayers()) {
 
-								match.getEntitySpawns().add(player.getLocation());
-								if (match.getEntitySpawns().size() == match.getAmountPlayers()) {
-									plugin.getPlayersCreation().remove(player.getName());
+                                                                match.getEntitySpawns().add(player.getLocation());
+                                                                if (match.getEntitySpawns().size() == match.getAmountPlayers()) {
+                                                                        plugin.getPlayersCreation().remove(player.getName());
 
-								} else {
-									plugin.getPlayersCreation().put(player.getName(),
-											Creacion.ANOTHER_ENTITY_SPAWNS.getPosition());
-									actua = Boolean.FALSE;
+                                                                } else {
+                                                                        plugin.getPlayersCreation().put(player.getName(),
+                                                                               Creacion.ANOTHER_ENTITY_SPAWNS.getPosition());
+                                                                        actua = Boolean.FALSE;
 
-								}
-							}
-						} else if (message.equalsIgnoreCase(Constantes.NEXT)) {
+                                                                }
+                                                        }
+                                                } else if (message.equalsIgnoreCase(Constantes.NEXT)) {
 
-							plugin.getPlayersCreation().remove(player.getName());
+                                                        plugin.getPlayersCreation().remove(player.getName());
 
-						}
-						break;
-					case ANOTHER_ENTITY_SPAWNS:
-						if (message.equalsIgnoreCase(Constantes.DONE)) {
-							match.getEntitySpawns().add(player.getLocation());
-							if (match.getEntitySpawns().size() == match.getAmountPlayers()) {
-								plugin.getPlayersCreation().remove(player.getName());
+                                                }
+                                                break;
+                                        case ANOTHER_ENTITY_SPAWNS:
+                                                if (match.getAmountPlayers() == null) {
+                                                        player.sendMessage(plugin.getLanguage().getLacksInfoCreation());
+                                                        actua = Boolean.FALSE;
+                                                } else if (message.equalsIgnoreCase(Constantes.DONE)) {
+                                                        match.getEntitySpawns().add(player.getLocation());
+                                                        if (match.getEntitySpawns().size() == match.getAmountPlayers()) {
+                                                                plugin.getPlayersCreation().remove(player.getName());
 
-							} else {
+                                                        } else {
 
-								plugin.getPlayersCreation().put(player.getName(),
-										Creacion.ANOTHER_ENTITY_SPAWNS.getPosition());
-								actua = Boolean.FALSE;
+                                                                plugin.getPlayersCreation().put(player.getName(),
+                                                                               Creacion.ANOTHER_ENTITY_SPAWNS.getPosition());
+                                                                actua = Boolean.FALSE;
 
-							}
-						}
-						break;
+                                                        }
+                                                }
+                                                break;
 					case COMMANDS_ON_START_OPTIONAL:
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
 							plugin.getPlayersCreation().remove(player.getName());
@@ -896,23 +908,26 @@ public class Chat implements Listener {
 							actua = Boolean.FALSE;
 						}
 						break;
-					case ANOTHER_ARENA_SPAWNS:
-						if (message.equalsIgnoreCase(Constantes.DONE)) {
-							match.getSpawns().add(player.getLocation());
-							if (match.getSpawns().size() == match.getAmountPlayers()) {
-								plugin.getPlayersCreation().remove(player.getName());
+                                        case ANOTHER_ARENA_SPAWNS:
+                                                if (match.getAmountPlayers() == null) {
+                                                        player.sendMessage(plugin.getLanguage().getLacksInfoCreation());
+                                                        actua = Boolean.FALSE;
+                                                } else if (message.equalsIgnoreCase(Constantes.DONE)) {
+                                                        match.getSpawns().add(player.getLocation());
+                                                        if (match.getSpawns().size() == match.getAmountPlayers()) {
+                                                                plugin.getPlayersCreation().remove(player.getName());
 
-							} else {
+                                                        } else {
 
-								plugin.getPlayersCreation().put(player.getName(),
-										Creacion.ANOTHER_ARENA_SPAWNS.getPosition());
-								actua = Boolean.FALSE;
+                                                                plugin.getPlayersCreation().put(player.getName(),
+                                                                               Creacion.ANOTHER_ARENA_SPAWNS.getPosition());
+                                                                actua = Boolean.FALSE;
 
-							}
-						} else if (message.equalsIgnoreCase(Constantes.NEXT)) {
-							plugin.getPlayersCreation().remove(player.getName());
-						}
-						break;
+                                                        }
+                                                } else if (message.equalsIgnoreCase(Constantes.NEXT)) {
+                                                        plugin.getPlayersCreation().remove(player.getName());
+                                                }
+                                                break;
 
 					case ANOTHER_TEAM_SPAWNS:
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
