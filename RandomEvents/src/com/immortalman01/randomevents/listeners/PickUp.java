@@ -61,11 +61,13 @@ public class PickUp implements Listener {
 					plugin.getMatchActive().updateScoreboards();
 					evt.setCancelled(true);
 				}
-				break;
-			default:
-				break;
-			}
-		}
+                                break;
+                        default:
+                                break;
+                        }
+                       // allow picking up items normally in other games
+                       evt.setCancelled(false);
+               }
 
 	}
 
