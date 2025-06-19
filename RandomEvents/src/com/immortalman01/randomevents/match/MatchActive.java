@@ -602,12 +602,17 @@ public class MatchActive {
 						UtilsRandomEvents.invinciblePlayer(player, plugin);
 						UtilsRandomEvents.teleportaPlayer(player, l, plugin);
 					}
-					player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getLeaveCommand());
+                                        player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getLeaveCommand());
                                         // always put eliminated players into full spectator mode
                                         if (!getPlayerHandler().getPlayersSpectators().contains(player)) {
                                                 getPlayerHandler().getPlayersSpectators().add(player);
                                         }
                                         player.setGameMode(GameMode.SPECTATOR);
+                                        for (Player pl : Bukkit.getOnlinePlayers()) {
+                                                if (!pl.equals(player)) {
+                                                        pl.hidePlayer(plugin, player);
+                                                }
+                                        }
                                 }
                                 player.setHealth(player.getMaxHealth());
                                 player.setFoodLevel(20);
@@ -3871,12 +3876,12 @@ public class MatchActive {
 		}
 	}
 
-	private void reiniciaDefault(Player p) {
-		p.setGameMode(GameMode.SURVIVAL);
-		if (getMatch().getGamemode() != null) {
-			p.setGameMode(getMatch().getGamemode());
+        private void reiniciaDefault(Player p) {
+                p.setGameMode(GameMode.SURVIVAL);
+                if (getMatch().getGamemode() != null) {
+                        p.setGameMode(getMatch().getGamemode());
 
-		}
+                }
 
 		Location loc2 = null;
 
@@ -3887,22 +3892,32 @@ public class MatchActive {
 		} else {
 			loc2 = match.getSpawns().get(getRandom().nextInt(match.getSpawns().size()));
 		}
-		UtilsRandomEvents.teleportaPlayer(p, loc2, plugin);
+                UtilsRandomEvents.teleportaPlayer(p, loc2, plugin);
+                for (Player pl : Bukkit.getOnlinePlayers()) {
+                        if (!pl.equals(p)) {
+                                pl.showPlayer(plugin, p);
+                        }
+                }
 
-		ponInventarioMatch(p);
+                ponInventarioMatch(p);
 
 	}
 
-	private void reiniciaGemCrawler(Player p) {
-		p.setGameMode(GameMode.SURVIVAL);
-		if (getMatch().getGamemode() != null) {
-			p.setGameMode(getMatch().getGamemode());
+        private void reiniciaGemCrawler(Player p) {
+                p.setGameMode(GameMode.SURVIVAL);
+                if (getMatch().getGamemode() != null) {
+                        p.setGameMode(getMatch().getGamemode());
 
-		}
+                }
 		Location loc = match.getSpawns().get(getRandom().nextInt(match.getSpawns().size()));
-		UtilsRandomEvents.teleportaPlayer(p, loc, plugin);
+                UtilsRandomEvents.teleportaPlayer(p, loc, plugin);
+                for (Player pl : Bukkit.getOnlinePlayers()) {
+                        if (!pl.equals(p)) {
+                                pl.showPlayer(plugin, p);
+                        }
+                }
 
-		ponInventarioMatch(p);
+                ponInventarioMatch(p);
 
 	}
 
