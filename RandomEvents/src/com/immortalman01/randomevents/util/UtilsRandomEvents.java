@@ -3289,15 +3289,17 @@ public class UtilsRandomEvents {
 		if (!dataFolder.exists()) {
 			dataFolder.mkdir();
 		}
-		for (File file : dataFolder.listFiles()) {
-			BufferedReader br = null;
-			FileReader fr = null;
-			try {
-				fr = new FileReader(file);
-				br = new BufferedReader(fr);
-				WaterDropStep match = UtilidadesJson.fromJSONToWD(plugin, br);
-				if (match != null)
-					listaPartidas.add(match);
+                for (File file : dataFolder.listFiles()) {
+                        BufferedReader br = null;
+                        FileInputStream fr = null;
+                        try {
+                                fr = new FileInputStream(file);
+                                Charset sc = Charset.forName(plugin.getReventConfig().getUseEncoding());
+
+                                br = new BufferedReader(new InputStreamReader(fr, sc));
+                                WaterDropStep match = UtilidadesJson.fromJSONToWD(plugin, br);
+                                if (match != null)
+                                        listaPartidas.add(match);
 
 			} catch (FileNotFoundException e) {
 				plugin.getLoggerP().info(e.getMessage());
