@@ -23,6 +23,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.Fireball;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
@@ -140,11 +141,11 @@ public class Use implements Listener {
 										evt.getClickedBlock().getLocation(),
 										evt.getClickedBlock().getState().getData().clone());
 								evt.getClickedBlock().setType(peto.getWool().parseMaterial());
-								try {
-									evt.getClickedBlock().setData(peto.getDye().getWoolData());
-								} catch (Throwable e) {
+                                                                try {
+                                                                        evt.getClickedBlock().setBlockData(Bukkit.createBlockData(peto.getWool().parseMaterial()));
+                                                                } catch (Throwable e) {
 
-								}
+                                                                }
 								plugin.getMatchActive().givePoint(player, 1);
 							}
 
@@ -220,7 +221,7 @@ public class Use implements Listener {
 								player.getInventory().remove(player.getItemInHand());
 								player.updateInventory();
 							}
-							player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 60, 5));
+                                                        player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 60, 5));
 							player.sendMessage(
 									plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getNowProtected());
 						} else if (player.getItemInHand().equals(plugin.getReventConfig().getCheckpointItem())) {
@@ -229,8 +230,8 @@ public class Use implements Listener {
 							UtilsRandomEvents.teleportaPlayer(player,
 									plugin.getMatchActive().getMapHandler().getCheckpoints().get(player.getName()),
 									plugin);
-							if(plugin.getReventConfig().getRaceSlowEffect())
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 60, 99));
+                                                        if(plugin.getReventConfig().getRaceSlowEffect())
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 60, 99));
 
 						} else if (player.getItemInHand().equals(plugin.getReventConfig().getEndVanishItem())) {
 							evt.setCancelled(true);
@@ -391,32 +392,13 @@ public class Use implements Listener {
 		Location xMinus = loc.clone();
 		xMinus.setX(xMinus.getX() - 1);
 
-		MaterialData data = new MaterialData(parseMaterial);
-		try {
-			data.setData(dye.getWoolData());
-		} catch (Throwable e) {
-
-		}
-		MaterialData dataXPlus = new MaterialData((xPlus.getBlock().getType()));
-		MaterialData dataZPlus = new MaterialData((zPlus.getBlock().getType()));
-		MaterialData dataXMinus = new MaterialData((xMinus.getBlock().getType()));
-		MaterialData dataZMinus = new MaterialData((zMinus.getBlock().getType()));
-
-		try {
-			dataXPlus.setData(xPlus.getBlock().getData());
-			dataZPlus.setData(zPlus.getBlock().getData());
-			dataXMinus.setData(xMinus.getBlock().getData());
-			dataZMinus.setData(zMinus.getBlock().getData());
-		} catch (Throwable e) {
-
-		}
-
-		if ((zPlus.getBlock() != null && zPlus.getBlock().getType() != null && dataZPlus.equals(data))
-				|| (zMinus.getBlock() != null && zMinus.getBlock().getType() != null && dataZMinus.equals(data))
-				|| (xPlus.getBlock() != null && xPlus.getBlock().getType() != null && dataXPlus.equals(data))
-				|| (xMinus.getBlock() != null && xMinus.getBlock().getType() != null && dataXMinus.equals(data))) {
-			res = true;
-		}
+                // Check neighboring wool blocks by material only on modern versions
+                if ((zPlus.getBlock() != null && zPlus.getBlock().getType() == parseMaterial)
+                                || (zMinus.getBlock() != null && zMinus.getBlock().getType() == parseMaterial)
+                                || (xPlus.getBlock() != null && xPlus.getBlock().getType() == parseMaterial)
+                                || (xMinus.getBlock() != null && xMinus.getBlock().getType() == parseMaterial)) {
+                        res = true;
+                }
 		return res;
 	}
 
@@ -608,12 +590,12 @@ public class Use implements Listener {
 											loc.getBlock().getType());
 								}
 							}
-							loc.getBlock().setType(peto.getWool().parseMaterial());
-							try {
-								loc.getBlock().setData(peto.getDye().getWoolData());
-							} catch (Throwable e) {
+                                                        loc.getBlock().setType(peto.getWool().parseMaterial());
+                                                        try {
+                                                                loc.getBlock().setBlockData(Bukkit.createBlockData(peto.getWool().parseMaterial()));
+                                                        } catch (Throwable e) {
 
-							}
+                                                        }
 
 						}
 					}

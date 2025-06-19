@@ -1817,7 +1817,7 @@ public class MatchActive {
 				iniciaPlayer(p);
 
 			}
-			PotionEffect pot = new PotionEffect(PotionEffectType.FAST_DIGGING, 240, 99);
+                        PotionEffect pot = new PotionEffect(PotionEffectType.HASTE, 240, 99);
 			UtilsRandomEvents.applyPotionEffects(pot, getPlayerHandler().getPlayersObj());
 
 			task = new BukkitRunnable() {
@@ -4014,7 +4014,7 @@ public class MatchActive {
 				removePotionsEffects(p);
 			}
 
-			p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20, 2));
+                        p.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 20, 2));
 
 		}
 
