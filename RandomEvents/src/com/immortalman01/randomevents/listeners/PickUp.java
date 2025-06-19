@@ -4,7 +4,7 @@ import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerPickupItemEvent;
+import org.bukkit.event.entity.EntityPickupItemEvent;
 
 import com.immortalman01.randomevents.RandomEvents;
 import com.immortalman01.randomevents.util.Constantes;
@@ -20,9 +20,12 @@ public class PickUp implements Listener {
 		this.plugin = plugin;
 	}
 
-	@EventHandler
-        public void onPickUp(PlayerPickupItemEvent evt) {
-                Player player = evt.getPlayer();
+       @EventHandler
+       public void onPickUp(EntityPickupItemEvent evt) {
+               if (!(evt.getEntity() instanceof Player)) {
+                       return;
+               }
+               Player player = (Player) evt.getEntity();
                 if (plugin.getMatchActive() != null
                                 && plugin.getMatchActive().getPlayerHandler().getPlayersSpectators().contains(player)) {
                         evt.setCancelled(true);
