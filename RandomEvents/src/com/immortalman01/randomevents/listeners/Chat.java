@@ -708,7 +708,11 @@ public class Chat implements Listener {
                                                         int maxPlayers = Integer.parseInt(message.trim());
                                                         if (maxPlayers > 0) {
                                                                 match.setAmountPlayers(maxPlayers);
-                                                                match.setSpawns(new ArrayList<Location>());
+                                                                if (!plugin.getEditando().contains(player.getName())) {
+                                                                        match.setSpawns(new ArrayList<Location>());
+                                                                } else if (match.getSpawns() == null) {
+                                                                        match.setSpawns(new ArrayList<Location>());
+                                                                }
                                                                 plugin.getPlayersCreation().remove(player.getName());
                                                         } else {
                                                                 player.sendMessage(plugin.getLanguage().getInvalidInput());
@@ -726,6 +730,11 @@ public class Chat implements Listener {
                                                         Integer max = match.getAmountPlayers();
                                                         if (minPlayers > 0 && (max == null || minPlayers <= max)) {
                                                                 match.setAmountPlayersMin(minPlayers);
+                                                                if (!plugin.getEditando().contains(player.getName())) {
+                                                                        match.setSpawns(new ArrayList<Location>());
+                                                                } else if (match.getSpawns() == null) {
+                                                                        match.setSpawns(new ArrayList<Location>());
+                                                                }
                                                                 plugin.getPlayersCreation().remove(player.getName());
                                                         } else {
                                                                 player.sendMessage(plugin.getLanguage().getInvalidInput());

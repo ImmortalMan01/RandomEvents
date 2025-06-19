@@ -26,6 +26,7 @@ public class ChatPlayerCountTest {
     private Map<String, Match> matches;
     private Map<String, Integer> creation;
     private List<String> messages;
+    private List<String> editing;
 
     @BeforeEach
     public void setup() {
@@ -38,6 +39,8 @@ public class ChatPlayerCountTest {
         creation = new HashMap<>();
         Mockito.when(plugin.getPlayerMatches()).thenReturn(matches);
         Mockito.when(plugin.getPlayersCreation()).thenReturn(creation);
+        editing = new ArrayList<>();
+        Mockito.when(plugin.getEditando()).thenReturn(editing);
 
         player = Mockito.mock(Player.class);
         Mockito.when(player.getName()).thenReturn("p");
@@ -95,5 +98,21 @@ public class ChatPlayerCountTest {
         assertTrue(creation.containsKey("p"));
         assertEquals("invalid", messages.get(0));
         assertEquals(2, messages.size());
+    }
+
+    @Test
+    public void editMinPlayersKeepsSpawns() throws Exception {
+        Match m = new Match();
+        m.setAmountPlayers(5);
+        m.setAmountPlayersMin(2);
+        m.setSpawns(new ArrayList<>());
+        m.getSpawns().add(Mockito.mock(org.bukkit.Location.class));
+        m.getSpawns().add(Mockito.mock(org.bukkit.Location.class));
+        matches.put("p", m);
+        editing.add("p");
+        invoke("3", Creacion.AMOUNT_PLAYERS_MIN.getPosition());
+        assertEquals(3, m.getAmountPlayersMin());
+        assertEquals(2, m.getSpawns().size());
+        assertFalse(creation.containsKey("p"));
     }
 }
