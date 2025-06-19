@@ -120,7 +120,7 @@ public class UtilsRandomEvents {
 		return listaResetBlocks;
 	}
 
-	public static String preparaStringTiempo(Integer tiempo, RandomEvents plugin) {
+        public static String preparaStringTiempo(Integer tiempo, RandomEvents plugin) {
 
 		Integer horas = Double.valueOf(tiempo / 3600.0).intValue();
 		Integer minutos = Double.valueOf((tiempo - 3600 * horas) / 60.0).intValue();
@@ -137,8 +137,19 @@ public class UtilsRandomEvents {
 			resultado += plugin.getLanguage().getSecondsFormat().replace("%seconds%", "" + segundos);
 		}
 
-		return resultado;
-	}
+                return resultado;
+        }
+
+       public static String sanitizeFileName(String name) {
+               if (name == null) {
+                       return "";
+               }
+               String sanitized = ChatColor.stripColor(name);
+               sanitized = sanitized.replaceAll("[\\\\/]", "");
+               sanitized = sanitized.replaceAll(" ", "_");
+               sanitized = sanitized.replaceAll("[^A-Za-z0-9_-]", "");
+               return sanitized;
+       }
 
 	//
 	public static void terminaCreacionMatch(RandomEvents plugin, Player player) {
@@ -162,7 +173,7 @@ public class UtilsRandomEvents {
 
                     File bossFile = new File(new File(plugin.getDataFolder(), "events"),
                                     match.getMinigame().getCodigo() + "_"
-                                                    + ChatColor.stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
+                                                    + sanitizeFileName(match.getName().replaceAll("<color>", "§"))
                                                     + ".json");
 				if (!bossFile.exists()) {
 					bossFile.createNewFile();
@@ -235,9 +246,9 @@ public class UtilsRandomEvents {
 					dataFolder.mkdir();
 				}
 
-				File bossFile = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//waterdrop",
-						ChatColor.stripColor(waterDrop.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
-								+ ".json");
+                                File bossFile = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//waterdrop",
+                                                sanitizeFileName(waterDrop.getName().replaceAll("<color>", "§"))
+                                                                + ".json");
 				if (!bossFile.exists()) {
 					bossFile.createNewFile();
 				} else {
@@ -286,7 +297,7 @@ public class UtilsRandomEvents {
                                 }
 
                                 File bossFile = new File(dataFolder,
-                                                ChatColor.stripColor(kit.getName().replaceAll("<color>", "§")).replaceAll(" ", "_") + ".json");
+                                                sanitizeFileName(kit.getName().replaceAll("<color>", "§")) + ".json");
 				if (!bossFile.exists()) {
 					bossFile.createNewFile();
 				} else {
@@ -358,8 +369,8 @@ public class UtilsRandomEvents {
                                         }
 
                                         File bossFile = new File(dataFolder,
-                                                        match.getMinigame().getCodigo() + "_" + ChatColor
-                                                                        .stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
+                                                        match.getMinigame().getCodigo() + "_" +
+                                                                        sanitizeFileName(match.getName().replaceAll("<color>", "§"))
                                                                         + ".json");
 					if (!bossFile.exists()) {
 						bossFile.createNewFile();
@@ -412,8 +423,8 @@ public class UtilsRandomEvents {
                                         }
 
                                         File bossFile = new File(dataFolder,
-                                                        match.getMinigame().getCodigo() + "_" + ChatColor
-                                                                        .stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
+                                                        match.getMinigame().getCodigo() + "_" +
+                                                                        sanitizeFileName(match.getName().replaceAll("<color>", "§"))
                                                                         + ".json");
 					if (!bossFile.exists()) {
 						bossFile.createNewFile();
@@ -465,8 +476,8 @@ public class UtilsRandomEvents {
                                         }
 
                                         File bossFile = new File(dataFolder,
-                                                        match.getMinigame().getCodigo() + "_" + ChatColor
-                                                                        .stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
+                                                        match.getMinigame().getCodigo() + "_" +
+                                                                        sanitizeFileName(match.getName().replaceAll("<color>", "§"))
                                                                         + ".json");
 					if (!bossFile.exists()) {
 						bossFile.createNewFile();
@@ -519,8 +530,8 @@ public class UtilsRandomEvents {
                                         }
 
                                         File bossFile = new File(dataFolder,
-                                                        match.getMinigame().getCodigo() + "_" + ChatColor
-                                                                        .stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
+                                                        match.getMinigame().getCodigo() + "_" +
+                                                                        sanitizeFileName(match.getName().replaceAll("<color>", "§"))
                                                                         + ".json");
 					if (!bossFile.exists()) {
 						bossFile.createNewFile();
@@ -568,7 +579,7 @@ public class UtilsRandomEvents {
 
                             File bossFile = new File(new File(plugin.getDataFolder(), "events"),
                                             match.getMinigame().getCodigo() + "_"
-                                                            + ChatColor.stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
+                                                            + sanitizeFileName(match.getName().replaceAll("<color>", "§"))
                                                             + ".json");
 			if (bossFile.exists()) {
 				bossFile.delete();
@@ -4048,7 +4059,7 @@ Integer probabilidad = parseProbability(trozosComandos[1]);
 
         public static String getMatchNameByMatch(Match match) {
                 return match.getMinigame().getCodigo() + "_"
-                                + ChatColor.stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_");
+                                + sanitizeFileName(match.getName().replaceAll("<color>", "§"));
         }
 
 }
