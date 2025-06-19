@@ -1241,14 +1241,18 @@ public class Chat implements Listener {
                                                         actua = Boolean.FALSE;
                                                 }
                                                 break;
-					case PLAY_TIME:
-					case SHRINK_TIME:
-                                                try {
-                                                        int time = Integer.parseInt(message.trim());
-                                                        if (time > 0) {
-                                                                match.setTiempoPartida(time);
-                                                                plugin.getPlayersCreation().remove(player.getName());
-                                                        } else {
+                                       case PLAY_TIME:
+                                       case SHRINK_TIME:
+                                               try {
+                                                       int time = Integer.parseInt(message.trim());
+                                                       if (time > 0) {
+                                                               if (c == Creacion.SHRINK_TIME) {
+                                                                       match.setShrinkTime(time);
+                                                               } else {
+                                                                       match.setTiempoPartida(time);
+                                                               }
+                                                               plugin.getPlayersCreation().remove(player.getName());
+                                                       } else {
                                                                 player.sendMessage(plugin.getLanguage().getInvalidInput());
                                                                 actua = Boolean.FALSE;
                                                         }

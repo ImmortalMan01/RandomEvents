@@ -2235,12 +2235,16 @@ public class UtilsRandomEvents {
 							info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9Spawns completed";
 						}
 						break;
-					case PLAY_TIME:
-					case SHRINK_TIME:
-						if (match.getTiempoPartida() != null) {
-							info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 " + match.getTiempoPartida();
-						}
-						break;
+                                       case PLAY_TIME:
+                                               if (match.getTiempoPartida() != null) {
+                                                       info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 " + match.getTiempoPartida();
+                                               }
+                                               break;
+                                       case SHRINK_TIME:
+                                               if (match.getShrinkTime() != null) {
+                                                       info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 " + match.getShrinkTime();
+                                               }
+                                               break;
 					case REFILL_CHEST:
 						if (match.getTimeRefill() != null) {
 							info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 " + match.getTimeRefill();
@@ -2492,12 +2496,16 @@ public class UtilsRandomEvents {
 			case CANNON_SPAWNS:
 			case ANOTHER_ENTITY_SPAWNS:
 				break;
-			case PLAY_TIME:
-			case SHRINK_TIME:
-				if (match.getTiempoPartida() == null) {
-					res = Boolean.FALSE;
-				}
-				break;
+                       case PLAY_TIME:
+                               if (match.getTiempoPartida() == null) {
+                                       res = Boolean.FALSE;
+                               }
+                               break;
+                       case SHRINK_TIME:
+                               if (match.getShrinkTime() == null) {
+                                       res = Boolean.FALSE;
+                               }
+                               break;
 			case NO_MOVE_TIME:
 				if (match.getSecondsToBegin() == null) {
 					res = Boolean.FALSE;

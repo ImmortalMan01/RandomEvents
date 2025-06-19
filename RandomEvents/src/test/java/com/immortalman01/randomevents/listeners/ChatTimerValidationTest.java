@@ -106,8 +106,10 @@ public class ChatTimerValidationTest {
                 assertNull(m.getWarmupTime());
                 break;
             case PLAY_TIME:
-            case SHRINK_TIME:
                 assertNull(m.getTiempoPartida());
+                break;
+            case SHRINK_TIME:
+                assertNull(m.getShrinkTime());
                 break;
             case REFILL_CHEST:
                 assertNull(m.getTimeRefill());
@@ -135,5 +137,16 @@ public class ChatTimerValidationTest {
         }
         assertTrue(creation.containsKey("p"));
         assertEquals("invalid", messages.get(0));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void validShrinkTimeOnly() throws Exception {
+        invoke("15", Creacion.SHRINK_TIME);
+        Match m = matches.get("p");
+        assertEquals(15, m.getShrinkTime());
+        assertNull(m.getTiempoPartida());
+        assertFalse(creation.containsKey("p"));
+        assertFalse(messages.isEmpty());
+        assertNotEquals("invalid", messages.get(0));
     }
 }
