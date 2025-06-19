@@ -177,9 +177,9 @@ public class MatchActive {
 		this.pets = new HashMap<String, Entity>();
 		this.puntuacion = new HashMap<String, Integer>();
 		switch (match.getMinigame()) {
-		case BOMB_TAG:
-			this.numeroSegRestantes = match.getSecondsMobSpawn().intValue();
-			break;
+                case BOMB_TAG:
+                        this.numeroSegRestantes = match.getBombTimer().intValue();
+                        break;
 		case BOAT_RUN:
 		case HORSE_RUN:
 		case RACE:
@@ -272,9 +272,9 @@ public class MatchActive {
 
 		this.puntuacion = new HashMap<String, Integer>();
 		switch (match.getMinigame()) {
-		case BOMB_TAG:
-			this.numeroSegRestantes = match.getSecondsMobSpawn().intValue();
-			break;
+                case BOMB_TAG:
+                        this.numeroSegRestantes = match.getBombTimer().intValue();
+                        break;
 		case BOAT_RUN:
 		case HORSE_RUN:
 		case RACE:
@@ -3078,43 +3078,43 @@ public class MatchActive {
 
 				setAllowMove(true);
 
-				UtilsRandomEvents.mandaMensaje(plugin, getPlayerHandler().getPlayersObj(), plugin.getLanguage()
-						.getWarmupEnd().replaceAll("%time%", "" + getMatch().getSecondsMobSpawn().longValue()), true);
+                                UtilsRandomEvents.mandaMensaje(plugin, getPlayerHandler().getPlayersObj(), plugin.getLanguage()
+                                                .getWarmupEnd().replaceAll("%time%", "" + getMatch().getWarmupTime().longValue()), true);
 
-				if (getMatch().getSecondsMobSpawn() > 3) {
-					Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, new Runnable() {
-						public void run() {
+                                if (getMatch().getWarmupTime() > 3) {
+                                        Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, new Runnable() {
+                                                public void run() {
 
-							UtilsRandomEvents.mandaMensaje(plugin, getPlayerHandler().getPlayersObj(),
-									plugin.getLanguage().getWarmupEnd().replaceAll("%time%", "3"), true);
-						}
-					}, 20 * (getMatch().getSecondsMobSpawn().longValue() - 3));
-					Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, new Runnable() {
-						public void run() {
+                                                        UtilsRandomEvents.mandaMensaje(plugin, getPlayerHandler().getPlayersObj(),
+                                                                        plugin.getLanguage().getWarmupEnd().replaceAll("%time%", "3"), true);
+                                                }
+                                        }, 20 * (getMatch().getWarmupTime().longValue() - 3));
+                                        Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, new Runnable() {
+                                                public void run() {
 
-							UtilsRandomEvents.mandaMensaje(plugin, getPlayerHandler().getPlayersObj(),
-									plugin.getLanguage().getWarmupEnd().replaceAll("%time%", "2"), true);
-						}
-					}, 20 * (getMatch().getSecondsMobSpawn().longValue() - 2));
-					Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, new Runnable() {
-						public void run() {
+                                                        UtilsRandomEvents.mandaMensaje(plugin, getPlayerHandler().getPlayersObj(),
+                                                                        plugin.getLanguage().getWarmupEnd().replaceAll("%time%", "2"), true);
+                                                }
+                                        }, 20 * (getMatch().getWarmupTime().longValue() - 2));
+                                        Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, new Runnable() {
+                                                public void run() {
 
-							UtilsRandomEvents.mandaMensaje(plugin, getPlayerHandler().getPlayersObj(),
-									plugin.getLanguage().getWarmupEnd().replaceAll("%time%", "1"), true);
-						}
-					}, 20 * (getMatch().getSecondsMobSpawn().longValue() - 1));
+                                                        UtilsRandomEvents.mandaMensaje(plugin, getPlayerHandler().getPlayersObj(),
+                                                                        plugin.getLanguage().getWarmupEnd().replaceAll("%time%", "1"), true);
+                                                }
+                                        }, 20 * (getMatch().getWarmupTime().longValue() - 1));
 
-				}
+                                }
 
-				Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, new Runnable() {
+                                Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, new Runnable() {
 
-					public void run() {
+                                        public void run() {
 
-						setAllowDamage(true);
-						setAllowDamagePVP(true);
-					}
+                                                setAllowDamage(true);
+                                                setAllowDamagePVP(true);
+                                        }
 
-				}, 20 * getMatch().getSecondsMobSpawn().longValue());
+                                }, 20 * getMatch().getWarmupTime().longValue());
 
 			}
 		}, 20 * getMatch().getSecondsToBegin().longValue());
@@ -3157,7 +3157,7 @@ public class MatchActive {
 	private void partidaBombTag() {
 
 		if (getPlaying()) {
-			endDate = Double.valueOf(new Date().getTime() + 1000 * getMatch().getSecondsMobSpawn()).longValue();
+                        endDate = Double.valueOf(new Date().getTime() + 1000 * getMatch().getBombTimer()).longValue();
 			for (Player p : getPlayerHandler().getPlayersObj()) {
 				if (p.equals(getPlayerHandler().getPlayerContador())) {
 					if (plugin.getReventConfig().getTntTagSpeedHolder() > 0) {
@@ -3208,7 +3208,7 @@ public class MatchActive {
                         if (bomba == null) {
                                 if (getPlayerHandler().getPlayersObj().size() > limitPlayers) {
                                         bombRandom();
-                                        endDate = Double.valueOf(new Date().getTime() + 1000 * getMatch().getSecondsMobSpawn()).longValue();
+                                        endDate = Double.valueOf(new Date().getTime() + 1000 * getMatch().getBombTimer()).longValue();
                                 } else {
                                         compruebaPartida();
                                 }
@@ -3262,7 +3262,7 @@ public class MatchActive {
 				} else {
 					compruebaPartida();
 				}
-				endDate = Double.valueOf(new Date().getTime() + 1000 * getMatch().getSecondsMobSpawn()).longValue();
+                                endDate = Double.valueOf(new Date().getTime() + 1000 * getMatch().getBombTimer()).longValue();
 			} else {
 
 				if (dif > 5 && dif % 5 == 0) {
@@ -3280,8 +3280,8 @@ public class MatchActive {
 	}
 
 	private void spawneaGemas() {
-		if (getPlaying()) {
-			Double timer = 20 * match.getSecondsMobSpawn();
+                if (getPlaying()) {
+                        Double timer = 20 * match.getGemSpawnTimer();
 
 			Bukkit.getServer().getScheduler().runTaskLaterAsynchronously((Plugin) getPlugin(), new Runnable() {
 				public void run() {
@@ -3303,8 +3303,8 @@ public class MatchActive {
 	}
 
 	public void partidaAnvilSpleef() {
-		if (getPlaying()) {
-			Double timer = 20 * match.getSecondsMobSpawn();
+                if (getPlaying()) {
+                        Double timer = 20 * match.getAnvilSpawnTimer();
 
 			Bukkit.getServer().getScheduler().runTaskLaterAsynchronously((Plugin) getPlugin(), new Runnable() {
 				public void run() {
@@ -3347,8 +3347,8 @@ public class MatchActive {
 	}
 
 	public void partidaBombardment() {
-		if (getPlaying()) {
-			Double timer = 20 * match.getSecondsMobSpawn();
+                if (getPlaying()) {
+                        Double timer = 20 * match.getBombTimer();
 
 			Bukkit.getServer().getScheduler().runTaskLaterAsynchronously((Plugin) getPlugin(), new Runnable() {
 				public void run() {
@@ -3396,8 +3396,8 @@ public class MatchActive {
 	}
 
 	public void partidaEscapeArrow() {
-		if (getPlaying()) {
-			Double timer = 20 * match.getSecondsMobSpawn();
+                if (getPlaying()) {
+                        Double timer = 20 * match.getArrowSpawnTimer();
 
 			Bukkit.getServer().getScheduler().runTaskLaterAsynchronously((Plugin) getPlugin(), new Runnable() {
 				public void run() {
@@ -3604,7 +3604,7 @@ public class MatchActive {
 			public void run() {
 				teleportaPlayer(p);
 			}
-		}, Double.valueOf(20 * plugin.getMatchActive().getMatch().getSecondsMobSpawn()).longValue());
+                }, Double.valueOf(20 * plugin.getMatchActive().getMatch().getSecondsToSpawnBeast()).longValue());
 
 	}
 

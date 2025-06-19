@@ -2175,18 +2175,41 @@ public class UtilsRandomEvents {
 							}
 						}
 						break;
-					case TIMER_MOB_SPAWN:
-					case TIMER_ARROW_SPAWN:
-					case TIMER_ANVIL_SPAWN:
-					case TIMER_GEM_SPAWN:
-					case TIMER_BOMB:
-					case WARMUP_TIME:
-					case SECONDS_TO_SPAWN_BEAST:
-
-						if (match.getSecondsMobSpawn() != null) {
-							info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 " + match.getSecondsMobSpawn();
-						}
-						break;
+                                        case TIMER_MOB_SPAWN:
+                                                if (match.getMobSpawnTimer() != null) {
+                                                        info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 " + match.getMobSpawnTimer();
+                                                }
+                                                break;
+                                        case TIMER_ARROW_SPAWN:
+                                                if (match.getArrowSpawnTimer() != null) {
+                                                        info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 " + match.getArrowSpawnTimer();
+                                                }
+                                                break;
+                                        case TIMER_ANVIL_SPAWN:
+                                                if (match.getAnvilSpawnTimer() != null) {
+                                                        info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 " + match.getAnvilSpawnTimer();
+                                                }
+                                                break;
+                                        case TIMER_GEM_SPAWN:
+                                                if (match.getGemSpawnTimer() != null) {
+                                                        info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 " + match.getGemSpawnTimer();
+                                                }
+                                                break;
+                                        case TIMER_BOMB:
+                                                if (match.getBombTimer() != null) {
+                                                        info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 " + match.getBombTimer();
+                                                }
+                                                break;
+                                        case WARMUP_TIME:
+                                                if (match.getWarmupTime() != null) {
+                                                        info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 " + match.getWarmupTime();
+                                                }
+                                                break;
+                                        case SECONDS_TO_SPAWN_BEAST:
+                                                if (match.getSecondsToSpawnBeast() != null) {
+                                                        info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 " + match.getSecondsToSpawnBeast();
+                                                }
+                                                break;
 					case MOB_NAME:
 						if (match.getMob() != null) {
 							info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 " + match.getMob();
@@ -2413,18 +2436,41 @@ public class UtilsRandomEvents {
 					res = Boolean.FALSE;
 				}
 				break;
-			case TIMER_MOB_SPAWN:
-			case TIMER_ARROW_SPAWN:
-			case TIMER_ANVIL_SPAWN:
-			case TIMER_GEM_SPAWN:
-			case TIMER_BOMB:
-			case WARMUP_TIME:
-			case SECONDS_TO_SPAWN_BEAST:
-
-				if (match.getSecondsMobSpawn() == null) {
-					res = Boolean.FALSE;
-				}
-				break;
+                        case TIMER_MOB_SPAWN:
+                                if (match.getMobSpawnTimer() == null) {
+                                        res = Boolean.FALSE;
+                                }
+                                break;
+                        case TIMER_ARROW_SPAWN:
+                                if (match.getArrowSpawnTimer() == null) {
+                                        res = Boolean.FALSE;
+                                }
+                                break;
+                        case TIMER_ANVIL_SPAWN:
+                                if (match.getAnvilSpawnTimer() == null) {
+                                        res = Boolean.FALSE;
+                                }
+                                break;
+                        case TIMER_GEM_SPAWN:
+                                if (match.getGemSpawnTimer() == null) {
+                                        res = Boolean.FALSE;
+                                }
+                                break;
+                        case TIMER_BOMB:
+                                if (match.getBombTimer() == null) {
+                                        res = Boolean.FALSE;
+                                }
+                                break;
+                        case WARMUP_TIME:
+                                if (match.getWarmupTime() == null) {
+                                        res = Boolean.FALSE;
+                                }
+                                break;
+                        case SECONDS_TO_SPAWN_BEAST:
+                                if (match.getSecondsToSpawnBeast() == null) {
+                                        res = Boolean.FALSE;
+                                }
+                                break;
 			case MOB_NAME:
 				if (match.getMob() == null) {
 					res = Boolean.FALSE;

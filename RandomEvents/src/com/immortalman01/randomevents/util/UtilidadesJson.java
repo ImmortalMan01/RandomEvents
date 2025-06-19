@@ -39,7 +39,22 @@ public class UtilidadesJson {
                 Match match = null;
                 try {
                         match = GSON.fromJson(br, Match.class);
-			UtilsRandomEvents.normalizaColorsMatch(match);
+                        UtilsRandomEvents.normalizaColorsMatch(match);
+
+                        if (match.getMobSpawnTimer() == null)
+                                match.setMobSpawnTimer(match.getSecondsMobSpawn());
+                        if (match.getArrowSpawnTimer() == null)
+                                match.setArrowSpawnTimer(match.getSecondsMobSpawn());
+                        if (match.getAnvilSpawnTimer() == null)
+                                match.setAnvilSpawnTimer(match.getSecondsMobSpawn());
+                        if (match.getGemSpawnTimer() == null)
+                                match.setGemSpawnTimer(match.getSecondsMobSpawn());
+                        if (match.getBombTimer() == null)
+                                match.setBombTimer(match.getSecondsMobSpawn());
+                        if (match.getWarmupTime() == null)
+                                match.setWarmupTime(match.getSecondsMobSpawn());
+                        if (match.getSecondsToSpawnBeast() == null)
+                                match.setSecondsToSpawnBeast(match.getSecondsMobSpawn());
 
 		} catch (Exception e) {
 			plugin.getLoggerP().info(e.getMessage());

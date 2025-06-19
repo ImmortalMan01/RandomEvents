@@ -85,13 +85,25 @@ public class ChatTimerValidationTest {
         Match m = matches.get("p");
         switch (c) {
             case TIMER_MOB_SPAWN:
+                assertNull(m.getMobSpawnTimer());
+                break;
             case TIMER_ARROW_SPAWN:
+                assertNull(m.getArrowSpawnTimer());
+                break;
             case TIMER_ANVIL_SPAWN:
+                assertNull(m.getAnvilSpawnTimer());
+                break;
             case TIMER_GEM_SPAWN:
+                assertNull(m.getGemSpawnTimer());
+                break;
             case SECONDS_TO_SPAWN_BEAST:
+                assertNull(m.getSecondsToSpawnBeast());
+                break;
             case TIMER_BOMB:
+                assertNull(m.getBombTimer());
+                break;
             case WARMUP_TIME:
-                assertNull(m.getSecondsMobSpawn());
+                assertNull(m.getWarmupTime());
                 break;
             case PLAY_TIME:
             case SHRINK_TIME:
