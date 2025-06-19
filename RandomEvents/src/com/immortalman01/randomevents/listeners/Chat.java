@@ -55,23 +55,18 @@ public class Chat implements Listener {
 			}
 		}
 
-		if (plugin.getReventConfig().getCmdAlias().contains(aliase.toLowerCase())) {
-			event.setCancelled(true);
-			plugin.getCmdExecutor().onCommand(event.getPlayer(), null, "randomevent",
-					campos.toArray(new String[campos.size()]));
-		} else {
-
-			if (plugin.getMatchActive() != null
-					&& plugin.getMatchActive().getPlayerHandler().getPlayersSpectators().contains(p)) {
-
-				if (!plugin.getReventConfig().getAllowedCmds().contains(aliase.toLowerCase())
-						&& !p.hasPermission("randomevent.bypass")) {
-					event.setCancelled(true);
-					p.sendMessage(plugin.getLanguage().getCmdNotAllowed());
-				}
-			}
-		}
-	}
+                if (plugin.getReventConfig().getCmdAlias().contains(aliase.toLowerCase())) {
+                        event.setCancelled(true);
+                        plugin.getCmdExecutor().onCommand(event.getPlayer(), null, "randomevent",
+                                        campos.toArray(new String[campos.size()]));
+                } else {
+                        boolean eventActive = plugin.getMatchActive() != null || plugin.getTournamentActive() != null;
+                        if (eventActive && !p.hasPermission("randomevent.bypass")) {
+                                event.setCancelled(true);
+                                p.sendMessage(plugin.getLanguage().getCmdNotAllowed());
+                        }
+                }
+        }
 
 	@EventHandler
 	public void onPlayerChat(AsyncPlayerChatEvent event) {
