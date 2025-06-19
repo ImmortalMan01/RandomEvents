@@ -2165,9 +2165,9 @@ public class UtilsRandomEvents {
 						break;
 					case SPAWN_PLAYER:
 						if (match.getPlayerSpawn() != null) {
-							info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
-									+ match.getPlayerSpawn().getWorld().getName() + match.getPlayerSpawn().getX() + ", "
-									+ match.getPlayerSpawn().getY() + ", " + match.getPlayerSpawn().getZ();
+                                                        info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
+                                                                        + match.getPlayerSpawn().getWorld().getName() + " " + match.getPlayerSpawn().getX() + ", "
+                                                                        + match.getPlayerSpawn().getY() + ", " + match.getPlayerSpawn().getZ();
 						}
 						break;
 					case ARENA_SPAWNS:
@@ -2304,22 +2304,22 @@ public class UtilsRandomEvents {
 					case MAP_LOCATION1:
 						if (match.getLocation1() != null) {
 							info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
-									+ match.getLocation1().getWorld().getName() + match.getLocation1().getX() + ", "
-									+ match.getLocation1().getY() + ", " + match.getLocation1().getZ();
+                                                                        + match.getLocation1().getWorld().getName() + " " + match.getLocation1().getX() + ", "
+                                                                        + match.getLocation1().getY() + ", " + match.getLocation1().getZ();
 						}
 						break;
 					case GLASS_LOCATION1:
 						if (match.getAuxLocation1() != null) {
 							info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
-									+ match.getAuxLocation1().getWorld().getName() + match.getAuxLocation1().getX()
-									+ ", " + match.getAuxLocation1().getY() + ", " + match.getAuxLocation1().getZ();
+                                                                        + match.getAuxLocation1().getWorld().getName() + " " + match.getAuxLocation1().getX()
+                                                                        + ", " + match.getAuxLocation1().getY() + ", " + match.getAuxLocation1().getZ();
 						}
 						break;
 					case GLASS_LOCATION2:
 						if (match.getAuxLocation2() != null) {
 							info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
-									+ match.getAuxLocation2().getWorld().getName() + match.getAuxLocation2().getX()
-									+ ", " + match.getAuxLocation2().getY() + ", " + match.getAuxLocation2().getZ();
+                                                                        + match.getAuxLocation2().getWorld().getName() + " " + match.getAuxLocation2().getX()
+                                                                        + ", " + match.getAuxLocation2().getY() + ", " + match.getAuxLocation2().getZ();
 						}
 						break;
 					case ARROW_LOCATION2:
@@ -2329,8 +2329,8 @@ public class UtilsRandomEvents {
 					case MAP_LOCATION2:
 						if (match.getLocation2() != null) {
 							info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
-									+ match.getLocation2().getWorld().getName() + match.getLocation2().getX() + ", "
-									+ match.getLocation2().getY() + ", " + match.getLocation2().getZ();
+                                                                        + match.getLocation2().getWorld().getName() + " " + match.getLocation2().getX() + ", "
+                                                                        + match.getLocation2().getY() + ", " + match.getLocation2().getZ();
 						}
 						break;
 					case SPAWN_BEAST:
@@ -3126,24 +3126,24 @@ public class UtilsRandomEvents {
 			case SPAWN:
 				if (waterDrop.getSpawn() != null) {
 					info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
-							+ waterDrop.getSpawn().getWorld().getName() + waterDrop.getSpawn().getX() + ", "
-							+ waterDrop.getSpawn().getY() + ", " + waterDrop.getSpawn().getZ();
+                                                        + waterDrop.getSpawn().getWorld().getName() + " " + waterDrop.getSpawn().getX() + ", "
+                                                        + waterDrop.getSpawn().getY() + ", " + waterDrop.getSpawn().getZ();
 				}
 				break;
 
 			case GOAL_LOCATION1:
 				if (waterDrop.getGoalLoc1() != null) {
 					info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
-							+ waterDrop.getGoalLoc1().getWorld().getName() + waterDrop.getGoalLoc1().getX() + ", "
-							+ waterDrop.getGoalLoc1().getY() + ", " + waterDrop.getGoalLoc1().getZ();
+                                                        + waterDrop.getGoalLoc1().getWorld().getName() + " " + waterDrop.getGoalLoc1().getX() + ", "
+                                                        + waterDrop.getGoalLoc1().getY() + ", " + waterDrop.getGoalLoc1().getZ();
 				}
 				break;
 
 			case GOAL_LOCATION2:
 				if (waterDrop.getGoalLoc2() != null) {
 					info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
-							+ waterDrop.getGoalLoc2().getWorld().getName() + waterDrop.getGoalLoc2().getX() + ", "
-							+ waterDrop.getGoalLoc2().getY() + ", " + waterDrop.getGoalLoc2().getZ();
+                                                        + waterDrop.getGoalLoc2().getWorld().getName() + " " + waterDrop.getGoalLoc2().getX() + ", "
+                                                        + waterDrop.getGoalLoc2().getY() + ", " + waterDrop.getGoalLoc2().getZ();
 				}
 				break;
 
