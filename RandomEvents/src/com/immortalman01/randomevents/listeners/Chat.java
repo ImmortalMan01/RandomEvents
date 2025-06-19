@@ -696,18 +696,40 @@ public class Chat implements Listener {
 
 						break;
 
-					case AMOUNT_PLAYERS:
-						match.setAmountPlayers(Integer.valueOf(message.trim()));
-						match.setSpawns(new ArrayList<Location>());
+                                        case AMOUNT_PLAYERS:
+                                                try {
+                                                        int maxPlayers = Integer.parseInt(message.trim());
+                                                        if (maxPlayers > 0) {
+                                                                match.setAmountPlayers(maxPlayers);
+                                                                match.setSpawns(new ArrayList<Location>());
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
 
-						plugin.getPlayersCreation().remove(player.getName());
+                                                break;
+                                        case AMOUNT_PLAYERS_MIN:
+                                                try {
+                                                        int minPlayers = Integer.parseInt(message.trim());
+                                                        Integer max = match.getAmountPlayers();
+                                                        if (minPlayers > 0 && (max == null || minPlayers <= max)) {
+                                                                match.setAmountPlayersMin(minPlayers);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
 
-						break;
-					case AMOUNT_PLAYERS_MIN:
-						match.setAmountPlayersMin(Integer.valueOf(message.trim()));
-						plugin.getPlayersCreation().remove(player.getName());
-
-						break;
+                                                break;
 					case NUMBER_OF_TEAMS:
 						Integer number = Integer.valueOf(message.trim());
 						if (number > 1 && number < 9) {
