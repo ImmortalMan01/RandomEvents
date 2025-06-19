@@ -118,11 +118,11 @@ public enum Creacion {
 	NUMBER_OF_TEAMS(42,"Number of teams", "§6§lChoose a number of teams between 2 and 8",
 			"PBALL,HOE,SPLATOON,TKLLTEAMS,BRTEAMS,TSGTEAMS,TSWTEAMS,PBALLTK"),
 
-	TEAM_SPAWNS(43,"Team Spawns",
-			"§6§lGo to the arena you created and write 'Done' to set each spawn location for the team (%players%/%maxTeams%)",
-			"PBALL,HOE,SPLATOON,TKLLTEAMS,BRTEAMS,TSGTEAMS,TSWTEAMS,PBALLTK"),
+        TEAM_SPAWNS(43,"Team Spawns",
+                        "§6§lGo to the arena you created and write 'Done' to set each spawn location for the team (%players%/%maxTeams%) or 'Next' to end the spawns",
+                        "PBALL,HOE,SPLATOON,TKLLTEAMS,BRTEAMS,TSGTEAMS,TSWTEAMS,PBALLTK"),
 
-	ANOTHER_TEAM_SPAWNS(44, "Another Team Spawns","§6§lPut another team spawn, say 'Done' (%players%/%maxTeams%) ", ""),
+        ANOTHER_TEAM_SPAWNS(44, "Another Team Spawns","§6§lPut another team spawn, say 'Done' (%players%/%maxTeams%) or 'Next' to end the spawns", ""),
 
 	KOTH_LOCATION1(45,"KoTH Region Location 1", "§6§lSet the first location of the cuboid of the Koth, say 'Done'", "KOTH,FISHSLAP"),
 
