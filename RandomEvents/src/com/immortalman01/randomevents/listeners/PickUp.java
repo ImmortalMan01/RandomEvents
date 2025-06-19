@@ -21,10 +21,15 @@ public class PickUp implements Listener {
 	}
 
 	@EventHandler
-	public void onPickUp(PlayerPickupItemEvent evt) {
-		Player player = evt.getPlayer();
-		if (plugin.getMatchActive() != null
-				&& plugin.getMatchActive().getPlayerHandler().getPlayersObj().contains(player)) {
+        public void onPickUp(PlayerPickupItemEvent evt) {
+                Player player = evt.getPlayer();
+                if (plugin.getMatchActive() != null
+                                && plugin.getMatchActive().getPlayerHandler().getPlayersSpectators().contains(player)) {
+                        evt.setCancelled(true);
+                        return;
+                }
+                if (plugin.getMatchActive() != null
+                                && plugin.getMatchActive().getPlayerHandler().getPlayersObj().contains(player)) {
 
 			switch (plugin.getMatchActive().getMatch().getMinigame()) {
 			case GEM_CRAWLER:
