@@ -764,13 +764,16 @@ public class Chat implements Listener {
                                                 }
 
                                                 break;
-					case SPAWN_PLAYER:
-						if (message.equalsIgnoreCase(Constantes.DONE)) {
-							match.setPlayerSpawn(player.getLocation());
-							plugin.getPlayersCreation().remove(player.getName());
+                                        case SPAWN_PLAYER:
+                                                if (message.equalsIgnoreCase(Constantes.DONE)) {
+                                                        match.setPlayerSpawn(player.getLocation());
+                                                        plugin.getPlayersCreation().remove(player.getName());
 
-						}
-						break;
+                                                } else {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
+                                                break;
 					case GAMEMODE:
 						if (message.equalsIgnoreCase("SURVIVAL")) {
 							match.setGamemode(GameMode.SURVIVAL);
@@ -799,11 +802,14 @@ public class Chat implements Listener {
                                                 break;
                                         case SPAWN_BEAST:
                                                 if (message.equalsIgnoreCase(Constantes.DONE)) {
-							match.setBeastSpawn(player.getLocation());
-							plugin.getPlayersCreation().remove(player.getName());
+                                                        match.setBeastSpawn(player.getLocation());
+                                                        plugin.getPlayersCreation().remove(player.getName());
 
-						}
-						break;
+                                                } else {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
+                                                break;
                                         case ARENA_SPAWNS:
                                                 if (match.getAmountPlayers() == null) {
                                                         player.sendMessage(plugin.getLanguage().getLacksInfoCreation());
@@ -823,6 +829,9 @@ public class Chat implements Listener {
                                                         }
                                                 } else if (message.equalsIgnoreCase(Constantes.NEXT)) {
                                                         plugin.getPlayersCreation().remove(player.getName());
+                                                } else {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
                                                 }
                                                 break;
                                         case TEAM_SPAWNS:
@@ -842,21 +851,27 @@ public class Chat implements Listener {
                                                                         actua = Boolean.FALSE;
                                                                 }
                                                         }
+                                                } else {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
                                                 }
                                                 break;
-					case CANNON_SPAWNS:
-						if (message.equalsIgnoreCase(Constantes.DONE)) {
+                                        case CANNON_SPAWNS:
+                                                if (message.equalsIgnoreCase(Constantes.DONE)) {
 
-							match.getEntitySpawns().add(player.getLocation());
-							actua = Boolean.FALSE;
+                                                        match.getEntitySpawns().add(player.getLocation());
+                                                        actua = Boolean.FALSE;
 
-						} else if (message.equalsIgnoreCase(Constantes.NEXT)) {
+                                                } else if (message.equalsIgnoreCase(Constantes.NEXT)) {
 
-							plugin.getPlayersCreation().remove(player.getName());
+                                                        plugin.getPlayersCreation().remove(player.getName());
 
-						}
+                                                } else {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
 
-						break;
+                                                break;
                                         case ENTITY_SPAWNS:
                                                 if (match.getAmountPlayers() == null) {
                                                         player.sendMessage(plugin.getLanguage().getLacksInfoCreation());
@@ -879,6 +894,9 @@ public class Chat implements Listener {
 
                                                         plugin.getPlayersCreation().remove(player.getName());
 
+                                                } else {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
                                                 }
                                                 break;
                                         case ANOTHER_ENTITY_SPAWNS:
@@ -897,6 +915,9 @@ public class Chat implements Listener {
                                                                 actua = Boolean.FALSE;
 
                                                         }
+                                                } else {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
                                                 }
                                                 break;
 					case COMMANDS_ON_START_OPTIONAL:
@@ -947,12 +968,15 @@ public class Chat implements Listener {
                                                         }
                                                 } else if (message.equalsIgnoreCase(Constantes.NEXT)) {
                                                         plugin.getPlayersCreation().remove(player.getName());
+                                                } else {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
                                                 }
                                                 break;
 
-					case ANOTHER_TEAM_SPAWNS:
-						if (message.equalsIgnoreCase(Constantes.DONE)) {
-							match.getSpawns().add(player.getLocation());
+                                        case ANOTHER_TEAM_SPAWNS:
+                                                if (message.equalsIgnoreCase(Constantes.DONE)) {
+                                                        match.getSpawns().add(player.getLocation());
 							if (match.getSpawns().size() == match.getNumberOfTeams()) {
 								plugin.getPlayersCreation().remove(player.getName());
 
@@ -962,19 +986,24 @@ public class Chat implements Listener {
 										Creacion.ANOTHER_TEAM_SPAWNS.getPosition());
 								actua = Boolean.FALSE;
 
-							}
-						}
-						break;
-					case SPECTATOR_SPAWNS:
+                                                        }
+                                                } else {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
+                                                break;
+                                        case SPECTATOR_SPAWNS:
 
-						if (message.equalsIgnoreCase(Constantes.DONE)) {
-							match.getSpectatorSpawns().add(player.getLocation());
-							actua = Boolean.FALSE;
-						} else if (message.equalsIgnoreCase(Constantes.NEXT)) {
-							plugin.getPlayersCreation().remove(player.getName());
-
-						}
-						break;
+                                                if (message.equalsIgnoreCase(Constantes.DONE)) {
+                                                        match.getSpectatorSpawns().add(player.getLocation());
+                                                        actua = Boolean.FALSE;
+                                                } else if (message.equalsIgnoreCase(Constantes.NEXT)) {
+                                                        plugin.getPlayersCreation().remove(player.getName());
+                                                } else {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
+                                                break;
 					case KITS:
 						try {
 							Integer value = Integer.valueOf(message);
@@ -1229,6 +1258,9 @@ public class Chat implements Listener {
                                         case MOB_SPAWN:
                                                 if (message.equalsIgnoreCase(Constantes.DONE)) {
                                                         match.getEntitySpawns().add(player.getLocation());
+                                                        actua = Boolean.FALSE;
+                                                } else {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
                                                         actua = Boolean.FALSE;
                                                 }
                                                 break;
