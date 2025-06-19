@@ -441,10 +441,14 @@ public class MatchActive {
 					hazComandosDeUnion(player);
 					UtilsRandomEvents.mandaMensaje(plugin, getPlayerHandler().getPlayersSpectators(),
 							plugin.getLanguage().getMatchJoin().replace("%player%", player.getName()), false);
-					getPlayerHandler().getPlayersSpectators().add(player);
-					if (plugin.getReventConfig().isAdvancedSpectatorMode()) {
-						player.setGameMode(GameMode.SPECTATOR);
-					}
+                                        getPlayerHandler().getPlayersSpectators().add(player);
+                                        // always use spectator mode so players cannot interact
+                                        player.setGameMode(GameMode.SPECTATOR);
+                                        for (Player pl : Bukkit.getOnlinePlayers()) {
+                                                if (!pl.equals(player)) {
+                                                        pl.hidePlayer(player);
+                                                }
+                                        }
 					UtilsRandomEvents.playSound(plugin, player, XSound.ENTITY_BAT_HURT);
 				} else {
 					UtilsRandomEvents.sacaInventario(plugin, player);
@@ -549,9 +553,14 @@ public class MatchActive {
 				}
 
 			}
-			for (Player p : getPlayerHandler().getPlayersVanish()) {
-				p.showPlayer(player);
-			}
+                        for (Player p : getPlayerHandler().getPlayersVanish()) {
+                                p.showPlayer(player);
+                        }
+                        for (Player p : Bukkit.getOnlinePlayers()) {
+                                if (!p.equals(player)) {
+                                        p.showPlayer(player);
+                                }
+                        }
 
 			if (compruebaSpectator
 					&& (sacaSpectator || match.getSpectatorSpawns() == null || match.getSpectatorSpawns().isEmpty())) {
