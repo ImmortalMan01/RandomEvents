@@ -3538,7 +3538,7 @@ public class UtilsRandomEvents {
 
 			}
 		}
-		player.setItemInHand(plugin.getReventConfig().getEndVanishItem());
+                player.getInventory().setItemInMainHand(plugin.getReventConfig().getEndVanishItem());
 		player.updateInventory();
 		plugin.getMatchActive().getPlayerHandler().getPlayersVanish().add(player);
 	}
@@ -3549,7 +3549,7 @@ public class UtilsRandomEvents {
 				player.showPlayer(p);
 			}
 		}
-		player.setItemInHand(plugin.getReventConfig().getVanishItem());
+                player.getInventory().setItemInMainHand(plugin.getReventConfig().getVanishItem());
 		player.updateInventory();
 		plugin.getMatchActive().getPlayerHandler().getPlayersVanish().remove(player);
 
