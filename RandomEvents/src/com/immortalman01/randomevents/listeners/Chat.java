@@ -771,13 +771,17 @@ public class Chat implements Listener {
 							match.setGamemode(GameMode.CREATIVE);
 							plugin.getPlayersCreation().remove(player.getName());
 
-						} else if (message.equalsIgnoreCase("N")) {
-							plugin.getPlayersCreation().remove(player.getName());
+                                               } else if (message.equalsIgnoreCase("N")) {
+                                                        plugin.getPlayersCreation().remove(player.getName());
 
-						}
-						break;
-					case SPAWN_BEAST:
-						if (message.equalsIgnoreCase(Constantes.DONE)) {
+                                                } else {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+
+                                                }
+                                                break;
+                                        case SPAWN_BEAST:
+                                                if (message.equalsIgnoreCase(Constantes.DONE)) {
 							match.setBeastSpawn(player.getLocation());
 							plugin.getPlayersCreation().remove(player.getName());
 
