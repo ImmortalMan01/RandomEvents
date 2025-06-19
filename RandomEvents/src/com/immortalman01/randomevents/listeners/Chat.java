@@ -730,16 +730,22 @@ public class Chat implements Listener {
                                                 }
 
                                                 break;
-					case NUMBER_OF_TEAMS:
-						Integer number = Integer.valueOf(message.trim());
-						if (number > 1 && number < 9) {
-							match.setNumberOfTeams(number);
-							plugin.getPlayersCreation().remove(player.getName());
-						} else {
-							player.sendMessage(plugin.getLanguage().getInvalidInput());
-						}
+                                        case NUMBER_OF_TEAMS:
+                                                try {
+                                                        Integer number = Integer.valueOf(message.trim());
+                                                        if (number > 1 && number < 9) {
+                                                                match.setNumberOfTeams(number);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
+                                                } catch (NumberFormatException e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
 
-						break;
+                                                break;
 
                                         case NUMBER_OF_SEEKERS:
                                                 try {
