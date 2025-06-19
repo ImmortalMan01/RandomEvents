@@ -614,16 +614,34 @@ public class Chat implements Listener {
                                 // as another creation step. Let the MINIGAME_TYPE case handle it.
                                 c = Creacion.MINIGAME_TYPE;
                         } else {
-                                boolean parseStep = true;
-                                if (current != null && (current.equals(Creacion.AMOUNT_PLAYERS)
-                                                || current.equals(Creacion.AMOUNT_PLAYERS_MIN)
-                                                || current.equals(Creacion.KITS)
-                                                || current.equals(Creacion.WARMUP_TIME)
-                                                || current.equals(Creacion.NO_MOVE_TIME)
-                                                || current.equals(Creacion.REFILL_CHEST))) {
-                                        // These steps expect a numeric value. Don't interpret it as a step change.
-                                        parseStep = false;
-                                }
+                               boolean parseStep = true;
+                               if (current != null && (current.equals(Creacion.AMOUNT_PLAYERS)
+                                               || current.equals(Creacion.AMOUNT_PLAYERS_MIN)
+                                               || current.equals(Creacion.KITS)
+                                               || current.equals(Creacion.WARMUP_TIME)
+                                               || current.equals(Creacion.NO_MOVE_TIME)
+                                               || current.equals(Creacion.REFILL_CHEST)
+                                               || current.equals(Creacion.SHRINK_TIME)
+                                               || current.equals(Creacion.SHRINK_BLOCKS)
+                                               || current.equals(Creacion.TIMER_MOB_SPAWN)
+                                               || current.equals(Creacion.PLAY_TIME)
+                                               || current.equals(Creacion.TIMER_ARROW_SPAWN)
+                                               || current.equals(Creacion.TIMER_GEM_SPAWN)
+                                               || current.equals(Creacion.TIMER_BOMB)
+                                               || current.equals(Creacion.SECONDS_TO_SPAWN_BEAST)
+                                               || current.equals(Creacion.TIMER_ANVIL_SPAWN)
+                                               || current.equals(Creacion.NUMBER_OF_TEAMS)
+                                               || current.equals(Creacion.TIMER_BLOCK_DISAPPEAR)
+                                               || current.equals(Creacion.TIMER_DECREASE_TIME)
+                                               || current.equals(Creacion.COLOR_APPEAR_TIME)
+                                               || current.equals(Creacion.COLOR_APPEAR_DECREASE_TIME)
+                                               || current.equals(Creacion.NUMBER_OF_SEEKERS)
+                                               || current.equals(Creacion.WATER_DROP_SCENES)
+                                               || current.equals(Creacion.ID_NPC)
+                                               || current.equals(Creacion.DELETE))) {
+                                       // These steps expect a numeric value. Don't interpret it as a step change.
+                                       parseStep = false;
+                               }
 
                                 if (parseStep) {
                                         try {
