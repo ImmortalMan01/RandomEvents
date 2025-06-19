@@ -193,7 +193,7 @@ public class Chat implements Listener {
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
 
 							ItemStack[] contenido = player.getInventory().getContents();
-							List<ItemStack> contenidoList = Arrays.asList(contenido);
+                                                        List<ItemStack> contenidoList = new ArrayList<>(Arrays.asList(contenido));
 							try {
 								contenidoList.removeAll(Arrays.asList(player.getInventory().getArmorContents()));
 							} catch (Exception e) {
@@ -972,7 +972,7 @@ public class Chat implements Listener {
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
 
 							ItemStack[] contenido = player.getInventory().getContents();
-							List<ItemStack> contenidoList = Arrays.asList(contenido);
+                                                        List<ItemStack> contenidoList = new ArrayList<>(Arrays.asList(contenido));
 							try {
 								contenidoList.removeAll(Arrays.asList(player.getInventory().getArmorContents()));
 							} catch (Exception e) {
@@ -1000,7 +1000,7 @@ public class Chat implements Listener {
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
 
 							ItemStack[] contenido = player.getInventory().getContents();
-							List<ItemStack> contenidoList = Arrays.asList(contenido);
+                                                        List<ItemStack> contenidoList = new ArrayList<>(Arrays.asList(contenido));
 							try {
 								contenidoList.removeAll(Arrays.asList(player.getInventory().getArmorContents()));
 							} catch (Exception e) {
