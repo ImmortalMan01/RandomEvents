@@ -288,12 +288,27 @@ public class GsonFactory {
             if(item == null)
                 return null;
  
-            if(keys.containsKey("meta")) {
-                Map<String, Object> itemmeta = (Map<String, Object>) keys.get("meta");
-                itemmeta = recursiveDoubleToInteger(itemmeta);
-                ItemMeta meta = (ItemMeta) ConfigurationSerialization.deserializeObject(itemmeta, ConfigurationSerialization.getClassByAlias("ItemMeta"));
-                item.setItemMeta(meta);
-            }
+                if(keys.containsKey("meta")) {
+                        Map<String, Object> itemmeta = (Map<String, Object>) keys.get("meta");
+                        itemmeta = recursiveDoubleToInteger(itemmeta);
+
+                        if(itemmeta.containsKey("skull-owner")) {
+                                Object skull = itemmeta.get("skull-owner");
+                                if(skull instanceof Map) {
+                                        Map<String, Object> skullMap = (Map<String, Object>) skull;
+                                        Object alias = skullMap.get("SERIAL-ADAPTER-CLASS-KEY");
+                                        if("PlayerProfile".equals(alias)) {
+                                                Object profile = ConfigurationSerialization.deserializeObject(skullMap, ConfigurationSerialization.getClassByAlias("PlayerProfile"));
+                                                if(profile != null) {
+                                                        itemmeta.put("skull-owner", profile);
+                                                }
+                                        }
+                                }
+                        }
+
+                        ItemMeta meta = (ItemMeta) ConfigurationSerialization.deserializeObject(itemmeta, ConfigurationSerialization.getClassByAlias("ItemMeta"));
+                        item.setItemMeta(meta);
+                }
  
             return item;
         }
