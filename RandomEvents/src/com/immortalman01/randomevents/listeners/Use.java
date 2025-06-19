@@ -336,10 +336,9 @@ public class Use implements Listener {
 								Location loc = player.getLocation();
 								loc.setY(loc.getY() + 1);
 								XParticle.line(loc, locEnd, 0.5, pa);
-							} catch (Exception e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
+                                                        } catch (Exception e) {
+                                                                plugin.getLoggerP().warning(e.toString());
+                                                        }
 						}
 					}
 

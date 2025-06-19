@@ -479,10 +479,9 @@ public class LanguageMessages {
 		try {
 			method = this.getClass().getMethod(getComandoGet(javaField));
 			res = (String) method.invoke(this);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+                } catch (Exception e) {
+                        plugin.getLoggerP().warning(e.toString());
+                }
 		return res;
 	}
 
