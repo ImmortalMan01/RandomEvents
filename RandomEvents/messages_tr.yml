@@ -72,6 +72,7 @@ item.showPlayer: '&2&lOyuncuları göster'
 kit.guiName: '&6&lRandomEvents Kitleri'
 team.guiName: '&6&lTakımlar'
 kit.chosen: '&6&l%kit_name% kiti seçildi'
+kit.removed: '&6&l%kit_name% kiti kaldırıldı'
 kit.itemName: '&6&lKitler'
 team.itemName: '&6&lTakım'
 kit.defaultName: '&6&lKit: %kit_name%'
@@ -328,7 +329,7 @@ creation.rewards.message: "&6&lKazananları ödüllendirmek için bir komut yaz�
 creation.another_rewards.name: "Başka Ödül Komutları"
 creation.another_rewards.message: "&6&lKazananlar için başka bir ödül ekleyin veya sonraki adıma geçmek için 'Done' yazın"
 creation.kits.name: "Kitler"
-creation.kits.message: "&6&lMaça eklemek için bir Kit seçin"
+creation.kits.message: "&6&lMaça eklemek için bir Kit seçin (kaldırmak için -<id> yazın)"
 creation.timer_mob_spawn.name: "Mob Spawn Süresi"
 creation.timer_mob_spawn.message: "&6&lHer mobun yeniden doğma süresini saniye olarak yazın (ondalıklı olabilir)"
 creation.mob_name.name: "Mob Adı"

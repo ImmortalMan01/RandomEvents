@@ -1028,28 +1028,43 @@ public class Chat implements Listener {
                                                         actua = Boolean.FALSE;
                                                 }
                                                 break;
-					case KITS:
-						try {
-							Integer value = Integer.valueOf(message);
-							if (value.equals(plugin.getKits().size())) {
-								Kit kit = new Kit();
-								plugin.getPlayerKit().put(player.getName(), kit);
-								player.sendMessage(UtilsRandomEvents.enviaInfoCreacionKit(kit, player, plugin));
-								actua = Boolean.FALSE;
-								pasado = Boolean.TRUE;
-							} else if (value < plugin.getKits().size() && value >= 0) {
-								match.getKits().add(plugin.getKits().get(value).getName());
-								plugin.getPlayersCreation().remove(player.getName());
+                                       case KITS:
+                                                try {
+                                                        if (message.trim().startsWith("-")) {
+                                                                Integer remove = Integer.valueOf(message.trim().substring(1));
+                                                                if (remove >= 0 && remove < match.getKits().size()) {
+                                                                        String kitName = match.getKits().remove(remove.intValue());
+                                                                        plugin.getPlayersCreation().remove(player.getName());
+                                                                        String msg = plugin.getLanguage().getTranslation("kit.removed");
+                                                                        if (msg != null) {
+                                                                                player.sendMessage(plugin.getLanguage().getTagPlugin()
+                                                                                                + msg.replace("%kit_name%", kitName));
+                                                                        }
+                                                                } else {
+                                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                        actua = Boolean.FALSE;
+                                                                }
+                                                        } else {
+                                                                Integer value = Integer.valueOf(message);
+                                                                if (value.equals(plugin.getKits().size())) {
+                                                                        Kit kit = new Kit();
+                                                                        plugin.getPlayerKit().put(player.getName(), kit);
+                                                                        player.sendMessage(UtilsRandomEvents.enviaInfoCreacionKit(kit, player, plugin));
+                                                                        actua = Boolean.FALSE;
+                                                                        pasado = Boolean.TRUE;
+                                                                } else if (value < plugin.getKits().size() && value >= 0) {
+                                                                        match.getKits().add(plugin.getKits().get(value).getName());
+                                                                        plugin.getPlayersCreation().remove(player.getName());
+                                                                } else {
+                                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                        actua = Boolean.FALSE;
+                                                                }
+                                                        }
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                }
 
-							} else {
-								player.sendMessage(plugin.getLanguage().getInvalidInput());
-
-							}
-						} catch (Exception e) {
-							player.sendMessage(plugin.getLanguage().getInvalidInput());
-						}
-
-						break;
+                                                break;
 					case TNT_TAG_HEAD:
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
 
