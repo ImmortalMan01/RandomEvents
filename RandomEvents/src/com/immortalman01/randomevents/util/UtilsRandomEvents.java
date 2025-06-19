@@ -145,9 +145,13 @@ public class UtilsRandomEvents {
 		terminaCreacionMatch(plugin, player, null);
 	}
 
-	public static void terminaCreacionMatch(RandomEvents plugin, Player player, Match match) {
-		if (match == null)
-			match = plugin.getPlayerMatches().get(player.getName());
+       public static void terminaCreacionMatch(RandomEvents plugin, Player player, Match match) {
+               if (match == null && player == null) {
+                       plugin.getLoggerP().warning("terminaCreacionMatch called with null player and null match");
+                       return;
+               }
+               if (match == null)
+                       match = plugin.getPlayerMatches().get(player.getName());
 		try {
 			String json = UtilidadesJson.fromMatchToJSON(plugin, match);
 			if (json != null) {
@@ -214,8 +218,15 @@ public class UtilsRandomEvents {
 
 	}
 
-	public static void terminaCreacionWD(RandomEvents plugin, Player player) {
-		WaterDropStep waterDrop = plugin.getPlayerWaterDrop().get(player.getName());
+       public static void terminaCreacionWD(RandomEvents plugin, Player player) {
+               WaterDropStep waterDrop = null;
+               if (player != null) {
+                       waterDrop = plugin.getPlayerWaterDrop().get(player.getName());
+               }
+               if (waterDrop == null && player == null) {
+                       plugin.getLoggerP().warning("terminaCreacionWD called with null player and null waterDrop");
+                       return;
+               }
 		try {
 			String json = UtilidadesJson.fromWDToJSON(plugin, waterDrop);
 			if (json != null) {
@@ -260,6 +271,10 @@ public class UtilsRandomEvents {
 	}
 
        public static void terminaCreacionKit(RandomEvents plugin, Player player, Kit kit) {
+               if (kit == null && player == null) {
+                       plugin.getLoggerP().warning("terminaCreacionKit called with null player and null kit");
+                       return;
+               }
                if (kit == null && player != null)
                        kit = plugin.getPlayerKit().get(player.getName());
 		try {
