@@ -151,15 +151,15 @@ public class UtilsRandomEvents {
 		try {
 			String json = UtilidadesJson.fromMatchToJSON(plugin, match);
 			if (json != null) {
-				File dataFolder = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//events");
-				if (!dataFolder.exists()) {
-					dataFolder.mkdir();
-				}
+                            File dataFolder = new File(plugin.getDataFolder(), "events");
+                            if (!dataFolder.exists()) {
+                                    dataFolder.mkdir();
+                            }
 
-				File bossFile = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//events",
-						match.getMinigame().getCodigo() + "_"
-								+ ChatColor.stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
-								+ ".json");
+                    File bossFile = new File(new File(plugin.getDataFolder(), "events"),
+                                    match.getMinigame().getCodigo() + "_"
+                                                    + ChatColor.stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
+                                                    + ".json");
 				if (!bossFile.exists()) {
 					bossFile.createNewFile();
 				} else {
@@ -265,13 +265,13 @@ public class UtilsRandomEvents {
 		try {
 			String json = UtilidadesJson.fromKitToJSON(plugin, kit);
 			if (json != null) {
-				File dataFolder = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//kits");
-				if (!dataFolder.exists()) {
-					dataFolder.mkdir();
-				}
+                                File dataFolder = new File(plugin.getDataFolder(), "kits");
+                                if (!dataFolder.exists()) {
+                                        dataFolder.mkdir();
+                                }
 
-				File bossFile = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//kits",
-						ChatColor.stripColor(kit.getName().replaceAll("<color>", "§")).replaceAll(" ", "_") + ".json");
+                                File bossFile = new File(dataFolder,
+                                                ChatColor.stripColor(kit.getName().replaceAll("<color>", "§")).replaceAll(" ", "_") + ".json");
 				if (!bossFile.exists()) {
 					bossFile.createNewFile();
 				} else {
@@ -337,15 +337,15 @@ public class UtilsRandomEvents {
 			try {
 				String json = UtilidadesJson.fromMatchToJSON(plugin, match);
 				if (json != null) {
-					File dataFolder = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//events");
-					if (!dataFolder.exists()) {
-						dataFolder.mkdir();
-					}
+                                        File dataFolder = new File(plugin.getDataFolder(), "events");
+                                        if (!dataFolder.exists()) {
+                                                dataFolder.mkdir();
+                                        }
 
-					File bossFile = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//events",
-							match.getMinigame().getCodigo() + "_" + ChatColor
-									.stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
-									+ ".json");
+                                        File bossFile = new File(dataFolder,
+                                                        match.getMinigame().getCodigo() + "_" + ChatColor
+                                                                        .stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
+                                                                        + ".json");
 					if (!bossFile.exists()) {
 						bossFile.createNewFile();
 					} else {
@@ -391,15 +391,15 @@ public class UtilsRandomEvents {
 			try {
 				String json = UtilidadesJson.fromMatchToJSON(plugin, match);
 				if (json != null) {
-					File dataFolder = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//events");
-					if (!dataFolder.exists()) {
-						dataFolder.mkdir();
-					}
+                                        File dataFolder = new File(plugin.getDataFolder(), "events");
+                                        if (!dataFolder.exists()) {
+                                                dataFolder.mkdir();
+                                        }
 
-					File bossFile = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//events",
-							match.getMinigame().getCodigo() + "_" + ChatColor
-									.stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
-									+ ".json");
+                                        File bossFile = new File(dataFolder,
+                                                        match.getMinigame().getCodigo() + "_" + ChatColor
+                                                                        .stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
+                                                                        + ".json");
 					if (!bossFile.exists()) {
 						bossFile.createNewFile();
 					} else {
@@ -444,15 +444,15 @@ public class UtilsRandomEvents {
 			try {
 				String json = UtilidadesJson.fromMatchToJSON(plugin, match);
 				if (json != null) {
-					File dataFolder = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//events");
-					if (!dataFolder.exists()) {
-						dataFolder.mkdir();
-					}
+                                        File dataFolder = new File(plugin.getDataFolder(), "events");
+                                        if (!dataFolder.exists()) {
+                                                dataFolder.mkdir();
+                                        }
 
-					File bossFile = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//events",
-							match.getMinigame().getCodigo() + "_" + ChatColor
-									.stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
-									+ ".json");
+                                        File bossFile = new File(dataFolder,
+                                                        match.getMinigame().getCodigo() + "_" + ChatColor
+                                                                        .stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
+                                                                        + ".json");
 					if (!bossFile.exists()) {
 						bossFile.createNewFile();
 					} else {
@@ -498,15 +498,15 @@ public class UtilsRandomEvents {
 			try {
 				String json = UtilidadesJson.fromMatchToJSON(plugin, match);
 				if (json != null) {
-					File dataFolder = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//events");
-					if (!dataFolder.exists()) {
-						dataFolder.mkdir();
-					}
+                                        File dataFolder = new File(plugin.getDataFolder(), "events");
+                                        if (!dataFolder.exists()) {
+                                                dataFolder.mkdir();
+                                        }
 
-					File bossFile = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//events",
-							match.getMinigame().getCodigo() + "_" + ChatColor
-									.stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
-									+ ".json");
+                                        File bossFile = new File(dataFolder,
+                                                        match.getMinigame().getCodigo() + "_" + ChatColor
+                                                                        .stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
+                                                                        + ".json");
 					if (!bossFile.exists()) {
 						bossFile.createNewFile();
 					} else {
@@ -551,10 +551,10 @@ public class UtilsRandomEvents {
 			// File(String.valueOf(plugin.getDataFolder().getPath()) +
 			// "//events");
 
-			File bossFile = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//events",
-					match.getMinigame().getCodigo() + "_"
-							+ ChatColor.stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
-							+ ".json");
+                            File bossFile = new File(new File(plugin.getDataFolder(), "events"),
+                                            match.getMinigame().getCodigo() + "_"
+                                                            + ChatColor.stripColor(match.getName().replaceAll("<color>", "§")).replaceAll(" ", "_")
+                                                            + ".json");
 			if (bossFile.exists()) {
 				bossFile.delete();
 			}
@@ -922,11 +922,11 @@ public class UtilsRandomEvents {
 
 	public static List<Match> cargarPartidas(RandomEvents plugin) {
 		List<Match> listaPartidas = new ArrayList<Match>();
-		File dataFolder = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//events");
-		List<Match> matchToConvert = new ArrayList<Match>();
-		if (!dataFolder.exists()) {
-			dataFolder.mkdir();
-		}
+                File dataFolder = new File(plugin.getDataFolder(), "events");
+                List<Match> matchToConvert = new ArrayList<Match>();
+                if (!dataFolder.exists()) {
+                        dataFolder.mkdir();
+                }
 		for (File file : dataFolder.listFiles()) {
 			BufferedReader br = null;
 			FileInputStream fr = null;
@@ -3303,10 +3303,10 @@ public class UtilsRandomEvents {
 
 	public static List<Kit> cargarKits(RandomEvents plugin) {
 		List<Kit> listaPartidas = new ArrayList<Kit>();
-		File dataFolder = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//kits");
-		if (!dataFolder.exists()) {
-			dataFolder.mkdir();
-		}
+                File dataFolder = new File(plugin.getDataFolder(), "kits");
+                if (!dataFolder.exists()) {
+                        dataFolder.mkdir();
+                }
 		for (File file : dataFolder.listFiles()) {
 			BufferedReader br = null;
 			FileReader fr = null;
