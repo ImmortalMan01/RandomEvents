@@ -3,6 +3,7 @@ package com.immortalman01.randomevents.listeners;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 
@@ -20,7 +21,7 @@ public class PickUp implements Listener {
 		this.plugin = plugin;
 	}
 
-       @EventHandler
+       @EventHandler(priority = EventPriority.HIGHEST)
        public void onPickUp(EntityPickupItemEvent evt) {
                if (!(evt.getEntity() instanceof Player)) {
                        return;
@@ -65,11 +66,14 @@ public class PickUp implements Listener {
                         default:
                                 break;
                         }
+
                        // allow picking up items normally in other games
                        evt.setCancelled(false);
                }
+               // ensure item pickups are enabled for other players as well
+               evt.setCancelled(false);
 
-	}
+       }
 
 	public RandomEvents getPlugin() {
 		return plugin;
