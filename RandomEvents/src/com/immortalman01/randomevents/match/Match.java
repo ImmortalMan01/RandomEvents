@@ -96,7 +96,9 @@ public class Match implements Comparable<Match> {
 	private Integer numberOfSeekers;
 	private Integer NPCId;
 	
-	private Integer shrinkBlocks;
+        private Integer shrinkBlocks;
+
+        private Integer shrinkTime;
 	
 	private GameMode gamemode;
 	
@@ -687,9 +689,17 @@ public class Match implements Comparable<Match> {
 		return shrinkBlocks;
 	}
 
-	public void setShrinkBlocks(Integer shrinkBlocks) {
-		this.shrinkBlocks = shrinkBlocks;
-	}
+        public void setShrinkBlocks(Integer shrinkBlocks) {
+                this.shrinkBlocks = shrinkBlocks;
+        }
+
+        public Integer getShrinkTime() {
+                return shrinkTime;
+        }
+
+        public void setShrinkTime(Integer shrinkTime) {
+                this.shrinkTime = shrinkTime;
+        }
 
 	public Integer getBlockTimer() {
 		return blockTimer;

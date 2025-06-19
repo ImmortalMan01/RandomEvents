@@ -2962,8 +2962,9 @@ public class MatchActive {
 			Date now = new Date();
 			long dif = (endDate - now.getTime()) / 1000;
 
-			if (dif <= 0) {
-				endDate = new Date().getTime() + 1000 * getTiempoPartida();
+                        if (dif <= 0) {
+                                int interval = getMatch().getShrinkTime() != null ? getMatch().getShrinkTime() : getTiempoPartida();
+                                endDate = new Date().getTime() + 1000 * interval;
 				Cuboid cubo = new Cuboid(getMapHandler().getActualCuboid());
 				if (match.getShrinkBlocks() != null)
 					cubo.withdraw(1.0 * match.getShrinkBlocks());
