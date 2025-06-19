@@ -24,7 +24,7 @@ comun.youAreBanned: '&c&lRandomEvents etkinliğinden %time% tarihine kadar yasak
 comun.nextEvent: '&c&lSonraki RandomEvent:'
 comun.nextEventIsRandom: '&6&lRandomEvent'
 comun.nextEventName: '&6&lEtkinlik: '
-scoreboard.title: '      &a&lRandomEvents      '
+scoreboard.title: '      &a&l%prefix%      '
 scoreboard.points: '&6%name% - &e%points%'
 scoreboard.pointsteam: '%team_color%%name% - &e%points%'
 scoreboard.step: '&6%name% - &e(%actual%/%max%)'
