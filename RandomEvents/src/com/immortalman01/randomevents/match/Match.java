@@ -2,6 +2,7 @@ package com.immortalman01.randomevents.match;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -477,8 +478,8 @@ public class Match implements Comparable<Match> {
 				return false;
 		} else if (!location2.equals(other.location2))
 			return false;
-		if (material != other.material)
-			return false;
+               if (!Objects.equals(material, other.material))
+                       return false;
 		if (minigame != other.minigame)
 			return false;
 		if (mob != other.mob)
