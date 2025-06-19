@@ -867,6 +867,8 @@ public class Chat implements Listener {
                                                 if (message.equalsIgnoreCase(Constantes.DONE)) {
 
                                                         match.getEntitySpawns().add(player.getLocation());
+                                                        plugin.getPlayersCreation().put(player.getName(),
+                                                                        Creacion.CANNON_SPAWNS.getPosition());
                                                         actua = Boolean.FALSE;
 
                                                 } else if (message.equalsIgnoreCase(Constantes.NEXT)) {
