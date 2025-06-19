@@ -1735,34 +1735,15 @@ public class UtilsRandomEvents {
 	}
 
 	public static boolean contieneMaterialData(Block block, Match match) {
-		Boolean res = false;
-		// TODO
-		// if (plugin.getMatchActive().getMatch().getDatas()
-		// .contains(evt.getBlock().getState().getData())) {
-		//
-		// }
-
-		for (MaterialData matDat : match.getDatas()) {
-			Material mat = null;
-			byte data = block.getState().getData().getData();
-
-			if (block.getState().getData().getItemType().toString().contains("_LOG")) {
-				data = Byte.valueOf("" + data % 4);
-			}
-
-			if (matDat.getItemType().toString().contains("LEGACY_")) {
-				mat = block.getState().getData().getItemType();
-			} else {
-				mat = block.getType();
-			}
-
-			if (matDat.getItemType() == mat && matDat.getData() == data) {
-				res = true;
-			}
-		}
-
-		return res;
-	}
+                for (MaterialData data : match.getDatas()) {
+                        Material mat = block.getType();
+                        byte blockData = block.getState().getData().getData();
+                        if (data.getItemType() == mat && data.getData() == blockData) {
+                                return true;
+                        }
+                }
+                return false;
+        }
 
 	public static BannedPlayers cargarBannedPlayers(RandomEvents plugin) {
 
