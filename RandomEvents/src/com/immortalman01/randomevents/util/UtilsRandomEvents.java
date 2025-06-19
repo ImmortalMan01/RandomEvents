@@ -1280,20 +1280,29 @@ public class UtilsRandomEvents {
 		return message.replaceAll("&", "<color>").replaceAll("§", "<color>");
 	}
 
-	public static void normalizaColorsMatch(Match match) {
-		match.setName(match.getName().replace("<color>", "§"));
+        public static void normalizaColorsMatch(Match match) {
+                if (match == null || match.getName() == null) {
+                        return;
+                }
+                match.setName(match.getName().replace("<color>", "§"));
 
-	}
+        }
 
-	public static void normalizaColorsWaterDrop(WaterDropStep match) {
-		match.setName(match.getName().replace("<color>", "§"));
+        public static void normalizaColorsWaterDrop(WaterDropStep match) {
+                if (match == null || match.getName() == null) {
+                        return;
+                }
+                match.setName(match.getName().replace("<color>", "§"));
 
-	}
+        }
 
-	public static void normalizaColorsKit(Kit match) {
-		match.setName(match.getName().replace("<color>", "§"));
+        public static void normalizaColorsKit(Kit match) {
+                if (match == null || match.getName() == null) {
+                        return;
+                }
+                match.setName(match.getName().replace("<color>", "§"));
 
-	}
+        }
 
 	public static List<Player> borraPlayerPorName(List<Player> players, Player player) {
 		Player p = null;
