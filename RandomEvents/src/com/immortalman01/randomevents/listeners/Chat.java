@@ -1681,11 +1681,10 @@ public class Chat implements Listener {
 			}
 		}
 
-		if (actualiza)
+                if (actualiza)
 
-		{
-			plugin.getPlayerMatches().put(player.getName(), match);
-			plugin.getPlayerMatches().put(player.getName(), match);
+                {
+                        plugin.getPlayerMatches().put(player.getName(), match);
 			if (actua) {
 				player.sendMessage(UtilsRandomEvents.enviaInfoCreacion(match, player, plugin));
 			} else {
