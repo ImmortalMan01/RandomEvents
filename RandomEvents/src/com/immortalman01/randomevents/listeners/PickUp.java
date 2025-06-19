@@ -1,5 +1,6 @@
 package com.immortalman01.randomevents.listeners;
 
+import org.bukkit.GameMode;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -27,10 +28,14 @@ public class PickUp implements Listener {
                        return;
                }
                Player player = (Player) evt.getEntity();
-                if (plugin.getMatchActive() != null
-                                && plugin.getMatchActive().getPlayerHandler().getPlayersSpectators().contains(player)) {
-                        evt.setCancelled(true);
-                        return;
+               if (player.getGameMode() == GameMode.SPECTATOR) {
+                       evt.setCancelled(true);
+                       return;
+               }
+               if (plugin.getMatchActive() != null
+                               && plugin.getMatchActive().getPlayerHandler().getPlayersSpectators().contains(player)) {
+                       evt.setCancelled(true);
+                       return;
                 }
                 if (plugin.getMatchActive() != null
                                 && plugin.getMatchActive().getPlayerHandler().getPlayersObj().contains(player)) {

@@ -603,12 +603,14 @@ public class MatchActive {
 						UtilsRandomEvents.teleportaPlayer(player, l, plugin);
 					}
 					player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getLeaveCommand());
-					if (plugin.getReventConfig().isAdvancedSpectatorMode()) {
-						player.setGameMode(GameMode.SPECTATOR);
-					}
-				}
-				player.setHealth(player.getMaxHealth());
-				player.setFoodLevel(20);
+                                        // always put eliminated players into full spectator mode
+                                        if (!getPlayerHandler().getPlayersSpectators().contains(player)) {
+                                                getPlayerHandler().getPlayersSpectators().add(player);
+                                        }
+                                        player.setGameMode(GameMode.SPECTATOR);
+                                }
+                                player.setHealth(player.getMaxHealth());
+                                player.setFoodLevel(20);
 				player.setFireTicks(0);
 			} catch (Exception e) {
 				if (player != null) {
