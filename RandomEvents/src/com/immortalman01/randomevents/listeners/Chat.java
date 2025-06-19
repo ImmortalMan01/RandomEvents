@@ -1137,13 +1137,46 @@ public class Chat implements Listener {
 							// player, position, match);
 						}
 						break;
-					case MOB_NAME:
-						break;
+                                        case MOB_NAME:
+                                                try {
+                                                        EntityType type = null;
+                                                        try {
+                                                                type = EntityType.values()[Integer.valueOf(message.trim())];
+                                                        } catch (Exception e) {
+                                                                try {
+                                                                        type = EntityType.valueOf(message.trim().toUpperCase());
+                                                                } catch (Exception ex) {
+                                                                        type = null;
+                                                                }
+                                                        }
+                                                        if (type != null) {
+                                                                match.setMob(type);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
+                                                break;
 
-					case MOB_SPAWN:
-						break;
-					case TIMER_MOB_SPAWN:
-						break;
+                                        case MOB_SPAWN:
+                                                if (message.equalsIgnoreCase(Constantes.DONE)) {
+                                                        match.getEntitySpawns().add(player.getLocation());
+                                                        actua = Boolean.FALSE;
+                                                }
+                                                break;
+                                        case TIMER_MOB_SPAWN:
+                                                try {
+                                                        match.setSecondsMobSpawn(Double.valueOf(message.trim()));
+                                                        plugin.getPlayersCreation().remove(player.getName());
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
+                                                break;
 					case PLAY_TIME:
 					case SHRINK_TIME:
 						match.setTiempoPartida(Integer.valueOf(message.trim()));
