@@ -2909,7 +2909,11 @@ public class MatchActive {
 				}
 			}
 		};
-		task3.runTaskTimer(plugin, 0, 1L);
+               // Run cooldown checks less frequently to reduce CPU usage
+               // Skywars events previously updated every tick which could
+               // cause TPS drops on busy servers. Updating every 5 ticks
+               // keeps the UI responsive while lowering the load.
+               task3.runTaskTimer(plugin, 0, 5L);
 
 	}
 
