@@ -446,7 +446,7 @@ public class MatchActive {
                                         player.setGameMode(GameMode.SPECTATOR);
                                         for (Player pl : Bukkit.getOnlinePlayers()) {
                                                 if (!pl.equals(player)) {
-                                                        pl.hidePlayer(player);
+                                                        pl.hidePlayer(plugin, player);
                                                 }
                                         }
 					UtilsRandomEvents.playSound(plugin, player, XSound.ENTITY_BAT_HURT);
@@ -554,11 +554,11 @@ public class MatchActive {
 
 			}
                         for (Player p : getPlayerHandler().getPlayersVanish()) {
-                                p.showPlayer(player);
+                                p.showPlayer(plugin, player);
                         }
                         for (Player p : Bukkit.getOnlinePlayers()) {
                                 if (!p.equals(player)) {
-                                        p.showPlayer(player);
+                                        p.showPlayer(plugin, player);
                                 }
                         }
 
@@ -710,9 +710,9 @@ public class MatchActive {
 
 				UtilsDisguises.undisguisePlayer(player, plugin);
 			}
-			for (Player pla : getPlayerHandler().getPlayersVanish()) {
-				pla.showPlayer(player);
-			}
+                        for (Player pla : getPlayerHandler().getPlayersVanish()) {
+                                pla.showPlayer(plugin, player);
+                        }
 			if (playerHandler.getEnderpearlsFlying().containsKey(player)) {
 				List<Entity> pearls = playerHandler.getEnderpearlsFlying().get(player);
 				for (Entity e : pearls) {

@@ -3607,23 +3607,23 @@ public class UtilsRandomEvents {
 	}
 
 	public static void hidePlayers(Player player, List<Player> playersObj, RandomEvents plugin) {
-		for (Player p : playersObj) {
-			if (!p.equals(player)) {
-				player.hidePlayer(p);
+                for (Player p : playersObj) {
+                        if (!p.equals(player)) {
+                                player.hidePlayer(plugin, p);
 
-			}
-		}
+                        }
+                }
                 player.getInventory().setItemInMainHand(plugin.getReventConfig().getEndVanishItem());
 		player.updateInventory();
 		plugin.getMatchActive().getPlayerHandler().getPlayersVanish().add(player);
 	}
 
 	public static void showPlayers(Player player, List<Player> playersObj, RandomEvents plugin) {
-		for (Player p : playersObj) {
-			if (!p.equals(player)) {
-				player.showPlayer(p);
-			}
-		}
+                for (Player p : playersObj) {
+                        if (!p.equals(player)) {
+                                player.showPlayer(plugin, p);
+                        }
+                }
                 player.getInventory().setItemInMainHand(plugin.getReventConfig().getVanishItem());
 		player.updateInventory();
 		plugin.getMatchActive().getPlayerHandler().getPlayersVanish().remove(player);
