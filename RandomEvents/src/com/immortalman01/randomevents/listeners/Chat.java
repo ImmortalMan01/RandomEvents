@@ -482,7 +482,7 @@ public class Chat implements Listener {
 									player.sendMessage(s);
 								} else {
 
-									UtilsRandomEvents.terminaCreacionMatch(plugin, player);
+                                                                        UtilsRandomEvents.terminaCreacionWD(plugin, player);
 
 									actualiza = Boolean.FALSE;
 								}
