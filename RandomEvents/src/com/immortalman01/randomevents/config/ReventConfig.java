@@ -262,7 +262,9 @@ public class ReventConfig {
 
 	private boolean needPasswordToJoin;
 
-	private String useEncoding;
+        private String useEncoding;
+
+        private String prefix;
 
 	private boolean snowballSpleef;
 
@@ -421,9 +423,14 @@ public class ReventConfig {
 
 		plugin.updateConfig();
 
-		plugin.setLanguage(new LanguageMessages(plugin));
+                plugin.setLanguage(new LanguageMessages(plugin));
 
-		plugin.setRandom(new Random());
+                String cfgPrefix = plugin.getConfig().getString("prefix");
+                if (cfgPrefix != null && !cfgPrefix.isEmpty()) {
+                        plugin.getLanguage().setTagPlugin(cfgPrefix);
+                }
+
+                plugin.setRandom(new Random());
 		Tournament tournament = new Tournament();
 		tournament.setMaxPlayers(plugin.getConfig().getInt("tournament.maxPlayers"));
 		tournament.setMinPlayers(plugin.getConfig().getInt("tournament.minPlayers"));
@@ -535,11 +542,12 @@ public class ReventConfig {
 		this.probabilityPerCheckToStopSound = plugin.getConfig().getInt("probabilityPerCheckToStopSound");
 		this.invincibleAfterRespawn = plugin.getConfig().getInt("invincibleAfterRespawn");
 
-		this.useEncoding = plugin.getConfig().getString("useEncoding");
-		if (useEncoding.equals("UTF_8")) {
-			useEncoding = "UTF-8";
-		}
-		this.cmdAlias = new ArrayList<String>();
+                this.useEncoding = plugin.getConfig().getString("useEncoding");
+                if (useEncoding.equals("UTF_8")) {
+                        useEncoding = "UTF-8";
+                }
+                this.prefix = plugin.getConfig().getString("prefix");
+                this.cmdAlias = new ArrayList<String>();
 		for (String ali : plugin.getConfig().getString("cmdAlias").split(";")) {
 			cmdAlias.add(ali);
 		}
@@ -2441,13 +2449,21 @@ public class ReventConfig {
 		this.needPasswordToJoin = needPasswordToJoin;
 	}
 
-	public String getUseEncoding() {
-		return useEncoding;
-	}
+        public String getUseEncoding() {
+                return useEncoding;
+        }
 
-	public void setUseEncoding(String useEncoding) {
-		this.useEncoding = useEncoding;
-	}
+        public void setUseEncoding(String useEncoding) {
+                this.useEncoding = useEncoding;
+        }
+
+        public String getPrefix() {
+                return prefix;
+        }
+
+        public void setPrefix(String prefix) {
+                this.prefix = prefix;
+        }
 
 	public boolean isSnowballSpleef() {
 		return snowballSpleef;
