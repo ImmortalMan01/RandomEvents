@@ -16,6 +16,7 @@ announce.eventAnnounce: '&6&l%type% türündeki &e&l''%event%''&6&l etkinliği b
 announce.eventStopped: '&6&l%type% türündeki &e&l''%event%''&6&l etkinliği durduruldu.'
 announce.eventCancelled: '&6&l%type% türündeki &e&l''%event%''&6&l etkinliği oyuncu
   eksikliğinden iptal edildi.'
+announce.eventEnded: '&6&l%event% etkinliği sona erdi.'
 announce.tournamentCancelled: '&6&lTurnuva yeterli oyuncu olmadığı için iptal edildi.'
 comun.invalidPassword: '&c&lEtkinlik için şifre hatalı'
 comun.startingMatch: '&6&lMaç %time% saniye içinde başlıyor'

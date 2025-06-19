@@ -294,11 +294,14 @@ public class Constantes {
 		EVENT_STOPPED("eventStopped", "announce.eventStopped",
 				"&6&lThe event &e&l'%event%'&6&l of type  &e&l'%type%'&6&l, was forced to stop."),
 
-		EVENT_CANCELLED("eventCancelled", "announce.eventCancelled",
-				"&6&lThe event &e&l'%event%'&6&l of type  &e&l'%type%'&6&l, was cancelled for lack of players."),
+                EVENT_CANCELLED("eventCancelled", "announce.eventCancelled",
+                                "&6&lThe event &e&l'%event%'&6&l of type  &e&l'%type%'&6&l, was cancelled for lack of players."),
 
-		TOURNAMENT_CANCELLED("tournamentCancelled", "announce.tournamentCancelled",
-				"&6&lThe tournament was cancelled for lacking players."),
+                EVENT_ENDED("eventEnded", "announce.eventEnded",
+                                "&6&lThe event &e&l'%event%'&6&l has ended."),
+
+                TOURNAMENT_CANCELLED("tournamentCancelled", "announce.tournamentCancelled",
+                                "&6&lThe tournament was cancelled for lacking players."),
 
 		INVALID_PASSWORD("invalidPassword", "comun.invalidPassword", "&c&lInvalid password for the event"),
 
