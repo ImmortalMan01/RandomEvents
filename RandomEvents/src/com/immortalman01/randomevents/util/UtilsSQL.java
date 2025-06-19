@@ -188,8 +188,8 @@ public class UtilsSQL {
 					res = resultSet.getInt("wins");
 
 			}
-		} catch (SQLException e) {
-			// TODO
+                } catch (SQLException e) {
+                        plugin.getLoggerP().warning(e.toString());
 
 		} finally {
 			if (resultSet != null) {
@@ -254,8 +254,8 @@ public class UtilsSQL {
 					res = resultSet.getInt("wins");
 
 			}
-		} catch (SQLException e) {
-			// TODO
+                } catch (SQLException e) {
+                        plugin.getLoggerP().warning(e.toString());
 
 		} finally {
 			if (resultSet != null) {
