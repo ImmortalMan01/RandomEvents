@@ -867,12 +867,12 @@ public class UtilsRandomEvents {
 		if (!comprueba || !plugin.getReventConfig().getUseLastLocation()) {
 
 			if (loc != null) {
-				if (plugin.getReventConfig().isDebugMode()) {
-					plugin.getLogger()
-							.info("Teleporting to: X:" + loc.getX() + ", Y: " + loc.getY() + ", Z: " + loc.getZ()
-									+ ", World: " + loc.getWorld() + ", World Name: " + loc.getWorld() == null
-											? "NullWorld" : loc.getWorld().getName());
-				}
+                                if (plugin.getReventConfig().isDebugMode()) {
+                                        plugin.getLogger()
+                                                        .info("Teleporting to: X:" + loc.getX() + ", Y: " + loc.getY() + ", Z: " + loc.getZ()
+                                                                        + ", World: " + loc.getWorld() + ", World Name: "
+                                                                        + (loc.getWorld() == null ? "NullWorld" : loc.getWorld().getName()));
+                                }
 				p.setVelocity(new Vector(0, 0, 0));
 				try {
 					p.teleport(loc);
