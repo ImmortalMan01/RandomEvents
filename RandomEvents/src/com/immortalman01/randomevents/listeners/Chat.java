@@ -822,17 +822,18 @@ public class Chat implements Listener {
                                                         player.sendMessage(plugin.getLanguage().getLacksInfoCreation());
                                                         actua = Boolean.FALSE;
                                                 } else if (message.equalsIgnoreCase(Constantes.DONE)) {
-                                                        if (match.getSpawns().size() != match.getAmountPlayers()) {
-
+                                                        if (match.getSpawns().size() < match.getAmountPlayers()) {
                                                                 match.getSpawns().add(player.getLocation());
                                                                 if (match.getSpawns().size() == match.getAmountPlayers()) {
                                                                         plugin.getPlayersCreation().remove(player.getName());
-
                                                                 } else {
                                                                         plugin.getPlayersCreation().put(player.getName(),
                                                                                Creacion.ANOTHER_ARENA_SPAWNS.getPosition());
                                                                         actua = Boolean.FALSE;
                                                                 }
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getTooManySpawns());
+                                                                plugin.getPlayersCreation().remove(player.getName());
                                                         }
                                                 } else if (message.equalsIgnoreCase(Constantes.NEXT)) {
                                                         plugin.getPlayersCreation().remove(player.getName());
@@ -846,17 +847,18 @@ public class Chat implements Listener {
                                                         player.sendMessage(plugin.getLanguage().getLacksInfoCreation());
                                                         actua = Boolean.FALSE;
                                                 } else if (message.equalsIgnoreCase(Constantes.DONE)) {
-                                                        if (match.getSpawns().size() != match.getNumberOfTeams()) {
-
+                                                        if (match.getSpawns().size() < match.getNumberOfTeams()) {
                                                                 match.getSpawns().add(player.getLocation());
                                                                 if (match.getSpawns().size() == match.getNumberOfTeams()) {
                                                                         plugin.getPlayersCreation().remove(player.getName());
-
                                                                 } else {
                                                                         plugin.getPlayersCreation().put(player.getName(),
                                                                                Creacion.ANOTHER_TEAM_SPAWNS.getPosition());
                                                                         actua = Boolean.FALSE;
                                                                 }
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getTooManySpawns());
+                                                                plugin.getPlayersCreation().remove(player.getName());
                                                         }
                                                 } else {
                                                         player.sendMessage(plugin.getLanguage().getInvalidInput());
