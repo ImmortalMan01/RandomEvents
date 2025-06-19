@@ -18,11 +18,11 @@ public class UpdateBukkitRunnable extends BukkitRunnable {
     
     public UpdateBukkitRunnable(DataSource dataSource, String statement, @Nullable Callback<Integer, SQLException> callback) {
         if (dataSource == null) {
-            //TODO: IllegalArgumentException
+            throw new IllegalArgumentException("dataSource cannot be null");
         }
-        
+
         if (statement == null) {
-            //TODO: IllegalArgumentException
+            throw new IllegalArgumentException("statement cannot be null");
         }
         
         this.dataSource = dataSource;

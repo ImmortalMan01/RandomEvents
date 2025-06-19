@@ -18,15 +18,15 @@ public class QueryBukkitRunnable extends BukkitRunnable {
     
     public QueryBukkitRunnable(DataSource dataSource, String statement, Callback<ResultSet, SQLException> callback) {
         if (dataSource == null) {
-            //TODO: IllegalArgumentException
+            throw new IllegalArgumentException("dataSource cannot be null");
         }
-        
+
         if (statement == null) {
-            //TODO: IllegalArgumentException
+            throw new IllegalArgumentException("statement cannot be null");
         }
-        
+
         if (callback == null) {
-            //TODO: IllegalArgumentException
+            throw new IllegalArgumentException("callback cannot be null");
         }
         
         this.dataSource = dataSource;

@@ -14,12 +14,14 @@ dependencies {
     compileOnly 'net.citizensnpcs:citizens-main:2.0.33-SNAPSHOT'
     compileOnly 'commons-lang:commons-lang:2.6'
     compileOnly project(':stubs')
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
 }
 
 sourceSets {
     main {
         java.srcDir 'src'
         java.exclude 'com/immortalman01/randomevents/util/UtilsProtocolLib.java'
+        java.exclude 'test/**'
         resources.srcDir '.'
         resources.includes = ['plugin.yml','config.yml','defaultConfig.yml','messages.yml','messages_tr.yml','Luzverde2.nbs','luzverde.nbs']
     }
@@ -30,4 +32,8 @@ jar {
     from('.') {
         include 'plugin.yml','config.yml','defaultConfig.yml','messages.yml','messages_tr.yml','Luzverde2.nbs','luzverde.nbs'
     }
+}
+
+test {
+    useJUnitPlatform()
 }

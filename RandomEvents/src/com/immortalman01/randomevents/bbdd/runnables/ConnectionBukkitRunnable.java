@@ -15,13 +15,13 @@ public class ConnectionBukkitRunnable extends BukkitRunnable {
 	private final Callback<Connection, SQLException> callback;
 
 	public ConnectionBukkitRunnable(DataSource dataSource, @Nullable Callback<Connection, SQLException> callback) {
-		if (dataSource == null) {
-			// TODO: IllegalArgumentException
-		}
+                if (dataSource == null) {
+                        throw new IllegalArgumentException("dataSource cannot be null");
+                }
 
-		if (callback == null) {
-			// TODO: IllegalArgumentException
-		}
+                if (callback == null) {
+                        throw new IllegalArgumentException("callback cannot be null");
+                }
 
 		this.dataSource = dataSource;
 		this.callback = callback;
