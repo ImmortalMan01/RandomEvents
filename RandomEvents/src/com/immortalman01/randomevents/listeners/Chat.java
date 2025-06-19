@@ -1143,7 +1143,14 @@ public class Chat implements Listener {
 							MinigameType minigame = MinigameType.values()[Integer.valueOf(message)];
 							if (minigame != null) {
 								match.setMinigame(minigame);
-								match.setSecondsMobSpawn(null);
+                                                                match.setSecondsMobSpawn(null);
+                                                                match.setMobSpawnTimer(null);
+                                                                match.setArrowSpawnTimer(null);
+                                                                match.setAnvilSpawnTimer(null);
+                                                                match.setGemSpawnTimer(null);
+                                                                match.setBombTimer(null);
+                                                                match.setWarmupTime(null);
+                                                                match.setSecondsToSpawnBeast(null);
 								match.setMob(null);
 								match.setEntitySpawns(new ArrayList<Location>());
 								match.setTiempoPartida(null);
@@ -1208,7 +1215,7 @@ public class Chat implements Listener {
                                                 try {
                                                         double value = Double.parseDouble(message.trim());
                                                         if (value > 0) {
-                                                                match.setSecondsMobSpawn(value);
+                                                                match.setMobSpawnTimer(value);
                                                                 plugin.getPlayersCreation().remove(player.getName());
                                                         } else {
                                                                 player.sendMessage(plugin.getLanguage().getInvalidInput());
@@ -1495,7 +1502,28 @@ public class Chat implements Listener {
                                                 try {
                                                         double val = Double.parseDouble(message.trim());
                                                         if (val > 0) {
-                                                                match.setSecondsMobSpawn(val);
+                                                                switch (c) {
+                                                                case TIMER_ARROW_SPAWN:
+                                                                        match.setArrowSpawnTimer(val);
+                                                                        break;
+                                                                case TIMER_ANVIL_SPAWN:
+                                                                        match.setAnvilSpawnTimer(val);
+                                                                        break;
+                                                                case TIMER_GEM_SPAWN:
+                                                                        match.setGemSpawnTimer(val);
+                                                                        break;
+                                                                case SECONDS_TO_SPAWN_BEAST:
+                                                                        match.setSecondsToSpawnBeast(val);
+                                                                        break;
+                                                                case TIMER_BOMB:
+                                                                        match.setBombTimer(val);
+                                                                        break;
+                                                                case WARMUP_TIME:
+                                                                        match.setWarmupTime(val);
+                                                                        break;
+                                                                default:
+                                                                        break;
+                                                                }
                                                                 plugin.getPlayersCreation().remove(player.getName());
                                                         } else {
                                                                 player.sendMessage(plugin.getLanguage().getInvalidInput());
@@ -1625,8 +1653,15 @@ public class Chat implements Listener {
 								match.setSpectatorSpawns(new ArrayList<Location>());
 								match.setRewards(new ArrayList<String>());
 								match.setInventory(null);
-								match.setSecondsMobSpawn(null);
-								match.setMob(null);
+                                                                match.setSecondsMobSpawn(null);
+                                                                match.setMobSpawnTimer(null);
+                                                                match.setArrowSpawnTimer(null);
+                                                                match.setAnvilSpawnTimer(null);
+                                                                match.setGemSpawnTimer(null);
+                                                                match.setBombTimer(null);
+                                                                match.setWarmupTime(null);
+                                                                match.setSecondsToSpawnBeast(null);
+                                                                match.setMob(null);
 								match.setEntitySpawns(new ArrayList<Location>());
 								match.setTiempoPartida(null);
 								match.setLocation1(null);
@@ -1674,13 +1709,24 @@ public class Chat implements Listener {
 							case KITS:
 								match.setKits(new ArrayList<String>());
 								break;
-							case TIMER_MOB_SPAWN:
-							case TIMER_ARROW_SPAWN:
-							case TIMER_GEM_SPAWN:
-							case TIMER_BOMB:
-							case SECONDS_TO_SPAWN_BEAST:
-								match.setSecondsMobSpawn(null);
-								break;
+                                                        case TIMER_MOB_SPAWN:
+                                                                match.setMobSpawnTimer(null);
+                                                                break;
+                                                        case TIMER_ARROW_SPAWN:
+                                                                match.setArrowSpawnTimer(null);
+                                                                break;
+                                                        case TIMER_GEM_SPAWN:
+                                                                match.setGemSpawnTimer(null);
+                                                                break;
+                                                        case TIMER_BOMB:
+                                                                match.setBombTimer(null);
+                                                                break;
+                                                        case SECONDS_TO_SPAWN_BEAST:
+                                                                match.setSecondsToSpawnBeast(null);
+                                                                break;
+                                                        case WARMUP_TIME:
+                                                                match.setWarmupTime(null);
+                                                                break;
 							case MOB_NAME:
 								match.setMob(null);
 								break;

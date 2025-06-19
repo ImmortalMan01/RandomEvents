@@ -33,9 +33,18 @@ public class Match implements Comparable<Match> {
 
 	private List<Location> entitySpawns;
 
-	private List<Location> spectatorSpawns;
+        private List<Location> spectatorSpawns;
 
-	private Double secondsMobSpawn;
+        /** Legacy timer shared by multiple minigames. */
+        private Double secondsMobSpawn;
+
+        private Double mobSpawnTimer;
+        private Double arrowSpawnTimer;
+        private Double anvilSpawnTimer;
+        private Double gemSpawnTimer;
+        private Double bombTimer;
+        private Double warmupTime;
+        private Double secondsToSpawnBeast;
 
 	private Integer secondsToBegin;
 
@@ -193,9 +202,65 @@ public class Match implements Comparable<Match> {
 		return secondsMobSpawn;
 	}
 
-	public void setSecondsMobSpawn(Double secondsMobSpawn) {
-		this.secondsMobSpawn = secondsMobSpawn;
-	}
+        public void setSecondsMobSpawn(Double secondsMobSpawn) {
+                this.secondsMobSpawn = secondsMobSpawn;
+        }
+
+        public Double getMobSpawnTimer() {
+                return mobSpawnTimer;
+        }
+
+        public void setMobSpawnTimer(Double mobSpawnTimer) {
+                this.mobSpawnTimer = mobSpawnTimer;
+        }
+
+        public Double getArrowSpawnTimer() {
+                return arrowSpawnTimer;
+        }
+
+        public void setArrowSpawnTimer(Double arrowSpawnTimer) {
+                this.arrowSpawnTimer = arrowSpawnTimer;
+        }
+
+        public Double getAnvilSpawnTimer() {
+                return anvilSpawnTimer;
+        }
+
+        public void setAnvilSpawnTimer(Double anvilSpawnTimer) {
+                this.anvilSpawnTimer = anvilSpawnTimer;
+        }
+
+        public Double getGemSpawnTimer() {
+                return gemSpawnTimer;
+        }
+
+        public void setGemSpawnTimer(Double gemSpawnTimer) {
+                this.gemSpawnTimer = gemSpawnTimer;
+        }
+
+        public Double getBombTimer() {
+                return bombTimer;
+        }
+
+        public void setBombTimer(Double bombTimer) {
+                this.bombTimer = bombTimer;
+        }
+
+        public Double getWarmupTime() {
+                return warmupTime;
+        }
+
+        public void setWarmupTime(Double warmupTime) {
+                this.warmupTime = warmupTime;
+        }
+
+        public Double getSecondsToSpawnBeast() {
+                return secondsToSpawnBeast;
+        }
+
+        public void setSecondsToSpawnBeast(Double secondsToSpawnBeast) {
+                this.secondsToSpawnBeast = secondsToSpawnBeast;
+        }
 
 	public Location getEventSpawn() {
 		return eventSpawn;
