@@ -102,19 +102,20 @@ public class UtilsRandomEvents {
 
 		// mine.getAirBlocks().clear();
 
-		for (int x = bottomBlockX; x <= topBlockX; x++) {
-			for (int z = bottomBlockZ; z <= topBlockZ; z++) {
-				for (int y = bottomBlockY; y <= topBlockY; y++) {
-					Block block = start.getWorld().getBlockAt(x, y, z);
-					if (block != null && block.getType() != null
-							&& block.getType() == plugin.getReventConfig().getMaterialBlockParty()) {
+                Material bpMaterial = plugin.getReventConfig().getMaterialBlockParty();
+                for (int x = bottomBlockX; x <= topBlockX; x++) {
+                        for (int z = bottomBlockZ; z <= topBlockZ; z++) {
+                                for (int y = bottomBlockY; y <= topBlockY; y++) {
+                                        Block block = start.getWorld().getBlockAt(x, y, z);
+                                        if (block != null && block.getType() != null && bpMaterial != null
+                                                        && block.getType() == bpMaterial) {
 
-						resetBlocks.add(block.getLocation());
-					}
+                                                resetBlocks.add(block.getLocation());
+                                        }
 
-				}
-			}
-		}
+                                }
+                        }
+                }
 		List<Location> listaResetBlocks = new ArrayList<Location>(resetBlocks);
 
 		return listaResetBlocks;
