@@ -482,7 +482,13 @@ public class ReventConfig {
 		
 		this.dropItemsAfterDie = plugin.getConfig().getBoolean("dropItemsAfterDie");
 		this.advancedSpectatorMode = plugin.getConfig().getBoolean("advancedSpectatorMode");
-		this.materialBlockParty = Material.getMaterial(plugin.getConfig().getString("blockPartyMaterial"));
+                String matName = plugin.getConfig().getString("blockPartyMaterial");
+                this.materialBlockParty = Material.getMaterial(matName);
+                if (this.materialBlockParty == null) {
+                        this.materialBlockParty = Material.WHITE_WOOL;
+                        plugin.getLoggerP().warning("Invalid blockPartyMaterial '" + matName
+                                        + "' - defaulting to WHITE_WOOL");
+                }
 		this.waitItemPartyMaterial = XMaterial.valueOf(plugin.getConfig().getString("waitItemPartyMaterial"));
 		this.commandsOnEventFire = (List<String>) plugin.getConfig().getStringList("commandsOnEventFire");
 		this.commandsOnUserJoin = (List<String>) plugin.getConfig().getStringList("commandsOnUserJoin");
