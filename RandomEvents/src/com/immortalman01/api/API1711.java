@@ -6,6 +6,7 @@ import java.util.List;
 import org.bukkit.Location;
 import org.bukkit.WorldBorder;
 import org.bukkit.block.Block;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
@@ -84,7 +85,7 @@ public class API1711 {
                 Block b = loc.getBlock();
                 b.setType(md.getItemType());
                 try {
-                    b.setData(md.getData());
+                    b.setBlockData(Bukkit.createBlockData(md.getItemType()));
                 } catch (Throwable ignore) {}
             }
         } catch (Throwable ignore) {}

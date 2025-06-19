@@ -1141,7 +1141,7 @@ public class UtilsRandomEvents {
         // p.sendMessage(message);
 
 	public static void tiraCohete(Location l) {
-		Firework fw = (Firework) l.getWorld().spawnEntity(l, EntityType.FIREWORK);
+                Firework fw = (Firework) l.getWorld().spawnEntity(l, EntityType.FIREWORK_ROCKET);
 		FireworkMeta fwm = fw.getFireworkMeta();
 
 		Random r = new Random();
@@ -1662,9 +1662,9 @@ public class UtilsRandomEvents {
 				lore.add(plugin.getLanguage().getStatsWinsRatio() + ratio.toPlainString());
 				itemMeta.setLore(lore);
 
-				itemMeta.getItemFlags().add(ItemFlag.HIDE_ATTRIBUTES);
-				itemMeta.getItemFlags().add(ItemFlag.HIDE_POTION_EFFECTS);
-				itemMeta.getItemFlags().add(ItemFlag.HIDE_ENCHANTS);
+                                itemMeta.getItemFlags().add(ItemFlag.HIDE_ATTRIBUTES);
+                                itemMeta.getItemFlags().add(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                                itemMeta.getItemFlags().add(ItemFlag.HIDE_ENCHANTS);
 
 				item.setItemMeta(itemMeta);
 				inv.setItem(position, item);
@@ -1702,9 +1702,9 @@ public class UtilsRandomEvents {
 			lore.add(plugin.getLanguage().getStatsTries() + tries);
 			lore.add(plugin.getLanguage().getStatsWinsRatio() + ratio.toPlainString());
 			itemMeta.setLore(lore);
-			itemMeta.getItemFlags().add(ItemFlag.HIDE_ATTRIBUTES);
-			itemMeta.getItemFlags().add(ItemFlag.HIDE_POTION_EFFECTS);
-			itemMeta.getItemFlags().add(ItemFlag.HIDE_ENCHANTS);
+                        itemMeta.getItemFlags().add(ItemFlag.HIDE_ATTRIBUTES);
+                        itemMeta.getItemFlags().add(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                        itemMeta.getItemFlags().add(ItemFlag.HIDE_ENCHANTS);
 			item.setItemMeta(itemMeta);
 			inv.setItem(position, item);
 		}
@@ -3371,9 +3371,9 @@ public class UtilsRandomEvents {
 						"" + (creditos.containsKey(match.getName()) ? creditos.get(match.getName()) : 0)));
 			}
 			cabezaMeta.setLore(lore);
-			cabezaMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-			cabezaMeta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
-			cabezaMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+                        cabezaMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+                        cabezaMeta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                        cabezaMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 			cabeza.setItemMeta(cabezaMeta);
 			inv.setItem(i - (page * 36), cabeza);
 		}
@@ -3424,9 +3424,9 @@ public class UtilsRandomEvents {
 				if (cabezaMeta.getLore() == null || cabezaMeta.getLore().isEmpty()) {
 					cabezaMeta.setLore(plugin.getLanguage().getKitDefaultLore());
 				}
-				cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ATTRIBUTES);
-				cabezaMeta.getItemFlags().add(ItemFlag.HIDE_POTION_EFFECTS);
-				cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ENCHANTS);
+                                cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ATTRIBUTES);
+                                cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                                cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ENCHANTS);
 
 				cabeza.setItemMeta(cabezaMeta);
 				inv.setItem(i - (page * (size - 9)), cabeza);
@@ -3474,9 +3474,9 @@ public class UtilsRandomEvents {
 
 				cabezaMeta.setLore(lore);
 
-				cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ATTRIBUTES);
-				cabezaMeta.getItemFlags().add(ItemFlag.HIDE_POTION_EFFECTS);
-				cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ENCHANTS);
+                                cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ATTRIBUTES);
+                                cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                                cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ENCHANTS);
 				cabeza.setItemMeta(cabezaMeta);
 				inv.setItem(i, cabeza);
 			}
@@ -3695,8 +3695,8 @@ Integer probabilidad = parseProbability(trozosComandos[1]);
 
 	public static void invinciblePlayer(Player player, RandomEvents plugin) {
 		if (plugin.getReventConfig().getInvincibleAfterGame() > 0) {
-			player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE,
-					plugin.getReventConfig().getInvincibleAfterGame(), 20));
+                        player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE,
+                                        plugin.getReventConfig().getInvincibleAfterGame(), 20));
 		}
 
 	}
@@ -3708,11 +3708,10 @@ Integer probabilidad = parseProbability(trozosComandos[1]);
 		for (Location l : blockPartyBlocks) {
 			XMaterial xmat = blocksBlockParty.get(r.nextInt(blocksBlockParty.size()));
 			try {
-				l.getBlock().setType(xmat.parseMaterial());
-				l.getBlock().setData(xmat.getData());
+                                l.getBlock().setType(xmat.parseMaterial());
 			} catch (Exception | NoSuchMethodError e) {
 				try {
-					l.getBlock().getState().setData(new MaterialData(xmat.parseMaterial()));
+                                        l.getBlock().setBlockData(Bukkit.createBlockData(xmat.parseMaterial()));
 				} catch (Exception | NoSuchMethodError e2) {
 					l.getBlock().setType(xmat.parseMaterial());
 
@@ -3732,11 +3731,11 @@ Integer probabilidad = parseProbability(trozosComandos[1]);
 
 	public static void replaceAirBlocks(List<Location> blockPartyBlocks) {
 		for (Location l : blockPartyBlocks) {
-			try {
-				l.getBlock().setType(Material.AIR);
-			} catch (Exception e) {
-				l.getBlock().getState().setData(new MaterialData(Material.AIR));
-			}
+                        try {
+                                l.getBlock().setType(Material.AIR);
+                        } catch (Exception e) {
+                                l.getBlock().setBlockData(Bukkit.createBlockData(Material.AIR));
+                        }
 
 		}
 
