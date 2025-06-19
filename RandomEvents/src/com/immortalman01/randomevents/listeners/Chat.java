@@ -741,12 +741,23 @@ public class Chat implements Listener {
 
 						break;
 
-					case NUMBER_OF_SEEKERS:
-						Integer number2 = Integer.valueOf(message.trim());
-						match.setNumberOfSeekers(number2);
-						plugin.getPlayersCreation().remove(player.getName());
+                                        case NUMBER_OF_SEEKERS:
+                                                try {
+                                                        int seekers = Integer.parseInt(message.trim());
+                                                        Integer max = match.getAmountPlayers();
+                                                        if (seekers > 0 && (max == null || seekers <= max)) {
+                                                                match.setNumberOfSeekers(seekers);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
 
-						break;
+                                                break;
 					case SPAWN_PLAYER:
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
 							match.setPlayerSpawn(player.getLocation());
