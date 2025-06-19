@@ -190,28 +190,35 @@ public class Chat implements Listener {
 						}
 						break;
 					case INVENTORY:
-						if (message.equalsIgnoreCase(Constantes.DONE)) {
+                                                if (message.equalsIgnoreCase(Constantes.DONE)) {
+                                                        if (player.getInventory().getItemInMainHand() != null
+                                                                        && player.getInventory().getItemInMainHand()
+                                                                                        .getType() != (XMaterial.AIR.parseMaterial())) {
 
-							ItemStack[] contenido = player.getInventory().getContents();
-                                                        List<ItemStack> contenidoList = new ArrayList<>(Arrays.asList(contenido));
-							try {
-								contenidoList.removeAll(Arrays.asList(player.getInventory().getArmorContents()));
-							} catch (Exception e) {
+                                                                ItemStack[] contenido = player.getInventory().getContents();
+                                                                List<ItemStack> contenidoList = new ArrayList<>(Arrays.asList(contenido));
+                                                                try {
+                                                                        contenidoList.removeAll(Arrays.asList(player.getInventory().getArmorContents()));
+                                                                } catch (Exception e) {
 
-							}
-							ItemStack[] arrayContenido = new ItemStack[contenidoList.size()];
-							arrayContenido = contenidoList.toArray(arrayContenido);
-							InventoryPers inv = new InventoryPers();
-							inv.setContents(arrayContenido);
-							inv.setHelmet(player.getInventory().getHelmet());
-							inv.setBoots(player.getInventory().getBoots());
-							inv.setLeggings(player.getInventory().getLeggings());
-							inv.setChestplate(player.getInventory().getChestplate());
-							kit.setInventory(inv);
+                                                                }
+                                                                ItemStack[] arrayContenido = new ItemStack[contenidoList.size()];
+                                                                arrayContenido = contenidoList.toArray(arrayContenido);
+                                                                InventoryPers inv = new InventoryPers();
+                                                                inv.setContents(arrayContenido);
+                                                                inv.setHelmet(player.getInventory().getHelmet());
+                                                                inv.setBoots(player.getInventory().getBoots());
+                                                                inv.setLeggings(player.getInventory().getLeggings());
+                                                                inv.setChestplate(player.getInventory().getChestplate());
+                                                                kit.setInventory(inv);
 
-							plugin.getPlayersCreationKit().remove(player.getName());
+                                                                plugin.getPlayersCreationKit().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                                actua = Boolean.FALSE;
+                                                        }
 
-						}
+                                                }
 						break;
 
 					case SAVE:
