@@ -8,9 +8,9 @@ import org.bukkit.inventory.ItemStack;
 
 public class InventoryPers {
 
-	private String gamemode;
+        private String gamemode;
 
-	private ItemStack[] contents;
+        private ItemStack[] contents;
 
 	private float totalExp;
 	private int level;
@@ -20,10 +20,18 @@ public class InventoryPers {
 	private ItemStack helmet;
 	private ItemStack chestplate;
 	private ItemStack leggings;
-	private ItemStack boots;
+        private ItemStack boots;
 
-	private ItemStack itemOffHand;
-	private Location lastLocation;
+        private ItemStack itemOffHand;
+        private Location lastLocation;
+
+        // Stores ItemsAdder identifiers so special items can be restored
+        private java.util.Map<Integer, String> iaContents;
+        private String iaHelmet;
+        private String iaChestplate;
+        private String iaLeggings;
+        private String iaBoots;
+        private String iaOffHand;
 
 	public InventoryPers() {
 		super();
@@ -200,8 +208,56 @@ public class InventoryPers {
 		return health;
 	}
 
-	public void setHealth(double health) {
-		this.health = health;
-	}
+        public void setHealth(double health) {
+                this.health = health;
+        }
+
+        public java.util.Map<Integer, String> getIaContents() {
+                return iaContents;
+        }
+
+        public void setIaContents(java.util.Map<Integer, String> iaContents) {
+                this.iaContents = iaContents;
+        }
+
+        public String getIaHelmet() {
+                return iaHelmet;
+        }
+
+        public void setIaHelmet(String iaHelmet) {
+                this.iaHelmet = iaHelmet;
+        }
+
+        public String getIaChestplate() {
+                return iaChestplate;
+        }
+
+        public void setIaChestplate(String iaChestplate) {
+                this.iaChestplate = iaChestplate;
+        }
+
+        public String getIaLeggings() {
+                return iaLeggings;
+        }
+
+        public void setIaLeggings(String iaLeggings) {
+                this.iaLeggings = iaLeggings;
+        }
+
+        public String getIaBoots() {
+                return iaBoots;
+        }
+
+        public void setIaBoots(String iaBoots) {
+                this.iaBoots = iaBoots;
+        }
+
+        public String getIaOffHand() {
+                return iaOffHand;
+        }
+
+        public void setIaOffHand(String iaOffHand) {
+                this.iaOffHand = iaOffHand;
+        }
 
 }
