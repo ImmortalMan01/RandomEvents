@@ -26,6 +26,14 @@ public class BetterTeamsListener implements Listener {
             return;
         }
 
+        if (plugin.getMatchActive().getMapHandler() != null
+                && plugin.getMatchActive().getMapHandler().getCuboid() != null) {
+            if (!plugin.getMatchActive().getMapHandler().getCuboid().contains(attacker.getLocation())
+                    || !plugin.getMatchActive().getMapHandler().getCuboid().contains(victim.getLocation())) {
+                return;
+            }
+        }
+
         Team victimTeam = Team.getTeam(victim);
         Team attackerTeam = Team.getTeam(attacker);
 
