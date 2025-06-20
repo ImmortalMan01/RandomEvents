@@ -1512,13 +1512,13 @@ public class Chat implements Listener {
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
 							if (player.getInventory().getItemInMainHand() != null
 									&& player.getInventory().getItemInMainHand().getType() != (XMaterial.AIR.parseMaterial())) {
-								try {
-									MaterialData mat = new MaterialData(player.getInventory().getItemInMainHand().getType(),
-											player.getInventory().getItemInMainHand().getData().getData());
-									match.getDatas().add(mat);
-								} catch (Throwable eb) {
-									match.getDatas().add(player.getInventory().getItemInMainHand().getData());
-								}
+                                                                try {
+                                                                        MaterialData mat = new MaterialData(player.getInventory().getItemInMainHand().getType(),
+                                                                                player.getInventory().getItemInMainHand().getData().getData());
+                                                                        match.getDatas().add(mat);
+                                                                } catch (Throwable eb) {
+                                                                        match.getDatas().add(player.getInventory().getItemInMainHand().getData());
+                                                                }
 								plugin.getPlayersCreation().remove(player.getName());
 
 							} else {
@@ -1539,6 +1539,7 @@ public class Chat implements Listener {
 								} catch (Throwable eb) {
 									match.getDatas().add(player.getInventory().getItemInMainHand().getData());
 								}
+                                                                match.setMaterial(player.getInventory().getItemInMainHand().getType().toString());
 								plugin.getPlayersCreation().remove(player.getName());
 								plugin.getPlayersCreation().put(player.getName(),
 										Creacion.ANOTHER_MATERIAL_SPLEEF.getPosition());

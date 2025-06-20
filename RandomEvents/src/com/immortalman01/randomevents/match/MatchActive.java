@@ -1435,13 +1435,21 @@ public class MatchActive {
 			break;
 		}
 
-		for (Entry<Location, MaterialData> entrada : getMapHandler().getBlockDisappeared().entrySet()) {
-			plugin.getApi().convertBlock(entrada.getKey(), entrada.getValue());
-		}
+                for (Entry<Location, MaterialData> entrada : getMapHandler().getBlockDisappeared().entrySet()) {
+                        plugin.getApi().convertBlock(entrada.getKey(), entrada.getValue());
+                }
 
-		for (Entry<Location, Material> entrada : getMapHandler().getBlockDisappearedType().entrySet()) {
-			entrada.getKey().getBlock().setType(entrada.getValue());
-		}
+                for (Entry<Location, Material> entrada : getMapHandler().getBlockDisappearedType().entrySet()) {
+                        entrada.getKey().getBlock().setType(entrada.getValue());
+                }
+
+                for (Entry<Location, MaterialData> entrada : getMapHandler().getBlockPlaced().entrySet()) {
+                        plugin.getApi().convertBlock(entrada.getKey(), entrada.getValue());
+                }
+
+                getMapHandler().getBlockDisappeared().clear();
+                getMapHandler().getBlockDisappearedType().clear();
+                getMapHandler().getBlockPlaced().clear();
 
 		hazComandosDeFin();
 		for (Entity ent : getMobs()) {
@@ -1473,9 +1481,6 @@ public class MatchActive {
 		this.getPlayerHandler().getPlayersSpectators().clear();
 		this.activated = Boolean.FALSE;
 
-		for (Location l : getMapHandler().getBlockPlaced().keySet()) {
-			l.getBlock().setType(XMaterial.AIR.parseMaterial());
-		}
 
 		setPlaying(Boolean.FALSE);
 		if (tournamentObj == null && reinicia)
