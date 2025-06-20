@@ -477,10 +477,9 @@ public class Use implements Listener {
 
 				BlockFace blockFace = nextBlock.getFace(blockBefore);
 
-				if (blockFace != null) {
-					if (nextBlock.getType() != null && plugin.getMatchActive().getMatch().getMaterial() != null
-							&& nextBlock.getType().toString()
-									.equals(plugin.getMatchActive().getMatch().getMaterial())) {
+                                if (blockFace != null) {
+                                        if (nextBlock.getType() != null && plugin.getMatchActive().getMatch().getMaterial() != null
+                                                        && nextBlock.getType().equals(org.bukkit.Material.matchMaterial(plugin.getMatchActive().getMatch().getMaterial()))) {
 						plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(nextBlock.getLocation(),
 								nextBlock.getState().getData().clone());
 						nextBlock.setType(XMaterial.AIR.parseMaterial());
@@ -627,10 +626,10 @@ public class Use implements Listener {
 				for (Block block : blockList) {
 					if (plugin.getMatchActive().getMapHandler().getBlockPlaced().containsKey(block.getLocation())) {
 						plugin.getMatchActive().getMapHandler().getBlockPlaced().remove(block.getLocation());
-					} else if (plugin.getMatchActive().getMatch().getMaterial() != null
+                                        } else if (plugin.getMatchActive().getMatch().getMaterial() != null
 
-							&& block.getType() != null
-							&& block.getType().toString().equals(plugin.getMatchActive().getMatch().getMaterial())) {
+                                                        && block.getType() != null
+                                                        && block.getType().equals(org.bukkit.Material.matchMaterial(plugin.getMatchActive().getMatch().getMaterial()))) {
 						try {
 							plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(block.getLocation(),
 									new MaterialData(block.getType(), block.getData()));
@@ -772,10 +771,9 @@ public class Use implements Listener {
 							evt.setCancelled(false);
 							plugin.getMatchActive().getMapHandler().getBlockPlaced()
 									.remove(evt.getBlock().getLocation());
-						} else if (plugin.getMatchActive().getMatch().getMaterial() != null
+                                                } else if (plugin.getMatchActive().getMatch().getMaterial() != null
 
-								&& evt.getBlock().getType() != null && evt.getBlock().getType().toString()
-										.equals(plugin.getMatchActive().getMatch().getMaterial())) {
+                                                                && evt.getBlock().getType() != null && evt.getBlock().getType().equals(org.bukkit.Material.matchMaterial(plugin.getMatchActive().getMatch().getMaterial()))) {
 							evt.setCancelled(true);
 							try {
 								plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(
@@ -878,10 +876,9 @@ public class Use implements Listener {
 					|| plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEGG)) {
 				evt.setCancelled(true);
 			} else {
-				if (plugin.getMatchActive().getMatch().getMaterial() != null
+                                if (plugin.getMatchActive().getMatch().getMaterial() != null
 
-						&& evt.getBlock().getType() != null && evt.getBlock().getType().toString()
-								.equals(plugin.getMatchActive().getMatch().getMaterial())) {
+                                                && evt.getBlock().getType() != null && evt.getBlock().getType().equals(org.bukkit.Material.matchMaterial(plugin.getMatchActive().getMatch().getMaterial()))) {
 					// evt.setCancelled(true);
 					evt.setCancelled(false);
 					plugin.getMatchActive().getMapHandler().getBlockPlaced().put(evt.getBlock().getLocation(),
