@@ -823,7 +823,7 @@ public class Use implements Listener {
                if (active.getMatch().getDatas() != null && !active.getMatch().getDatas().isEmpty()) {
                        allowed = UtilsRandomEvents.contieneMaterialData(evt.getBlock(), active.getMatch());
                } else if (active.getMatch().getMaterial() != null && evt.getBlock().getType() != null
-                               && evt.getBlock().getType().toString().equals(active.getMatch().getMaterial())) {
+                               && evt.getBlock().getType().name().equalsIgnoreCase(active.getMatch().getMaterial())) {
                        allowed = true;
                }
 
@@ -840,6 +840,7 @@ public class Use implements Listener {
                        active.getMapHandler().getBlockDisappeared().put(loc,
                                        evt.getBlock().getState().getData().clone());
                }
+               active.getMapHandler().getBlockDisappearedType().put(loc, evt.getBlock().getType());
 
                evt.getBlock().setType(XMaterial.AIR.parseMaterial());
                if (plugin.getReventConfig().isSnowballSpleef()) {
