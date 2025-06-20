@@ -18,6 +18,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.nio.charset.Charset;
 import java.nio.file.StandardCopyOption;
+
+import com.immortalman01.randomevents.util.ItemsAdderUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -667,25 +669,48 @@ public class UtilsRandomEvents {
 					}
 
 				}
-				ItemStack[] arrayContenido = new ItemStack[contenidoList.size()];
-				arrayContenido = contenidoList.toArray(arrayContenido);
-				inventario.setGamemode(player.getGameMode().toString());
-				inventario.setContents(arrayContenido);
-				inventario.setTotalExp(player.getExp());
-				inventario.setHunger(player.getFoodLevel());
-				inventario.setHealth(player.getHealth());
-				inventario.setLevel(player.getLevel());
-				inventario.setHelmet(player.getInventory().getHelmet());
-				inventario.setBoots(player.getInventory().getBoots());
-				inventario.setLeggings(player.getInventory().getLeggings());
-				inventario.setChestplate(player.getInventory().getChestplate());
+                                ItemStack[] arrayContenido = new ItemStack[contenidoList.size()];
+                                arrayContenido = contenidoList.toArray(arrayContenido);
+                                inventario.setGamemode(player.getGameMode().toString());
+                                inventario.setContents(arrayContenido);
+                                if (ItemsAdderUtils.isAvailable()) {
+                                        java.util.Map<Integer, String> iaMap = new java.util.HashMap<>();
+                                        for (int i = 0; i < arrayContenido.length; i++) {
+                                                String id = ItemsAdderUtils.getNamespacedId(arrayContenido[i]);
+                                                if (id != null) {
+                                                        iaMap.put(i, id);
+                                                }
+                                        }
+                                        inventario.setIaContents(iaMap);
+                                }
+                                inventario.setTotalExp(player.getExp());
+                                inventario.setHunger(player.getFoodLevel());
+                                inventario.setHealth(player.getHealth());
+                                inventario.setLevel(player.getLevel());
+                                ItemStack helmet = player.getInventory().getHelmet();
+                                ItemStack boots = player.getInventory().getBoots();
+                                ItemStack leggings = player.getInventory().getLeggings();
+                                ItemStack chest = player.getInventory().getChestplate();
+                                inventario.setHelmet(helmet);
+                                inventario.setBoots(boots);
+                                inventario.setLeggings(leggings);
+                                inventario.setChestplate(chest);
+                                if (ItemsAdderUtils.isAvailable()) {
+                                        inventario.setIaHelmet(ItemsAdderUtils.getNamespacedId(helmet));
+                                        inventario.setIaBoots(ItemsAdderUtils.getNamespacedId(boots));
+                                        inventario.setIaLeggings(ItemsAdderUtils.getNamespacedId(leggings));
+                                        inventario.setIaChestplate(ItemsAdderUtils.getNamespacedId(chest));
+                                }
 
 				try {
 					Method method = player.getInventory().getClass().getDeclaredMethod("getItemInOffHand");
 					Object item = method.invoke(player.getInventory());
 					if (item != null && item instanceof ItemStack) {
-						ItemStack itemS = (ItemStack) item;
-						inventario.setItemOffHand(itemS);
+                                                ItemStack itemS = (ItemStack) item;
+                                                inventario.setItemOffHand(itemS);
+                                                if (ItemsAdderUtils.isAvailable()) {
+                                                        inventario.setIaOffHand(ItemsAdderUtils.getNamespacedId(itemS));
+                                                }
 					}
 				} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
 						| InvocationTargetException e) {
@@ -851,16 +876,54 @@ public class UtilsRandomEvents {
 						} catch (Exception e) {
 
 						}
-						player.getInventory().setContents(inventario.getContents());
-						player.getInventory().setHelmet(inventario.getHelmet());
-						player.getInventory().setLeggings(inventario.getLeggings());
-						player.getInventory().setBoots(inventario.getBoots());
-						player.getInventory().setChestplate(inventario.getChestplate());
+                                                ItemStack[] restored = inventario.getContents();
+                                                if (ItemsAdderUtils.isAvailable() && inventario.getIaContents() != null) {
+                                                        for (java.util.Map.Entry<Integer, String> en : inventario.getIaContents().entrySet()) {
+                                                                ItemStack ia = ItemsAdderUtils.createItem(en.getValue());
+                                                                if (ia != null && en.getKey() < restored.length) {
+                                                                        restored[en.getKey()] = ia;
+                                                                }
+                                                        }
+                                                }
+                                                player.getInventory().setContents(restored);
 
-						try {
-							Method method = player.getInventory().getClass().getDeclaredMethod("setItemInOffHand",
-									ItemStack.class);
-							method.invoke(player.getInventory(), inventario.getItemOffHand());
+                                                ItemStack helmet = inventario.getHelmet();
+                                                ItemStack chest = inventario.getChestplate();
+                                                ItemStack leggings = inventario.getLeggings();
+                                                ItemStack boots = inventario.getBoots();
+                                                ItemStack offhand = inventario.getItemOffHand();
+                                                if (ItemsAdderUtils.isAvailable()) {
+                                                        if (inventario.getIaHelmet() != null) {
+                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaHelmet());
+                                                                if (ia != null) helmet = ia;
+                                                        }
+                                                        if (inventario.getIaChestplate() != null) {
+                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaChestplate());
+                                                                if (ia != null) chest = ia;
+                                                        }
+                                                        if (inventario.getIaLeggings() != null) {
+                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaLeggings());
+                                                                if (ia != null) leggings = ia;
+                                                        }
+                                                        if (inventario.getIaBoots() != null) {
+                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaBoots());
+                                                                if (ia != null) boots = ia;
+                                                        }
+                                                        if (inventario.getIaOffHand() != null) {
+                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaOffHand());
+                                                                if (ia != null) offhand = ia;
+                                                        }
+                                                }
+
+                                                player.getInventory().setHelmet(helmet);
+                                                player.getInventory().setLeggings(leggings);
+                                                player.getInventory().setBoots(boots);
+                                                player.getInventory().setChestplate(chest);
+
+                                                try {
+                                                        Method method = player.getInventory().getClass().getDeclaredMethod("setItemInOffHand",
+                                                                        ItemStack.class);
+                                                        method.invoke(player.getInventory(), offhand);
 
 						} catch (NoSuchMethodException | SecurityException | IllegalAccessException
 								| IllegalArgumentException | InvocationTargetException e) {
