@@ -745,104 +745,108 @@ public class Use implements Listener {
 		}
 	}
 
-	@EventHandler(priority = EventPriority.MONITOR)
-	public void onMine(BlockBreakEvent evt) {
-		Player player = evt.getPlayer();
-		if (plugin.getMatchActive() != null
-				&& plugin.getMatchActive().getPlayerHandler().getPlayersSpectators().contains(player)) {
-                        if (!plugin.getMatchActive().getCanBreak()) {
-                                evt.setCancelled(true);
-                        } else {
-                                if (plugin.getMatchActive().getPlaying()) {
-                                        if (plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.ANVIL_SPLEEF)
-                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLATOON)
-                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.GLASS_WALK)
-                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.HIDE_AND_SEEK)
-                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.ESCAPE_FROM_BEAST)
-                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.RED_GREEN_LIGHT)
-                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.BOAT_RUN)
-                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.HORSE_RUN)
-                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.HOEHOEHOE)
-                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.PAINTBALL)) {
-                                                evt.setCancelled(true);
-                                        } else {
-                                                if (plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEEF)
-                                                                && !plugin.getMatchActive().getMapHandler().getBlockPlaced()
-                                                                                .containsKey(evt.getBlock().getLocation())) {
-                                                        if (plugin.getMatchActive().getMatch().getDatas() == null
-                                                                        || plugin.getMatchActive().getMatch().getDatas().isEmpty()
-                                                                        || !UtilsRandomEvents.contieneMaterialData(evt.getBlock(),
-                                                                                        plugin.getMatchActive().getMatch())) {
-                                                                evt.setCancelled(true);
-                                                                return;
-                                                        }
-                                                }
+       @EventHandler(priority = EventPriority.MONITOR)
+       public void onMine(BlockBreakEvent evt) {
+               Player player = evt.getPlayer();
+               if (plugin.getMatchActive() != null
+                               && plugin.getMatchActive().getPlayerHandler().getPlayersSpectators().contains(player)) {
+                       if (!plugin.getMatchActive().getCanBreak()) {
+                               evt.setCancelled(true);
+                               return;
+                       }
 
-						if (plugin.getMatchActive().getMapHandler().getBlockPlaced()
-								.containsKey(evt.getBlock().getLocation())) {
-							evt.setCancelled(false);
-							plugin.getMatchActive().getMapHandler().getBlockPlaced()
-									.remove(evt.getBlock().getLocation());
-						} else if (plugin.getMatchActive().getMatch().getMaterial() != null
+                       if (plugin.getMatchActive().getPlaying()) {
+                               MatchActive active = plugin.getMatchActive();
+                               if (active.getMatch().getMinigame().equals(MinigameType.SPLEEF)) {
+                                       handleSpleefBreak(evt, active, player);
+                                       return;
+                               }
 
-								&& evt.getBlock().getType() != null && evt.getBlock().getType().toString()
-										.equals(plugin.getMatchActive().getMatch().getMaterial())) {
-							evt.setCancelled(true);
-							try {
-								plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(
-										evt.getBlock().getLocation(),
-										new MaterialData(evt.getBlock().getType(), evt.getBlock().getData()));
-							} catch (Throwable eb) {
-								plugin.getMatchActive().getMapHandler().getBlockDisappeared()
-										.put(evt.getBlock().getLocation(), evt.getBlock().getState().getData().clone());
-							}
+                               if (active.getMatch().getMinigame().equals(MinigameType.ANVIL_SPLEEF)
+                                               || active.getMatch().getMinigame().equals(MinigameType.SPLATOON)
+                                               || active.getMatch().getMinigame().equals(MinigameType.GLASS_WALK)
+                                               || active.getMatch().getMinigame().equals(MinigameType.HIDE_AND_SEEK)
+                                               || active.getMatch().getMinigame().equals(MinigameType.ESCAPE_FROM_BEAST)
+                                               || active.getMatch().getMinigame().equals(MinigameType.RED_GREEN_LIGHT)
+                                               || active.getMatch().getMinigame().equals(MinigameType.BOAT_RUN)
+                                               || active.getMatch().getMinigame().equals(MinigameType.HORSE_RUN)
+                                               || active.getMatch().getMinigame().equals(MinigameType.HOEHOEHOE)
+                                               || active.getMatch().getMinigame().equals(MinigameType.PAINTBALL)) {
+                                       evt.setCancelled(true);
+                                       return;
+                               }
 
-							if (plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEEF)) {
-								evt.getBlock().setType(XMaterial.AIR.parseMaterial());
-								if (plugin.getReventConfig().isSnowballSpleef()) {
-									player.getInventory().addItem(XMaterial.SNOWBALL.parseItem());
-									player.updateInventory();
-								}
+                               if (active.getMapHandler().getBlockPlaced().containsKey(evt.getBlock().getLocation())) {
+                                       evt.setCancelled(false);
+                                       active.getMapHandler().getBlockPlaced().remove(evt.getBlock().getLocation());
+                               } else if (active.getMatch().getMaterial() != null
+                                               && evt.getBlock().getType() != null
+                                               && evt.getBlock().getType().toString().equals(active.getMatch().getMaterial())) {
+                                       evt.setCancelled(true);
+                                       try {
+                                               active.getMapHandler().getBlockDisappeared().put(evt.getBlock().getLocation(),
+                                                               new MaterialData(evt.getBlock().getType(), evt.getBlock().getData()));
+                                       } catch (Throwable eb) {
+                                               active.getMapHandler().getBlockDisappeared().put(evt.getBlock().getLocation(),
+                                                               evt.getBlock().getState().getData().clone());
+                                       }
+                                       evt.getBlock().breakNaturally();
+                               } else if (active.getMatch().getAllMaterialAllowed()
+                                               || (active.getMatch().getDatas() != null && !active.getMatch().getDatas().isEmpty()
+                                                               && evt.getBlock().getType() != null && evt.getBlock().getState().getData() != null
+                                                               && UtilsRandomEvents.contieneMaterialData(evt.getBlock(), active.getMatch()))) {
+                                       evt.setCancelled(true);
+                                       try {
+                                               active.getMapHandler().getBlockDisappeared().put(evt.getBlock().getLocation(),
+                                                               new MaterialData(evt.getBlock().getType(), evt.getBlock().getData()));
+                                       } catch (Throwable eb) {
+                                               active.getMapHandler().getBlockDisappeared().put(evt.getBlock().getLocation(),
+                                                               evt.getBlock().getState().getData().clone());
+                                       }
+                                       evt.getBlock().breakNaturally();
+                               } else {
+                                       evt.setCancelled(true);
+                               }
+                       }
+               }
+       }
 
-							} else {
-								evt.getBlock().breakNaturally();
-							}
-						} else if (plugin.getMatchActive().getMatch().getAllMaterialAllowed()
-								|| (plugin.getMatchActive().getMatch().getDatas() != null
-										&& !plugin.getMatchActive().getMatch().getDatas().isEmpty()
-										&& evt.getBlock().getType() != null
-										&& evt.getBlock().getState().getData() != null
-										&& UtilsRandomEvents.contieneMaterialData(evt.getBlock(),
-												plugin.getMatchActive().getMatch()))) {
-							evt.setCancelled(true);
-							try {
-								plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(
-										evt.getBlock().getLocation(),
-										new MaterialData(evt.getBlock().getType(), evt.getBlock().getData()));
-							} catch (Throwable eb) {
-								plugin.getMatchActive().getMapHandler().getBlockDisappeared()
-										.put(evt.getBlock().getLocation(), evt.getBlock().getState().getData().clone());
-							}
-							if (plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEEF)) {
-								evt.getBlock().setType(XMaterial.AIR.parseMaterial());
+       private void handleSpleefBreak(BlockBreakEvent evt, MatchActive active, Player player) {
+               Location loc = evt.getBlock().getLocation();
 
-								if (plugin.getReventConfig().isSnowballSpleef()) {
-									player.getInventory().addItem(XMaterial.SNOWBALL.parseItem());
-									player.updateInventory();
-								}
+               if (active.getMapHandler().getBlockPlaced().remove(loc) != null) {
+                       evt.setCancelled(false);
+                       return;
+               }
 
-							} else {
-								evt.getBlock().breakNaturally();
-							}
-						} else {
-							evt.setCancelled(true);
+               boolean allowed = false;
+               if (active.getMatch().getDatas() != null && !active.getMatch().getDatas().isEmpty()) {
+                       allowed = UtilsRandomEvents.contieneMaterialData(evt.getBlock(), active.getMatch());
+               } else if (active.getMatch().getMaterial() != null && evt.getBlock().getType() != null
+                               && evt.getBlock().getType().toString().equals(active.getMatch().getMaterial())) {
+                       allowed = true;
+               }
 
-						}
-					}
-				}
-			}
-		}
-	}
+               if (!allowed) {
+                       evt.setCancelled(true);
+                       return;
+               }
+
+               evt.setCancelled(true);
+               try {
+                       active.getMapHandler().getBlockDisappeared().put(loc,
+                                       new MaterialData(evt.getBlock().getType(), evt.getBlock().getData()));
+               } catch (Throwable eb) {
+                       active.getMapHandler().getBlockDisappeared().put(loc,
+                                       evt.getBlock().getState().getData().clone());
+               }
+
+               evt.getBlock().setType(XMaterial.AIR.parseMaterial());
+               if (plugin.getReventConfig().isSnowballSpleef()) {
+                       player.getInventory().addItem(XMaterial.SNOWBALL.parseItem());
+                       player.updateInventory();
+               }
+       }
 
 	@EventHandler(priority = EventPriority.MONITOR)
 	public void onFill(PlayerBucketFillEvent evt) {
