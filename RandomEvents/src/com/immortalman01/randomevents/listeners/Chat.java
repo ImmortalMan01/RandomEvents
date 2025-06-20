@@ -375,11 +375,13 @@ public class Chat implements Listener {
 			plugin.getPlayersCreationKit().remove(player.getName());
 			if (plugin.getPlayerMatches().containsKey(player.getName())) {
                                 player.sendMessage(Creacion.KITS.getMessage(plugin));
-				for (Kit m : plugin.getKits()) {
-					player.sendMessage("§6§l" + plugin.getKits().indexOf(m) + " - " + m.getName());
-				}
-				player.sendMessage("§6§l" + plugin.getKits().size() + " - §e§lNew Kit");
-			}
+                                int idx = 1;
+                                for (Kit m : plugin.getKits()) {
+                                        player.sendMessage("§6§l" + idx + " - " + m.getName());
+                                        idx++;
+                                }
+                                player.sendMessage("§6§l" + idx + " - §e§lNew Kit");
+                        }
 
 		}
 	}
@@ -1036,8 +1038,8 @@ public class Chat implements Listener {
                                                 try {
                                                         if (message.trim().startsWith("-")) {
                                                                 Integer remove = Integer.valueOf(message.trim().substring(1));
-                                                                if (remove >= 0 && remove < match.getKits().size()) {
-                                                                        String kitName = match.getKits().remove(remove.intValue());
+                                                                if (remove > 0 && remove <= match.getKits().size()) {
+                                                                        String kitName = match.getKits().remove(remove.intValue() - 1);
                                                                         plugin.getPlayersCreation().remove(player.getName());
                                                                         String msg = plugin.getLanguage().getTranslation("kit.removed");
                                                                         if (msg != null) {
@@ -1050,14 +1052,14 @@ public class Chat implements Listener {
                                                                 }
                                                         } else {
                                                                 Integer value = Integer.valueOf(message);
-                                                                if (value.equals(plugin.getKits().size())) {
+                                                                if (value.equals(plugin.getKits().size() + 1)) {
                                                                         Kit kit = new Kit();
                                                                         plugin.getPlayerKit().put(player.getName(), kit);
                                                                         player.sendMessage(UtilsRandomEvents.enviaInfoCreacionKit(kit, player, plugin));
                                                                         actua = Boolean.FALSE;
                                                                         pasado = Boolean.TRUE;
-                                                                } else if (value < plugin.getKits().size() && value >= 0) {
-                                                                        match.getKits().add(plugin.getKits().get(value).getName());
+                                                                } else if (value > 0 && value <= plugin.getKits().size()) {
+                                                                        match.getKits().add(plugin.getKits().get(value - 1).getName());
                                                                         plugin.getPlayersCreation().remove(player.getName());
                                                                 } else {
                                                                         player.sendMessage(plugin.getLanguage().getInvalidInput());
@@ -1921,10 +1923,12 @@ public class Chat implements Listener {
 						break;
 					case KITS:
 						player.sendMessage(c.getMessage(plugin, match));
-						for (Kit m : plugin.getKits()) {
-							player.sendMessage("§6§l" + plugin.getKits().indexOf(m) + " - " + m.getName());
-						}
-						player.sendMessage("§6§l" + plugin.getKits().size() + " - §e§lNew Kit");
+                                                int idxKit = 1;
+                                                for (Kit m : plugin.getKits()) {
+                                                        player.sendMessage("§6§l" + idxKit + " - " + m.getName());
+                                                        idxKit++;
+                                                }
+                                                player.sendMessage("§6§l" + idxKit + " - §e§lNew Kit");
 
 						break;
 					default:
@@ -1971,10 +1975,12 @@ public class Chat implements Listener {
 					player.sendMessage(c.getMessage(plugin, match));
 					plugin.getPlayersCreation().put(player.getName(), c.getPosition());
 
-					for (Kit m : plugin.getKits()) {
-						player.sendMessage("§6§l" + plugin.getKits().indexOf(m) + " - " + m.getName());
-					}
-					player.sendMessage("§6§l" + plugin.getKits().size() + " - §e§lNew Kit");
+                                        int idxKit = 1;
+                                        for (Kit m : plugin.getKits()) {
+                                                player.sendMessage("§6§l" + idxKit + " - " + m.getName());
+                                                idxKit++;
+                                        }
+                                        player.sendMessage("§6§l" + idxKit + " - §e§lNew Kit");
 
 					break;
 				case USE_OWN_INVENTORY:
