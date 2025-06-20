@@ -390,13 +390,14 @@ public class ComandosExecutor {
 
         public void showKits(RandomEvents plugin, Player player) {
                 player.sendMessage(plugin.getLanguage().getTagPlugin() + "§e§lKits");
+                int idx = 1;
                 for (Kit m : plugin.getKits()) {
                         if (player != null) {
-
-                                player.sendMessage("§6§l" + plugin.getKits().indexOf(m) + " - " + m.getName());
+                                player.sendMessage("§6§l" + idx + " - " + m.getName());
                         } else {
-                                plugin.getLoggerP().info(plugin.getKits().indexOf(m) + " - " + m.getName());
+                                plugin.getLoggerP().info(idx + " - " + m.getName());
                         }
+                        idx++;
                 }
 
         }
