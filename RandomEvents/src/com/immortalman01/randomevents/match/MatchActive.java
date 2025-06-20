@@ -1447,6 +1447,20 @@ public class MatchActive {
                         plugin.getApi().convertBlock(entrada.getKey(), entrada.getValue());
                 }
 
+                if (plugin.getReventConfig().isDebugMode()) {
+                        plugin.getLoggerP().info("Restoring blocks: disappeared="
+                                        + getMapHandler().getBlockDisappeared().size() + " replaced="
+                                        + getMapHandler().getBlockDisappearedType().size() + " placed="
+                                        + getMapHandler().getBlockPlaced().size());
+                }
+
+                java.util.Objects.requireNonNull(getMapHandler().getBlockDisappeared(),
+                                "blockDisappeared not initialized");
+                java.util.Objects.requireNonNull(getMapHandler().getBlockDisappearedType(),
+                                "blockDisappearedType not initialized");
+                java.util.Objects.requireNonNull(getMapHandler().getBlockPlaced(),
+                                "blockPlaced not initialized");
+
                 getMapHandler().getBlockDisappeared().clear();
                 getMapHandler().getBlockDisappearedType().clear();
                 getMapHandler().getBlockPlaced().clear();
