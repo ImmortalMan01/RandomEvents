@@ -47,7 +47,6 @@ import com.immortalman01.randomevents.listeners.PickUp;
 import com.immortalman01.randomevents.listeners.Quit;
 import com.immortalman01.randomevents.listeners.Use;
 import com.immortalman01.randomevents.listeners.WeaponShoot;
-import com.immortalman01.randomevents.listeners.BetterTeamsListener;
 import com.immortalman01.randomevents.match.Kit;
 import com.immortalman01.randomevents.match.Match;
 import com.immortalman01.randomevents.match.MatchActive;
@@ -168,11 +167,6 @@ public class RandomEvents extends JavaPlugin {
 
                 }
 
-                if (getServer().getPluginManager().getPlugin("BetterTeams") != null) {
-                        getServer().getPluginManager().registerEvents(new BetterTeamsListener(this), this);
-                        getLoggerP().info("[RandomEvents] BetterTeams hooked succesfully!");
-
-                }
 
 		getLogger().info(" Author immortalman01- activado");
 		
