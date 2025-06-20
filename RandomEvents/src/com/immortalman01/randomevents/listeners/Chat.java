@@ -61,7 +61,9 @@ public class Chat implements Listener {
                                         campos.toArray(new String[campos.size()]));
                 } else {
                 boolean matchRunning = plugin.getMatchActive() != null
-                                && Boolean.TRUE.equals(plugin.getMatchActive().getActivated());
+                                && (Boolean.TRUE.equals(plugin.getMatchActive().getPlaying())
+                                                || Boolean.TRUE.equals(plugin.getMatchActive().getStarting())
+                                                || Boolean.TRUE.equals(plugin.getMatchActive().getActivated()));
                 boolean playerInMatch = matchRunning && (plugin.getMatchActive().getPlayerHandler().getPlayersObj().contains(p)
                                 || plugin.getMatchActive().getPlayerHandler().getPlayersSpectators().contains(p));
 
