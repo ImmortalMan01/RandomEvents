@@ -10,7 +10,7 @@ import java.util.Set;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Fireball;
-import org.bukkit.material.MaterialData;
+import org.bukkit.block.data.BlockData;
 
 import com.immortalman01.randomevents.match.utils.Cuboid;
 
@@ -26,11 +26,11 @@ public class MatchMapDataHandler {
 
 	private Map<Location, Long> blockDisappear;
 
-	private Map<Location, MaterialData> blockDisappeared;
+       private Map<Location, BlockData> blockDisappeared;
 
-	private Map<Location, Material> blockDisappearedType;
+       private Map<Location, Material> blockDisappearedType;
 
-	private Map<Location, MaterialData> blockPlaced;
+       private Map<Location, BlockData> blockPlaced;
 
 	private Set<Fireball> fireballs;
 
@@ -42,10 +42,10 @@ public class MatchMapDataHandler {
 
 	public MatchMapDataHandler() {
 		super();
-		this.blockDisappear = new HashMap<Location, Long>();
-		this.blockDisappeared = new HashMap<Location, MaterialData>();
-		this.blockDisappearedType = new HashMap<Location, Material>();
-		this.blockPlaced = new HashMap<Location, MaterialData>();
+               this.blockDisappear = new HashMap<Location, Long>();
+               this.blockDisappeared = new HashMap<Location, BlockData>();
+               this.blockDisappearedType = new HashMap<Location, Material>();
+               this.blockPlaced = new HashMap<Location, BlockData>();
 		this.checkpoints = new HashMap<String, Location>();
 		this.chests = new ArrayList<Location>();
 		this.fireballs = new HashSet<Fireball>();
@@ -119,13 +119,13 @@ public class MatchMapDataHandler {
 		this.blockDisappear = blockDisappear;
 	}
 
-	public Map<Location, MaterialData> getBlockDisappeared() {
-		return blockDisappeared;
-	}
+       public Map<Location, BlockData> getBlockDisappeared() {
+               return blockDisappeared;
+       }
 
-	public void setBlockDisappeared(Map<Location, MaterialData> blockDisappeared) {
-		this.blockDisappeared = blockDisappeared;
-	}
+       public void setBlockDisappeared(Map<Location, BlockData> blockDisappeared) {
+               this.blockDisappeared = blockDisappeared;
+       }
 
 	public Map<Location, Material> getBlockDisappearedType() {
 		return blockDisappearedType;
@@ -135,13 +135,13 @@ public class MatchMapDataHandler {
 		this.blockDisappearedType = blockDisappearedType;
 	}
 
-	public Map<Location, MaterialData> getBlockPlaced() {
-		return blockPlaced;
-	}
+       public Map<Location, BlockData> getBlockPlaced() {
+               return blockPlaced;
+       }
 
-	public void setBlockPlaced(Map<Location, MaterialData> blockPlaced) {
-		this.blockPlaced = blockPlaced;
-	}
+       public void setBlockPlaced(Map<Location, BlockData> blockPlaced) {
+               this.blockPlaced = blockPlaced;
+       }
 
 	public void setBlockPartyBlocks(List<Location> blocksLocation) {
 		this.blockPartyBlocks = new ArrayList<Location>(blocksLocation);

@@ -12,6 +12,7 @@ import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.material.MaterialData;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.util.Vector;
 
 import com.immortalman01.util.FastBoard;
@@ -80,15 +81,17 @@ public class API1711 {
     public void convertBlock(Location loc, Object data) {
         if (loc == null || data == null) return;
         try {
-            if (data instanceof MaterialData) {
-                MaterialData md = (MaterialData) data;
-                Block b = loc.getBlock();
+            Block b = loc.getBlock();
+            if (data instanceof BlockData bd) {
+                b.setBlockData(bd, true);
+            } else if (data instanceof MaterialData md) {
                 b.setType(md.getItemType());
                 try {
                     b.setBlockData(Bukkit.createBlockData(md.getItemType()));
                 } catch (Throwable ignore) {}
             }
-        } catch (Throwable ignore) {}
+        } catch (Throwable ignore) {
+        }
     }
 
     public double getHorseSpeed(Object horse) {

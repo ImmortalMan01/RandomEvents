@@ -1711,8 +1711,8 @@ public class UtilsRandomEvents {
 			}
 		}
 		for (Location l : blocksToDisappear) {
-			matchActive.getMapHandler().getBlockDisappear().remove(l);
-			matchActive.getMapHandler().getBlockDisappeared().put(l, l.getBlock().getState().getData());
+                       matchActive.getMapHandler().getBlockDisappear().remove(l);
+                       matchActive.getMapHandler().getBlockDisappeared().put(l, l.getBlock().getBlockData().clone());
 			l.getBlock().setType(XMaterial.AIR.parseMaterial());
 
 		}
@@ -1846,16 +1846,14 @@ public class UtilsRandomEvents {
 		return tamanyo;
 	}
 
-	public static boolean contieneMaterialData(Block block, Match match) {
-                for (MaterialData data : match.getDatas()) {
-                        Material mat = block.getType();
-                        byte blockData = block.getState().getData().getData();
-                        if (data.getItemType() == mat && data.getData() == blockData) {
-                                return true;
-                        }
-                }
-                return false;
-        }
+       public static boolean contieneMaterialData(Block block, Match match) {
+               for (MaterialData data : match.getDatas()) {
+                       if (data.getItemType() == block.getType()) {
+                               return true;
+                       }
+               }
+               return false;
+       }
 
 	public static BannedPlayers cargarBannedPlayers(RandomEvents plugin) {
 
