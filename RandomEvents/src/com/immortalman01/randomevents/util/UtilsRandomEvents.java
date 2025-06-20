@@ -745,9 +745,8 @@ public class UtilsRandomEvents {
 		UtilsRandomEvents.sacaInventario(plugin, player, false);
 	}
 
-	public static void sacaInventario(RandomEvents plugin, Player player, Boolean join) {
-		if (plugin.getReventConfig().isInventoryManagement()
-				&& (plugin.getMatchActive() == null || !plugin.getMatchActive().getMatch().getUseOwnInventory())) {
+       public static void sacaInventario(RandomEvents plugin, Player player, Boolean join) {
+               if (plugin.getReventConfig().isInventoryManagement()) {
 
 			player.updateInventory();
 			File dataFolder = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//inventories");

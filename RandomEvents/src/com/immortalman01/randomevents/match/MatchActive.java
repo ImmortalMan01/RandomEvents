@@ -630,9 +630,8 @@ public class MatchActive {
 					&& (sacaSpectator || match.getSpectatorSpawns() == null || match.getSpectatorSpawns().isEmpty())) {
 				hazComandosDeSalir(player);
 				borraScoreboard(player);
-                                if (plugin.getReventConfig().isInventoryManagement() && !getMatch().getUseOwnInventory()
-                                                && !disconnect)
-                                        UtilsRandomEvents.sacaInventario(plugin, player);
+                               if (plugin.getReventConfig().isInventoryManagement() && !disconnect)
+                                       UtilsRandomEvents.sacaInventario(plugin, player);
 			}
 		}
 		if (plugin.getReventConfig().isShowBorders() && (getMatch().getMinigame().equals(MinigameType.SG)
