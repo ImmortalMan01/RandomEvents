@@ -1435,13 +1435,15 @@ public class MatchActive {
 			break;
 		}
 
-		for (Entry<Location, MaterialData> entrada : getMapHandler().getBlockDisappeared().entrySet()) {
-			plugin.getApi().convertBlock(entrada.getKey(), entrada.getValue());
-		}
+                for (Entry<Location, MaterialData> entrada : getMapHandler().getBlockDisappeared().entrySet()) {
+                        plugin.getApi().convertBlock(entrada.getKey(), entrada.getValue());
+                }
 
-		for (Entry<Location, Material> entrada : getMapHandler().getBlockDisappearedType().entrySet()) {
-			entrada.getKey().getBlock().setType(entrada.getValue());
-		}
+                for (Entry<Location, Material> entrada : getMapHandler().getBlockDisappearedType().entrySet()) {
+                        entrada.getKey().getBlock().setType(entrada.getValue());
+                }
+                getMapHandler().getBlockDisappeared().clear();
+                getMapHandler().getBlockDisappearedType().clear();
 
 		hazComandosDeFin();
 		for (Entity ent : getMobs()) {

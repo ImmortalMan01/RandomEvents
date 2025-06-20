@@ -750,22 +750,33 @@ public class Use implements Listener {
 		Player player = evt.getPlayer();
 		if (plugin.getMatchActive() != null
 				&& plugin.getMatchActive().getPlayerHandler().getPlayersSpectators().contains(player)) {
-			if (!plugin.getMatchActive().getCanBreak()) {
-				evt.setCancelled(true);
-			} else {
-				if (plugin.getMatchActive().getPlaying()) {
-					if (plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.ANVIL_SPLEEF)
-							|| plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLATOON)
-							|| plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.GLASS_WALK)
-							|| plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.HIDE_AND_SEEK)
-							|| plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.ESCAPE_FROM_BEAST)
-							|| plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.RED_GREEN_LIGHT)
-							|| plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.BOAT_RUN)
-							|| plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.HORSE_RUN)
-							|| plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.HOEHOEHOE)
-							|| plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.PAINTBALL)) {
-						evt.setCancelled(true);
-					} else {
+                        if (!plugin.getMatchActive().getCanBreak()) {
+                                evt.setCancelled(true);
+                        } else {
+                                if (plugin.getMatchActive().getPlaying()) {
+                                        if (plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.ANVIL_SPLEEF)
+                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLATOON)
+                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.GLASS_WALK)
+                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.HIDE_AND_SEEK)
+                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.ESCAPE_FROM_BEAST)
+                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.RED_GREEN_LIGHT)
+                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.BOAT_RUN)
+                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.HORSE_RUN)
+                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.HOEHOEHOE)
+                                                        || plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.PAINTBALL)) {
+                                                evt.setCancelled(true);
+                                        } else {
+                                                if (plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEEF)
+                                                                && !plugin.getMatchActive().getMapHandler().getBlockPlaced()
+                                                                                .containsKey(evt.getBlock().getLocation())) {
+                                                        if (plugin.getMatchActive().getMatch().getDatas() == null
+                                                                        || plugin.getMatchActive().getMatch().getDatas().isEmpty()
+                                                                        || !UtilsRandomEvents.contieneMaterialData(evt.getBlock(),
+                                                                                        plugin.getMatchActive().getMatch())) {
+                                                                evt.setCancelled(true);
+                                                                return;
+                                                        }
+                                                }
 
 						if (plugin.getMatchActive().getMapHandler().getBlockPlaced()
 								.containsKey(evt.getBlock().getLocation())) {
