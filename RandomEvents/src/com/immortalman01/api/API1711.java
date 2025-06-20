@@ -7,6 +7,7 @@ import org.bukkit.Location;
 import org.bukkit.WorldBorder;
 import org.bukkit.block.Block;
 import org.bukkit.Bukkit;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
@@ -80,9 +81,11 @@ public class API1711 {
     public void convertBlock(Location loc, Object data) {
         if (loc == null || data == null) return;
         try {
-            if (data instanceof MaterialData) {
+            Block b = loc.getBlock();
+            if (data instanceof BlockData) {
+                b.setBlockData(((BlockData) data).clone());
+            } else if (data instanceof MaterialData) {
                 MaterialData md = (MaterialData) data;
-                Block b = loc.getBlock();
                 b.setType(md.getItemType());
                 try {
                     b.setBlockData(Bukkit.createBlockData(md.getItemType()));

@@ -11,6 +11,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Fireball;
 import org.bukkit.material.MaterialData;
+import org.bukkit.block.data.BlockData;
 
 import com.immortalman01.randomevents.match.utils.Cuboid;
 
@@ -26,11 +27,15 @@ public class MatchMapDataHandler {
 
 	private Map<Location, Long> blockDisappear;
 
-	private Map<Location, MaterialData> blockDisappeared;
+        private Map<Location, MaterialData> blockDisappeared;
 
-	private Map<Location, Material> blockDisappearedType;
+        private Map<Location, Material> blockDisappearedType;
 
-	private Map<Location, MaterialData> blockPlaced;
+        private Map<Location, MaterialData> blockPlaced;
+
+        private Map<Location, BlockData> blockDisappearedData;
+
+        private Map<Location, BlockData> blockPlacedData;
 
 	private Set<Fireball> fireballs;
 
@@ -42,10 +47,12 @@ public class MatchMapDataHandler {
 
 	public MatchMapDataHandler() {
 		super();
-		this.blockDisappear = new HashMap<Location, Long>();
-		this.blockDisappeared = new HashMap<Location, MaterialData>();
-		this.blockDisappearedType = new HashMap<Location, Material>();
-		this.blockPlaced = new HashMap<Location, MaterialData>();
+                this.blockDisappear = new HashMap<Location, Long>();
+                this.blockDisappeared = new HashMap<Location, MaterialData>();
+                this.blockDisappearedType = new HashMap<Location, Material>();
+                this.blockPlaced = new HashMap<Location, MaterialData>();
+                this.blockDisappearedData = new HashMap<Location, BlockData>();
+                this.blockPlacedData = new HashMap<Location, BlockData>();
 		this.checkpoints = new HashMap<String, Location>();
 		this.chests = new ArrayList<Location>();
 		this.fireballs = new HashSet<Fireball>();
@@ -135,13 +142,29 @@ public class MatchMapDataHandler {
 		this.blockDisappearedType = blockDisappearedType;
 	}
 
-	public Map<Location, MaterialData> getBlockPlaced() {
-		return blockPlaced;
-	}
+        public Map<Location, MaterialData> getBlockPlaced() {
+                return blockPlaced;
+        }
 
-	public void setBlockPlaced(Map<Location, MaterialData> blockPlaced) {
-		this.blockPlaced = blockPlaced;
-	}
+        public void setBlockPlaced(Map<Location, MaterialData> blockPlaced) {
+                this.blockPlaced = blockPlaced;
+        }
+
+        public Map<Location, BlockData> getBlockDisappearedData() {
+                return blockDisappearedData;
+        }
+
+        public void setBlockDisappearedData(Map<Location, BlockData> blockDisappearedData) {
+                this.blockDisappearedData = blockDisappearedData;
+        }
+
+        public Map<Location, BlockData> getBlockPlacedData() {
+                return blockPlacedData;
+        }
+
+        public void setBlockPlacedData(Map<Location, BlockData> blockPlacedData) {
+                this.blockPlacedData = blockPlacedData;
+        }
 
 	public void setBlockPartyBlocks(List<Location> blocksLocation) {
 		this.blockPartyBlocks = new ArrayList<Location>(blocksLocation);

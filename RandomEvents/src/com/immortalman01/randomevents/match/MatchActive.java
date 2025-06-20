@@ -38,6 +38,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.material.MaterialData;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -1435,9 +1436,12 @@ public class MatchActive {
 			break;
 		}
 
-		for (Entry<Location, MaterialData> entrada : getMapHandler().getBlockDisappeared().entrySet()) {
-			plugin.getApi().convertBlock(entrada.getKey(), entrada.getValue());
-		}
+                for (Entry<Location, MaterialData> entrada : getMapHandler().getBlockDisappeared().entrySet()) {
+                        plugin.getApi().convertBlock(entrada.getKey(), entrada.getValue());
+                }
+                for (Entry<Location, BlockData> entrada : getMapHandler().getBlockDisappearedData().entrySet()) {
+                        plugin.getApi().convertBlock(entrada.getKey(), entrada.getValue());
+                }
 
 		for (Entry<Location, Material> entrada : getMapHandler().getBlockDisappearedType().entrySet()) {
 			entrada.getKey().getBlock().setType(entrada.getValue());
@@ -1473,9 +1477,15 @@ public class MatchActive {
 		this.getPlayerHandler().getPlayersSpectators().clear();
 		this.activated = Boolean.FALSE;
 
-		for (Location l : getMapHandler().getBlockPlaced().keySet()) {
-			l.getBlock().setType(XMaterial.AIR.parseMaterial());
-		}
+                for (Location l : getMapHandler().getBlockPlaced().keySet()) {
+                        l.getBlock().setType(XMaterial.AIR.parseMaterial());
+                }
+
+                getMapHandler().getBlockDisappeared().clear();
+                getMapHandler().getBlockDisappearedType().clear();
+                getMapHandler().getBlockDisappearedData().clear();
+                getMapHandler().getBlockPlaced().clear();
+                getMapHandler().getBlockPlacedData().clear();
 
 		setPlaying(Boolean.FALSE);
 		if (tournamentObj == null && reinicia)
