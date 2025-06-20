@@ -60,16 +60,22 @@ public class Chat implements Listener {
                         plugin.getCmdExecutor().onCommand(event.getPlayer(), null, "randomevent",
                                         campos.toArray(new String[campos.size()]));
                 } else {
-                        boolean matchRunning = plugin.getMatchActive() != null
-                                        && Boolean.TRUE.equals(plugin.getMatchActive().getActivated());
-                        boolean tournamentRunning = plugin.getTournamentActive() != null
-                                        && Boolean.TRUE.equals(plugin.getTournamentActive().getPlaying());
-                        boolean eventActive = matchRunning || tournamentRunning;
+                boolean matchRunning = plugin.getMatchActive() != null
+                                && Boolean.TRUE.equals(plugin.getMatchActive().getActivated());
+                boolean playerInMatch = matchRunning && (plugin.getMatchActive().getPlayerHandler().getPlayersObj().contains(p)
+                                || plugin.getMatchActive().getPlayerHandler().getPlayersSpectators().contains(p));
 
-                        if (eventActive && !p.hasPermission("randomevent.bypass")) {
-                                event.setCancelled(true);
-                                p.sendMessage(plugin.getLanguage().getCmdNotAllowed());
-                        }
+                boolean tournamentRunning = plugin.getTournamentActive() != null
+                                && Boolean.TRUE.equals(plugin.getTournamentActive().getPlaying());
+                boolean playerInTournament = tournamentRunning && (plugin.getTournamentActive().getPlayersObj().contains(p)
+                                || plugin.getTournamentActive().getPlayersSpectators().contains(p));
+
+                boolean playerInEvent = playerInMatch || playerInTournament;
+
+                if (playerInEvent && !p.hasPermission("randomevent.bypass")) {
+                        event.setCancelled(true);
+                        p.sendMessage(plugin.getLanguage().getCmdNotAllowed());
+                }
                 }
         }
 
