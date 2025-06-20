@@ -1243,7 +1243,11 @@ public class MatchActive {
 		setCanBreak(Boolean.FALSE);
 		if (tournamentObj == null) {
 
-			for (Player p : getPlayerHandler().getPlayersSpectators()) {
+                        List<Player> specs = new ArrayList<Player>(getPlayerHandler().getPlayersSpectators());
+                        for (Player p : specs) {
+                                if (ganadores != null && ganadores.contains(p)) {
+                                        continue;
+                                }
 				try {
 					List<Entity> entities = p.getNearbyEntities(
 							plugin.getReventConfig().getDistanceClearEntities() * 1.0,
