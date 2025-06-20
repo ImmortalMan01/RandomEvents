@@ -60,7 +60,12 @@ public class Chat implements Listener {
                         plugin.getCmdExecutor().onCommand(event.getPlayer(), null, "randomevent",
                                         campos.toArray(new String[campos.size()]));
                 } else {
-                        boolean eventActive = plugin.getMatchActive() != null || plugin.getTournamentActive() != null;
+                        boolean matchRunning = plugin.getMatchActive() != null
+                                        && Boolean.TRUE.equals(plugin.getMatchActive().getActivated());
+                        boolean tournamentRunning = plugin.getTournamentActive() != null
+                                        && Boolean.TRUE.equals(plugin.getTournamentActive().getPlaying());
+                        boolean eventActive = matchRunning || tournamentRunning;
+
                         if (eventActive && !p.hasPermission("randomevent.bypass")) {
                                 event.setCancelled(true);
                                 p.sendMessage(plugin.getLanguage().getCmdNotAllowed());
