@@ -796,13 +796,14 @@ public class Use implements Listener {
 							} else {
 								evt.getBlock().breakNaturally();
 							}
-						} else if (plugin.getMatchActive().getMatch().getAllMaterialAllowed()
-								|| (plugin.getMatchActive().getMatch().getDatas() != null
-										&& !plugin.getMatchActive().getMatch().getDatas().isEmpty()
-										&& evt.getBlock().getType() != null
-										&& evt.getBlock().getState().getData() != null
-										&& UtilsRandomEvents.contieneMaterialData(evt.getBlock(),
-												plugin.getMatchActive().getMatch()))) {
+                                                } else if (!plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEEF)
+                                                                && (plugin.getMatchActive().getMatch().getAllMaterialAllowed()
+                                                                                || (plugin.getMatchActive().getMatch().getDatas() != null
+                                                                                                && !plugin.getMatchActive().getMatch().getDatas().isEmpty()
+                                                                                                && evt.getBlock().getType() != null
+                                                                                                && evt.getBlock().getState().getData() != null
+                                                                                                && UtilsRandomEvents.contieneMaterialData(evt.getBlock(),
+                                                                                                                plugin.getMatchActive().getMatch())))) {
 							evt.setCancelled(true);
 							try {
 								plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(
