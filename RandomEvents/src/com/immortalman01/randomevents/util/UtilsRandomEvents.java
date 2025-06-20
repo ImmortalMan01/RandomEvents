@@ -17,6 +17,7 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.nio.charset.Charset;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -701,28 +702,39 @@ public class UtilsRandomEvents {
 						dataFolder.mkdir();
 					}
 
-					if (!bossFile.exists()) {
-						bossFile.createNewFile();
+                                       File dataFolderOld = new File(String.valueOf(plugin.getDataFolder().getPath()) + "//inventoriesold");
+                                       if (!dataFolderOld.exists()) {
+                                               dataFolderOld.mkdir();
+                                       }
 
-						OutputStream os = new FileOutputStream(bossFile, true);
-						PrintWriter pw = null;
-						pw = new PrintWriter(
-								new OutputStreamWriter(os, Charset.forName(plugin.getReventConfig().getUseEncoding())));
+                                       if (bossFile.exists()) {
+                                               File bossFileOld = new File(dataFolderOld, player.getName() + ".json");
+                                               try {
+                                                       java.nio.file.Files.move(bossFile.toPath(), bossFileOld.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                                               } catch (IOException moveEx) {
+                                                       plugin.getLoggerP().warning("[RandomEvents] Could not backup existing inventory for " + player.getName());
+                                                       if (!bossFile.delete()) {
+                                                               plugin.getLoggerP().warning("[RandomEvents] Could not delete stale inventory file for " + player.getName());
+                                                       }
+                                               }
+                                       }
 
-						pw.println(json);
+                                       bossFile.createNewFile();
 
-						pw.flush();
+                                       OutputStream os = new FileOutputStream(bossFile, true);
+                                       PrintWriter pw = null;
+                                       pw = new PrintWriter(
+                                                       new OutputStreamWriter(os, Charset.forName(plugin.getReventConfig().getUseEncoding())));
 
-						pw.close();
-					} else {
-						plugin.getLoggerP().info(
-								"[RandomEvents] Error :: The player " + player.getName() + " already has an inventory");
-						plugin.getLoggerP().info(json);
-					}
-				} else {
-					exitoso = Boolean.FALSE;
+                                       pw.println(json);
 
-					plugin.getLoggerP().info("JSON was null.");
+                                       pw.flush();
+
+                                       pw.close();
+                               } else {
+                                       exitoso = Boolean.FALSE;
+
+                                       plugin.getLoggerP().info("JSON was null.");
 				}
 			} catch (IOException e) {
 				plugin.getLoggerP().info(e.getMessage());
