@@ -156,21 +156,31 @@ public class UtilidadesJson {
 		return match;
 	}
 
-	public static String fromInventoryToJSON(RandomEvents plugin, InventoryPers inventory) {
-		String resultado = null;
+       public static String fromInventoryToJSON(RandomEvents plugin, InventoryPers inventory) {
+               String resultado = null;
 
-                try {
-                        resultado = GSON.toJson(inventory);
+               try {
+                       resultado = GSON.toJson(inventory);
 
-			// JsonSerializerDeserializer<BossMatch> jsonSerializer = new
-			// JsonSerializerDeserializer<BossMatch>();
-			//
-			// resultado = jsonSerializer.serialize(match);
-		} catch (Exception e) {
-			plugin.getLoggerP().info(e.getMessage());
-			plugin.getLoggerP().info("Error :: Error at creating inventory");
-		}
-		return resultado;
+                       // JsonSerializerDeserializer<BossMatch> jsonSerializer = new
+                       // JsonSerializerDeserializer<BossMatch>();
+                       //
+                       // resultado = jsonSerializer.serialize(match);
+               } catch (Exception e) {
+                       plugin.getLoggerP().info(e.getMessage());
+                       plugin.getLoggerP().info("Error :: Error at creating inventory");
+               }
+
+               if (resultado == null) {
+                       plugin.getLoggerP().warning("Falling back to simplified inventory serialization");
+                       try {
+                               resultado = GsonFactory.getNewGson(false).toJson(inventory);
+                       } catch (Exception ex) {
+                               plugin.getLoggerP().info(ex.getMessage());
+                       }
+               }
+
+               return resultado;
 
 	}
 
