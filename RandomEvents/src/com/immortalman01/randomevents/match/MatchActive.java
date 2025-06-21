@@ -4591,8 +4591,10 @@ public class MatchActive {
 
                 if (getMatch().getMinigame().equals(MinigameType.SPLEEF) && getMatch().getSnowballSpleef()) {
                         for (Player pl : getPlayerHandler().getPlayersObj()) {
-                                String msg = "Ammo: " + snowballAmmo.getOrDefault(pl, 0) + "/" + getMatch().getAmmoPerMagazine()
-                                                + " | Magazines: " + snowballMagazinesLeft.getOrDefault(pl, 0);
+                                String msg = plugin.getLanguage().getActionbarAmmo()
+                                                .replace("%ammo%", "" + snowballAmmo.getOrDefault(pl, 0))
+                                                .replace("%max%", "" + getMatch().getAmmoPerMagazine())
+                                                .replace("%magazines%", "" + snowballMagazinesLeft.getOrDefault(pl, 0));
                                 UtilsRandomEvents.sendActionBar(plugin, pl, msg);
                         }
                 }
