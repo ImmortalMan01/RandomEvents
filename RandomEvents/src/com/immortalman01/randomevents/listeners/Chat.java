@@ -1530,19 +1530,15 @@ public class Chat implements Listener {
 					case MATERIAL_SPLEEF:
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
 
-							if (player.getInventory().getItemInMainHand() != null
-									&& player.getInventory().getItemInMainHand().getType() != (XMaterial.AIR.parseMaterial())) {
-								try {
-									MaterialData mat = new MaterialData(player.getInventory().getItemInMainHand().getType(),
-											player.getInventory().getItemInMainHand().getData().getData());
-									match.getDatas().add(mat);
-								} catch (Throwable eb) {
-									match.getDatas().add(player.getInventory().getItemInMainHand().getData());
-								}
+                                                        if (player.getInventory().getItemInMainHand() != null
+                                                                        && player.getInventory().getItemInMainHand().getType() != (XMaterial.AIR.parseMaterial())) {
+                                                                // Use only the material type to avoid legacy data lookups
+                                                                MaterialData mat = new MaterialData(player.getInventory().getItemInMainHand().getType());
+                                                                match.getDatas().add(mat);
                                                                 match.setMaterial(player.getInventory().getItemInMainHand().getType().toString());
-								plugin.getPlayersCreation().remove(player.getName());
-								plugin.getPlayersCreation().put(player.getName(),
-										Creacion.ANOTHER_MATERIAL_SPLEEF.getPosition());
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                                plugin.getPlayersCreation().put(player.getName(),
+                                                                               Creacion.ANOTHER_MATERIAL_SPLEEF.getPosition());
 								actua = Boolean.FALSE;
 
 								// actualiza =
@@ -1565,15 +1561,11 @@ public class Chat implements Listener {
 
 							if (player.getInventory().getItemInMainHand() != null
 									&& player.getInventory().getItemInMainHand().getType() != (XMaterial.AIR.parseMaterial())) {
-								try {
-									MaterialData mat = new MaterialData(player.getInventory().getItemInMainHand().getType(),
-											player.getInventory().getItemInMainHand().getData().getData());
-									match.getDatas().add(mat);
-								} catch (Throwable eb) {
-									match.getDatas().add(player.getInventory().getItemInMainHand().getData());
-								}
-								plugin.getPlayersCreation().remove(player.getName());
-								actua = Boolean.FALSE;
+                                                                // Only store the material type to avoid legacy data usage
+                                                                MaterialData mat = new MaterialData(player.getInventory().getItemInMainHand().getType());
+                                                                match.getDatas().add(mat);
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                                actua = Boolean.FALSE;
 								// actualiza =
 								// UtilsRandomEvents.pasaACreation(plugin,
 								// player,
