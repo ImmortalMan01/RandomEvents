@@ -393,7 +393,15 @@ public class GUI implements Listener {
 
 						Integer equipoActual = plugin.getMatchActive().getEquipo(p);
 
-						Integer pos = event.getInventory().first(item);
+                                                // Using Inventory#first causes the
+                                                // index of the first matching item to
+                                                // be returned which means every click
+                                                // assigns the player to the first team
+                                                // when multiple identical items are
+                                                // present. Use the actual clicked slot
+                                                // instead so players join the team they
+                                                // selected.
+                                                Integer pos = event.getRawSlot();
 
 						if (pos < plugin.getMatchActive().getMatch().getNumberOfTeams()) {
 							if (equipoActual != null) {
