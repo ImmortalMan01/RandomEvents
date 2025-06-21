@@ -769,9 +769,15 @@ public class Use implements Listener {
 							evt.setCancelled(false);
 							plugin.getMatchActive().getMapHandler().getBlockPlaced()
 									.remove(evt.getBlock().getLocation());
-                                                } else if (plugin.getMatchActive().getMatch().getMaterial() != null
+                                                } else if ((plugin.getMatchActive().getMatch().getMaterial() != null
 
-                                                                && evt.getBlock().getType() != null && evt.getBlock().getType().equals(org.bukkit.Material.matchMaterial(plugin.getMatchActive().getMatch().getMaterial()))) {
+                                                                && evt.getBlock().getType() != null && evt.getBlock().getType().equals(org.bukkit.Material.matchMaterial(plugin.getMatchActive().getMatch().getMaterial())))
+
+                                                                || (plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEEF)
+                                                                                && plugin.getMatchActive().getMatch().getDatas() != null
+                                                                                && !plugin.getMatchActive().getMatch().getDatas().isEmpty()
+                                                                                && evt.getBlock().getType() != null
+                                                                                && UtilsRandomEvents.contieneMaterialData(evt.getBlock(), plugin.getMatchActive().getMatch()))) {
 							evt.setCancelled(true);
                                                        plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(
                                                                        evt.getBlock().getLocation(),
