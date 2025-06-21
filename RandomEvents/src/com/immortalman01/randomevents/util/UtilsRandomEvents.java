@@ -2959,9 +2959,14 @@ public class UtilsRandomEvents {
 			lines = prepareLinesTeam(lines, matchActive, plugin, player);
 			lines.add("");
 
-			lines = prepareLinesTime(lines, plugin, matchActive);
-			lines.add("");
-			List<String> linesPoints = new ArrayList<String>();
+                        lines = prepareLinesTime(lines, plugin, matchActive);
+                        int kills = 0;
+                        if (matchActive.getPuntuacion().containsKey(player.getName())) {
+                                kills = matchActive.getPuntuacion().get(player.getName());
+                        }
+                        lines.add(plugin.getLanguage().getScoreboardYourKills().replaceAll("%kills%", "" + kills));
+                        lines.add("");
+                        List<String> linesPoints = new ArrayList<String>();
 			Map<Petos, Integer> mapaEquipo = new HashMap<Petos, Integer>();
 			Map<String, Integer> mapaOrdenadoHoe = sortByValue(matchActive.getPuntuacion(), true);
 			for (Entry<String, Integer> entrada : mapaOrdenadoHoe.entrySet()) {
