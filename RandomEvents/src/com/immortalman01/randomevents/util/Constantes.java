@@ -421,7 +421,9 @@ public class Constantes {
 
 		SCOREBOARD_TEAM_FORMAT("scoreboardTeam", "scoreboard.teamformat", "&6Team: %team_color%%name%"),
 
-		SCOREBOARD_TEAM_POINTS("scoreboardTeamPoints", "scoreboard.teampoints", "%team_color%%team_name%: &e%points%"),
+                SCOREBOARD_TEAM_POINTS("scoreboardTeamPoints", "scoreboard.teampoints", "%team_color%%team_name%: &e%points%"),
+
+                SCOREBOARD_YOUR_KILLS("scoreboardYourKills", "scoreboard.yourkills", "&6Your Kills: &e%kills%"),
 
 		SCOREBOARD_COMPANION_FORMAT("scoreboardTeammate", "scoreboard.teammate", "&6Mate: &e%name%"),
 
