@@ -2954,67 +2954,50 @@ public class UtilsRandomEvents {
 		case HOEHOEHOE:
 		case SPLATOON:
 		case TOP_KILLER_TEAMS:
-		case PAINTBALL_TOP_KILL:
+               case PAINTBALL_TOP_KILL:
 
-			lines = prepareLinesTeam(lines, matchActive, plugin, player);
-			lines.add("");
+                       lines.add(plugin.getLanguage().getTranslation("scoreboard.status"));
 
-                        lines = prepareLinesTime(lines, plugin, matchActive);
-                        int kills = 0;
-                        if (matchActive.getPuntuacion().containsKey(player.getName())) {
-                                kills = matchActive.getPuntuacion().get(player.getName());
-                        }
-                        lines.add(plugin.getLanguage().getScoreboardYourKills().replaceAll("%kills%", "" + kills));
-                        lines.add("");
-                        List<String> linesPoints = new ArrayList<String>();
-			Map<Petos, Integer> mapaEquipo = new HashMap<Petos, Integer>();
-			Map<String, Integer> mapaOrdenadoHoe = sortByValue(matchActive.getPuntuacion(), true);
-			for (Entry<String, Integer> entrada : mapaOrdenadoHoe.entrySet()) {
-				String line = plugin.getLanguage().getScoreboardPointsTeam().replaceAll("%name%", entrada.getKey())
-						.replaceAll("%points%", "" + entrada.getValue());
+                       long secondsTopKill = (matchActive.getEndDate() - new Date().getTime()) / 1000;
+                       lines.add(plugin.getLanguage().getTranslation("scoreboard.endsin")
+                                       .replace("%time%", calculateTimeTwoPoints(secondsTopKill)));
 
-				Player playerAux = getPlayer(matchActive.getPlayerHandler().getPlayersTotalObj(), entrada.getKey());
-				if (playerAux != null) {
-					Integer equipo = matchActive.getEquipoCopy(playerAux);
-					if (equipo != null) {
-						Petos peto = Petos.getPeto(equipo);
-						if (peto != null) {
-							line = line.replaceAll("%team_color%", "" + peto.getChatColor());
+                       // Lives placeholders (not implemented in plugin, default 0)
+                       lines.add(plugin.getLanguage().getTranslation("scoreboard.bluelives").replace("%lives%", "0"));
+                       lines.add(plugin.getLanguage().getTranslation("scoreboard.redlives").replace("%lives%", "0"));
 
-							if (mapaEquipo.containsKey(peto)) {
-								mapaEquipo.put(peto, mapaEquipo.get(peto) + entrada.getValue());
-							} else {
-								mapaEquipo.put(peto, entrada.getValue());
-							}
+                       lines.add("");
 
-						} else {
-							line = line.replaceAll("%team_color%", "");
+                       int killsTop = 0;
+                       if (matchActive.getPuntuacion().containsKey(player.getName())) {
+                               killsTop = matchActive.getPuntuacion().get(player.getName());
+                       }
+                       lines.add(plugin.getLanguage().getScoreboardYourKills().replaceAll("%kills%", "" + killsTop));
 
-						}
+                       lines.add("");
 
-					} else {
-						line = line.replaceAll("%team_color%", "");
+                       // Blue team players
+                       lines.add(plugin.getLanguage().getTranslation("scoreboard.teamblue"));
+                       Set<Player> blueTeam = matchActive.getPlayerHandler().getEquipos().getOrDefault(0, new HashSet<Player>());
+                       for (Player pl : blueTeam) {
+                               int pk = matchActive.getPuntuacion().getOrDefault(pl.getName(), 0);
+                               lines.add(plugin.getLanguage().getTranslation("scoreboard.teamkill")
+                                               .replace("%player%", pl.getName())
+                                               .replace("%kills%", "" + pk));
+                       }
 
-					}
-				} else {
-					line = line.replaceAll("%team_color%", "");
-				}
-				linesPoints.add(line);
-			}
+                       lines.add("");
 
-			mapaEquipo = sortByValue(mapaEquipo, true);
+                       lines.add(plugin.getLanguage().getTranslation("scoreboard.teamred"));
+                       Set<Player> redTeam = matchActive.getPlayerHandler().getEquipos().getOrDefault(1, new HashSet<Player>());
+                       for (Player pl : redTeam) {
+                               int pk = matchActive.getPuntuacion().getOrDefault(pl.getName(), 0);
+                               lines.add(plugin.getLanguage().getTranslation("scoreboard.teamkill")
+                                               .replace("%player%", pl.getName())
+                                               .replace("%kills%", "" + pk));
+                       }
 
-			for (Entry<Petos, Integer> entrada : mapaEquipo.entrySet()) {
-				String line = plugin.getLanguage().getScoreboardTeamPoints()
-						.replaceAll("%team_name%", entrada.getKey().getName())
-						.replaceAll("%team_color%", "" + entrada.getKey().getChatColor())
-						.replaceAll("%points%", "" + entrada.getValue());
-				lines.add(line);
-			}
-			lines.add("");
-			lines.addAll(linesPoints);
-
-			break;
+                       break;
 		case KOTH:
 
 			lines = prepareLinesHolder(lines, matchActive, plugin, player);
