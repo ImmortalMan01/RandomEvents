@@ -354,9 +354,13 @@ public class GUI implements Listener {
 						ItemStack item = event.getCurrentItem();
 						if (item.hasItemMeta()) {
 
-							List<Kit> kits = UtilsRandomEvents.kitsAvailable(p,
-									plugin.getMatchActive().getMatch().getKits(), plugin);
-							Integer pos = event.getInventory().first(item);
+                                                        List<Kit> kits = UtilsRandomEvents.kitsAvailable(p,
+                                                                        plugin.getMatchActive().getMatch().getKits(), plugin);
+                                                        // Using Inventory#first again caused the wrong kit to be
+                                                        // chosen when multiple identical icons were present. Use
+                                                        // the slot the player actually clicked so the correct kit
+                                                        // is selected regardless of menu layout.
+                                                        Integer pos = event.getSlot();
 
 							if (pos < kits.size()) {
 								Kit kit = kits.get(pos);
