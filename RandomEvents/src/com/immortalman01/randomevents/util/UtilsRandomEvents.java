@@ -1711,9 +1711,9 @@ public class UtilsRandomEvents {
 			}
 		}
 		for (Location l : blocksToDisappear) {
-			matchActive.getMapHandler().getBlockDisappear().remove(l);
-			matchActive.getMapHandler().getBlockDisappeared().put(l, l.getBlock().getState().getData());
-			l.getBlock().setType(XMaterial.AIR.parseMaterial());
+                        matchActive.getMapHandler().getBlockDisappear().remove(l);
+                        matchActive.getMapHandler().getBlockDisappeared().put(l, l.getBlock().getBlockData().clone());
+                        l.getBlock().setType(XMaterial.AIR.parseMaterial());
 
 		}
 
@@ -1846,11 +1846,10 @@ public class UtilsRandomEvents {
 		return tamanyo;
 	}
 
-	public static boolean contieneMaterialData(Block block, Match match) {
+        public static boolean contieneMaterialData(Block block, Match match) {
                 for (MaterialData data : match.getDatas()) {
                         Material mat = block.getType();
-                        byte blockData = block.getState().getData().getData();
-                        if (data.getItemType() == mat && data.getData() == blockData) {
+                        if (data.getItemType() == mat) {
                                 return true;
                         }
                 }

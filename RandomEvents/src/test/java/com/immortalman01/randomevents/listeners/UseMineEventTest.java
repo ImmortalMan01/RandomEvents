@@ -11,6 +11,7 @@ import org.bukkit.block.BlockState;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.material.MaterialData;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,7 +36,7 @@ public class UseMineEventTest {
     private Player player;
     private Block block;
     private BlockBreakEvent event;
-    private Map<org.bukkit.Location, MaterialData> disappeared;
+    private Map<org.bukkit.Location, BlockData> disappeared;
 
     @BeforeEach
     public void setup() {
@@ -57,6 +58,7 @@ public class UseMineEventTest {
         when(block.getType()).thenReturn(Material.DIRT);
         when(block.getData()).thenReturn((byte)0);
         when(block.getLocation()).thenReturn(Mockito.mock(Location.class));
+        when(block.getBlockData()).thenReturn(Mockito.mock(BlockData.class));
         when(block.getState()).thenReturn(state);
         when(state.getData()).thenReturn(new MaterialData(Material.DIRT));
 

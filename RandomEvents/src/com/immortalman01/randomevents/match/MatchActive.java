@@ -37,7 +37,7 @@ import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.material.MaterialData;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -1435,7 +1435,7 @@ public class MatchActive {
 			break;
 		}
 
-                for (Entry<Location, MaterialData> entrada : getMapHandler().getBlockDisappeared().entrySet()) {
+                for (Entry<Location, BlockData> entrada : getMapHandler().getBlockDisappeared().entrySet()) {
                         plugin.getApi().convertBlock(entrada.getKey(), entrada.getValue());
                 }
 
@@ -1443,7 +1443,7 @@ public class MatchActive {
                         entrada.getKey().getBlock().setType(entrada.getValue());
                 }
 
-                for (Entry<Location, MaterialData> entrada : getMapHandler().getBlockPlaced().entrySet()) {
+                for (Entry<Location, BlockData> entrada : getMapHandler().getBlockPlaced().entrySet()) {
                         plugin.getApi().convertBlock(entrada.getKey(), entrada.getValue());
                 }
 
@@ -2582,13 +2582,13 @@ public class MatchActive {
 		for (List<Location> loc : glasses.values()) {
 			Location correcto = loc.get(plugin.getRandom().nextInt(loc.size()));
 			for (Location l : loc) {
-				try {
-					getMapHandler().getBlockDisappeared().put(l.getBlock().getLocation(),
-							new MaterialData(l.getBlock().getType(), l.getBlock().getData()));
-				} catch (Throwable eb) {
-					getMapHandler().getBlockDisappeared().put(l.getBlock().getLocation(),
-							l.getBlock().getState().getData().clone());
-				}
+                                try {
+                                        getMapHandler().getBlockDisappeared().put(l.getBlock().getLocation(),
+                                                        l.getBlock().getBlockData().clone());
+                                } catch (Throwable eb) {
+                                        getMapHandler().getBlockDisappeared().put(l.getBlock().getLocation(),
+                                                        l.getBlock().getBlockData());
+                                }
 				l.getBlock().setType(XMaterial.GLASS.parseMaterial());
 				if (plugin.getReventConfig().isBiggerPlatform()) {
 					List<Location> listaPlataformas = new ArrayList<>();
@@ -2601,18 +2601,18 @@ public class MatchActive {
 					Block south = l.getBlock().getRelative(BlockFace.SOUTH, 1);
 					Block southWest = l.getBlock().getRelative(BlockFace.SOUTH_WEST, 1);
 
-					getMapHandler().getBlockPlaced().put(east.getLocation(), east.getState().getData().clone());
-					getMapHandler().getBlockPlaced().put(northEast.getLocation(),
-							northEast.getState().getData().clone());
-					getMapHandler().getBlockPlaced().put(southEast.getLocation(),
-							southEast.getState().getData().clone());
-					getMapHandler().getBlockPlaced().put(north.getLocation(), north.getState().getData().clone());
-					getMapHandler().getBlockPlaced().put(west.getLocation(), west.getState().getData().clone());
-					getMapHandler().getBlockPlaced().put(northWest.getLocation(),
-							northWest.getState().getData().clone());
-					getMapHandler().getBlockPlaced().put(south.getLocation(), south.getState().getData().clone());
-					getMapHandler().getBlockPlaced().put(southWest.getLocation(),
-							southWest.getState().getData().clone());
+                                        getMapHandler().getBlockPlaced().put(east.getLocation(), east.getBlockData().clone());
+                                        getMapHandler().getBlockPlaced().put(northEast.getLocation(),
+                                                        northEast.getBlockData().clone());
+                                        getMapHandler().getBlockPlaced().put(southEast.getLocation(),
+                                                        southEast.getBlockData().clone());
+                                        getMapHandler().getBlockPlaced().put(north.getLocation(), north.getBlockData().clone());
+                                        getMapHandler().getBlockPlaced().put(west.getLocation(), west.getBlockData().clone());
+                                        getMapHandler().getBlockPlaced().put(northWest.getLocation(),
+                                                        northWest.getBlockData().clone());
+                                        getMapHandler().getBlockPlaced().put(south.getLocation(), south.getBlockData().clone());
+                                        getMapHandler().getBlockPlaced().put(southWest.getLocation(),
+                                                        southWest.getBlockData().clone());
 
 					east.setType(XMaterial.GLASS.parseMaterial());
 					northEast.setType(XMaterial.GLASS.parseMaterial());
@@ -2663,13 +2663,13 @@ public class MatchActive {
 		getMapHandler().setBlockPartyBlocks(
 				UtilsRandomEvents.getBlocksLocation(getMatch().getLocation1(), getMatch().getLocation2(), plugin));
 		for (Location l : getMapHandler().getBlockPartyBlocks()) {
-			try {
-				getMapHandler().getBlockDisappeared().put(l.getBlock().getLocation(),
-						new MaterialData(l.getBlock().getType(), l.getBlock().getData()));
-			} catch (Throwable eb) {
-				getMapHandler().getBlockDisappeared().put(l.getBlock().getLocation(),
-						l.getBlock().getState().getData().clone());
-			}
+                        try {
+                                getMapHandler().getBlockDisappeared().put(l.getBlock().getLocation(),
+                                                l.getBlock().getBlockData().clone());
+                        } catch (Throwable eb) {
+                                getMapHandler().getBlockDisappeared().put(l.getBlock().getLocation(),
+                                                l.getBlock().getBlockData());
+                        }
 		}
 		task = new BukkitRunnable() {
 			public void run() {
