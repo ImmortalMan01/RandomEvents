@@ -12,7 +12,7 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.material.MaterialData;
+import org.bukkit.block.data.BlockData;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
@@ -61,7 +61,7 @@ public class MatchFinalizaBlocksTest {
         Location l1 = Mockito.mock(Location.class);
         Block b1 = Mockito.mock(Block.class);
         when(l1.getBlock()).thenReturn(b1);
-        active.getMapHandler().getBlockDisappeared().put(l1, new MaterialData(Material.DIRT));
+        active.getMapHandler().getBlockDisappeared().put(l1, Mockito.mock(BlockData.class));
 
         Location l2 = Mockito.mock(Location.class);
         Block b2 = Mockito.mock(Block.class);
@@ -71,7 +71,7 @@ public class MatchFinalizaBlocksTest {
         Location l3 = Mockito.mock(Location.class);
         Block b3 = Mockito.mock(Block.class);
         when(l3.getBlock()).thenReturn(b3);
-        active.getMapHandler().getBlockPlaced().put(l3, new MaterialData(Material.SAND));
+        active.getMapHandler().getBlockPlaced().put(l3, Mockito.mock(BlockData.class));
 
         try (MockedStatic<Bukkit> mocked = Mockito.mockStatic(Bukkit.class)) {
             mocked.when(Bukkit::getOnlinePlayers).thenReturn(Collections.emptyList());

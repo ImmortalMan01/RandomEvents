@@ -1711,9 +1711,9 @@ public class UtilsRandomEvents {
 			}
 		}
 		for (Location l : blocksToDisappear) {
-			matchActive.getMapHandler().getBlockDisappear().remove(l);
-			matchActive.getMapHandler().getBlockDisappeared().put(l, l.getBlock().getState().getData());
-			l.getBlock().setType(XMaterial.AIR.parseMaterial());
+                        matchActive.getMapHandler().getBlockDisappear().remove(l);
+                        matchActive.getMapHandler().getBlockDisappeared().put(l, l.getBlock().getBlockData().clone());
+                        l.getBlock().setType(XMaterial.AIR.parseMaterial());
 
 		}
 
@@ -1846,11 +1846,10 @@ public class UtilsRandomEvents {
 		return tamanyo;
 	}
 
-	public static boolean contieneMaterialData(Block block, Match match) {
+        public static boolean contieneMaterialData(Block block, Match match) {
                 for (MaterialData data : match.getDatas()) {
                         Material mat = block.getType();
-                        byte blockData = block.getState().getData().getData();
-                        if (data.getItemType() == mat && data.getData() == blockData) {
+                        if (data.getItemType() == mat) {
                                 return true;
                         }
                 }
@@ -3856,16 +3855,16 @@ Integer probabilidad = parseProbability(trozosComandos[1]);
 		Map<XMaterial, List<Location>> mapa = new HashMap<XMaterial, List<Location>>();
 		for (Location l : blockPartyBlocks) {
 			XMaterial xmat = blocksBlockParty.get(r.nextInt(blocksBlockParty.size()));
-			try {
-                                l.getBlock().setType(xmat.parseMaterial());
-			} catch (Exception | NoSuchMethodError e) {
-				try {
-                                        l.getBlock().setBlockData(Bukkit.createBlockData(xmat.parseMaterial()));
-				} catch (Exception | NoSuchMethodError e2) {
-					l.getBlock().setType(xmat.parseMaterial());
+                        try {
+                                l.getBlock().setType(xmat.parseMaterial(), false);
+                        } catch (Exception | NoSuchMethodError e) {
+                                try {
+                                        l.getBlock().setBlockData(Bukkit.createBlockData(xmat.parseMaterial()), false);
+                                } catch (Exception | NoSuchMethodError e2) {
+                                        l.getBlock().setType(xmat.parseMaterial(), false);
 
-				}
-			}
+                                }
+                        }
 			List<Location> locations = new ArrayList<Location>();
 			if (mapa.containsKey(xmat)) {
 				locations = mapa.get(xmat);
@@ -3881,9 +3880,13 @@ Integer probabilidad = parseProbability(trozosComandos[1]);
 	public static void replaceAirBlocks(List<Location> blockPartyBlocks) {
 		for (Location l : blockPartyBlocks) {
                         try {
-                                l.getBlock().setType(Material.AIR);
+                                l.getBlock().setType(Material.AIR, false);
                         } catch (Exception e) {
-                                l.getBlock().setBlockData(Bukkit.createBlockData(Material.AIR));
+                                try {
+                                        l.getBlock().setBlockData(Bukkit.createBlockData(Material.AIR), false);
+                                } catch (Exception ignore) {
+                                        l.getBlock().setType(Material.AIR, false);
+                                }
                         }
 
 		}

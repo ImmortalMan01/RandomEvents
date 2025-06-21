@@ -12,6 +12,7 @@ import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.material.MaterialData;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.util.Vector;
 
 import com.immortalman01.util.FastBoard;
@@ -80,13 +81,28 @@ public class API1711 {
     public void convertBlock(Location loc, Object data) {
         if (loc == null || data == null) return;
         try {
-            if (data instanceof MaterialData) {
-                MaterialData md = (MaterialData) data;
-                Block b = loc.getBlock();
-                b.setType(md.getItemType());
+            Block b = loc.getBlock();
+            if (data instanceof BlockData) {
+                BlockData bd = (BlockData) data;
                 try {
-                    b.setBlockData(Bukkit.createBlockData(md.getItemType()));
-                } catch (Throwable ignore) {}
+                    b.setBlockData(bd, false);
+                } catch (Throwable t) {
+                    b.setBlockData(bd);
+                }
+            } else if (data instanceof MaterialData) {
+                MaterialData md = (MaterialData) data;
+                try {
+                    b.setType(md.getItemType(), false);
+                } catch (Throwable t) {
+                    b.setType(md.getItemType());
+                }
+                try {
+                    b.setBlockData(Bukkit.createBlockData(md.getItemType()), false);
+                } catch (Throwable ignore) {
+                    try {
+                        b.setBlockData(Bukkit.createBlockData(md.getItemType()));
+                    } catch (Throwable ignore2) {}
+                }
             }
         } catch (Throwable ignore) {}
     }
