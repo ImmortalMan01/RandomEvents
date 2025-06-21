@@ -361,8 +361,9 @@ public class UtilsRandomEvents {
 	}
 
 	public static void enableMatch(RandomEvents plugin, Match match, Player player) {
-		if (match.getEnabled() != null && !match.getEnabled()) {
-			plugin.getMatches().remove(match);
+                if (match.getEnabled() != null && !match.getEnabled()) {
+                        int idx = plugin.getMatches().indexOf(match);
+                        plugin.getMatches().remove(match);
 			match.setEnabled(Boolean.TRUE);
 			try {
 				String json = UtilidadesJson.fromMatchToJSON(plugin, match);
@@ -392,8 +393,12 @@ public class UtilsRandomEvents {
 					pw.flush();
 
 					pw.close();
-					plugin.getMatches().add(match);
-					plugin.getMatchesAvailable().add(match);
+                                        if (idx >= 0 && idx <= plugin.getMatches().size()) {
+                                                plugin.getMatches().add(idx, match);
+                                        } else {
+                                                plugin.getMatches().add(match);
+                                        }
+                                        plugin.getMatchesAvailable().add(match);
 					if (player != null) {
 						player.sendMessage(
 								plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getEventEnabled());
@@ -415,8 +420,9 @@ public class UtilsRandomEvents {
 
 	public static void disableMatch(RandomEvents plugin, Match match, Player player) {
 		if (match.getEnabled() == null || match.getEnabled()) {
-			plugin.getMatches().remove(match);
-			plugin.getMatchesAvailable().remove(match);
+                        int idx = plugin.getMatches().indexOf(match);
+                        plugin.getMatches().remove(match);
+                        plugin.getMatchesAvailable().remove(match);
 			match.setEnabled(Boolean.FALSE);
 			try {
 				String json = UtilidadesJson.fromMatchToJSON(plugin, match);
@@ -447,8 +453,12 @@ public class UtilsRandomEvents {
 					pw.flush();
 
 					pw.close();
-					plugin.getMatches().add(match);
-					if (player != null) {
+                                        if (idx >= 0 && idx <= plugin.getMatches().size()) {
+                                                plugin.getMatches().add(idx, match);
+                                        } else {
+                                                plugin.getMatches().add(match);
+                                        }
+                                        if (player != null) {
 						player.sendMessage(
 								plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getEventDisabled());
 					}
@@ -468,8 +478,9 @@ public class UtilsRandomEvents {
 	}
 
 	public static void enableMatchSchedule(RandomEvents plugin, Match match, Player player) {
-		if (match.getEnabledSchedule() != null && !match.getEnabledSchedule()) {
-			plugin.getMatches().remove(match);
+                if (match.getEnabledSchedule() != null && !match.getEnabledSchedule()) {
+                        int idx = plugin.getMatches().indexOf(match);
+                        plugin.getMatches().remove(match);
 			match.setEnabledSchedule(Boolean.TRUE);
 			try {
 				String json = UtilidadesJson.fromMatchToJSON(plugin, match);
@@ -499,8 +510,12 @@ public class UtilsRandomEvents {
 					pw.flush();
 
 					pw.close();
-					plugin.getMatches().add(match);
-					plugin.getMatchesAvailableSchedule().add(match);
+                                        if (idx >= 0 && idx <= plugin.getMatches().size()) {
+                                                plugin.getMatches().add(idx, match);
+                                        } else {
+                                                plugin.getMatches().add(match);
+                                        }
+                                        plugin.getMatchesAvailableSchedule().add(match);
 					if (player != null) {
 						player.sendMessage(
 								plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getEventEnabled());
@@ -522,8 +537,9 @@ public class UtilsRandomEvents {
 
 	public static void disableMatchSchedule(RandomEvents plugin, Match match, Player player) {
 		if (match.getEnabledSchedule() == null || match.getEnabledSchedule()) {
-			plugin.getMatches().remove(match);
-			plugin.getMatchesAvailableSchedule().remove(match);
+                        int idx = plugin.getMatches().indexOf(match);
+                        plugin.getMatches().remove(match);
+                        plugin.getMatchesAvailableSchedule().remove(match);
 			match.setEnabledSchedule(Boolean.FALSE);
 			try {
 				String json = UtilidadesJson.fromMatchToJSON(plugin, match);
@@ -554,8 +570,12 @@ public class UtilsRandomEvents {
 					pw.flush();
 
 					pw.close();
-					plugin.getMatches().add(match);
-					if (player != null) {
+                                        if (idx >= 0 && idx <= plugin.getMatches().size()) {
+                                                plugin.getMatches().add(idx, match);
+                                        } else {
+                                                plugin.getMatches().add(match);
+                                        }
+                                        if (player != null) {
 						player.sendMessage(
 								plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getEventDisabled());
 					}
