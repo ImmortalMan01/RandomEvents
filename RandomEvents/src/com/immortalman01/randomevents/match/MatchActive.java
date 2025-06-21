@@ -3673,12 +3673,27 @@ public class MatchActive {
 
        /**
         * Update nametag/scoreboard team after a player selects a team.
-        * This keeps name colors and team messages in sync with the choice made
-        * in the GUI.
+        * This keeps name colors, equipment and team messages in sync with the
+        * choice made in the GUI.
         */
        public void applyTeamSelection(Player p) {
                crearTeam(p);
+               updateTeamChestplate(p);
+               updateTeamItem(p);
                mandaMensajesEquipo(getPlayerHandler().getEquipos());
+       }
+
+       /**
+        * Give the player the coloured chestplate for their current team.
+        */
+       public void updateTeamChestplate(Player p) {
+               if (plugin.getReventConfig().isUseTeamChestplate()) {
+                       Petos peto = Petos.getPeto(getEquipo(p));
+                       if (peto != null) {
+                               p.getInventory().setChestplate(peto.getPeto());
+                               p.updateInventory();
+                       }
+               }
        }
 
         public void iniciaPlayerBeast(Player p) {
