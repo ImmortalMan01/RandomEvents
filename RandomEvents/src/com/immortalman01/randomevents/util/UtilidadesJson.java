@@ -172,9 +172,9 @@ public class UtilidadesJson {
                }
 
                if (resultado == null) {
-                       plugin.getLoggerP().warning("Falling back to simplified inventory serialization");
+                       plugin.getLoggerP().warning("Falling back to compact inventory serialization");
                        try {
-                               resultado = GsonFactory.getNewGson(false).toJson(inventory);
+                               resultado = GsonFactory.getCompactGson().toJson(inventory);
                        } catch (Exception ex) {
                                plugin.getLoggerP().info(ex.getMessage());
                        }
