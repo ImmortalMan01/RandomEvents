@@ -745,8 +745,9 @@ public class Use implements Listener {
 	@EventHandler(priority = EventPriority.MONITOR)
 	public void onMine(BlockBreakEvent evt) {
 		Player player = evt.getPlayer();
-		if (plugin.getMatchActive() != null
-				&& plugin.getMatchActive().getPlayerHandler().getPlayersSpectators().contains(player)) {
+                if (plugin.getMatchActive() != null
+                                && (plugin.getMatchActive().getPlayerHandler().getPlayersSpectators().contains(player)
+                                                || plugin.getMatchActive().getPlayerHandler().getPlayers().contains(player.getName()))) {
 			if (!plugin.getMatchActive().getCanBreak()) {
 				evt.setCancelled(true);
 			} else {
@@ -828,9 +829,10 @@ public class Use implements Listener {
 	@EventHandler(priority = EventPriority.MONITOR)
 	public void onFill(PlayerBucketFillEvent evt) {
 		Player player = evt.getPlayer();
-		if (plugin.getMatchActive() != null
-				&& plugin.getMatchActive().getPlayerHandler().getPlayersSpectators().contains(player)
-				&& plugin.getMatchActive().getPlaying()) {
+                if (plugin.getMatchActive() != null
+                                && (plugin.getMatchActive().getPlayerHandler().getPlayersSpectators().contains(player)
+                                                || plugin.getMatchActive().getPlayerHandler().getPlayers().contains(player.getName()))
+                                && plugin.getMatchActive().getPlaying()) {
 			if (plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.ANVIL_SPLEEF)
 					|| plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLATOON)
 					|| plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.HOEHOEHOE)

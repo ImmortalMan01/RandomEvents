@@ -120,4 +120,24 @@ public class UseMineEventTest {
         verify(block, never()).breakNaturally();
         assertEquals(1, disappeared.size());
     }
+
+    @Test
+    public void playerListAllowsMining() {
+        when(match.getMinigame()).thenReturn(MinigameType.SPLEGG);
+        when(match.getMaterial()).thenReturn("SNOW_BLOCK");
+        when(match.getAllMaterialAllowed()).thenReturn(true);
+
+        // player not in spectators but in players list
+        when(handler.getPlayersSpectators()).thenReturn(Collections.emptyList());
+        List<String> players = new ArrayList<>();
+        players.add("name");
+        when(player.getName()).thenReturn("name");
+        when(handler.getPlayers()).thenReturn(players);
+
+        use.onMine(event);
+
+        verify(event).setCancelled(true);
+        verify(block).breakNaturally();
+        assertEquals(1, disappeared.size());
+    }
 }
