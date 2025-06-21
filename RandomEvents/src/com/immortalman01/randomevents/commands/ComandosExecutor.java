@@ -610,11 +610,12 @@ public class ComandosExecutor {
 
 	}
 
-	public void createRandomEvent(RandomEvents plugin, Player player) {
-		Match m = new Match();
-		plugin.getPlayerMatches().put(player.getName(), m);
-		player.sendMessage(UtilsRandomEvents.enviaInfoCreacion(m, player, plugin));
-	}
+        public void createRandomEvent(RandomEvents plugin, Player player) {
+                Match m = new Match();
+                m.setSnowballSpleef(plugin.getReventConfig().isSnowballSpleef());
+                plugin.getPlayerMatches().put(player.getName(), m);
+                player.sendMessage(UtilsRandomEvents.enviaInfoCreacion(m, player, plugin));
+        }
 
 	public void editRandomEvent(RandomEvents plugin, Player player, String number) {
 		try {

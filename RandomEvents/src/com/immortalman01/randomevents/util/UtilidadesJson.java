@@ -55,6 +55,8 @@ public class UtilidadesJson {
                                 match.setWarmupTime(match.getSecondsMobSpawn());
                         if (match.getSecondsToSpawnBeast() == null)
                                 match.setSecondsToSpawnBeast(match.getSecondsMobSpawn());
+                        if (match.getSnowballSpleef() == null)
+                                match.setSnowballSpleef(plugin.getReventConfig().isSnowballSpleef());
 
 		} catch (Exception e) {
 			plugin.getLoggerP().info(e.getMessage());

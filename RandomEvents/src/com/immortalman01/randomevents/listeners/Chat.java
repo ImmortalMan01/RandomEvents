@@ -1579,15 +1579,27 @@ public class Chat implements Listener {
 								// UtilsRandomEvents.pasaACreation(plugin,
 								// player, position, match);
 							}
-						} else if (message.equalsIgnoreCase(Constantes.NEXT)) {
-							plugin.getPlayersCreation().remove(player.getName());
+                                                } else if (message.equalsIgnoreCase(Constantes.NEXT)) {
+                                                        plugin.getPlayersCreation().remove(player.getName());
 
-							// actualiza =
-							// UtilsRandomEvents.pasaACreation(plugin,
-							// player, Creacion.END.getPosition(), match);
+                                                        // actualiza =
+                                                        // UtilsRandomEvents.pasaACreation(plugin,
+                                                        // player, Creacion.END.getPosition(), match);
 
-						}
-						break;
+                                                }
+                                                break;
+                                        case SNOWBALL_SPLEEF:
+                                                if (message.equalsIgnoreCase("Y")) {
+                                                        match.setSnowballSpleef(true);
+                                                        plugin.getPlayersCreation().remove(player.getName());
+                                                } else if (message.equalsIgnoreCase("N")) {
+                                                        match.setSnowballSpleef(false);
+                                                        plugin.getPlayersCreation().remove(player.getName());
+                                                } else {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        actua = Boolean.FALSE;
+                                                }
+                                                break;
                                         case TIMER_ARROW_SPAWN:
                                         case TIMER_ANVIL_SPAWN:
                                         case TIMER_GEM_SPAWN:
@@ -1868,13 +1880,16 @@ public class Chat implements Listener {
 
 							case BLOCKS_ALLOWED:
 							case MATERIAL_SPLEEF:
-							case ANOTHER_MATERIAL_SPLEEF:
-								match.setDatas(new ArrayList<MaterialData>());
-								break;
-							case SHRINK_BLOCKS:
-								match.setShrinkBlocks(null);
-								break;
-							default:
+                                                        case ANOTHER_MATERIAL_SPLEEF:
+                                                                match.setDatas(new ArrayList<MaterialData>());
+                                                                break;
+                                                        case SNOWBALL_SPLEEF:
+                                                                match.setSnowballSpleef(null);
+                                                                break;
+                                                        case SHRINK_BLOCKS:
+                                                                match.setShrinkBlocks(null);
+                                                                break;
+                                                        default:
 								break;
 							}
 							actua = Boolean.TRUE;

@@ -72,7 +72,9 @@ public class Match implements Comparable<Match> {
 
 	private InventoryPers inventoryChests;
 	
-	private Boolean useOwnInventory;
+        private Boolean useOwnInventory;
+
+        private Boolean snowballSpleef;
 	
 	private Location beastSpawn;
 
@@ -121,11 +123,12 @@ public class Match implements Comparable<Match> {
 		this.scenes = new ArrayList<String>();
 		this.kits = new ArrayList<String>();
 		this.commandsOnStart = new ArrayList<String>();
-		this.commandsOnKill = new ArrayList<String>();
-		this.commandsOnElimination = new ArrayList<String>();
-		this.useOwnInventory=false;
-		this.allMaterialAllowed=false;
-	}
+                this.commandsOnKill = new ArrayList<String>();
+                this.commandsOnElimination = new ArrayList<String>();
+                this.useOwnInventory=false;
+                this.snowballSpleef=false;
+                this.allMaterialAllowed=false;
+        }
 
 	public String getName() {
 		return name;
@@ -441,9 +444,17 @@ public class Match implements Comparable<Match> {
 		return useOwnInventory;
 	}
 
-	public void setUseOwnInventory(Boolean useOwnInventory) {
-		this.useOwnInventory = useOwnInventory;
-	}
+        public void setUseOwnInventory(Boolean useOwnInventory) {
+                this.useOwnInventory = useOwnInventory;
+        }
+
+        public Boolean getSnowballSpleef() {
+                return snowballSpleef;
+        }
+
+        public void setSnowballSpleef(Boolean snowballSpleef) {
+                this.snowballSpleef = snowballSpleef;
+        }
 
 	@Override
 	public String toString() {

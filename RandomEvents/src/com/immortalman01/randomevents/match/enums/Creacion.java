@@ -87,9 +87,11 @@ public enum Creacion {
 	MATERIAL_SPLEEF(31,"Spleef Material", "§6§lGet the block you want to set mineable for spleef on your hand and say 'Done'",
 			"SPLEEF,SPLEGG,ANVIL_SPLEEF"),
 
-	ANOTHER_MATERIAL_SPLEEF(32,"Another Spleef Material",
-			"§6§lGet another block you want to set mineable for spleef on your hand and say 'Done' or say 'Next' to end the spleef materials",
-			""),
+        ANOTHER_MATERIAL_SPLEEF(32,"Another Spleef Material",
+                        "§6§lGet another block you want to set mineable for spleef on your hand and say 'Done' or say 'Next' to end the spleef materials",
+                        ""),
+
+        SNOWBALL_SPLEEF(62,"Snowball Mode?","§6§lEnable snowballs that break the floor? (Y/N)","SPLEEF"),
 
 	MAP_LOCATION1(33,"Map Region Location 1", "§6§lSet the first location of the cuboid of the map, say 'Done'",
 			"SG,TSG,SW,TSW,TSGTEAMS,TSWTEAMS,ANVIL_SPLEEF,BLOCKPARTY"),

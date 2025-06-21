@@ -2182,14 +2182,21 @@ public class UtilsRandomEvents {
 						}
 
 						break;
-					case ALL_BLOCKS_ALLOWED:
-						if (match.getAllMaterialAllowed() != null) {
-							info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
-									+ (match.getAllMaterialAllowed() ? "Yes" : "No");
-						}
+                                        case ALL_BLOCKS_ALLOWED:
+                                                if (match.getAllMaterialAllowed() != null) {
+                                                        info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
+                                                                        + (match.getAllMaterialAllowed() ? "Yes" : "No");
+                                                }
 
-						break;
-					case GAMEMODE:
+                                                break;
+                                        case SNOWBALL_SPLEEF:
+                                                if (match.getSnowballSpleef() != null) {
+                                                        info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
+                                                                        + (match.getSnowballSpleef() ? "Yes" : "No");
+                                                }
+
+                                                break;
+                                        case GAMEMODE:
 						if (match.getGamemode() != null) {
 							info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
 									+ match.getGamemode().toString();
