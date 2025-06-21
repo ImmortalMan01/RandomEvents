@@ -435,6 +435,8 @@ public class Constantes {
 
                 SCOREBOARD_TIME_FORMAT("scoreboardTime", "scoreboard.time", "&b%time%"),
 
+                SCOREBOARD_YOUR_KILLS("scoreboardYourKills", "scoreboard.yourkills", "&eYour Kills: %kills%"),
+
                 ACTIONBAR_AMMO("actionbarAmmo", "actionbar.ammo", "Ammo: %ammo%/%max% | Magazines: %magazines%"),
 
                 STATS_GUI_NAME("statsGuiName", "stats.guiname", "&bRandomEvents_Stats "),

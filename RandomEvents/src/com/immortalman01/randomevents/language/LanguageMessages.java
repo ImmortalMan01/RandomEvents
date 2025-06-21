@@ -215,8 +215,9 @@ public class LanguageMessages {
 	private String scoreboardAlive;
 	private String scoreboardDeath;
 	private String scoreboardTeammate;
-	private String scoreboardTime;
-	private String scoreboardBeast;
+        private String scoreboardTime;
+        private String scoreboardYourKills;
+        private String scoreboardBeast;
 	private String scoreboardSeekers;
 	private String scoreboardHolder;
 	private String scoreboardStep;
@@ -4052,7 +4053,7 @@ public class LanguageMessages {
                 } catch (Exception e) {
                         s = s.replaceAll("&", "§");
                 }
-                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+                s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
@@ -4327,8 +4328,8 @@ public class LanguageMessages {
 		this.scoreboardTeam = scoreboardTeam;
 	}
 
-	public String getScoreboardTime() {
-		String s = scoreboardTime;
+        public String getScoreboardTime() {
+                String s = scoreboardTime;
 		try {
 			Matcher match = pattern.matcher(s);
 			Map<String, ChatColor> mapa = new HashMap<String, ChatColor>();
@@ -4347,11 +4348,37 @@ public class LanguageMessages {
 		}
 		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
 		return s;
-	}
+        }
 
-	public void setScoreboardTime(String scoreboardTime) {
-		this.scoreboardTime = scoreboardTime;
-	}
+        public void setScoreboardTime(String scoreboardTime) {
+                this.scoreboardTime = scoreboardTime;
+        }
+
+        public String getScoreboardYourKills() {
+                String s = scoreboardYourKills;
+                try {
+                        Matcher match = pattern.matcher(s);
+                        Map<String, ChatColor> mapa = new HashMap<String, ChatColor>();
+                        while (match.find()) {
+                                String color = s.substring(match.start() + 1, match.end());
+                                Method method = ChatColor.class.getMethod("of", String.class);
+                                ChatColor chatc = (ChatColor) method.invoke(null, color);
+                                mapa.put("&" + color, chatc);
+                        }
+                        for (Entry<String, ChatColor> ent : mapa.entrySet()) {
+                                s = s.replaceAll(ent.getKey(), ent.getValue() + "");
+                        }
+                        s = ChatColor.translateAlternateColorCodes('&', s);
+                } catch (Exception e) {
+                        s = s.replaceAll("&", "§");
+                }
+                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+                return s;
+        }
+
+        public void setScoreboardYourKills(String scoreboardYourKills) {
+                this.scoreboardYourKills = scoreboardYourKills;
+        }
 
 	public String getScoreboardBeast() {
 		String s = scoreboardBeast;

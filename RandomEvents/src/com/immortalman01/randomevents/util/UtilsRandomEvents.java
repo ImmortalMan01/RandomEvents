@@ -2839,17 +2839,64 @@ public class UtilsRandomEvents {
 		playersDeadObj.addAll(matchActive.getPlayerHandler().getPlayersTotalObj());
 		playersDeadObj.removeAll(matchActive.getPlayerHandler().getPlayersObj());
 		lines.add("");
-		switch (matchActive.getMatch().getMinigame()) {
-		case PAINTBALL:
-		case BATTLE_ROYALE_TEAMS:
-		case TSW_REAL:
+               switch (matchActive.getMatch().getMinigame()) {
+               case PAINTBALL:
+                       lines = prepareLinesTeam(lines, matchActive, plugin, player);
+                       lines.add("");
+                       lines = prepareLinesTime(lines, plugin, matchActive);
+                       lines.add("");
+                       int personal = 0;
+                       if (matchActive.getPuntuacion().containsKey(player.getName())) {
+                               personal = matchActive.getPuntuacion().get(player.getName());
+                       }
+                       lines.add(plugin.getLanguage().getScoreboardYourKills().replace("%kills%", "" + personal));
+                       lines.add("");
+                       List<String> linesPointsPaint = new ArrayList<String>();
+                       Map<Petos, Integer> mapaEquipoPaint = new HashMap<Petos, Integer>();
+                       Map<String, Integer> mapaOrdenadoPaint = sortByValue(matchActive.getPuntuacion(), true);
+                       for (Entry<String, Integer> entrada : mapaOrdenadoPaint.entrySet()) {
+                               String line = plugin.getLanguage().getScoreboardPointsTeam().replaceAll("%name%", entrada.getKey())
+                                               .replaceAll("%points%", "" + entrada.getValue());
+                               Player playerAux = getPlayer(matchActive.getPlayerHandler().getPlayersTotalObj(), entrada.getKey());
+                               if (playerAux != null) {
+                                       Integer equipo = matchActive.getEquipoCopy(playerAux);
+                                       if (equipo != null) {
+                                               Petos peto = Petos.getPeto(equipo);
+                                               if (peto != null) {
+                                                       line = line.replaceAll("%team_color%", "" + peto.getChatColor());
+                                                       mapaEquipoPaint.put(peto, mapaEquipoPaint.getOrDefault(peto, 0) + entrada.getValue());
+                                               } else {
+                                                       line = line.replaceAll("%team_color%", "");
+                                               }
+                                       } else {
+                                               line = line.replaceAll("%team_color%", "");
+                                       }
+                               } else {
+                                       line = line.replaceAll("%team_color%", "");
+                               }
+                               linesPointsPaint.add(line);
+                       }
 
-			lines = prepareLinesTeam(lines, matchActive, plugin, player);
-			lines.add("");
-			lines = prepareLinesTimeRefill(lines, plugin, matchActive);
-			lines = prepareLinesDeadAliveTeam(lines, matchActive, plugin, playersDeadObj);
+                       mapaEquipoPaint = sortByValue(mapaEquipoPaint, true);
+                       for (Entry<Petos, Integer> entrada : mapaEquipoPaint.entrySet()) {
+                               String line = plugin.getLanguage().getScoreboardTeamPoints()
+                                               .replaceAll("%team_name%", entrada.getKey().getName())
+                                               .replaceAll("%team_color%", "" + entrada.getKey().getChatColor())
+                                               .replaceAll("%points%", "" + entrada.getValue());
+                               lines.add(line);
+                       }
+                       lines.add("");
+                       lines.addAll(linesPointsPaint);
+                       break;
+               case BATTLE_ROYALE_TEAMS:
+               case TSW_REAL:
 
-			break;
+                       lines = prepareLinesTeam(lines, matchActive, plugin, player);
+                       lines.add("");
+                       lines = prepareLinesTimeRefill(lines, plugin, matchActive);
+                       lines = prepareLinesDeadAliveTeam(lines, matchActive, plugin, playersDeadObj);
+
+                       break;
 		case BATTLE_ROYALE_TEAM_2:
 		case TSW:
 
