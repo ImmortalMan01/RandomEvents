@@ -1349,17 +1349,19 @@ public class MatchActive {
 	}
 
 	public void unregisterTeam(Player p) {
-		if (teams) {
-			if (plugin.getNametagHook() == null) {
-				if (plugin.getColorBoard().getTeam(p.getName()) != null) {
-					plugin.getColorBoard().getTeam(p.getName()).unregister();
-				}
-			} else {
-				// getPlayerHandler().getPlayersPrefix().put(p,
-				// plugin.getNametagHook().getApi().getNametag(p).getPrefix());
-				plugin.getNametagHook().getApi().setPrefix(p, getPlayerHandler().getPlayersPrefix().get(p.getName()));
+               if (teams) {
+                       if (plugin.getNametagHook() == null) {
+                               String id = getPlayerHandler().getScoreboardTeamIds().getOrDefault(p.getName(), p.getName());
+                               if (plugin.getColorBoard().getTeam(id) != null) {
+                                       plugin.getColorBoard().getTeam(id).unregister();
+                               }
+                               getPlayerHandler().getScoreboardTeamIds().remove(p.getName());
+                       } else {
+                               // getPlayerHandler().getPlayersPrefix().put(p,
+                               // plugin.getNametagHook().getApi().getNametag(p).getPrefix());
+                               plugin.getNametagHook().getApi().setPrefix(p, getPlayerHandler().getPlayersPrefix().get(p.getName()));
 
-			}
+                       }
 		}
 	}
 
@@ -3654,11 +3656,24 @@ public class MatchActive {
        private void crearTeam(Player p) {
                teams = Boolean.TRUE;
                if (plugin.getNametagHook() == null) {
-                       if (plugin.getColorBoard().getTeam(p.getName()) != null) {
-                               plugin.getColorBoard().getTeam(p.getName()).unregister();
+                       // Scoreboard team names are limited to 16 characters. Use a
+                       // shorter identifier when the player name exceeds this limit.
+                       String teamId = p.getName();
+                       if (teamId.length() > 16) {
+                               teamId = teamId.substring(0, Math.min(12, teamId.length()))
+                                               + Integer.toHexString(random.nextInt(0x1000));
+                               if (teamId.length() > 16) {
+                                       teamId = teamId.substring(0, 16);
+                               }
                        }
 
-                       Team t = plugin.getColorBoard().registerNewTeam(p.getName());
+                       String oldId = getPlayerHandler().getScoreboardTeamIds().getOrDefault(p.getName(), teamId);
+                       if (plugin.getColorBoard().getTeam(oldId) != null) {
+                               plugin.getColorBoard().getTeam(oldId).unregister();
+                       }
+
+                       Team t = plugin.getColorBoard().registerNewTeam(teamId);
+                       getPlayerHandler().getScoreboardTeamIds().put(p.getName(), teamId);
 
                        t.setPrefix(Petos.getPeto(getEquipo(p)).getChatColor() + "");
                        t.addEntry(p.getName());

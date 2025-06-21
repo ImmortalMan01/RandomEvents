@@ -44,7 +44,12 @@ public class MatchPlayerHandler {
 
 	private Map<Player, Long> playersContadores;
 
-	private Map<String, String> playersPrefix;
+        private Map<String, String> playersPrefix;
+       /**
+        * Map from player name to the identifier used when creating their
+        * scoreboard team. Bukkit restricts team names to 16 characters.
+        */
+       private Map<String, String> scoreboardTeamIds;
 
 	private Map<String, FastBoard> scoreboards;
 	private Map<String, Scoreboard> oldScoreboards;
@@ -67,7 +72,8 @@ public class MatchPlayerHandler {
 		this.playersInvincible = new HashMap<String, Long>();
 		this.players = new ArrayList<String>();
 		this.playersTotal = new ArrayList<String>();
-		this.playersPrefix = new HashMap<String, String>();
+               this.playersPrefix = new HashMap<String, String>();
+               this.scoreboardTeamIds = new HashMap<String, String>();
 		this.playersObj = new ArrayList<Player>();
 		this.playersTotalObj = new ArrayList<Player>();
 		this.playersGanadores = new ArrayList<Player>();
@@ -104,9 +110,10 @@ public class MatchPlayerHandler {
 		this.playersVanish = new ArrayList<Player>();
 		this.paintPlayers = new HashSet<Player>();
 		this.playerToKill = new HashSet<Player>();
-		this.playersPrefix = new HashMap<String, String>();
+               this.playersPrefix = new HashMap<String, String>();
+               this.scoreboardTeamIds = new HashMap<String, String>();
 
-		this.equipos = new HashMap<Integer, Set<Player>>();
+               this.equipos = new HashMap<Integer, Set<Player>>();
 		this.teamsCopy = new HashMap<Integer, Set<Player>>();
 
 		this.goalPlayers = new ArrayList<Player>();
@@ -279,13 +286,21 @@ public class MatchPlayerHandler {
 		this.paintedLocations = paintedLocations;
 	}
 
-	public Map<String, String> getPlayersPrefix() {
-		return playersPrefix;
-	}
+        public Map<String, String> getPlayersPrefix() {
+                return playersPrefix;
+        }
 
-	public void setPlayersPrefix(Map<String, String> playersPrefix) {
-		this.playersPrefix = playersPrefix;
-	}
+        public void setPlayersPrefix(Map<String, String> playersPrefix) {
+                this.playersPrefix = playersPrefix;
+        }
+
+       public Map<String, String> getScoreboardTeamIds() {
+               return scoreboardTeamIds;
+       }
+
+       public void setScoreboardTeamIds(Map<String, String> scoreboardTeamIds) {
+               this.scoreboardTeamIds = scoreboardTeamIds;
+       }
 
 	public Map<String, Long> getPlayersInvincible() {
 		return playersInvincible;
