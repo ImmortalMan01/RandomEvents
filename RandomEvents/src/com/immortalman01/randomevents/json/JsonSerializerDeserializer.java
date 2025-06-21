@@ -182,6 +182,7 @@ public class JsonSerializerDeserializer<T> {
             if(keys.containsKey("meta")) {
                 Map<String, Object> itemmeta = (Map<String, Object>) keys.get("meta");
                 itemmeta = recursiveDoubleToInteger(itemmeta);
+                itemmeta = recursiveRemoveClassKey(itemmeta);
                 ItemMeta meta = (ItemMeta) ConfigurationSerialization.deserializeObject(itemmeta, ConfigurationSerialization.getClassByAlias("ItemMeta"));
                 item.setItemMeta(meta);
             }
@@ -202,6 +203,22 @@ public class JsonSerializerDeserializer<T> {
                 }else{
                     map.put(entry.getKey(), o);
                 }
+            }
+            return map;
+        }
+
+        @SuppressWarnings("unchecked")
+        private static Map<String, Object> recursiveRemoveClassKey(Map<String, Object> originalMap) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            for (Entry<String, Object> entry : originalMap.entrySet()) {
+                if (CLASS_KEY.equals(entry.getKey())) {
+                    continue;
+                }
+                Object value = entry.getValue();
+                if (value instanceof Map) {
+                    value = recursiveRemoveClassKey((Map<String, Object>) value);
+                }
+                map.put(entry.getKey(), value);
             }
             return map;
         }
