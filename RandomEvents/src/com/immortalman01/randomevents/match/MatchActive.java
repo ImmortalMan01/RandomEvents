@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Set;
+import java.util.Collections;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -2023,29 +2024,33 @@ public class MatchActive {
 			partidaPorTiempo();
 			break;
 
-		case TOP_KILLER_TEAMS:
-		case PAINTBALL_TOP_KILL:
-			for (Player p : getPlayerHandler().getPlayersSpectators()) {
-				if (!getPlayerHandler().getPlayersObj().contains(p)) {
-					mandaSpectatorPlayer(p);
-				}
-			}
-			this.allowDamage = true;
-			this.allowDamagePVP = true;
-			for (Player p : getPlayerHandler().getPlayersObj()) {
-				sortTeams(p);
-			}
-			equilibrateTeams();
-			for (Player p : getPlayerHandler().getPlayersObj()) {
+                case TOP_KILLER_TEAMS:
+                case PAINTBALL_TOP_KILL:
+                        for (Player p : getPlayerHandler().getPlayersSpectators()) {
+                                if (!getPlayerHandler().getPlayersObj().contains(p)) {
+                                        mandaSpectatorPlayer(p);
+                                }
+                        }
+                        this.allowDamage = true;
+                        this.allowDamagePVP = true;
+                        if (getMatch().getMinigame() == MinigameType.PAINTBALL_TOP_KILL) {
+                                assignPaintballTopKillTeams();
+                        } else {
+                                for (Player p : getPlayerHandler().getPlayersObj()) {
+                                        sortTeams(p);
+                                }
+                                equilibrateTeams();
+                        }
+                        for (Player p : getPlayerHandler().getPlayersObj()) {
 
-				iniciaPlayerTeam(p);
+                                iniciaPlayerTeam(p);
 
-			}
+                        }
 
-			mandaMensajesEquipo(getPlayerHandler().getEquipos());
+                        mandaMensajesEquipo(getPlayerHandler().getEquipos());
 
-			partidaPorTiempo();
-			break;
+                        partidaPorTiempo();
+                        break;
 		case TSG:
 			for (Player p : getPlayerHandler().getPlayersSpectators()) {
 				if (!getPlayerHandler().getPlayersObj().contains(p)) {
@@ -2912,11 +2917,28 @@ public class MatchActive {
 						? getPlayerHandler().getEquipos().get(minTeam).size() : 0;
 				max = getPlayerHandler().getEquipos().containsKey(maxTeam)
 						? getPlayerHandler().getEquipos().get(maxTeam).size() : 0;
-			}
-		}
-	}
+                        }
+                }
+        }
 
-	private void checkCooldowns() {
+        /**
+         * Assign players to teams for the Paintball Top Kill event.
+         * Players are shuffled then evenly distributed across the
+         * configured number of teams.
+         */
+        private void assignPaintballTopKillTeams() {
+                List<Player> players = new ArrayList<Player>(getPlayerHandler().getPlayersObj());
+                Collections.shuffle(players, random);
+                int teamsCount = match.getNumberOfTeams() != null ? match.getNumberOfTeams() : 2;
+                for (int i = 0; i < players.size(); i++) {
+                        int teamId = i % teamsCount;
+                        Player p = players.get(i);
+                        getPlayerHandler().getEquipos().computeIfAbsent(teamId, k -> new HashSet<Player>()).add(p);
+                        getPlayerHandler().getTeamsCopy().computeIfAbsent(teamId, k -> new HashSet<Player>()).add(p);
+                }
+        }
+
+        private void checkCooldowns() {
 
 		task3 = new BukkitRunnable() {
 			public void run() {
