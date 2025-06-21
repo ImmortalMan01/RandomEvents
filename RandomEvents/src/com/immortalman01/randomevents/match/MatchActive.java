@@ -3651,25 +3651,35 @@ public class MatchActive {
 		UtilsSQL.updateTries(p, match.getMinigame(), plugin);
 	}
 
-	private void crearTeam(Player p) {
-		teams = Boolean.TRUE;
-		if (plugin.getNametagHook() == null) {
-			if (plugin.getColorBoard().getTeam(p.getName()) != null) {
-				plugin.getColorBoard().getTeam(p.getName()).unregister();
-			}
+       private void crearTeam(Player p) {
+               teams = Boolean.TRUE;
+               if (plugin.getNametagHook() == null) {
+                       if (plugin.getColorBoard().getTeam(p.getName()) != null) {
+                               plugin.getColorBoard().getTeam(p.getName()).unregister();
+                       }
 
-			Team t = plugin.getColorBoard().registerNewTeam(p.getName());
+                       Team t = plugin.getColorBoard().registerNewTeam(p.getName());
 
-			t.setPrefix(Petos.getPeto(getEquipo(p)).getChatColor() + "");
-			t.addEntry(p.getName());
-		} else {
-			getPlayerHandler().getPlayersPrefix().put(p.getName(),
-					plugin.getNametagHook().getApi().getNametag(p).getPrefix());
-			plugin.getNametagHook().getApi().setPrefix(p, "" + Petos.getPeto(getEquipo(p)).getChatColor() + "");
+                       t.setPrefix(Petos.getPeto(getEquipo(p)).getChatColor() + "");
+                       t.addEntry(p.getName());
+               } else {
+                       getPlayerHandler().getPlayersPrefix().put(p.getName(),
+                                       plugin.getNametagHook().getApi().getNametag(p).getPrefix());
+                       plugin.getNametagHook().getApi().setPrefix(p, "" + Petos.getPeto(getEquipo(p)).getChatColor() + "");
 
-		}
+               }
 
-	}
+       }
+
+       /**
+        * Update nametag/scoreboard team after a player selects a team.
+        * This keeps name colors and team messages in sync with the choice made
+        * in the GUI.
+        */
+       public void applyTeamSelection(Player p) {
+               crearTeam(p);
+               mandaMensajesEquipo(getPlayerHandler().getEquipos());
+       }
 
         public void iniciaPlayerBeast(Player p) {
                 UtilsRandomEvents.teleportaPlayer(p, getMatch().getBeastSpawn(), plugin);
