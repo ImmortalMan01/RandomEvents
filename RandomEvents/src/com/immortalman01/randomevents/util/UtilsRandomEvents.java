@@ -2977,8 +2977,9 @@ public class UtilsRandomEvents {
                        lines.add("");
 
                        // Blue team players
+                       // Team index 1 in Petos enum corresponds to BLUE
                        lines.add(plugin.getLanguage().getTranslation("scoreboard.teamblue"));
-                       Set<Player> blueTeam = matchActive.getPlayerHandler().getEquipos().getOrDefault(0, new HashSet<Player>());
+                       Set<Player> blueTeam = matchActive.getPlayerHandler().getEquipos().getOrDefault(1, new HashSet<Player>());
                        for (Player pl : blueTeam) {
                                int pk = matchActive.getPuntuacion().getOrDefault(pl.getName(), 0);
                                lines.add(plugin.getLanguage().getTranslation("scoreboard.teamkill")
@@ -2988,8 +2989,9 @@ public class UtilsRandomEvents {
 
                        lines.add("");
 
+                       // Team index 0 in Petos enum corresponds to RED
                        lines.add(plugin.getLanguage().getTranslation("scoreboard.teamred"));
-                       Set<Player> redTeam = matchActive.getPlayerHandler().getEquipos().getOrDefault(1, new HashSet<Player>());
+                       Set<Player> redTeam = matchActive.getPlayerHandler().getEquipos().getOrDefault(0, new HashSet<Player>());
                        for (Player pl : redTeam) {
                                int pk = matchActive.getPuntuacion().getOrDefault(pl.getName(), 0);
                                lines.add(plugin.getLanguage().getTranslation("scoreboard.teamkill")
