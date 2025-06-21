@@ -3867,11 +3867,11 @@ public class MatchActive {
 							reiniciaDefault(p);
 							invincibility(p);
 
-							if (getEquipo(p) != null && p.getInventory().getChestplate() == null) {
-								if (plugin.getReventConfig().isUseTeamChestplate()) {
-									p.getInventory().setChestplate(Petos.getPeto(getEquipo(p)).getPeto());
-								}
-							}
+                        if (getEquipo(p) != null && plugin.getReventConfig().isUseTeamChestplate()) {
+                                // Always override the chestplate with the team
+                                // coloured one so kit armour does not conflict
+                                p.getInventory().setChestplate(Petos.getPeto(getEquipo(p)).getPeto());
+                        }
 							if (plugin.getReventConfig().isQuakeGiveDefaultWeapon()) {
 								p.getInventory().addItem(XMaterial.STONE_HOE.parseItem());
 
@@ -3886,11 +3886,10 @@ public class MatchActive {
 				reiniciaDefault(p);
 				invincibility(p);
 
-				if (getEquipo(p) != null && p.getInventory().getChestplate() == null
-						&& plugin.getReventConfig().isUseTeamChestplate()) {
-
-					p.getInventory().setChestplate(Petos.getPeto(getEquipo(p)).getPeto());
-				}
+                                if (getEquipo(p) != null && plugin.getReventConfig().isUseTeamChestplate()) {
+                                        // Replace any chestplate with the one matching the player's team
+                                        p.getInventory().setChestplate(Petos.getPeto(getEquipo(p)).getPeto());
+                                }
 				if (plugin.getReventConfig().isQuakeGiveDefaultWeapon()) {
 					p.getInventory().addItem(XMaterial.STONE_HOE.parseItem());
 
@@ -4111,11 +4110,10 @@ public class MatchActive {
 					}
 				}
 			}
-			if (getEquipo(p) != null && p.getInventory().getChestplate() == null) {
-				if (plugin.getReventConfig().isUseTeamChestplate()) {
-					p.getInventory().setChestplate(Petos.getPeto(getEquipo(p)).getPeto());
-				}
-			}
+                        if (getEquipo(p) != null && plugin.getReventConfig().isUseTeamChestplate()) {
+                                // Override any chestplate from kits with the team-coloured version
+                                p.getInventory().setChestplate(Petos.getPeto(getEquipo(p)).getPeto());
+                        }
 			if (plugin.getReventConfig().isForceGamemodeSurvival())
 				p.setGameMode(GameMode.SURVIVAL);
 			p.updateInventory();
