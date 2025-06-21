@@ -420,8 +420,9 @@ public class GUI implements Listener {
 
 							}
 
-							p.closeInventory();
-							UtilsRandomEvents.playSound(plugin,p, XSound.ENTITY_PLAYER_LEVELUP);
+                                                        p.closeInventory();
+                                                        UtilsRandomEvents.playSound(plugin,p, XSound.ENTITY_PLAYER_LEVELUP);
+                                                        plugin.getMatchActive().applyTeamSelection(p);
                                                         plugin.getMatchActive().updateTeamItem(p);
                                                         plugin.getMatchActive().updateScoreboards();
 
