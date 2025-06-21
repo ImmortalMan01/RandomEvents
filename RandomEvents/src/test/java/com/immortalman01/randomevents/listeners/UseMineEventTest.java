@@ -104,4 +104,20 @@ public class UseMineEventTest {
         verify(block).breakNaturally();
         assertEquals(1, disappeared.size());
     }
+
+    @Test
+    public void spleefAllowsBlockFromDatas() {
+        when(match.getMinigame()).thenReturn(MinigameType.SPLEEF);
+        when(match.getMaterial()).thenReturn("SNOW_BLOCK");
+        when(match.getAllMaterialAllowed()).thenReturn(false);
+        List<MaterialData> datas = new ArrayList<>();
+        datas.add(new MaterialData(Material.DIRT));
+        when(match.getDatas()).thenReturn(datas);
+
+        use.onMine(event);
+
+        verify(event).setCancelled(true);
+        verify(block, never()).breakNaturally();
+        assertEquals(1, disappeared.size());
+    }
 }
