@@ -209,12 +209,13 @@ public class UtilsRandomEvents {
 					}
 
 				}
-				if (matchAux == null) {
-					plugin.getMatches().add(match);
-				} else {
-					plugin.getMatches().set(plugin.getMatches().indexOf(matchAux), match);
-				}
-				if (player != null) {
+                                if (matchAux == null) {
+                                        plugin.getMatches().add(match);
+                                } else {
+                                        plugin.getMatches().set(plugin.getMatches().indexOf(matchAux), match);
+                                }
+                                Collections.sort(plugin.getMatches());
+                                if (player != null) {
 
 					player.sendMessage(
 							plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getEndOfArenaCreation());
