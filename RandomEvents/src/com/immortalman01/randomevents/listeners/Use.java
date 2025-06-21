@@ -775,14 +775,9 @@ public class Use implements Listener {
 
                                                                 && evt.getBlock().getType() != null && evt.getBlock().getType().equals(org.bukkit.Material.matchMaterial(plugin.getMatchActive().getMatch().getMaterial()))) {
 							evt.setCancelled(true);
-							try {
-								plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(
-										evt.getBlock().getLocation(),
-										new MaterialData(evt.getBlock().getType(), evt.getBlock().getData()));
-							} catch (Throwable eb) {
-								plugin.getMatchActive().getMapHandler().getBlockDisappeared()
-										.put(evt.getBlock().getLocation(), evt.getBlock().getState().getData().clone());
-							}
+                                                       plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(
+                                                                       evt.getBlock().getLocation(),
+                                                                       new MaterialData(evt.getBlock().getType()));
 
 							if (plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEEF)) {
 								evt.getBlock().setType(XMaterial.AIR.parseMaterial());
@@ -803,14 +798,9 @@ public class Use implements Listener {
                                                                                                 && UtilsRandomEvents.contieneMaterialData(evt.getBlock(),
                                                                                                                 plugin.getMatchActive().getMatch())))) {
 							evt.setCancelled(true);
-							try {
-								plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(
-										evt.getBlock().getLocation(),
-										new MaterialData(evt.getBlock().getType(), evt.getBlock().getData()));
-							} catch (Throwable eb) {
-								plugin.getMatchActive().getMapHandler().getBlockDisappeared()
-										.put(evt.getBlock().getLocation(), evt.getBlock().getState().getData().clone());
-							}
+                                                       plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(
+                                                                       evt.getBlock().getLocation(),
+                                                                       new MaterialData(evt.getBlock().getType()));
 							if (plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEEF)) {
 								evt.getBlock().setType(XMaterial.AIR.parseMaterial());
 
@@ -881,8 +871,8 @@ public class Use implements Listener {
                                                 && evt.getBlock().getType() != null && evt.getBlock().getType().equals(org.bukkit.Material.matchMaterial(plugin.getMatchActive().getMatch().getMaterial()))) {
 					// evt.setCancelled(true);
 					evt.setCancelled(false);
-					plugin.getMatchActive().getMapHandler().getBlockPlaced().put(evt.getBlock().getLocation(),
-							evt.getBlock().getState().getData().clone());
+                                       plugin.getMatchActive().getMapHandler().getBlockPlaced().put(evt.getBlock().getLocation(),
+                                                        new MaterialData(evt.getBlock().getType()));
 					// evt.getBlock().setType(XMaterial.AIR.parseMaterial());
 				} else if (plugin.getMatchActive().getMatch().getAllMaterialAllowed()
 						|| (plugin.getMatchActive().getMatch().getDatas() != null
@@ -892,8 +882,8 @@ public class Use implements Listener {
 										plugin.getMatchActive().getMatch()))) {
 					// evt.setCancelled(true);
 					evt.setCancelled(false);
-					plugin.getMatchActive().getMapHandler().getBlockPlaced().put(evt.getBlock().getLocation(),
-							evt.getBlock().getState().getData().clone());
+                                       plugin.getMatchActive().getMapHandler().getBlockPlaced().put(evt.getBlock().getLocation(),
+                                                        new MaterialData(evt.getBlock().getType()));
 					// evt.getBlock().setType(XMaterial.AIR.parseMaterial());
 				} else {
 					evt.setCancelled(true);
@@ -921,8 +911,8 @@ public class Use implements Listener {
 
 				// evt.setCancelled(true);
 				evt.setCancelled(false);
-				plugin.getMatchActive().getMapHandler().getBlockPlaced().put(l.getBlock().getLocation(),
-						l.getBlock().getState().getData().clone());
+                               plugin.getMatchActive().getMapHandler().getBlockPlaced().put(l.getBlock().getLocation(),
+                                                new MaterialData(l.getBlock().getType()));
 				// evt.getBlock().setType(XMaterial.AIR.parseMaterial());
 
 			}
@@ -938,8 +928,8 @@ public class Use implements Listener {
 
 			// evt.setCancelled(true);
 			// evt.setCancelled(false);
-			plugin.getMatchActive().getMapHandler().getBlockPlaced().put(evt.getBlock().getLocation(),
-					evt.getBlock().getState().getData().clone());
+                       plugin.getMatchActive().getMapHandler().getBlockPlaced().put(evt.getBlock().getLocation(),
+                                        new MaterialData(evt.getBlock().getType()));
 			// evt.getBlock().setType(XMaterial.AIR.parseMaterial());
 
 		}
