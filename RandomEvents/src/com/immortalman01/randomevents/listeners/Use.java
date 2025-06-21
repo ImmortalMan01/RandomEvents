@@ -47,6 +47,7 @@ import org.bukkit.event.player.PlayerBucketEmptyEvent;
 import org.bukkit.event.player.PlayerBucketFillEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerEggThrowEvent;
+import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -256,7 +257,11 @@ public class Use implements Listener {
                                                         player.launchProjectile(Egg.class);
                                                 } else if ((evt.getAction() == Action.RIGHT_CLICK_AIR || evt.getAction() == Action.RIGHT_CLICK_BLOCK)
                                                                 && plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEEF)) {
-                                                        player.launchProjectile(Snowball.class);
+                                                        if (plugin.getMatchActive().consumeSnowballAmmo(player)) {
+                                                                player.launchProjectile(Snowball.class);
+                                                        } else {
+                                                                UtilsRandomEvents.playSound(plugin, player, XSound.UI_BUTTON_CLICK);
+                                                        }
                                                 } else if ((player.getInventory().getItemInMainHand().getType() == (XMaterial.WOODEN_HOE.parseMaterial())
                                                                 || player.getInventory().getItemInMainHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
                                                                 || player.getInventory().getItemInMainHand().getType() == (XMaterial.IRON_HOE.parseMaterial())
@@ -789,10 +794,7 @@ public class Use implements Listener {
 
 							if (plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEEF)) {
 								evt.getBlock().setType(XMaterial.AIR.parseMaterial());
-								if (plugin.getReventConfig().isSnowballSpleef()) {
-									player.getInventory().addItem(XMaterial.SNOWBALL.parseItem());
-									player.updateInventory();
-								}
+                                                                // Snowball ammo is handled separately
 
 							} else {
 								evt.getBlock().breakNaturally();
@@ -811,10 +813,7 @@ public class Use implements Listener {
 							if (plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEEF)) {
 								evt.getBlock().setType(XMaterial.AIR.parseMaterial());
 
-								if (plugin.getReventConfig().isSnowballSpleef()) {
-									player.getInventory().addItem(XMaterial.SNOWBALL.parseItem());
-									player.updateInventory();
-								}
+                                                                // Snowball ammo is handled separately
 
 							} else {
 								evt.getBlock().breakNaturally();
@@ -944,15 +943,26 @@ public class Use implements Listener {
 	}
 
 	@EventHandler
-	public void onPlayerDrop(PlayerDropItemEvent evt) {
-		Player player = evt.getPlayer();
-		if (plugin.getMatchActive() != null
-				&& plugin.getMatchActive().getPlayerHandler().getPlayers().contains(player.getName())
-				&& (!plugin.getMatchActive().getPlaying()
-						|| plugin.getMatchActive().getMatch().getMinigame() == MinigameType.BLOCK_PARTY)) {
-			evt.setCancelled(true);
-		}
-	}
+        public void onPlayerDrop(PlayerDropItemEvent evt) {
+                Player player = evt.getPlayer();
+                if (plugin.getMatchActive() != null
+                                && plugin.getMatchActive().getPlayerHandler().getPlayers().contains(player.getName())
+                                && (!plugin.getMatchActive().getPlaying()
+                                                || plugin.getMatchActive().getMatch().getMinigame() == MinigameType.BLOCK_PARTY)) {
+                        evt.setCancelled(true);
+                }
+        }
+
+        @EventHandler
+        public void onSneak(PlayerToggleSneakEvent evt) {
+                Player player = evt.getPlayer();
+                if (evt.isSneaking() && plugin.getMatchActive() != null && plugin.getMatchActive().getPlaying()
+                                && plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEEF)
+                                && plugin.getMatchActive().getMatch().getSnowballSpleef()
+                                && plugin.getMatchActive().getPlayerHandler().getPlayers().contains(player.getName())) {
+                        plugin.getMatchActive().reloadSnowball(player);
+                }
+        }
 
 	@EventHandler
 	public void onAnvilFall(EntityChangeBlockEvent event) {

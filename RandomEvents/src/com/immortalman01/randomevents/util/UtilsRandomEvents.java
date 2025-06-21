@@ -1229,6 +1229,19 @@ public class UtilsRandomEvents {
                 }
         }
 
+        public static void sendActionBar(RandomEvents plugin, Player p, String message) {
+                try {
+                        p.sendActionBar(message);
+                } catch (Throwable ex) {
+                        try {
+                                p.spigot().sendMessage(net.md_5.bungee.api.ChatMessageType.ACTION_BAR,
+                                                net.md_5.bungee.api.chat.TextComponent.fromLegacyText(message));
+                        } catch (Throwable ignore) {
+                                p.sendMessage(message);
+                        }
+                }
+        }
+
         // public static void mandaMensaje(RandomEvents plugin, List<Player>
         // players, List<String> messages, Boolean tag) {
         // String message = "";
@@ -2193,6 +2206,20 @@ public class UtilsRandomEvents {
                                                 if (match.getSnowballSpleef() != null) {
                                                         info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
                                                                         + (match.getSnowballSpleef() ? "Yes" : "No");
+                                                }
+
+                                                break;
+                                        case MAGAZINES_AMOUNT:
+                                                if (match.getSnowballMagazines() != null) {
+                                                        info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
+                                                                        + match.getSnowballMagazines();
+                                                }
+
+                                                break;
+                                        case AMMO_PER_MAG:
+                                                if (match.getAmmoPerMagazine() != null) {
+                                                        info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
+                                                                        + match.getAmmoPerMagazine();
                                                 }
 
                                                 break;

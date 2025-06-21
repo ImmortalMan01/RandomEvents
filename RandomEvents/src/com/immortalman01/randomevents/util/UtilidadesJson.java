@@ -57,6 +57,10 @@ public class UtilidadesJson {
                                 match.setSecondsToSpawnBeast(match.getSecondsMobSpawn());
                         if (match.getSnowballSpleef() == null)
                                 match.setSnowballSpleef(plugin.getReventConfig().isSnowballSpleef());
+                        if (match.getSnowballMagazines() == null)
+                                match.setSnowballMagazines(0);
+                        if (match.getAmmoPerMagazine() == null)
+                                match.setAmmoPerMagazine(0);
 
 		} catch (Exception e) {
 			plugin.getLoggerP().info(e.getMessage());
