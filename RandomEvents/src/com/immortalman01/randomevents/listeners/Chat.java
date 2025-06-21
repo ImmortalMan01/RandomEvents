@@ -656,6 +656,8 @@ public class Chat implements Listener {
                                                || current.equals(Creacion.NUMBER_OF_SEEKERS)
                                                || current.equals(Creacion.WATER_DROP_SCENES)
                                                || current.equals(Creacion.ID_NPC)
+                                               || current.equals(Creacion.MAGAZINES_AMOUNT)
+                                               || current.equals(Creacion.AMMO_PER_MAG)
                                                || current.equals(Creacion.DELETE))) {
                                        // These steps expect a numeric value. Don't interpret it as a step change.
                                        parseStep = false;
@@ -1600,6 +1602,24 @@ public class Chat implements Listener {
                                                         actua = Boolean.FALSE;
                                                 }
                                                 break;
+                                        case MAGAZINES_AMOUNT:
+                                        case AMMO_PER_MAG:
+                                                try {
+                                                        int val = Integer.parseInt(message.trim());
+                                                        if (val >= 0) {
+                                                                if (c == Creacion.MAGAZINES_AMOUNT) {
+                                                                        match.setSnowballMagazines(val);
+                                                                } else {
+                                                                        match.setAmmoPerMagazine(val);
+                                                                }
+                                                                plugin.getPlayersCreation().remove(player.getName());
+                                                        } else {
+                                                                player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                        }
+                                                } catch (Exception e) {
+                                                        player.sendMessage(plugin.getLanguage().getInvalidInput());
+                                                }
+                                                break;
                                         case TIMER_ARROW_SPAWN:
                                         case TIMER_ANVIL_SPAWN:
                                         case TIMER_GEM_SPAWN:
@@ -1885,6 +1905,12 @@ public class Chat implements Listener {
                                                                 break;
                                                         case SNOWBALL_SPLEEF:
                                                                 match.setSnowballSpleef(null);
+                                                                break;
+                                                        case MAGAZINES_AMOUNT:
+                                                                match.setSnowballMagazines(null);
+                                                                break;
+                                                        case AMMO_PER_MAG:
+                                                                match.setAmmoPerMagazine(null);
                                                                 break;
                                                         case SHRINK_BLOCKS:
                                                                 match.setShrinkBlocks(null);

@@ -75,6 +75,10 @@ public class Match implements Comparable<Match> {
         private Boolean useOwnInventory;
 
         private Boolean snowballSpleef;
+
+        private Integer snowballMagazines;
+
+        private Integer ammoPerMagazine;
 	
 	private Location beastSpawn;
 
@@ -127,6 +131,8 @@ public class Match implements Comparable<Match> {
                 this.commandsOnElimination = new ArrayList<String>();
                 this.useOwnInventory=false;
                 this.snowballSpleef=false;
+                this.snowballMagazines=0;
+                this.ammoPerMagazine=0;
                 this.allMaterialAllowed=false;
         }
 
@@ -454,6 +460,22 @@ public class Match implements Comparable<Match> {
 
         public void setSnowballSpleef(Boolean snowballSpleef) {
                 this.snowballSpleef = snowballSpleef;
+        }
+
+        public Integer getSnowballMagazines() {
+                return snowballMagazines;
+        }
+
+        public void setSnowballMagazines(Integer snowballMagazines) {
+                this.snowballMagazines = snowballMagazines;
+        }
+
+        public Integer getAmmoPerMagazine() {
+                return ammoPerMagazine;
+        }
+
+        public void setAmmoPerMagazine(Integer ammoPerMagazine) {
+                this.ammoPerMagazine = ammoPerMagazine;
         }
 
 	@Override

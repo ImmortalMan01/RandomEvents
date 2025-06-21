@@ -93,6 +93,10 @@ public enum Creacion {
 
         SNOWBALL_SPLEEF(62,"Snowball Mode?","§6§lEnable snowballs that break the floor? (Y/N)","SPLEEF"),
 
+        MAGAZINES_AMOUNT(63,"Magazines","§6§lWrite total magazines for snowballs","SPLEEF"),
+
+        AMMO_PER_MAG(64,"Ammo per magazine","§6§lWrite ammo per magazine","SPLEEF"),
+
 	MAP_LOCATION1(33,"Map Region Location 1", "§6§lSet the first location of the cuboid of the map, say 'Done'",
 			"SG,TSG,SW,TSW,TSGTEAMS,TSWTEAMS,ANVIL_SPLEEF,BLOCKPARTY"),
 

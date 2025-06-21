@@ -136,8 +136,13 @@ public class MatchActive {
 
 	private Boolean allowMove;
 
-	private Map<Player, Long> cooldownJump;
-	private Map<Player, Long> cooldownShoot;
+        private Map<Player, Long> cooldownJump;
+        private Map<Player, Long> cooldownShoot;
+
+        private Map<Player, Integer> snowballAmmo;
+        private Map<Player, Integer> snowballMagazinesLeft;
+
+        private BukkitRunnable ammoTask;
 
 	private long endDate;
 	private long refillDate;
@@ -227,8 +232,10 @@ public class MatchActive {
 
 			}
 		}
-		this.cooldownJump = new HashMap<Player, Long>();
-		this.cooldownShoot = new HashMap<Player, Long>();
+                this.cooldownJump = new HashMap<Player, Long>();
+                this.cooldownShoot = new HashMap<Player, Long>();
+                this.snowballAmmo = new HashMap<Player, Integer>();
+                this.snowballMagazinesLeft = new HashMap<Player, Integer>();
 		counter = 0;
 		teams = Boolean.FALSE;
 
@@ -317,9 +324,11 @@ public class MatchActive {
 					new Location(getMapHandler().getCuboid().getWorld(), getMapHandler().getCuboid().getMinX(),
 							getMapHandler().getCuboid().getMinY(), getMapHandler().getCuboid().getMinZ())));
 		}
-		this.cooldownJump = new HashMap<Player, Long>();
-		this.cooldownShoot = new HashMap<Player, Long>();
-		teams = Boolean.FALSE;
+                this.cooldownJump = new HashMap<Player, Long>();
+                this.cooldownShoot = new HashMap<Player, Long>();
+                this.snowballAmmo = new HashMap<Player, Integer>();
+                this.snowballMagazinesLeft = new HashMap<Player, Integer>();
+                teams = Boolean.FALSE;
 		tries = 0;
 
 	}
@@ -1363,11 +1372,14 @@ public class MatchActive {
 			if (task2 != null) {
 				task2.cancel();
 			}
-			if (task3 != null) {
-				task3.cancel();
-			}
-		} catch (Exception e) {
-		}
+                        if (task3 != null) {
+                                task3.cancel();
+                        }
+                        if (ammoTask != null) {
+                                ammoTask.cancel();
+                        }
+                } catch (Exception e) {
+                }
 		switch (match.getMinigame()) {
 		case SG:
 		case SW:
@@ -1867,10 +1879,11 @@ public class MatchActive {
 			}
 			this.allowDamage = true;
 			this.allowDamagePVP = true;
-			for (Player p : getPlayerHandler().getPlayersObj()) {
-				iniciaPlayer(p);
+                        for (Player p : getPlayerHandler().getPlayersObj()) {
+                                iniciaPlayer(p);
 
-			}
+                        }
+                        initializeSnowballAmmo();
                         PotionEffect pot = new PotionEffect(PotionEffectType.HASTE, 240, 99);
 			UtilsRandomEvents.applyPotionEffects(pot, getPlayerHandler().getPlayersObj());
 
@@ -4565,18 +4578,62 @@ public class MatchActive {
 
 	}
 
-	public void updateScoreboards() {
-		if (plugin.getReventConfig().isUseScoreboard()) {
-			for (FastBoard fBoard : getPlayerHandler().getScoreboards().values()) {
-				try {
-					fBoard.updateLines(UtilsRandomEvents.prepareLines(plugin, this, fBoard.getPlayer()));
-				} catch (Throwable e) {
-					plugin.getLoggerP().info(e.toString());
-				}
-			}
-		}
+        public void updateScoreboards() {
+                if (plugin.getReventConfig().isUseScoreboard()) {
+                        for (FastBoard fBoard : getPlayerHandler().getScoreboards().values()) {
+                                try {
+                                        fBoard.updateLines(UtilsRandomEvents.prepareLines(plugin, this, fBoard.getPlayer()));
+                                } catch (Throwable e) {
+                                        plugin.getLoggerP().info(e.toString());
+                                }
+                        }
+                }
 
-	}
+                if (getMatch().getMinigame().equals(MinigameType.SPLEEF) && getMatch().getSnowballSpleef()) {
+                        for (Player pl : getPlayerHandler().getPlayersObj()) {
+                                String msg = "Ammo: " + snowballAmmo.getOrDefault(pl, 0) + "/" + getMatch().getAmmoPerMagazine()
+                                                + " | Magazines: " + snowballMagazinesLeft.getOrDefault(pl, 0);
+                                UtilsRandomEvents.sendActionBar(plugin, pl, msg);
+                        }
+                }
+
+        }
+
+        public void initializeSnowballAmmo() {
+                for (Player p : getPlayerHandler().getPlayersObj()) {
+                        snowballAmmo.put(p, getMatch().getAmmoPerMagazine());
+                        int mags = getMatch().getSnowballMagazines() != null ? getMatch().getSnowballMagazines() : 0;
+                        snowballMagazinesLeft.put(p, mags);
+                }
+                if (ammoTask != null) {
+                        ammoTask.cancel();
+                }
+                ammoTask = new BukkitRunnable() {
+                        public void run() {
+                                updateScoreboards();
+                        }
+                };
+                ammoTask.runTaskTimerAsynchronously(plugin, 0, 20L);
+        }
+
+        public boolean consumeSnowballAmmo(Player p) {
+                int ammo = snowballAmmo.getOrDefault(p, 0);
+                if (ammo <= 0) {
+                        return false;
+                }
+                snowballAmmo.put(p, ammo - 1);
+                return true;
+        }
+
+        public boolean reloadSnowball(Player p) {
+                int mags = snowballMagazinesLeft.getOrDefault(p, 0);
+                if (mags <= 0) {
+                        return false;
+                }
+                snowballMagazinesLeft.put(p, mags - 1);
+                snowballAmmo.put(p, getMatch().getAmmoPerMagazine());
+                return true;
+        }
 
 	public void givePoint(Player p, Integer point) {
 		if (getPuntuacion().containsKey(p.getName())) {
@@ -5092,6 +5149,30 @@ public class MatchActive {
 
         public void setStarting(Boolean starting) {
                 this.starting = starting;
+        }
+
+        public Map<Player, Integer> getSnowballAmmo() {
+                return snowballAmmo;
+        }
+
+        public void setSnowballAmmo(Map<Player, Integer> snowballAmmo) {
+                this.snowballAmmo = snowballAmmo;
+        }
+
+        public Map<Player, Integer> getSnowballMagazinesLeft() {
+                return snowballMagazinesLeft;
+        }
+
+        public void setSnowballMagazinesLeft(Map<Player, Integer> snowballMagazinesLeft) {
+                this.snowballMagazinesLeft = snowballMagazinesLeft;
+        }
+
+        public BukkitRunnable getAmmoTask() {
+                return ammoTask;
+        }
+
+        public void setAmmoTask(BukkitRunnable ammoTask) {
+                this.ammoTask = ammoTask;
         }
 
         // ---------------------------------------------------------------------
