@@ -1229,18 +1229,14 @@ public class UtilsRandomEvents {
                 }
         }
 
-        public static void sendActionBar(RandomEvents plugin, Player p, String message) {
-                try {
-                        p.sendActionBar(message);
-                } catch (Throwable ex) {
-                        try {
-                                p.spigot().sendMessage(net.md_5.bungee.api.ChatMessageType.ACTION_BAR,
-                                                net.md_5.bungee.api.chat.TextComponent.fromLegacyText(message));
-                        } catch (Throwable ignore) {
-                                p.sendMessage(message);
-                        }
-                }
-        }
+       public static void sendActionBar(RandomEvents plugin, Player p, String message) {
+               try {
+                       p.spigot().sendMessage(net.md_5.bungee.api.ChatMessageType.ACTION_BAR,
+                                       net.md_5.bungee.api.chat.TextComponent.fromLegacyText(message));
+               } catch (Throwable ignore) {
+                       p.sendMessage(message);
+               }
+       }
 
         // public static void mandaMensaje(RandomEvents plugin, List<Player>
         // players, List<String> messages, Boolean tag) {
