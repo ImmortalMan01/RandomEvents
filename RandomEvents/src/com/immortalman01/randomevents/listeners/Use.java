@@ -243,21 +243,24 @@ public class Use implements Listener {
 									plugin.getMatchActive().getPlayerHandler().getPlayersObj(), plugin);
 							UtilsRandomEvents.playSound(plugin, player, XSound.ENTITY_PLAYER_LEVELUP);
 
-						} else if (player.getInventory().getItemInMainHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
-								&& plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEGG)) {
-							player.launchProjectile(Egg.class);
+                                                } else if (player.getInventory().getItemInMainHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
+                                                                && plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEGG)) {
+                                                        player.launchProjectile(Egg.class);
 
-						} else if ((player.getInventory().getItemInMainHand().getType() == (XMaterial.WOODEN_SHOVEL.parseMaterial())
+                                                } else if ((player.getInventory().getItemInMainHand().getType() == (XMaterial.WOODEN_SHOVEL.parseMaterial())
 								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.STONE_SHOVEL.parseMaterial())
 								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.IRON_SHOVEL.parseMaterial())
 								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.GOLDEN_SHOVEL.parseMaterial())
-								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.DIAMOND_SHOVEL.parseMaterial()))
-								&& plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEGG)) {
-							player.launchProjectile(Egg.class);
-						} else if ((player.getInventory().getItemInMainHand().getType() == (XMaterial.WOODEN_HOE.parseMaterial())
-								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
-								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.IRON_HOE.parseMaterial())
-								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.GOLDEN_HOE.parseMaterial())
+                                                                || player.getInventory().getItemInMainHand().getType() == (XMaterial.DIAMOND_SHOVEL.parseMaterial()))
+                                                                && plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEGG)) {
+                                                        player.launchProjectile(Egg.class);
+                                                } else if ((evt.getAction() == Action.RIGHT_CLICK_AIR || evt.getAction() == Action.RIGHT_CLICK_BLOCK)
+                                                                && plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEEF)) {
+                                                        player.launchProjectile(Snowball.class);
+                                                } else if ((player.getInventory().getItemInMainHand().getType() == (XMaterial.WOODEN_HOE.parseMaterial())
+                                                                || player.getInventory().getItemInMainHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
+                                                                || player.getInventory().getItemInMainHand().getType() == (XMaterial.IRON_HOE.parseMaterial())
+                                                                || player.getInventory().getItemInMainHand().getType() == (XMaterial.GOLDEN_HOE.parseMaterial())
 								|| player.getInventory().getItemInMainHand().getType() == (XMaterial.DIAMOND_HOE.parseMaterial()))
 								&& plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.QUAKECRAFT)
 								&& !plugin.getMatchActive().getCooldownShoot().containsKey(player)) {
