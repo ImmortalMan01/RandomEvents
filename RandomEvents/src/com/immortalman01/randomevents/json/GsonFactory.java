@@ -152,6 +152,22 @@ public class GsonFactory {
         }
         return map;
     }
+
+    @SuppressWarnings("unchecked")
+    private static Map<String, Object> recursiveRemoveClassKey(Map<String, Object> originalMap) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        for (Entry<String, Object> entry : originalMap.entrySet()) {
+            if (CLASS_KEY.equals(entry.getKey())) {
+                continue;
+            }
+            Object value = entry.getValue();
+            if (value instanceof Map) {
+                value = recursiveRemoveClassKey((Map<String, Object>) value);
+            }
+            map.put(entry.getKey(), value);
+        }
+        return map;
+    }
  
     private static class ExposeExlusion implements ExclusionStrategy {
         @Override
@@ -270,7 +286,7 @@ public class GsonFactory {
         }
  
         private ItemStack fromRaw (String raw) {
-            Map<String, Object> keys = g.fromJson(raw, seriType);
+                Map<String, Object> keys = g.fromJson(raw, seriType);
  
             if(keys.get("amount") != null) {
                 Double d = (Double) keys.get("amount");
@@ -387,12 +403,13 @@ public class GsonFactory {
     		if(item == null)
     			return null;
 
-    		if(keys.containsKey("meta")) {
-    			Map<String, Object> itemmeta = (Map<String, Object>) keys.get("meta");
-    			itemmeta = recursiveDoubleToInteger(itemmeta);
-    			ItemMeta meta = (ItemMeta) ConfigurationSerialization.deserializeObject(itemmeta, ConfigurationSerialization.getClassByAlias("ItemMeta"));
-    			item.setItemMeta(meta);
-    		}
+                if(keys.containsKey("meta")) {
+                        Map<String, Object> itemmeta = (Map<String, Object>) keys.get("meta");
+                        itemmeta = recursiveDoubleToInteger(itemmeta);
+                        itemmeta = recursiveRemoveClassKey(itemmeta);
+                        ItemMeta meta = (ItemMeta) ConfigurationSerialization.deserializeObject(itemmeta, ConfigurationSerialization.getClassByAlias("ItemMeta"));
+                        item.setItemMeta(meta);
+                }
 
     		return item;
     	}
