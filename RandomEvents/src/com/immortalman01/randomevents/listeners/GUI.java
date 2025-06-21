@@ -405,17 +405,17 @@ public class GUI implements Listener {
                                                 // present. Use the actual clicked slot
                                                 // instead so players join the team they
                                                 // selected.
-                                                // Use the slot index relative to the
-                                                // clicked inventory rather than the
-                                                // absolute raw slot. Some server
-                                                // implementations return the raw slot
-                                                // index of the entire view which may
-                                                // cause players to be assigned to the
-                                                // wrong team when clicking their own
-                                                // inventory. getSlot() reliably
-                                                // represents the clicked slot inside
-                                                // the GUI.
-                                                Integer pos = event.getSlot();
+                                                // Some server versions return the raw
+                                                // slot of the entire view. Use the
+                                                // raw slot and limit it to the top
+                                                // inventory size so the correct team
+                                                // is selected regardless of version.
+                                                int raw = event.getRawSlot();
+                                                int topSize = event.getView().getTopInventory().getSize();
+                                                if (raw >= topSize) {
+                                                        return;
+                                                }
+                                                Integer pos = raw;
 
 						if (pos < plugin.getMatchActive().getMatch().getNumberOfTeams()) {
 							if (equipoActual != null) {
