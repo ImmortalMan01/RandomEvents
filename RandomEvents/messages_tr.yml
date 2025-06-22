@@ -251,6 +251,7 @@ match.tournamentAlive: 'Bu oyuncular hala turnuvada hayatta kalıyor:'
 match.winners: '%players% Rastgele Etkinlik ''%event%'' kazandı! Tebrikler!'
 match.winnersTournament: '%players% Turnuva rastgele etkinliğini kazandı! Tebrikler!'
 match.winnersPoints: '%players% rastgele ''%event%'' %points% puanla kazandı! Tebrikler!'
+match.paintballTopKillSummary: "&f&l----------------------------------------------\n&c&l%winningTeamName% &6Team have won!\n&9Blue kills: &f%blue_kills% &7- &cRed kills: &f%red_kills%\n\n&f&lTop Kills\n&7- &a%top1_name% &7(%top1_kills% kills)\n&7- &b%top2_name% &7(%top2_kills% kills)\n&7- &3%top3_name% &7(%top3_kills% kills)\n\n&fYour Kills: &e%player_kills%\n&f&l----------------------------------------------"
 comun.disposeLeatherItems: Güvenlik nedeniyle lütfen etkinliğe girmeden önce deri eşyalarınızı bırakın
 comun.clearInventory: "&c&lRandomEvent'e katılmadan önce envanteri temizleyin"
 comun.daysFormat: '% gün% H'
