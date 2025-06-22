@@ -3696,6 +3696,18 @@ public class MatchActive {
                crearTeam(p);
                updateTeamChestplate(p);
                updateTeamItem(p);
+               if (match.getMinigame() == MinigameType.PAINTBALL_TOP_KILL) {
+                       Integer team = getEquipo(p);
+                       if (team != null) {
+                               Petos peto = Petos.getPeto(team);
+                               if (peto != null) {
+                                       p.sendMessage(plugin.getLanguage().getTagPlugin()
+                                                       + plugin.getLanguage().getTeamChosen()
+                                                                       .replace("%team_color%", "" + peto.getChatColor())
+                                                                       .replace("%team_name%", peto.getName()));
+                               }
+                       }
+               }
                mandaMensajesEquipo(getPlayerHandler().getEquipos());
        }
 
