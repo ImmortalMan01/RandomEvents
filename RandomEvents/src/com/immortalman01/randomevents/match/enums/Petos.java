@@ -124,26 +124,25 @@ public enum Petos {
 		return peto;
 	}
 
-	public ItemStack getWoolItem() {
-		ItemStack wool = getWool().parseItem();
-		try {
-			wool.setDurability(getDye().getWoolData());
-			wool.getData().setData(getDye().getWoolData());
-		} catch (Throwable e) {
+       /**
+        * Obtain the wool item for this team colour using modern materials.
+        *
+        * <p>The legacy {@code setDurability} APIs triggered Bukkit's legacy
+        * material support which caused a noticeable lag spike on modern
+        * servers. Since terracotta and wool blocks have a dedicated material
+        * for each colour in 1.20+, simply creating the item with the correct
+        * material is sufficient.</p>
+        */
+       public ItemStack getWoolItem() {
+               return getWool().parseItem();
+       }
 
-		}
-		return wool;
-	}
-	
-	public ItemStack getClayItem() {
-		ItemStack wool = getClay().parseItem();
-		try {
-			wool.setDurability(getDye().getWoolData());
-			wool.getData().setData(getDye().getWoolData());
-		} catch (Throwable e) {
-
-		}
-		return wool;
-	}
+       /**
+        * Obtain the terracotta item for this team colour using modern
+        * materials. Avoids legacy data manipulation.
+        */
+       public ItemStack getClayItem() {
+               return getClay().parseItem();
+       }
 
 }
