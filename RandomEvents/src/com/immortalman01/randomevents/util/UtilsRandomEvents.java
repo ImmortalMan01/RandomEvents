@@ -1736,8 +1736,8 @@ public class UtilsRandomEvents {
 		}
 	}
 
-	public static Inventory createGUI(String name, Stats estadisticas, RandomEvents plugin) {
-               Inventory inv = Bukkit.createInventory(new RandomEventsHolder(),
+       public static Inventory createGUI(String name, Stats estadisticas, RandomEvents plugin) {
+               Inventory inv = Bukkit.createInventory(new RandomEventsHolder(RandomEventsHolder.GuiType.STATS),
                                plugin.getReventConfig().getStatsSize(),
                                plugin.getLanguage().getStatsGuiName() + name);
 		for (MinigameType minigame : MinigameType.values()) {
@@ -3457,9 +3457,9 @@ public class UtilsRandomEvents {
 		return listaPartidas;
 	}
 
-	public static Inventory createGUICredits(Player p, Map<String, Integer> creditos, Integer page,
-			RandomEvents plugin) {
-               Inventory inv = Bukkit.createInventory(new RandomEventsHolder(), 45,
+       public static Inventory createGUICredits(Player p, Map<String, Integer> creditos, Integer page,
+                       RandomEvents plugin) {
+               Inventory inv = Bukkit.createInventory(new RandomEventsHolder(RandomEventsHolder.GuiType.CREDITS), 45,
                                plugin.getLanguage().getCreditsGuiName());
 		ItemStack nextPage = new ItemStack(XMaterial.OAK_SIGN.parseMaterial());
 		ItemStack backPage = new ItemStack(XMaterial.OAK_SIGN.parseMaterial());
@@ -3560,9 +3560,9 @@ public class UtilsRandomEvents {
 		return inv;
 	}
 
-	public static Inventory createGUIKits(Player p, Integer page, RandomEvents plugin, MatchActive matchActive) {
+       public static Inventory createGUIKits(Player p, Integer page, RandomEvents plugin, MatchActive matchActive) {
 
-               Inventory inv = Bukkit.createInventory(new RandomEventsHolder(), 45,
+               Inventory inv = Bukkit.createInventory(new RandomEventsHolder(RandomEventsHolder.GuiType.KITS), 45,
                                plugin.getLanguage().getKitGuiName());
 
 		if (matchActive != null) {
@@ -3570,7 +3570,7 @@ public class UtilsRandomEvents {
 			List<Kit> kitsAvailable = UtilsRandomEvents.kitsAvailable(p, match.getKits(), plugin);
 
 			Integer size = UtilsRandomEvents.sizeGUIKits(kitsAvailable);
-                       inv = Bukkit.createInventory(new RandomEventsHolder(), size,
+                       inv = Bukkit.createInventory(new RandomEventsHolder(RandomEventsHolder.GuiType.KITS), size,
                                        plugin.getLanguage().getKitGuiName());
 			ItemStack nextPage = new ItemStack(XMaterial.OAK_SIGN.parseMaterial());
 			ItemStack backPage = new ItemStack(XMaterial.OAK_SIGN.parseMaterial());
@@ -3615,9 +3615,9 @@ public class UtilsRandomEvents {
 		return inv;
 	}
 
-	public static Inventory createGUITeams(Player p, Integer page, RandomEvents plugin, MatchActive matchActive) {
+       public static Inventory createGUITeams(Player p, Integer page, RandomEvents plugin, MatchActive matchActive) {
 
-               Inventory inv = Bukkit.createInventory(new RandomEventsHolder(), 9,
+               Inventory inv = Bukkit.createInventory(new RandomEventsHolder(RandomEventsHolder.GuiType.TEAMS), 9,
                                plugin.getLanguage().getTeamGuiName());
 
 		if (matchActive != null) {
