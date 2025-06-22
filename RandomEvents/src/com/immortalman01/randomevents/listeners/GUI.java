@@ -411,17 +411,21 @@ public class GUI implements Listener {
                               return;
                       }
 
-                      ItemStack icon = event.getCurrentItem();
-                      String name = ChatColor.stripColor(icon.getItemMeta().getDisplayName());
-                      Integer pos = UtilsRandomEvents.teamIndexFromName(name);
-                      if (pos == null) {
-                              return;
-                      }
-
-                      int teamCount = active.getMatch().getNumberOfTeams();
-                      if (pos < 0 || pos >= teamCount) {
-                              return;
-                      }
+                     ItemStack icon = event.getCurrentItem();
+                     int pos = event.getRawSlot();
+                     int teamCount = active.getMatch().getNumberOfTeams();
+                     if (pos < 0 || pos >= teamCount) {
+                             // Fallback to name based detection in case menu layout changes
+                             String name = null;
+                             if (icon.hasItemMeta() && icon.getItemMeta().hasDisplayName()) {
+                                     name = icon.getItemMeta().getDisplayName();
+                             }
+                             Integer fallback = UtilsRandomEvents.teamIndexFromName(name);
+                             if (fallback == null || fallback < 0 || fallback >= teamCount) {
+                                     return;
+                             }
+                             pos = fallback;
+                     }
 
                        Integer equipoActual = active.getEquipo(p);
 
