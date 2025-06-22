@@ -40,7 +40,7 @@ public class GUI implements Listener {
 		this.plugin = plugin;
 	}
 
-       @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+       @EventHandler(priority = EventPriority.HIGHEST)
        public void onInventoryClick(InventoryClickEvent event) {
 
 		if (event.getWhoClicked() instanceof Player) {
@@ -381,89 +381,74 @@ public class GUI implements Listener {
 
 	}
 
-        private void useTeamGUI(InventoryClickEvent event) {
+       private void useTeamGUI(InventoryClickEvent event) {
 
-                if (event.getWhoClicked() instanceof Player) {
+               if (!(event.getWhoClicked() instanceof Player)) {
+                       return;
+               }
 
-                        if (clickedTopInventory(event)) {
-                                event.setCancelled(true);
-                        }
-			try {
-				Player p = (Player) event.getWhoClicked();
+               if (!clickedTopInventory(event)) {
+                       return;
+               }
 
-				if (event.getCurrentItem() != null) {
+               event.setCancelled(true);
 
-					ItemStack item = event.getCurrentItem();
-					if (item.hasItemMeta()) {
+               try {
+                       Player p = (Player) event.getWhoClicked();
 
-						Integer equipoActual = plugin.getMatchActive().getEquipo(p);
+                       if (event.getCurrentItem() == null || !event.getCurrentItem().hasItemMeta()) {
+                               return;
+                       }
 
-                                                // Using Inventory#first causes the
-                                                // index of the first matching item to
-                                                // be returned which means every click
-                                                // assigns the player to the first team
-                                                // when multiple identical items are
-                                                // present. Use the actual clicked slot
-                                                // instead so players join the team they
-                                                // selected.
-                                                // Some server versions return the raw
-                                                // slot of the entire view. Use the
-                                                // raw slot and limit it to the top
-                                                // inventory size so the correct team
-                                                // is selected regardless of version.
-                                                int topSize = event.getView().getTopInventory().getSize();
-                                                int pos = event.getSlot();
+                       MatchActive active = plugin.getMatchActive();
+                       if (active == null) {
+                               return;
+                       }
 
-                                                // Some server implementations return the raw slot of the
-                                                // entire InventoryView instead of the clicked inventory
-                                                // slot. If the reported slot is outside the top inventory
-                                                // range fall back to the raw slot value.
-                                                if (pos >= topSize) {
-                                                        int raw = event.getRawSlot();
-                                                        if (raw >= topSize) {
-                                                                return;
-                                                        }
-                                                        pos = raw;
-                                                }
+                       int topSize = event.getView().getTopInventory().getSize();
+                       int pos = event.getRawSlot();
+                       if (pos < 0 || pos >= topSize) {
+                               return;
+                       }
 
-                                                if (pos < plugin.getMatchActive().getMatch().getNumberOfTeams()) {
-                                                        if (equipoActual != null) {
-                                                                Set<Player> old = plugin.getMatchActive().getPlayerHandler().getEquipos().get(equipoActual);
-                                                                Set<Player> oldCopy = plugin.getMatchActive().getPlayerHandler().getTeamsCopy().get(equipoActual);
-                                                                if (old != null) {
-                                                                        old.remove(p);
-                                                                }
-                                                                if (oldCopy != null) {
-                                                                        oldCopy.remove(p);
-                                                                }
-                                                        }
-							if (plugin.getMatchActive().getPlayerHandler().getEquipos().containsKey(pos)) {
-								plugin.getMatchActive().getPlayerHandler().getEquipos().get(pos).add(p);
-								plugin.getMatchActive().getPlayerHandler().getTeamsCopy().get(pos).add(p);
-							} else {
-								plugin.getMatchActive().getPlayerHandler().getEquipos().put(pos, new HashSet<Player>());
-								plugin.getMatchActive().getPlayerHandler().getTeamsCopy().put(pos,
-										new HashSet<Player>());
-								plugin.getMatchActive().getPlayerHandler().getEquipos().get(pos).add(p);
-								plugin.getMatchActive().getPlayerHandler().getTeamsCopy().get(pos).add(p);
+                       int teamCount = active.getMatch().getNumberOfTeams();
+                       if (pos >= teamCount) {
+                               return;
+                       }
 
-							}
+                       Integer equipoActual = active.getEquipo(p);
 
-                                                        p.closeInventory();
-                                                        UtilsRandomEvents.playSound(plugin,p, XSound.ENTITY_PLAYER_LEVELUP);
-                                                        plugin.getMatchActive().applyTeamSelection(p);
-                                                        plugin.getMatchActive().updateScoreboards();
+                       if (equipoActual != null) {
+                               Set<Player> old = active.getPlayerHandler().getEquipos().get(equipoActual);
+                               Set<Player> oldCopy = active.getPlayerHandler().getTeamsCopy().get(equipoActual);
+                               if (old != null) {
+                                       old.remove(p);
+                               }
+                               if (oldCopy != null) {
+                                       oldCopy.remove(p);
+                               }
+                       }
 
-						}
-					}
+                       if (active.getPlayerHandler().getEquipos().containsKey(pos)) {
+                               active.getPlayerHandler().getEquipos().get(pos).add(p);
+                               active.getPlayerHandler().getTeamsCopy().get(pos).add(p);
+                       } else {
+                               active.getPlayerHandler().getEquipos().put(pos, new HashSet<Player>());
+                               active.getPlayerHandler().getTeamsCopy().put(pos, new HashSet<Player>());
+                               active.getPlayerHandler().getEquipos().get(pos).add(p);
+                               active.getPlayerHandler().getTeamsCopy().get(pos).add(p);
+                       }
 
-				}
-			} catch (Exception e) {
-				plugin.getLoggerP().info(e.toString());
-			}
-		}
+                       p.closeInventory();
+                       UtilsRandomEvents.playSound(plugin, p, XSound.ENTITY_PLAYER_LEVELUP);
+                       active.applyTeamSelection(p);
+                       active.updateScoreboards();
 
-        }
+               } catch (Exception e) {
+                       plugin.getLoggerP().info(e.toString());
+               }
+
+       }
 
         /**
          * Check if the clicked inventory is the top inventory of the current view.
