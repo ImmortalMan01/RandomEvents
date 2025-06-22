@@ -405,27 +405,27 @@ public class GUI implements Listener {
                                return;
                        }
 
-                      int topSize = event.getView().getTopInventory().getSize();
-                      int slot = event.getRawSlot();
-                      if (slot < 0 || slot >= topSize) {
-                              return;
-                      }
-
-                     ItemStack icon = event.getCurrentItem();
-                     int pos = event.getRawSlot();
-                     int teamCount = active.getMatch().getNumberOfTeams();
-                     if (pos < 0 || pos >= teamCount) {
-                             // Fallback to name based detection in case menu layout changes
-                             String name = null;
-                             if (icon.hasItemMeta() && icon.getItemMeta().hasDisplayName()) {
-                                     name = icon.getItemMeta().getDisplayName();
-                             }
-                             Integer fallback = UtilsRandomEvents.teamIndexFromName(name);
-                             if (fallback == null || fallback < 0 || fallback >= teamCount) {
-                                     return;
-                             }
-                             pos = fallback;
+                     int topSize = event.getView().getTopInventory().getSize();
+                     int slot = event.getSlot();
+                     if (slot < 0 || slot >= topSize) {
+                             return;
                      }
+
+                    ItemStack icon = event.getCurrentItem();
+                    int pos = slot;
+                    int teamCount = active.getMatch().getNumberOfTeams();
+                    if (pos < 0 || pos >= teamCount) {
+                            // Fallback to name based detection in case menu layout changes
+                            String name = null;
+                            if (icon.hasItemMeta() && icon.getItemMeta().hasDisplayName()) {
+                                    name = icon.getItemMeta().getDisplayName();
+                            }
+                            Integer fallback = UtilsRandomEvents.teamIndexFromName(name);
+                            if (fallback == null || fallback < 0 || fallback >= teamCount) {
+                                    return;
+                            }
+                            pos = fallback;
+                    }
 
                        Integer equipoActual = active.getEquipo(p);
 
