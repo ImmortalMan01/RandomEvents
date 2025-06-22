@@ -19,6 +19,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.List;
+import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -152,6 +154,41 @@ public class GsonFactory {
             }else{
                 map.put(entry.getKey(), o);
             }
+        }
+        return map;
+    }
+
+    @SuppressWarnings("unchecked")
+    private static Object recursiveDeserialize(Object value) {
+        if (value instanceof Map<?, ?>) {
+            Map<String, Object> map = new HashMap<>();
+            for (Entry<?, ?> entry : ((Map<?, ?>) value).entrySet()) {
+                map.put(String.valueOf(entry.getKey()), recursiveDeserialize(entry.getValue()));
+            }
+            if (map.containsKey(ConfigurationSerialization.SERIALIZED_TYPE_KEY)) {
+                try {
+                    Object deserialized = ConfigurationSerialization.deserializeObject(map);
+                    if (deserialized != null) {
+                        return deserialized;
+                    }
+                } catch (Exception ignored) {}
+            }
+            return map;
+        } else if (value instanceof List<?> list) {
+            List<Object> newList = new ArrayList<>();
+            for (Object obj : list) {
+                newList.add(recursiveDeserialize(obj));
+            }
+            return newList;
+        }
+        return value;
+    }
+
+    @SuppressWarnings("unchecked")
+    private static Map<String, Object> recursiveDeserializeMap(Map<String, Object> originalMap) {
+        Map<String, Object> map = new HashMap<>();
+        for (Entry<String, Object> entry : originalMap.entrySet()) {
+            map.put(entry.getKey(), recursiveDeserialize(entry.getValue()));
         }
         return map;
     }
@@ -412,6 +449,7 @@ public class GsonFactory {
                         Map<String, Object> itemmeta = (Map<String, Object>) keys.get("meta");
                         itemmeta = recursiveDoubleToInteger(itemmeta);
                         itemmeta = recursiveReplaceClassKey(itemmeta, true);
+                        itemmeta = recursiveDeserializeMap(itemmeta);
                         ItemMeta meta = (ItemMeta) ConfigurationSerialization.deserializeObject(itemmeta, ConfigurationSerialization.getClassByAlias("ItemMeta"));
                         item.setItemMeta(meta);
                 }
