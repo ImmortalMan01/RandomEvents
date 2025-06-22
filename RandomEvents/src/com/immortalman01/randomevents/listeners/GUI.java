@@ -405,16 +405,23 @@ public class GUI implements Listener {
                                return;
                        }
 
-                       int topSize = event.getView().getTopInventory().getSize();
-                       int pos = event.getRawSlot();
-                       if (pos < 0 || pos >= topSize) {
-                               return;
-                       }
+                      int topSize = event.getView().getTopInventory().getSize();
+                      int slot = event.getRawSlot();
+                      if (slot < 0 || slot >= topSize) {
+                              return;
+                      }
 
-                       int teamCount = active.getMatch().getNumberOfTeams();
-                       if (pos >= teamCount) {
-                               return;
-                       }
+                      ItemStack icon = event.getCurrentItem();
+                      String name = ChatColor.stripColor(icon.getItemMeta().getDisplayName());
+                      Integer pos = UtilsRandomEvents.teamIndexFromName(name);
+                      if (pos == null) {
+                              return;
+                      }
+
+                      int teamCount = active.getMatch().getNumberOfTeams();
+                      if (pos < 0 || pos >= teamCount) {
+                              return;
+                      }
 
                        Integer equipoActual = active.getEquipo(p);
 
