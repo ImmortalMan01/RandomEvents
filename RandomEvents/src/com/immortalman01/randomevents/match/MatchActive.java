@@ -4603,6 +4603,9 @@ public class MatchActive {
                                 }
 
                                 String title = plugin.getScoreboardConfig().getTitle(getMatch().getMinigame().name());
+                                if (title != null) {
+                                        title = title.replace("%prefix%", plugin.getLanguage().getTagPlugin());
+                                }
                                 fBoard.updateTitle(title);
 
                                 fBoard.updateLines(UtilsRandomEvents.prepareLines(plugin, this, p));
