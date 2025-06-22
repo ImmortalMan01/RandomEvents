@@ -3788,6 +3788,29 @@ return res;
 
 }
 
+       /**
+        * Determine the team index associated with a display name in the team
+        * selection GUI. The names are colourised versions of the {@link Petos}
+        * enum values. By stripping colours we can match them reliably across
+        * server versions.
+        *
+        * @param name the coloured or plain team name from the item display name
+        * @return the team index or {@code null} if no match was found
+        */
+       public static Integer teamIndexFromName(String name) {
+               if (name == null) {
+                       return null;
+               }
+
+               String stripped = ChatColor.stripColor(name);
+               for (Petos peto : Petos.values()) {
+                       if (peto.getName().equalsIgnoreCase(stripped)) {
+                               return peto.getTeam();
+                       }
+               }
+               return null;
+       }
+
 public static int parseProbability(String value) {
 if (value == null) {
 return 0;
