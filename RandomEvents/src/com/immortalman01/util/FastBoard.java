@@ -66,6 +66,11 @@ public class FastBoard {
             String rawLine = lines.get(i);
             String colored = ChatColor.translateAlternateColorCodes('&', rawLine);
 
+            // Limit the line length to the maximum the scoreboard can handle
+            if (colored.length() > 32) {
+                colored = colored.substring(0, 32);
+            }
+
             String entry = ChatColor.values()[Math.min(i, ChatColor.values().length - 1)].toString();
             Team team = teams.computeIfAbsent(i, key -> {
                 Team t = scoreboard.getTeam("fb" + key);
@@ -76,8 +81,28 @@ public class FastBoard {
                 return t;
             });
 
-            String prefix = colored.length() > 16 ? colored.substring(0, 16) : colored;
-            String suffix = colored.length() > 16 ? colored.substring(16, Math.min(colored.length(), 32)) : "";
+            // Split the line in prefix/suffix while keeping color codes intact
+            String prefix;
+            String suffix = "";
+            if (colored.length() <= 16) {
+                prefix = colored;
+            } else {
+                int prefixEnd = 16;
+                if (colored.charAt(prefixEnd - 1) == ChatColor.COLOR_CHAR) {
+                    prefixEnd--; // avoid cutting the color character in half
+                }
+                prefix = colored.substring(0, prefixEnd);
+
+                String remaining = colored.substring(prefixEnd);
+                String colorContinuation = ChatColor.getLastColors(prefix);
+                suffix = colorContinuation + remaining;
+                if (suffix.length() > 16) {
+                    suffix = suffix.substring(0, 16);
+                    if (suffix.endsWith(String.valueOf(ChatColor.COLOR_CHAR))) {
+                        suffix = suffix.substring(0, suffix.length() - 1);
+                    }
+                }
+            }
 
             team.setPrefix(prefix);
             team.setSuffix(suffix);
