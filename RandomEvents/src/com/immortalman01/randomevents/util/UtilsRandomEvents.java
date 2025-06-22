@@ -2216,18 +2216,25 @@ public class UtilsRandomEvents {
                                                 }
 
                                                 break;
-                                        case AMMO_PER_MAG:
+                                       case AMMO_PER_MAG:
                                                 if (match.getAmmoPerMagazine() != null) {
                                                         info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
                                                                         + match.getAmmoPerMagazine();
                                                 }
 
                                                 break;
-                                        case GAMEMODE:
-						if (match.getGamemode() != null) {
-							info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
-									+ match.getGamemode().toString();
-						}
+                                       case KILL_GOAL:
+                                               if (match.getKillGoal() != null) {
+                                                       info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
+                                                                       + match.getKillGoal();
+                                               }
+
+                                               break;
+                                       case GAMEMODE:
+                                                if (match.getGamemode() != null) {
+                                                        info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
+                                                                        + match.getGamemode().toString();
+                                                }
 
 						break;
 					case COMMANDS_ON_START_OPTIONAL:
