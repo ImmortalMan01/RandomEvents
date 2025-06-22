@@ -2952,10 +2952,9 @@ public class UtilsRandomEvents {
 			}
 			break;
 
-		case HOEHOEHOE:
-		case SPLATOON:
-		case TOP_KILLER_TEAMS:
-               case PAINTBALL_TOP_KILL:
+               case HOEHOEHOE:
+               case SPLATOON:
+               case TOP_KILLER_TEAMS:
 
                        lines.add(plugin.getLanguage().getTranslation("scoreboard.status"));
 
@@ -2999,6 +2998,33 @@ public class UtilsRandomEvents {
                                                .replace("%player%", pl.getName())
                                                .replace("%kills%", "" + pk));
                        }
+
+                       break;
+
+               case PAINTBALL_TOP_KILL:
+
+                       lines.add("&fStatus:");
+
+                       long secondsPBALLTK = (matchActive.getEndDate() - new Date().getTime()) / 1000;
+                       lines.add("&fFINISHING IN &a" + calculateTimeTwoPoints(secondsPBALLTK));
+
+                       lines.add("");
+
+                       // Lives placeholders (not implemented in plugin, default 0)
+                       lines.add("&9Blue &fLives: &a0");
+                       lines.add("&cRed &fLives: &a0");
+
+                       lines.add("");
+
+                       int kills = matchActive.getPuntuacion().getOrDefault(player.getName(), 0);
+                       lines.add("&fYour Kills: &a" + kills);
+
+                       lines.add("");
+
+                       lines.add("&fPlayers:");
+                       int online = matchActive.getPlayerHandler().getPlayersObj().size();
+                       int max = matchActive.getMatch().getAmountPlayers() != null ? matchActive.getMatch().getAmountPlayers() : 0;
+                       lines.add("&a" + online + "&f/&c" + max);
 
                        break;
 		case KOTH:
