@@ -4824,20 +4824,18 @@ public class MatchActive {
 		if (teamItem != null) {
 			Integer pos = p.getInventory().first(teamItem);
 			if (pos >= 0) {
-				Petos peto = Petos.getPeto(getEquipo(p));
-				if (peto != null) {
-					teamItem.setType(peto.getClay().parseMaterial());
-					try {
-						teamItem.setDurability(peto.getDye().getWoolData());
-						teamItem.getData().setData(peto.getDye().getWoolData());
-					} catch (Throwable e) {
-
-					}
-				}
-				p.getInventory().setItem(pos, teamItem);
-				p.updateInventory();
-			}
-		}
+                               Petos peto = Petos.getPeto(getEquipo(p));
+                               if (peto != null) {
+                                       // Simply update the material to the team
+                                       // colour. Using legacy durability APIs
+                                       // caused "Initializing Legacy Material
+                                       // Support" warnings and lag spikes.
+                                       teamItem.setType(peto.getClay().parseMaterial());
+                               }
+                               p.getInventory().setItem(pos, teamItem);
+                               p.updateInventory();
+                       }
+               }
 
 	}
 
