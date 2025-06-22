@@ -75,11 +75,28 @@ public class GUI implements Listener {
 		}
 
                Inventory topInventory = event.getView().getTopInventory();
+               RandomEventsHolder holder = null;
                if (topInventory != null && topInventory.getHolder() instanceof RandomEventsHolder) {
-                       RandomEventsHolder holder = (RandomEventsHolder) topInventory.getHolder();
+                       holder = (RandomEventsHolder) topInventory.getHolder();
+               } else if (topInventory != null) {
+                       // Some servers clone the inventory for each click and lose the holder
+                       String title = event.getView().getTitle();
+                       if (title != null) {
+                               if (title.equals(plugin.getLanguage().getStatsGuiName())) {
+                                       holder = new RandomEventsHolder(RandomEventsHolder.GuiType.STATS);
+                               } else if (title.equals(plugin.getLanguage().getCreditsGuiName())) {
+                                       holder = new RandomEventsHolder(RandomEventsHolder.GuiType.CREDITS);
+                               } else if (title.equals(plugin.getLanguage().getKitGuiName())) {
+                                       holder = new RandomEventsHolder(RandomEventsHolder.GuiType.KITS);
+                               } else if (title.equals(plugin.getLanguage().getTeamGuiName())) {
+                                       holder = new RandomEventsHolder(RandomEventsHolder.GuiType.TEAMS);
+                               }
+                       }
+               }
+
+               if (holder != null) {
                        // Cancel any attempts to move items from or to the menu.
-                       // Using isShiftClick covers quick move actions while
-                       // clickedTopInventory handles normal clicks in the menu.
+                       // Using isShiftClick covers quick move actions while clickedTopInventory handles normal clicks.
                        if (clickedTopInventory(event) || event.isShiftClick()) {
                                event.setCancelled(true);
                        }
@@ -412,19 +429,19 @@ public class GUI implements Listener {
                     }
 
                     ItemStack icon = event.getCurrentItem();
-                    int pos = slot;
                     int teamCount = active.getMatch().getNumberOfTeams();
-                    if (pos < 0 || pos >= teamCount) {
-                            // Fallback to name based detection in case menu layout changes
-                            String name = null;
-                            if (icon.hasItemMeta() && icon.getItemMeta().hasDisplayName()) {
-                                    name = icon.getItemMeta().getDisplayName();
-                            }
-                            Integer fallback = UtilsRandomEvents.teamIndexFromName(name);
-                            if (fallback == null || fallback < 0 || fallback >= teamCount) {
+                    String display = null;
+                    if (icon.hasItemMeta() && icon.getItemMeta().hasDisplayName()) {
+                            display = icon.getItemMeta().getDisplayName();
+                    }
+
+                    Integer pos = UtilsRandomEvents.teamIndexFromName(display);
+                    if (pos == null || pos < 0 || pos >= teamCount) {
+                            // Fall back to slot position if name lookup failed
+                            pos = slot;
+                            if (pos < 0 || pos >= teamCount) {
                                     return;
                             }
-                            pos = fallback;
                     }
 
                        Integer equipoActual = active.getEquipo(p);
