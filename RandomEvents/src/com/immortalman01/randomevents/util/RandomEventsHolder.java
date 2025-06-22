@@ -8,6 +8,20 @@ import org.bukkit.inventory.InventoryHolder;
  * plugin inventories regardless of title conversion across versions.
  */
 public class RandomEventsHolder implements InventoryHolder {
+
+    /** Type of GUI this holder represents. */
+    public enum GuiType { STATS, CREDITS, KITS, TEAMS }
+
+    private final GuiType type;
+
+    public RandomEventsHolder(GuiType type) {
+        this.type = type;
+    }
+
+    public GuiType getType() {
+        return type;
+    }
+
     @Override
     public Inventory getInventory() {
         return null;

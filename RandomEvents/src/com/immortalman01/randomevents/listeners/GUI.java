@@ -75,36 +75,32 @@ public class GUI implements Listener {
 		}
 
                Inventory topInventory = event.getView().getTopInventory();
-               boolean pluginMenu = topInventory != null && topInventory.getHolder() instanceof RandomEventsHolder;
-               if (pluginMenu) {
+               if (topInventory != null && topInventory.getHolder() instanceof RandomEventsHolder) {
+                       RandomEventsHolder holder = (RandomEventsHolder) topInventory.getHolder();
                        // Cancel any attempts to move items from or to the menu.
                        // Using isShiftClick covers quick move actions while
                        // clickedTopInventory handles normal clicks in the menu.
                        if (clickedTopInventory(event) || event.isShiftClick()) {
                                event.setCancelled(true);
                        }
-                       String invTitle = InventoryUtils.getInventoryTitle(event);
 
-                       if (invTitle != null
-                                       && ChatColor.stripColor(invTitle)
-                                                       .contains(ChatColor.stripColor(plugin.getLanguage().getStatsGuiName()))) {
+                       switch (holder.getType()) {
+                       case STATS:
                                if (clickedTopInventory(event)) {
                                        event.setCancelled(true);
                                }
-                       } else if (invTitle != null
-                                       && ChatColor.stripColor(invTitle)
-                                                       .contains(ChatColor.stripColor(plugin.getLanguage().getCreditsGuiName()))) {
+                               break;
+                       case CREDITS:
                                useCreditsGui(event);
-                       } else if (invTitle != null
-                                       && ChatColor.stripColor(invTitle)
-                                                       .contains(ChatColor.stripColor(plugin.getLanguage().getKitGuiName()))) {
+                               break;
+                       case KITS:
                                useKitGUI(event);
-
-                       } else if (invTitle != null
-                                       && ChatColor.stripColor(invTitle)
-                                                       .contains(ChatColor.stripColor(plugin.getLanguage().getTeamGuiName()))) {
+                               break;
+                       case TEAMS:
                                useTeamGUI(event);
-
+                               break;
+                       default:
+                               break;
                        }
                }
        }
