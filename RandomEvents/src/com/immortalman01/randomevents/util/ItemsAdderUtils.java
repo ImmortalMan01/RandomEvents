@@ -73,4 +73,23 @@ public final class ItemsAdderUtils {
         }
         return null;
     }
+
+    /**
+     * Create an ItemsAdder item by its ID and copy meta from the original stack.
+     * This helps preserve enchantments and other NBT data when restoring
+     * inventories.
+     */
+    public static ItemStack createItem(String id, ItemStack original) {
+        ItemStack item = createItem(id);
+        if (item != null && original != null) {
+            try {
+                if (original.hasItemMeta()) {
+                    item.setItemMeta(original.getItemMeta().clone());
+                }
+                item.setAmount(original.getAmount());
+            } catch (Exception ignored) {
+            }
+        }
+        return item;
+    }
 }
