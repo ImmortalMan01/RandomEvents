@@ -3010,9 +3010,14 @@ public class UtilsRandomEvents {
 
                        lines.add("");
 
-                       // Lives placeholders (not implemented in plugin, default 0)
-                       lines.add("&9Blue &fLives: &a0");
-                       lines.add("&cRed &fLives: &a0");
+                      // Display remaining players on each team as lives
+                      int blueLives = matchActive.getPlayerHandler().getEquipos()
+                                      .getOrDefault(1, new java.util.HashSet<Player>()).size();
+                      int redLives = matchActive.getPlayerHandler().getEquipos()
+                                     .getOrDefault(0, new java.util.HashSet<Player>()).size();
+
+                      lines.add("&9Blue &fLives: &a" + blueLives);
+                      lines.add("&cRed &fLives: &a" + redLives);
 
                        lines.add("");
 
