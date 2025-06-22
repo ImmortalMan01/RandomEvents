@@ -76,7 +76,6 @@ import com.immortalman01.randomevents.match.utils.BannedPlayers;
 import com.immortalman01.randomevents.match.utils.Cuboid;
 import com.immortalman01.randomevents.match.utils.InventoryPers;
 import com.immortalman01.randomevents.stats.Stats;
-import com.immortalman01.randomevents.config.ScoreboardPBALLTKConfig;
 import com.immortalman01.randomevents.config.ScoreboardConfig;
 import com.immortalman01.randomevents.util.RandomEventsHolder;
 import com.immortalman01.util.enums.Particle1711;
@@ -3025,10 +3024,10 @@ public class UtilsRandomEvents {
                        int online = matchActive.getPlayerHandler().getPlayersObj().size();
                        int max = matchActive.getMatch().getAmountPlayers() != null ? matchActive.getMatch().getAmountPlayers() : 0;
 
-                       List<String> custom = plugin.getScoreboardPBALLTKConfig().getLines();
-                       if (custom != null && !custom.isEmpty()) {
+                      List<String> custom = plugin.getScoreboardConfig().getLines("PAINTBALL_TOP_KILL");
+                      if (custom != null && !custom.isEmpty()) {
                                for (String l : custom) {
-                                       String line = ScoreboardPBALLTKConfig.color(l)
+                                       String line = ScoreboardConfig.color(l)
                                                        .replace("%time%", calculateTimeTwoPoints(secondsPBALLTK))
                                                        .replace("%blueLives%", "" + blueLives)
                                                        .replace("%redLives%", "" + redLives)

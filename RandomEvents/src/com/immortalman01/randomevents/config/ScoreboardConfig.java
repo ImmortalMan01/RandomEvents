@@ -24,6 +24,10 @@ public class ScoreboardConfig extends Configuration {
         return color(def);
     }
 
+    public List<String> getLines(String key) {
+        return getStringList(key);
+    }
+
     public static String color(String s) {
         if (s == null) return null;
         return ChatColor.translateAlternateColorCodes('&', s);
