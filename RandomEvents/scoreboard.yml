@@ -1,0 +1,178 @@
+# Default scoreboard configuration
+# Layout tokens:
+# <TEAM> - Show player's team
+# <TEAMMATE> - Show teammate
+# <TIME_REFILL> - Show refill timer
+# <TIME> - Show time remaining
+# <DEADALIVE> - Show alive/dead players
+# <DEADALIVE_TEAM> - Show alive/dead players with team colors
+# <HOLDER> - Show current holder
+# <BEAST> - Show beast player
+# <SEEKERS> - Show seeker list
+# <ROUNDS> - Show current round
+# <STEP> - Show WaterDrop step info
+# <POINTS> - Show ranking points
+# <TEAM_KILLS> - Show team kill scoreboard
+
+titles:
+  DEFAULT: "&a&l%prefix%"
+  PAINTBALL_TOP_KILL: "&9&lRandomEvent"
+
+events:
+  PAINTBALL:
+    - "<TEAM>"
+    - ""
+    - "<TIME_REFILL>"
+    - "<DEADALIVE_TEAM>"
+  BATTLE_ROYALE_TEAMS:
+    - "<TEAM>"
+    - ""
+    - "<TIME_REFILL>"
+    - "<DEADALIVE_TEAM>"
+  TSW_REAL:
+    - "<TEAM>"
+    - ""
+    - "<TIME_REFILL>"
+    - "<DEADALIVE_TEAM>"
+  BATTLE_ROYALE_TEAM_2:
+    - "<TEAMMATE>"
+    - ""
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  TSW:
+    - "<TEAMMATE>"
+    - ""
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  BOMB_TAG:
+    - "<HOLDER>"
+    - ""
+    - "<TIME>"
+    - ""
+    - "<DEADALIVE>"
+  TSG_REAL:
+    - "<TEAM>"
+    - ""
+    - "<TIME>"
+    - ""
+    - "<TIME_REFILL>"
+    - "<DEADALIVE_TEAM>"
+  TSG:
+    - "<TEAMMATE>"
+    - ""
+    - "<TIME>"
+    - ""
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  SG:
+    - "<TIME>"
+    - ""
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  BLOCK_PARTY:
+    - "<ROUNDS>"
+    - ""
+    - "<TIME>"
+    - ""
+    - "<DEADALIVE>"
+  GLASS_WALK:
+    - "<TIME>"
+    - ""
+    - "<DEADALIVE>"
+  BATTLE_ROYALE:
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  BATTLE_ROYALE_CABALLO:
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  ESCAPE_ARROW:
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  ANVIL_SPLEEF:
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  BOMBARDMENT:
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  KNOCKBACK_DUEL:
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  SPLEEF:
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  SPLEGG:
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  SW:
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  TNT_RUN:
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  RACE:
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  RED_GREEN_LIGHT:
+    - "<TIME_REFILL>"
+    - "<DEADALIVE>"
+  ESCAPE_FROM_BEAST:
+    - "<BEAST>"
+    - ""
+    - "<DEADALIVE>"
+  HIDE_AND_SEEK:
+    - "<SEEKERS>"
+    - ""
+    - "<TIME>"
+    - ""
+    - "<DEADALIVE>"
+  TOP_KILLER_TEAM_2:
+    - "<TEAMMATE>"
+    - ""
+    - "<TIME>"
+    - ""
+    - "<POINTS>"
+  TOP_KILLER:
+    - "<TIME>"
+    - ""
+    - "<POINTS>"
+  FISH_SLAP:
+    - "<TIME>"
+    - ""
+    - "<POINTS>"
+  QUAKECRAFT:
+    - "<TIME>"
+    - ""
+    - "<POINTS>"
+  OITC:
+    - "<TIME>"
+    - ""
+    - "<POINTS>"
+  HOEHOEHOE:
+    - "<TEAM_KILLS>"
+  SPLATOON:
+    - "<TEAM_KILLS>"
+  TOP_KILLER_TEAMS:
+    - "<TEAM_KILLS>"
+  PAINTBALL_TOP_KILL:
+    - "&fStatus:"
+    - "&fFINISHING IN &a%time%"
+    - ""
+    - "&9Blue &fLives: &a%blueLives%"
+    - "&cRed &fLives: &a%redLives%"
+    - ""
+    - "&fYour Kills: &a%kills%"
+    - ""
+    - "&fPlayers:"
+    - "&a%players%&f/&c%max%"
+  KOTH:
+    - "<HOLDER>"
+    - ""
+    - "<TIME>"
+    - ""
+    - "<POINTS>"
+  GEM_CRAWLER:
+    - "<POINTS>"
+  WDROP:
+    - "<STEP>"
+    - ""
+    - "<POINTS>"

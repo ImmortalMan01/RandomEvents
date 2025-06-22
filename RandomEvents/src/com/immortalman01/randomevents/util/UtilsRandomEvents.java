@@ -77,6 +77,7 @@ import com.immortalman01.randomevents.match.utils.Cuboid;
 import com.immortalman01.randomevents.match.utils.InventoryPers;
 import com.immortalman01.randomevents.stats.Stats;
 import com.immortalman01.randomevents.config.ScoreboardPBALLTKConfig;
+import com.immortalman01.randomevents.config.ScoreboardConfig;
 import com.immortalman01.randomevents.util.RandomEventsHolder;
 import com.immortalman01.util.enums.Particle1711;
 import com.immortalman01.util.enums.ParticleDisplay;
@@ -2840,8 +2841,17 @@ public class UtilsRandomEvents {
 		List<Player> playersDeadObj = new ArrayList<Player>();
 		playersDeadObj.addAll(matchActive.getPlayerHandler().getPlayersTotalObj());
 		playersDeadObj.removeAll(matchActive.getPlayerHandler().getPlayersObj());
-		lines.add("");
-		switch (matchActive.getMatch().getMinigame()) {
+                lines.add("");
+
+                List<String> customLayout = plugin.getScoreboardConfig().getLayout(matchActive.getMatch().getMinigame().name());
+                if (customLayout != null && !customLayout.isEmpty()) {
+                        for (String token : customLayout) {
+                                addTokenLines(token, lines, plugin, matchActive, player, playersDead, playersDeadObj);
+                        }
+                        return finalizeLines(lines);
+                }
+
+                switch (matchActive.getMatch().getMinigame()) {
 		case PAINTBALL:
 		case BATTLE_ROYALE_TEAMS:
 		case TSW_REAL:
@@ -3142,8 +3152,8 @@ public class UtilsRandomEvents {
 		return lines;
 	}
 
-	private static List<String> prepareLinesBeast(List<String> lines, MatchActive matchActive, RandomEvents plugin,
-			Player player) {
+        private static List<String> prepareLinesBeast(List<String> lines, MatchActive matchActive, RandomEvents plugin,
+                        Player player) {
 		if (matchActive.getPlayerHandler().getPlayerContador() == null) {
 			lines.add(plugin.getLanguage().getScoreboardBeast().replaceAll("%name%", "-"));
 		} else {
@@ -3151,8 +3161,125 @@ public class UtilsRandomEvents {
 					matchActive.getPlayerHandler().getPlayerContador().getName()));
 
 		}
-		return lines;
-	}
+                return lines;
+        }
+
+        private static void addTokenLines(String token, List<String> lines, RandomEvents plugin, MatchActive matchActive,
+                        Player player, List<String> playersDead, List<Player> playersDeadObj) {
+                switch (token) {
+                case "<TEAM>":
+                        prepareLinesTeam(lines, matchActive, plugin, player);
+                        break;
+                case "<TEAMMATE>":
+                        prepareLinesTeammate(lines, matchActive, plugin, player);
+                        break;
+                case "<TIME_REFILL>":
+                        prepareLinesTimeRefill(lines, plugin, matchActive);
+                        break;
+                case "<TIME>":
+                        prepareLinesTime(lines, plugin, matchActive);
+                        break;
+                case "<DEADALIVE>":
+                        prepareLinesDeadAlive(lines, matchActive, plugin, playersDead);
+                        break;
+                case "<DEADALIVE_TEAM>":
+                        prepareLinesDeadAliveTeam(lines, matchActive, plugin, playersDeadObj);
+                        break;
+                case "<HOLDER>":
+                        prepareLinesHolder(lines, matchActive, plugin, player);
+                        break;
+                case "<BEAST>":
+                        prepareLinesBeast(lines, matchActive, plugin, player);
+                        break;
+                case "<SEEKERS>":
+                        prepareLinesSeekers(lines, matchActive, plugin, player);
+                        break;
+                case "<ROUNDS>":
+                        prepareLinesRounds(lines, plugin, matchActive);
+                        break;
+                case "<STEP>":
+                        prepareLinesStep(lines, plugin, matchActive, player);
+                        break;
+                case "<POINTS>":
+                        lines.addAll(prepareLinesPoints(matchActive, plugin, player));
+                        break;
+                case "<TEAM_KILLS>":
+                        lines.addAll(prepareLinesTeamKills(matchActive, plugin, player));
+                        break;
+                default:
+                        lines.add(ScoreboardConfig.color(token));
+                        break;
+                }
+        }
+
+        private static List<String> prepareLinesPoints(MatchActive matchActive, RandomEvents plugin, Player player) {
+                List<String> result = new ArrayList<String>();
+                switch (matchActive.getMatch().getMinigame()) {
+                case WDROP:
+                        Map<Player, Integer> mapaOrdenadoStep = sortByValue(matchActive.getStep(), true);
+                        for (Entry<Player, Integer> entrada : mapaOrdenadoStep.entrySet()) {
+                                result.add(plugin.getLanguage().getScoreboardPoints()
+                                                .replaceAll("%name%", entrada.getKey().getName())
+                                                .replaceAll("%points%", "" + (entrada.getValue() + 1)));
+                        }
+                        break;
+                default:
+                        Map<String, Integer> mapaOrdenado = sortByValue(matchActive.getPuntuacion(), true);
+                        for (Entry<String, Integer> entrada : mapaOrdenado.entrySet()) {
+                                result.add(plugin.getLanguage().getScoreboardPoints()
+                                                .replaceAll("%name%", entrada.getKey())
+                                                .replaceAll("%points%", "" + entrada.getValue()));
+                        }
+                        break;
+                }
+                return result;
+        }
+
+        private static List<String> prepareLinesTeamKills(MatchActive matchActive, RandomEvents plugin, Player player) {
+                List<String> lines = new ArrayList<String>();
+                lines.add(plugin.getLanguage().getTranslation("scoreboard.status"));
+                long secondsTopKill = (matchActive.getEndDate() - new Date().getTime()) / 1000;
+                lines.add(plugin.getLanguage().getTranslation("scoreboard.endsin")
+                                .replace("%time%", calculateTimeTwoPoints(secondsTopKill)));
+                lines.add(plugin.getLanguage().getTranslation("scoreboard.bluelives").replace("%lives%", "0"));
+                lines.add(plugin.getLanguage().getTranslation("scoreboard.redlives").replace("%lives%", "0"));
+                lines.add("");
+                int killsTop = matchActive.getPuntuacion().getOrDefault(player.getName(), 0);
+                lines.add(plugin.getLanguage().getScoreboardYourKills().replaceAll("%kills%", "" + killsTop));
+                lines.add("");
+                lines.add(plugin.getLanguage().getTranslation("scoreboard.teamblue"));
+                Set<Player> blueTeam = matchActive.getPlayerHandler().getEquipos().getOrDefault(1, new HashSet<Player>());
+                for (Player pl : blueTeam) {
+                        int pk = matchActive.getPuntuacion().getOrDefault(pl.getName(), 0);
+                        lines.add(plugin.getLanguage().getTranslation("scoreboard.teamkill")
+                                        .replace("%player%", pl.getName()).replace("%kills%", "" + pk));
+                }
+                lines.add("");
+                lines.add(plugin.getLanguage().getTranslation("scoreboard.teamred"));
+                Set<Player> redTeam = matchActive.getPlayerHandler().getEquipos().getOrDefault(0, new HashSet<Player>());
+                for (Player pl : redTeam) {
+                        int pk = matchActive.getPuntuacion().getOrDefault(pl.getName(), 0);
+                        lines.add(plugin.getLanguage().getTranslation("scoreboard.teamkill")
+                                        .replace("%player%", pl.getName()).replace("%kills%", "" + pk));
+                }
+                return lines;
+        }
+
+        private static List<String> finalizeLines(List<String> lines) {
+                lines.add("");
+                if (lines.size() > 15) {
+                        lines = lines.subList(0, 15);
+                }
+                List<String> linesFormated = new ArrayList<String>();
+                for (String l : lines) {
+                        if (l.length() > 30) {
+                                linesFormated.add(l.substring(0, 29));
+                        } else {
+                                linesFormated.add(l);
+                        }
+                }
+                return linesFormated;
+        }
 
 	private static List<String> prepareLinesHolder(List<String> lines, MatchActive matchActive, RandomEvents plugin,
 			Player player) {
