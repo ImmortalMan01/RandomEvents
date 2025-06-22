@@ -2845,12 +2845,14 @@ public class UtilsRandomEvents {
                 lines.add("");
 
                 List<String> customLayout = plugin.getScoreboardConfig().getLayout(matchActive.getMatch().getMinigame().name());
-               if (customLayout != null && !customLayout.isEmpty()) {
-                       for (String token : customLayout) {
-                               addTokenLines(token, lines, plugin, matchActive, player, playersDead, playersDeadObj);
-                       }
-                       return finalizeLines(lines, plugin, player);
-               }
+                boolean tokenLayout = customLayout != null && !customLayout.isEmpty()
+                                && customLayout.get(0).trim().startsWith("<");
+                if (customLayout != null && !customLayout.isEmpty() && tokenLayout) {
+                        for (String token : customLayout) {
+                                addTokenLines(token, lines, plugin, matchActive, player, playersDead, playersDeadObj);
+                        }
+                        return finalizeLines(lines, plugin, player);
+                }
 
                 switch (matchActive.getMatch().getMinigame()) {
 		case PAINTBALL:
