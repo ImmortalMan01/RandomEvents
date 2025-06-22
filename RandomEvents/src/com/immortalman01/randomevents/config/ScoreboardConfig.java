@@ -25,7 +25,7 @@ public class ScoreboardConfig extends Configuration {
     }
 
     public List<String> getLines(String key) {
-        return getStringList(key);
+        return getStringList("events." + key);
     }
 
     public static String color(String s) {
