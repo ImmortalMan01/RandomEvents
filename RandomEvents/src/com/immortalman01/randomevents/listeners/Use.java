@@ -127,7 +127,7 @@ public class Use implements Listener {
                                                         || (plugin.getMatchActive().getMatch().getDatas() != null
                                                                         && !plugin.getMatchActive().getMatch().getDatas().isEmpty()
                                                                         && evt.getClickedBlock().getType() != null
-                                                                        && UtilsRandomEvents.contieneMaterialData(evt.getClickedBlock(),
+                                                                        && UtilsRandomEvents.containsMaterial(evt.getClickedBlock(),
                                                                                plugin.getMatchActive().getMatch()))) {
 						Integer equipo = plugin.getMatchActive().getEquipoCopy(player);
 						Petos peto = Petos.getPeto(equipo);
@@ -496,7 +496,7 @@ public class Use implements Listener {
                                                         || (plugin.getMatchActive().getMatch().getDatas() != null
                                                                         && !plugin.getMatchActive().getMatch().getDatas().isEmpty()
                                                                         && nextBlock.getType() != null
-                                                                        && UtilsRandomEvents.contieneMaterialData(nextBlock,
+                                                                        && UtilsRandomEvents.containsMaterial(nextBlock,
                                                                                plugin.getMatchActive().getMatch()))) {
                                                 plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(nextBlock.getLocation(),
                                                                 nextBlock.getBlockData().clone());
@@ -531,9 +531,9 @@ public class Use implements Listener {
 
 				if (blockFace != null) {
 
-					List<Block> blocks = UtilsRandomEvents.getNearbyBlocks(plugin.getMatchActive().getMatch(),
-							nextBlock.getLocation(), plugin.getReventConfig().getSplatoonRadius(),
-							plugin.getMatchActive().getMatch().getDatas(), true, plugin);
+                                        List<Block> blocks = UtilsRandomEvents.getNearbyBlocks(plugin.getMatchActive().getMatch(),
+                                                        nextBlock.getLocation(), plugin.getReventConfig().getSplatoonRadius(),
+                                                        true, plugin);
 					List<Location> locations = new ArrayList<Location>();
 
 					List<Location> locTeam = new ArrayList<Location>();
@@ -655,7 +655,7 @@ public class Use implements Listener {
                                                         || (plugin.getMatchActive().getMatch().getDatas() != null
                                                                         && !plugin.getMatchActive().getMatch().getDatas().isEmpty()
                                                                         && block.getType() != null
-                                                                        && UtilsRandomEvents.contieneMaterialData(block,
+                                                                        && UtilsRandomEvents.containsMaterial(block,
                                                                                plugin.getMatchActive().getMatch()))) {
                                                 try {
                                                         plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(block.getLocation(),
@@ -788,7 +788,7 @@ public class Use implements Listener {
                                                                                 && plugin.getMatchActive().getMatch().getDatas() != null
                                                                                 && !plugin.getMatchActive().getMatch().getDatas().isEmpty()
                                                                                 && evt.getBlock().getType() != null
-                                                                                && UtilsRandomEvents.contieneMaterialData(evt.getBlock(), plugin.getMatchActive().getMatch()))) {
+&& UtilsRandomEvents.containsMaterial(evt.getBlock(), plugin.getMatchActive().getMatch()))) {
 							evt.setCancelled(true);
                                                        plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(
                                                                        evt.getBlock().getLocation(),
@@ -806,7 +806,7 @@ public class Use implements Listener {
                                                                                 || (plugin.getMatchActive().getMatch().getDatas() != null
                                                                                                 && !plugin.getMatchActive().getMatch().getDatas().isEmpty()
                                                                                                 && evt.getBlock().getType() != null
-                        && UtilsRandomEvents.contieneMaterialData(evt.getBlock(),
+                        && UtilsRandomEvents.containsMaterial(evt.getBlock(),
                                                                                                                 plugin.getMatchActive().getMatch())))) {
 							evt.setCancelled(true);
                                                        plugin.getMatchActive().getMapHandler().getBlockDisappeared().put(
@@ -887,7 +887,7 @@ public class Use implements Listener {
                                                 || (plugin.getMatchActive().getMatch().getDatas() != null
                                                                 && !plugin.getMatchActive().getMatch().getDatas().isEmpty()
                                                                 && evt.getBlock().getType() != null
-                                                                && UtilsRandomEvents.contieneMaterialData(evt.getBlock(),
+                                                                && UtilsRandomEvents.containsMaterial(evt.getBlock(),
                                                                                plugin.getMatchActive().getMatch()))) {
 					// evt.setCancelled(true);
 					evt.setCancelled(false);
@@ -991,7 +991,7 @@ public class Use implements Listener {
 									|| (plugin.getMatchActive().getMatch().getDatas() != null
 											&& !plugin.getMatchActive().getMatch().getDatas().isEmpty()
                                                                                && l2.getBlock().getType() != null
-											&& (UtilsRandomEvents.contieneMaterialData(l2.getBlock(),
+                                                                               && (UtilsRandomEvents.containsMaterial(l2.getBlock(),
 													plugin.getMatchActive().getMatch())
 													|| l2.getBlock().getType().equals(XMaterial.ANVIL.parseMaterial())
 													|| l2.getBlock().getType()

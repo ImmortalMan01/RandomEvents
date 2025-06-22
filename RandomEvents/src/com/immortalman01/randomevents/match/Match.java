@@ -8,7 +8,7 @@ import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.material.MaterialData;
+import org.bukkit.Material;
 
 import com.immortalman01.randomevents.match.enums.MinigameType;
 import com.immortalman01.randomevents.match.utils.InventoryPers;
@@ -84,7 +84,8 @@ public class Match implements Comparable<Match> {
 
 	private String material;
 
-	private List<MaterialData> datas;
+       /** Materials allowed for block interactions in certain minigames. */
+       private List<Material> datas;
 	
 	private Boolean allMaterialAllowed;
 
@@ -123,7 +124,7 @@ public class Match implements Comparable<Match> {
 		this.entitySpawns = new ArrayList<Location>();
 		this.spawns = new ArrayList<Location>();
 		this.spectatorSpawns = new ArrayList<Location>();
-		this.datas = new ArrayList<MaterialData>();
+               this.datas = new ArrayList<Material>();
 		this.scenes = new ArrayList<String>();
 		this.kits = new ArrayList<String>();
 		this.commandsOnStart = new ArrayList<String>();
@@ -377,12 +378,12 @@ public class Match implements Comparable<Match> {
 		this.material = material;
 	}
 
-	public List<MaterialData> getDatas() {
-		return datas;
-	}
+       public List<Material> getDatas() {
+               return datas;
+       }
 
-	public void setDatas(List<MaterialData> datas) {
-		this.datas = datas;
+       public void setDatas(List<Material> datas) {
+               this.datas = datas;
 	}
 
 	public InventoryPers getInventoryChests() {

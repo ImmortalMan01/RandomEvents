@@ -11,7 +11,6 @@ import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.material.MaterialData;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.util.Vector;
 
@@ -83,13 +82,9 @@ public class API1711 {
         try {
             Block b = loc.getBlock();
             if (data instanceof BlockData) {
-                b.setBlockData(((BlockData) data));
-            } else if (data instanceof MaterialData) {
-                MaterialData md = (MaterialData) data;
-                b.setType(md.getItemType());
-                try {
-                    b.setBlockData(Bukkit.createBlockData(md.getItemType()));
-                } catch (Throwable ignore) {}
+                b.setBlockData((BlockData) data);
+            } else if (data instanceof org.bukkit.Material) {
+                b.setType((org.bukkit.Material) data);
             }
         } catch (Throwable ignore) {}
     }
