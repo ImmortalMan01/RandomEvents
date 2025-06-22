@@ -400,7 +400,10 @@ public class Constantes {
 
 		PVP_KILL("pvpKill", "pvp.kill", "&a%killer% &4⚔ &c%victim%"),
 
-		BOW_KILL("bowKill", "pvp.bowkill", "&a%killer% &4⚔ &c%victim%  &e( %distance% blocks )"),
+                BOW_KILL("bowKill", "pvp.bowkill", "&a%killer% &4⚔ &c%victim%  &e( %distance% blocks )"),
+
+                PAINTBALL_TOP_KILL_SUMMARY("paintballTopKillSummary", "match.paintballTopKillSummary",
+                                "&f&l----------------------------------------------\\n&c&l%winningTeamName% &6Team have won!\\n&9Blue kills: &f%blue_kills% &7- &cRed kills: &f%red_kills%\\n\\n&f&lTop Kills\\n&7- &a%top1_name% &7(%top1_kills% kills)\\n&7- &b%top2_name% &7(%top2_kills% kills)\\n&7- &3%top3_name% &7(%top3_kills% kills)\\n\\n&fYour Kills: &e%player_kills%\\n&f&l----------------------------------------------"),
 
                 SCOREBOARD_TITLE("scoreboardTitle", "scoreboard.title", "      &a&l%prefix%      "),
 

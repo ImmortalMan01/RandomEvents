@@ -1334,6 +1334,9 @@ public class MatchActive {
                                 UtilsRandomEvents.mandaMensaje(plugin, playersOnline,
                                                 plugin.getLanguage().getEventEnded().replaceAll("%event%", match.getName()),
                                                 true);
+                                if (match.getMinigame() == MinigameType.PAINTBALL_TOP_KILL) {
+                                        sendPaintballTopKillSummary();
+                                }
 
                         }
                         try {
@@ -1341,9 +1344,58 @@ public class MatchActive {
                         } catch (Exception e) {
                                 plugin.getLoggerP().info("[RandomEvents] WARN :: Couldnt fire the ReventEndEvent.");
                         }
-			reiniciaValoresPartida();
-		}
-	}
+                        reiniciaValoresPartida();
+                }
+        }
+
+        private void sendPaintballTopKillSummary() {
+                Map<Integer, Integer> teamPoints = createTeamPoints();
+                int blueKills = teamPoints.getOrDefault(1, 0);
+                int redKills = teamPoints.getOrDefault(0, 0);
+                int winningTeam = blueKills > redKills ? 1 : 0;
+                String winningTeamName = winningTeam == 1 ? "&9Blue" : "&cRed";
+
+                Map<String, Integer> sorted = UtilsRandomEvents.sortByValue(puntuacion, true);
+                String top1Name = "None";
+                String top2Name = "None";
+                String top3Name = "None";
+                int top1Kills = 0;
+                int top2Kills = 0;
+                int top3Kills = 0;
+
+                java.util.Iterator<Map.Entry<String, Integer>> it = sorted.entrySet().iterator();
+                if (it.hasNext()) {
+                        Map.Entry<String, Integer> e = it.next();
+                        top1Name = e.getKey();
+                        top1Kills = e.getValue();
+                }
+                if (it.hasNext()) {
+                        Map.Entry<String, Integer> e = it.next();
+                        top2Name = e.getKey();
+                        top2Kills = e.getValue();
+                }
+                if (it.hasNext()) {
+                        Map.Entry<String, Integer> e = it.next();
+                        top3Name = e.getKey();
+                        top3Kills = e.getValue();
+                }
+
+                for (Player pl : getPlayerHandler().getPlayersTotalObj()) {
+                        int playerKills = puntuacion.getOrDefault(pl.getName(), 0);
+                        String msg = plugin.getLanguage().getPaintballTopKillSummary()
+                                        .replace("%winningTeamName%", winningTeamName)
+                                        .replace("%blue_kills%", String.valueOf(blueKills))
+                                        .replace("%red_kills%", String.valueOf(redKills))
+                                        .replace("%top1_name%", top1Name)
+                                        .replace("%top2_name%", top2Name)
+                                        .replace("%top3_name%", top3Name)
+                                        .replace("%top1_kills%", String.valueOf(top1Kills))
+                                        .replace("%top2_kills%", String.valueOf(top2Kills))
+                                        .replace("%top3_kills%", String.valueOf(top3Kills))
+                                        .replace("%player_kills%", String.valueOf(playerKills));
+                        UtilsRandomEvents.mandaMensaje(plugin, java.util.Collections.singletonList(pl), msg, false);
+                }
+        }
 
 	public void reiniciaValoresPartida() {
 		reiniciaValoresPartida(true);

@@ -117,6 +117,7 @@ public class LanguageMessages {
         private String eventCancelled;
         private String eventStopped;
         private String eventEnded;
+        private String paintballTopKillSummary;
         private String tournamentCancelled;
         private String resetCoinsAll;
 	private String resetTriesAll;
@@ -2828,6 +2829,32 @@ public class LanguageMessages {
 
         public void setEventEnded(String eventEnded) {
                 this.eventEnded = eventEnded;
+        }
+
+        public String getPaintballTopKillSummary() {
+                String s = paintballTopKillSummary;
+                try {
+                        Matcher match = pattern.matcher(s);
+                        Map<String, ChatColor> mapa = new HashMap<String, ChatColor>();
+                        while (match.find()) {
+                                String color = s.substring(match.start() + 1, match.end());
+                                Method method = ChatColor.class.getMethod("of", String.class);
+                                ChatColor chatc = (ChatColor) method.invoke(null, color);
+                                mapa.put("&" + color, chatc);
+                        }
+                        for (Entry<String, ChatColor> ent : mapa.entrySet()) {
+                                s = s.replaceAll(ent.getKey(), ent.getValue() + "");
+                        }
+                        s = ChatColor.translateAlternateColorCodes('&', s);
+                } catch (Exception e) {
+                        s = s.replaceAll("&", "§");
+                }
+                s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+                return s;
+        }
+
+        public void setPaintballTopKillSummary(String paintballTopKillSummary) {
+                this.paintballTopKillSummary = paintballTopKillSummary;
         }
 
 	public String getClearInventory() {
