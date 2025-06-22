@@ -79,6 +79,9 @@ public class Match implements Comparable<Match> {
         private Integer snowballMagazines;
 
         private Integer ammoPerMagazine;
+
+        /** Number of kills required to win in Paintball Top Kill. */
+        private Integer killGoal;
 	
 	private Location beastSpawn;
 
@@ -134,6 +137,7 @@ public class Match implements Comparable<Match> {
                 this.snowballSpleef=false;
                 this.snowballMagazines=0;
                 this.ammoPerMagazine=0;
+                this.killGoal = 0;
                 this.allMaterialAllowed=false;
         }
 
@@ -477,6 +481,14 @@ public class Match implements Comparable<Match> {
 
         public void setAmmoPerMagazine(Integer ammoPerMagazine) {
                 this.ammoPerMagazine = ammoPerMagazine;
+        }
+
+        public Integer getKillGoal() {
+                return killGoal;
+        }
+
+        public void setKillGoal(Integer killGoal) {
+                this.killGoal = killGoal;
         }
 
 	@Override

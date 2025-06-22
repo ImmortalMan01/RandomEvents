@@ -97,6 +97,8 @@ public enum Creacion {
 
         AMMO_PER_MAG(64,"Ammo per magazine","§6§lWrite ammo per magazine","SPLEEF"),
 
+        KILL_GOAL(65,"Kill Goal","§6§lWrite the number of kills to win","PBALLTK"),
+
 	MAP_LOCATION1(33,"Map Region Location 1", "§6§lSet the first location of the cuboid of the map, say 'Done'",
 			"SG,TSG,SW,TSW,TSGTEAMS,TSWTEAMS,ANVIL_SPLEEF,BLOCKPARTY"),
 

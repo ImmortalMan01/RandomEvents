@@ -3005,10 +3005,12 @@ public class UtilsRandomEvents {
                case PAINTBALL_TOP_KILL:
 
                        long secondsPBALLTK = (matchActive.getEndDate() - new Date().getTime()) / 1000;
-                       int blueLives = matchActive.getPlayerHandler().getEquipos()
-                                      .getOrDefault(1, new java.util.HashSet<Player>()).size();
-                       int redLives = matchActive.getPlayerHandler().getEquipos()
-                                     .getOrDefault(0, new java.util.HashSet<Player>()).size();
+                      int goal = matchActive.getMatch().getKillGoal() != null ? matchActive.getMatch().getKillGoal() : 0;
+                      Map<Integer, Integer> teamScores = matchActive.createTeamPoints();
+                      int blueKills = teamScores.getOrDefault(1, 0);
+                      int redKills = teamScores.getOrDefault(0, 0);
+                      int blueLives = goal > 0 ? Math.max(goal - blueKills, 0) : blueKills;
+                      int redLives = goal > 0 ? Math.max(goal - redKills, 0) : redKills;
                        int kills = matchActive.getPuntuacion().getOrDefault(player.getName(), 0);
                        int online = matchActive.getPlayerHandler().getPlayersObj().size();
                        int max = matchActive.getMatch().getAmountPlayers() != null ? matchActive.getMatch().getAmountPlayers() : 0;
