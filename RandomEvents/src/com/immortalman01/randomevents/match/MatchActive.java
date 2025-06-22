@@ -4602,7 +4602,11 @@ public class MatchActive {
                                         fBoard = new FastBoard(p);
                                 }
 
-                                fBoard.updateTitle(plugin.getLanguage().getScoreboardTitle());
+                                String title = plugin.getLanguage().getScoreboardTitle();
+                                if (getMatch().getMinigame().equals(MinigameType.PAINTBALL_TOP_KILL)) {
+                                        title = "&9&lRandomEvent";
+                                }
+                                fBoard.updateTitle(title);
 
                                 fBoard.updateLines(UtilsRandomEvents.prepareLines(plugin, this, p));
 
