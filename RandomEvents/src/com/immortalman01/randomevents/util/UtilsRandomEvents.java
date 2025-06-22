@@ -76,6 +76,7 @@ import com.immortalman01.randomevents.match.utils.BannedPlayers;
 import com.immortalman01.randomevents.match.utils.Cuboid;
 import com.immortalman01.randomevents.match.utils.InventoryPers;
 import com.immortalman01.randomevents.stats.Stats;
+import com.immortalman01.randomevents.config.ScoreboardPBALLTKConfig;
 import com.immortalman01.randomevents.util.RandomEventsHolder;
 import com.immortalman01.util.enums.Particle1711;
 import com.immortalman01.util.enums.ParticleDisplay;
@@ -3003,33 +3004,39 @@ public class UtilsRandomEvents {
 
                case PAINTBALL_TOP_KILL:
 
-                       lines.add("&fStatus:");
-
                        long secondsPBALLTK = (matchActive.getEndDate() - new Date().getTime()) / 1000;
-                       lines.add("&fFINISHING IN &a" + calculateTimeTwoPoints(secondsPBALLTK));
-
-                       lines.add("");
-
-                      // Display remaining players on each team as lives
-                      int blueLives = matchActive.getPlayerHandler().getEquipos()
+                       int blueLives = matchActive.getPlayerHandler().getEquipos()
                                       .getOrDefault(1, new java.util.HashSet<Player>()).size();
-                      int redLives = matchActive.getPlayerHandler().getEquipos()
+                       int redLives = matchActive.getPlayerHandler().getEquipos()
                                      .getOrDefault(0, new java.util.HashSet<Player>()).size();
-
-                      lines.add("&9Blue &fLives: &a" + blueLives);
-                      lines.add("&cRed &fLives: &a" + redLives);
-
-                       lines.add("");
-
                        int kills = matchActive.getPuntuacion().getOrDefault(player.getName(), 0);
-                       lines.add("&fYour Kills: &a" + kills);
-
-                       lines.add("");
-
-                       lines.add("&fPlayers:");
                        int online = matchActive.getPlayerHandler().getPlayersObj().size();
                        int max = matchActive.getMatch().getAmountPlayers() != null ? matchActive.getMatch().getAmountPlayers() : 0;
-                       lines.add("&a" + online + "&f/&c" + max);
+
+                       List<String> custom = plugin.getScoreboardPBALLTKConfig().getLines();
+                       if (custom != null && !custom.isEmpty()) {
+                               for (String l : custom) {
+                                       String line = ScoreboardPBALLTKConfig.color(l)
+                                                       .replace("%time%", calculateTimeTwoPoints(secondsPBALLTK))
+                                                       .replace("%blueLives%", "" + blueLives)
+                                                       .replace("%redLives%", "" + redLives)
+                                                       .replace("%kills%", "" + kills)
+                                                       .replace("%players%", "" + online)
+                                                       .replace("%max%", "" + max);
+                                       lines.add(line);
+                               }
+                       } else {
+                               lines.add("&fStatus:");
+                               lines.add("&fFINISHING IN &a" + calculateTimeTwoPoints(secondsPBALLTK));
+                               lines.add("");
+                               lines.add("&9Blue &fLives: &a" + blueLives);
+                               lines.add("&cRed &fLives: &a" + redLives);
+                               lines.add("");
+                               lines.add("&fYour Kills: &a" + kills);
+                               lines.add("");
+                               lines.add("&fPlayers:");
+                               lines.add("&a" + online + "&f/&c" + max);
+                       }
 
                        break;
 		case KOTH:

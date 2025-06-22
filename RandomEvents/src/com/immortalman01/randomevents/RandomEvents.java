@@ -37,6 +37,7 @@ import com.immortalman01.randomevents.commands.CommandCompletion;
 import com.immortalman01.randomevents.commands.GenericCommand;
 import com.immortalman01.randomevents.config.Configuration;
 import com.immortalman01.randomevents.config.ReventConfig;
+import com.immortalman01.randomevents.config.ScoreboardPBALLTKConfig;
 import com.immortalman01.randomevents.language.LanguageMessages;
 import com.immortalman01.randomevents.listeners.Chat;
 import com.immortalman01.randomevents.listeners.Death;
@@ -110,7 +111,9 @@ public class RandomEvents extends JavaPlugin {
 
 	private Configuration config;
 
-	private ReventConfig reventConfig;
+        private ReventConfig reventConfig;
+
+        private ScoreboardPBALLTKConfig scoreboardPBALLTKConfig;
 
 	private HikariCP hikari;
 
@@ -299,11 +302,12 @@ public class RandomEvents extends JavaPlugin {
 		this.playersCreationWaterDrop = new HashMap<String, Integer>();
 		this.playerKit = new HashMap<String, Kit>();
 		this.playersCreationKit = new HashMap<String, Integer>();
-		this.playersEntity = new HashMap<String, EntityType>();
-		reventConfig = new ReventConfig(this);
-		reventConfig.inicializaVariables();
+                this.playersEntity = new HashMap<String, EntityType>();
+                reventConfig = new ReventConfig(this);
+                reventConfig.inicializaVariables();
+                scoreboardPBALLTKConfig = new ScoreboardPBALLTKConfig(this);
 
-	}
+        }
 
 	public void comienzaTemporizador() {
 		lastCheck=new Date();
@@ -711,13 +715,17 @@ public class RandomEvents extends JavaPlugin {
 		this.config = config;
 	}
 
-	public ReventConfig getReventConfig() {
-		return reventConfig;
-	}
+        public ReventConfig getReventConfig() {
+                return reventConfig;
+        }
 
-	public void setReventConfig(ReventConfig reventConfig) {
-		this.reventConfig = reventConfig;
-	}
+        public void setReventConfig(ReventConfig reventConfig) {
+                this.reventConfig = reventConfig;
+        }
+
+        public ScoreboardPBALLTKConfig getScoreboardPBALLTKConfig() {
+                return scoreboardPBALLTKConfig;
+        }
 
 	public HikariCP getHikari() {
 		return hikari;
