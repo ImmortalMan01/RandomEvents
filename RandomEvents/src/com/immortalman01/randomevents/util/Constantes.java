@@ -496,7 +496,8 @@ public class Constantes {
 
 		TEAM_GUI_NAME("teamGuiName", "team.guiName", "&6&lTeams"),
 
-		KIT_CHOSEN("kitChosen", "kit.chosen", "&6&lYou chosed %kit_name%"),
+                KIT_CHOSEN("kitChosen", "kit.chosen", "&6&lYou chosed %kit_name%"),
+                TEAM_CHOSEN("teamChosen", "team.chosen", "You joined the %team_color%%team_name% team"),
 
 		KIT_ITEM_NAME("kitItemName", "kit.itemName", "&6&lKits"),
 
