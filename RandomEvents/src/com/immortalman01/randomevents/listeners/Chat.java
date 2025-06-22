@@ -658,6 +658,7 @@ public class Chat implements Listener {
                                                || current.equals(Creacion.ID_NPC)
                                                || current.equals(Creacion.MAGAZINES_AMOUNT)
                                                || current.equals(Creacion.AMMO_PER_MAG)
+                                               || current.equals(Creacion.KILL_GOAL)
                                                || current.equals(Creacion.DELETE))) {
                                        // These steps expect a numeric value. Don't interpret it as a step change.
                                        parseStep = false;
@@ -1600,13 +1601,16 @@ public class Chat implements Listener {
                                                 break;
                                         case MAGAZINES_AMOUNT:
                                         case AMMO_PER_MAG:
+                                        case KILL_GOAL:
                                                 try {
                                                         int val = Integer.parseInt(message.trim());
                                                         if (val >= 0) {
                                                                 if (c == Creacion.MAGAZINES_AMOUNT) {
                                                                         match.setSnowballMagazines(val);
-                                                                } else {
+                                                                } else if (c == Creacion.AMMO_PER_MAG) {
                                                                         match.setAmmoPerMagazine(val);
+                                                                } else {
+                                                                        match.setKillGoal(val);
                                                                 }
                                                                 plugin.getPlayersCreation().remove(player.getName());
                                                         } else {
@@ -1907,6 +1911,9 @@ public class Chat implements Listener {
                                                                 break;
                                                         case AMMO_PER_MAG:
                                                                 match.setAmmoPerMagazine(null);
+                                                                break;
+                                                        case KILL_GOAL:
+                                                                match.setKillGoal(null);
                                                                 break;
                                                         case SHRINK_BLOCKS:
                                                                 match.setShrinkBlocks(null);

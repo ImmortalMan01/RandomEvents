@@ -3,6 +3,9 @@ package com.immortalman01.randomevents.listeners;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Date;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Arrow;
@@ -2016,14 +2019,26 @@ public class Death implements Listener {
 								damager.sendMessage(plugin.getLanguage().getTagPlugin() + " "
 										+ plugin.getLanguage().getNowPoints().replace("%points%", plugin
 												.getMatchActive().getPuntuacion().get(damager.getName()).toString()));
-								if (plugin.getReventConfig().isTopKillerHealAfterKill()) {
-									damager.setHealth(damager.getMaxHealth());
-								}
-							} else {
-								ev.setCancelled(true);
-								player.damage(plugin.getReventConfig().getSnowballsDamage() * 1.0);
-								// ev.setDamage(plugin.getReventConfig().getSnowballsDamage());
-							}
+                                                                if (plugin.getReventConfig().isTopKillerHealAfterKill()) {
+                                                                        damager.setHealth(damager.getMaxHealth());
+                                                                }
+
+                                                                Integer goal = plugin.getMatchActive().getMatch().getKillGoal();
+                                                                if (goal != null && goal > 0) {
+                                                                        java.util.Map<Integer, Integer> teamPoints = plugin.getMatchActive().createTeamPoints();
+                                                                        for (java.util.Map.Entry<Integer, Integer> ent : teamPoints.entrySet()) {
+                                                                                if (ent.getValue() >= goal) {
+                                                                                        java.util.List<org.bukkit.entity.Player> winners = new java.util.ArrayList<>(plugin.getMatchActive().getPlayerHandler().getEquipos().get(ent.getKey()));
+                                                                                        plugin.getMatchActive().finalizaPartida(winners, Boolean.FALSE, Boolean.FALSE);
+                                                                                        return;
+                                                                                }
+                                                                        }
+                                                                }
+                                                        } else {
+                                                                ev.setCancelled(true);
+                                                                player.damage(plugin.getReventConfig().getSnowballsDamage() * 1.0);
+                                                                // ev.setDamage(plugin.getReventConfig().getSnowballsDamage());
+                                                        }
 						}
 						break;
 					default:
