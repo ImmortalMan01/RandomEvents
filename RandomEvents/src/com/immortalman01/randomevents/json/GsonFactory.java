@@ -73,6 +73,7 @@ public class GsonFactory {
                     .registerTypeAdapter(PotionEffect.class, new PotionEffectGsonAdapter())
                     .registerTypeAdapter(Location.class, new LocationGsonAdapter())
                     .registerTypeAdapter(Date.class, new DateGsonAdapter())
+                    .registerTypeAdapter(Material.class, new MaterialGsonAdapter())
                     .setPrettyPrinting()
                     .disableHtmlEscaping()
                     .create();
@@ -95,6 +96,7 @@ public class GsonFactory {
                     .registerTypeAdapter(PotionEffect.class, new PotionEffectGsonAdapter())
                     .registerTypeAdapter(Location.class, new LocationGsonAdapter())
                     .registerTypeAdapter(Date.class, new DateGsonAdapter())
+                    .registerTypeAdapter(Material.class, new MaterialGsonAdapter())
                     .disableHtmlEscaping()
                     .create();
         return compactGson;
@@ -111,6 +113,7 @@ public class GsonFactory {
         GsonBuilder builder = new GsonBuilder().addSerializationExclusionStrategy(new ExposeExlusion())
                 .addDeserializationExclusionStrategy(new ExposeExlusion())
                 .registerTypeHierarchyAdapter(ItemStack.class, new NewItemStackAdapter())
+                .registerTypeAdapter(Material.class, new MaterialGsonAdapter())
                 .disableHtmlEscaping();
         if (prettyPrinting)
             builder.setPrettyPrinting();
@@ -542,6 +545,44 @@ public class GsonFactory {
         }
     }
  
+    private static class MaterialGsonAdapter extends TypeAdapter<Material> {
+        @Override
+        public void write(JsonWriter jsonWriter, Material material) throws IOException {
+            if (material == null) {
+                jsonWriter.nullValue();
+                return;
+            }
+            jsonWriter.value(material.name());
+        }
+
+        @Override
+        public Material read(JsonReader jsonReader) throws IOException {
+            if (jsonReader.peek() == JsonToken.NULL) {
+                jsonReader.nextNull();
+                return null;
+            }
+            if (jsonReader.peek() == JsonToken.STRING) {
+                return Material.matchMaterial(jsonReader.nextString());
+            }
+            if (jsonReader.peek() == JsonToken.BEGIN_OBJECT) {
+                jsonReader.beginObject();
+                String type = null;
+                while (jsonReader.hasNext()) {
+                    String name = jsonReader.nextName();
+                    if (name.equalsIgnoreCase("type") || name.equalsIgnoreCase("name")) {
+                        type = jsonReader.nextString();
+                    } else {
+                        jsonReader.skipValue();
+                    }
+                }
+                jsonReader.endObject();
+                return type != null ? Material.matchMaterial(type) : null;
+            }
+            jsonReader.skipValue();
+            return null;
+        }
+    }
+
     private static class DateGsonAdapter extends TypeAdapter<Date> {
         @Override
         public void write(JsonWriter jsonWriter, Date date) throws IOException {
