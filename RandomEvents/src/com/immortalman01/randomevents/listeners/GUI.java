@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -410,18 +411,32 @@ public class GUI implements Listener {
                                                 // raw slot and limit it to the top
                                                 // inventory size so the correct team
                                                 // is selected regardless of version.
-                                                int raw = event.getRawSlot();
                                                 int topSize = event.getView().getTopInventory().getSize();
-                                                if (raw >= topSize) {
-                                                        return;
-                                                }
-                                                Integer pos = raw;
+                                                int pos = event.getSlot();
 
-						if (pos < plugin.getMatchActive().getMatch().getNumberOfTeams()) {
-							if (equipoActual != null) {
-								plugin.getMatchActive().getPlayerHandler().getEquipos().get(equipoActual).remove(p);
-								plugin.getMatchActive().getPlayerHandler().getTeamsCopy().get(equipoActual).remove(p);
-							}
+                                                // Some server implementations return the raw slot of the
+                                                // entire InventoryView instead of the clicked inventory
+                                                // slot. If the reported slot is outside the top inventory
+                                                // range fall back to the raw slot value.
+                                                if (pos >= topSize) {
+                                                        int raw = event.getRawSlot();
+                                                        if (raw >= topSize) {
+                                                                return;
+                                                        }
+                                                        pos = raw;
+                                                }
+
+                                                if (pos < plugin.getMatchActive().getMatch().getNumberOfTeams()) {
+                                                        if (equipoActual != null) {
+                                                                Set<Player> old = plugin.getMatchActive().getPlayerHandler().getEquipos().get(equipoActual);
+                                                                Set<Player> oldCopy = plugin.getMatchActive().getPlayerHandler().getTeamsCopy().get(equipoActual);
+                                                                if (old != null) {
+                                                                        old.remove(p);
+                                                                }
+                                                                if (oldCopy != null) {
+                                                                        oldCopy.remove(p);
+                                                                }
+                                                        }
 							if (plugin.getMatchActive().getPlayerHandler().getEquipos().containsKey(pos)) {
 								plugin.getMatchActive().getPlayerHandler().getEquipos().get(pos).add(p);
 								plugin.getMatchActive().getPlayerHandler().getTeamsCopy().get(pos).add(p);
