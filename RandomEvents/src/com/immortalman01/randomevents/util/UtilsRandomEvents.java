@@ -879,7 +879,8 @@ public class UtilsRandomEvents {
                                                 ItemStack[] restored = inventario.getContents();
                                                 if (ItemsAdderUtils.isAvailable() && inventario.getIaContents() != null) {
                                                         for (java.util.Map.Entry<Integer, String> en : inventario.getIaContents().entrySet()) {
-                                                                ItemStack ia = ItemsAdderUtils.createItem(en.getValue());
+                                                                ItemStack ia = ItemsAdderUtils.createItem(en.getValue(),
+                                                                                en.getKey() < restored.length ? restored[en.getKey()] : null);
                                                                 if (ia != null && en.getKey() < restored.length) {
                                                                         restored[en.getKey()] = ia;
                                                                 }
@@ -894,23 +895,23 @@ public class UtilsRandomEvents {
                                                 ItemStack offhand = inventario.getItemOffHand();
                                                 if (ItemsAdderUtils.isAvailable()) {
                                                         if (inventario.getIaHelmet() != null) {
-                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaHelmet());
+                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaHelmet(), helmet);
                                                                 if (ia != null) helmet = ia;
                                                         }
                                                         if (inventario.getIaChestplate() != null) {
-                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaChestplate());
+                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaChestplate(), chest);
                                                                 if (ia != null) chest = ia;
                                                         }
                                                         if (inventario.getIaLeggings() != null) {
-                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaLeggings());
+                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaLeggings(), leggings);
                                                                 if (ia != null) leggings = ia;
                                                         }
                                                         if (inventario.getIaBoots() != null) {
-                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaBoots());
+                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaBoots(), boots);
                                                                 if (ia != null) boots = ia;
                                                         }
                                                         if (inventario.getIaOffHand() != null) {
-                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaOffHand());
+                                                                ItemStack ia = ItemsAdderUtils.createItem(inventario.getIaOffHand(), offhand);
                                                                 if (ia != null) offhand = ia;
                                                         }
                                                 }
