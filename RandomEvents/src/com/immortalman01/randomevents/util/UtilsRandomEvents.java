@@ -46,6 +46,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
@@ -2844,12 +2845,12 @@ public class UtilsRandomEvents {
                 lines.add("");
 
                 List<String> customLayout = plugin.getScoreboardConfig().getLayout(matchActive.getMatch().getMinigame().name());
-                if (customLayout != null && !customLayout.isEmpty()) {
-                        for (String token : customLayout) {
-                                addTokenLines(token, lines, plugin, matchActive, player, playersDead, playersDeadObj);
-                        }
-                        return finalizeLines(lines);
-                }
+               if (customLayout != null && !customLayout.isEmpty()) {
+                       for (String token : customLayout) {
+                               addTokenLines(token, lines, plugin, matchActive, player, playersDead, playersDeadObj);
+                       }
+                       return finalizeLines(lines, plugin, player);
+               }
 
                 switch (matchActive.getMatch().getMinigame()) {
 		case PAINTBALL:
@@ -3085,20 +3086,27 @@ public class UtilsRandomEvents {
 		default:
 			break;
 		}
-		lines.add("");
-		if (lines.size() > 15) {
-			lines = lines.subList(0, 15);
-		}
-		List<String> linesFormated = new ArrayList<String>();
-		for (String l : lines) {
-			if (l.length() > 30) {
-				linesFormated.add(l.substring(0, 29));
-			} else {
-				linesFormated.add(l);
-			}
-		}
-		lines = linesFormated;
-		return lines;
+               lines.add("");
+               if (lines.size() > 15) {
+                       lines = lines.subList(0, 15);
+               }
+               List<String> linesFormated = new ArrayList<String>();
+               for (String l : lines) {
+                       if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+                               try {
+                                       l = me.clip.placeholderapi.PlaceholderAPI.setPlaceholders(player, l);
+                               } catch (Exception e) {
+                                       // ignore placeholder errors
+                               }
+                       }
+                       if (l.length() > 30) {
+                               linesFormated.add(l.substring(0, 29));
+                       } else {
+                               linesFormated.add(l);
+                       }
+               }
+               lines = linesFormated;
+               return lines;
 	}
 
 	private static List<String> prepareLinesRounds(List<String> lines, RandomEvents plugin, MatchActive matchActive) {
@@ -3265,21 +3273,28 @@ public class UtilsRandomEvents {
                 return lines;
         }
 
-        private static List<String> finalizeLines(List<String> lines) {
-                lines.add("");
-                if (lines.size() > 15) {
-                        lines = lines.subList(0, 15);
-                }
-                List<String> linesFormated = new ArrayList<String>();
-                for (String l : lines) {
-                        if (l.length() > 30) {
-                                linesFormated.add(l.substring(0, 29));
-                        } else {
-                                linesFormated.add(l);
-                        }
-                }
-                return linesFormated;
-        }
+       private static List<String> finalizeLines(List<String> lines, RandomEvents plugin, Player player) {
+               lines.add("");
+               if (lines.size() > 15) {
+                       lines = lines.subList(0, 15);
+               }
+               List<String> linesFormated = new ArrayList<String>();
+               for (String l : lines) {
+                       if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+                               try {
+                                       l = me.clip.placeholderapi.PlaceholderAPI.setPlaceholders(player, l);
+                               } catch (Exception e) {
+                                       // ignore placeholder errors
+                               }
+                       }
+                       if (l.length() > 30) {
+                               linesFormated.add(l.substring(0, 29));
+                       } else {
+                               linesFormated.add(l);
+                       }
+               }
+               return linesFormated;
+       }
 
 	private static List<String> prepareLinesHolder(List<String> lines, MatchActive matchActive, RandomEvents plugin,
 			Player player) {
