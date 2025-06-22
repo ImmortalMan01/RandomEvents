@@ -55,7 +55,6 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.material.MaterialData;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
@@ -1855,10 +1854,12 @@ public class UtilsRandomEvents {
 		return tamanyo;
 	}
 
-        public static boolean contieneMaterialData(Block block, Match match) {
-                for (MaterialData data : match.getDatas()) {
-                        Material mat = block.getType();
-                        if (data.getItemType() == mat) {
+        /**
+         * Check if the given block's material is included in the match's allowed list.
+         */
+        public static boolean containsMaterial(Block block, Match match) {
+                for (Material matAllowed : match.getDatas()) {
+                        if (block.getType() == matAllowed) {
                                 return true;
                         }
                 }
@@ -2484,12 +2485,12 @@ public class UtilsRandomEvents {
 					case BLOCKS_ALLOWED:
 					case MATERIAL_SPLEEF:
 					case ANOTHER_MATERIAL_SPLEEF:
-						if (match.getDatas() != null && !match.getDatas().isEmpty()) {
-							for (MaterialData s : match.getDatas()) {
-								info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
-										+ s.getItemType().toString() + " : " + s.getData();
-							}
-						}
+                                                if (match.getDatas() != null && !match.getDatas().isEmpty()) {
+                                                        for (Material s : match.getDatas()) {
+                                                                info += Constantes.SALTO_LINEA + Constantes.TABULACION + "§9 "
+                                                                               + s.toString();
+                                                        }
+                                                }
 						break;
 					case WATER_DROP_SCENES:
 						if (match.getScenes() != null && !match.getScenes().isEmpty()) {
@@ -3723,16 +3724,16 @@ public class UtilsRandomEvents {
 
 	}
 
-	public static List<Block> getNearbyBlocks(Match match, Location location, int radius, List<MaterialData> datas,
-			Boolean wool, RandomEvents plugin) {
+        public static List<Block> getNearbyBlocks(Match match, Location location, int radius, Boolean wool, RandomEvents plugin) {
 		List<Block> blocks = new ArrayList<Block>();
 		for (int x = location.getBlockX() - radius; x <= location.getBlockX() + radius; x++) {
 			for (int y = location.getBlockY() - radius; y <= location.getBlockY() + radius; y++) {
 				for (int z = location.getBlockZ() - radius; z <= location.getBlockZ() + radius; z++) {
 					Location loc = new Location(location.getWorld(), x, y, z);
-					if (datas == null || (loc.getBlock() != null && loc.getBlock().getType() != null
-							&& (UtilsRandomEvents.contieneMaterialData(loc.getBlock(), match)
-									|| (wool && loc.getBlock().getType().toString().toUpperCase().contains("WOOL"))))) {
+                                        if (match.getDatas() == null || match.getDatas().isEmpty()
+                                                        || (loc.getBlock() != null && loc.getBlock().getType() != null
+                                                                        && (UtilsRandomEvents.containsMaterial(loc.getBlock(), match)
+                                                                                        || (wool && loc.getBlock().getType().toString().toUpperCase().contains("WOOL"))))) {
 
 						blocks.add(loc.getBlock());
 					}

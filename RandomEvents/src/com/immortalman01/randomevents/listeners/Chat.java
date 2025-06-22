@@ -16,7 +16,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.material.MaterialData;
+import org.bukkit.Material;
 
 import com.immortalman01.randomevents.RandomEvents;
 import com.immortalman01.randomevents.match.Kit;
@@ -1257,7 +1257,7 @@ public class Chat implements Listener {
 								match.setInventoryBeast(null);
 								match.setInventoryRunners(null);
 								match.setMaterial(null);
-								match.setDatas(new ArrayList<MaterialData>());
+                                                                match.setDatas(new ArrayList<Material>());
 								plugin.getPlayersCreation().remove(player.getName());
 
 								// actualiza =
@@ -1514,13 +1514,9 @@ public class Chat implements Listener {
 						if (message.equalsIgnoreCase(Constantes.DONE)) {
 							if (player.getInventory().getItemInMainHand() != null
 									&& player.getInventory().getItemInMainHand().getType() != (XMaterial.AIR.parseMaterial())) {
-                                                                try {
-                                                                        MaterialData mat = new MaterialData(player.getInventory().getItemInMainHand().getType(),
-                                                                                player.getInventory().getItemInMainHand().getData().getData());
-                                                                        match.getDatas().add(mat);
-                                                                } catch (Throwable eb) {
-                                                                        match.getDatas().add(player.getInventory().getItemInMainHand().getData());
-                                                                }
+                                                                // Store the material type directly
+                                                                Material mat = player.getInventory().getItemInMainHand().getType();
+                                                                match.getDatas().add(mat);
 								plugin.getPlayersCreation().remove(player.getName());
 
 							} else {
@@ -1535,9 +1531,9 @@ public class Chat implements Listener {
                                                         if (player.getInventory().getItemInMainHand() != null
                                                                         && player.getInventory().getItemInMainHand().getType() != (XMaterial.AIR.parseMaterial())) {
                                                                 // Use only the material type to avoid legacy data lookups
-                                                                MaterialData mat = new MaterialData(player.getInventory().getItemInMainHand().getType());
+                                                                Material mat = player.getInventory().getItemInMainHand().getType();
                                                                 match.getDatas().add(mat);
-                                                                match.setMaterial(player.getInventory().getItemInMainHand().getType().toString());
+                                                                match.setMaterial(mat.toString());
                                                                 plugin.getPlayersCreation().remove(player.getName());
                                                                 plugin.getPlayersCreation().put(player.getName(),
                                                                                Creacion.ANOTHER_MATERIAL_SPLEEF.getPosition());
@@ -1564,7 +1560,7 @@ public class Chat implements Listener {
 							if (player.getInventory().getItemInMainHand() != null
 									&& player.getInventory().getItemInMainHand().getType() != (XMaterial.AIR.parseMaterial())) {
                                                                 // Only store the material type to avoid legacy data usage
-                                                                MaterialData mat = new MaterialData(player.getInventory().getItemInMainHand().getType());
+                                                                Material mat = player.getInventory().getItemInMainHand().getType();
                                                                 match.getDatas().add(mat);
                                                                 plugin.getPlayersCreation().remove(player.getName());
                                                                 actua = Boolean.FALSE;
@@ -1797,7 +1793,7 @@ public class Chat implements Listener {
 								match.setInventoryBeast(null);
 								match.setInventoryRunners(null);
 								match.setMaterial(null);
-								match.setDatas(new ArrayList<MaterialData>());
+                                                                match.setDatas(new ArrayList<Material>());
 
 								break;
 							case BATTLE_NAME:
@@ -1901,7 +1897,7 @@ public class Chat implements Listener {
 							case BLOCKS_ALLOWED:
 							case MATERIAL_SPLEEF:
                                                         case ANOTHER_MATERIAL_SPLEEF:
-                                                                match.setDatas(new ArrayList<MaterialData>());
+                                                                match.setDatas(new ArrayList<Material>());
                                                                 break;
                                                         case SNOWBALL_SPLEEF:
                                                                 match.setSnowballSpleef(null);

@@ -10,7 +10,6 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.material.MaterialData;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.Location;
 import org.junit.jupiter.api.BeforeEach;
@@ -60,7 +59,6 @@ public class UseMineEventTest {
         when(block.getLocation()).thenReturn(Mockito.mock(Location.class));
         when(block.getBlockData()).thenReturn(Mockito.mock(BlockData.class));
         when(block.getState()).thenReturn(state);
-        when(state.getData()).thenReturn(new MaterialData(Material.DIRT));
 
         when(plugin.getMatchActive()).thenReturn(active);
         when(plugin.getReventConfig()).thenReturn(config);
@@ -110,8 +108,8 @@ public class UseMineEventTest {
         when(match.getMinigame()).thenReturn(MinigameType.SPLEEF);
         when(match.getMaterial()).thenReturn("SNOW_BLOCK");
         when(match.getAllMaterialAllowed()).thenReturn(false);
-        List<MaterialData> datas = new ArrayList<>();
-        datas.add(new MaterialData(Material.DIRT));
+        List<Material> datas = new ArrayList<>();
+        datas.add(Material.DIRT);
         when(match.getDatas()).thenReturn(datas);
 
         use.onMine(event);
