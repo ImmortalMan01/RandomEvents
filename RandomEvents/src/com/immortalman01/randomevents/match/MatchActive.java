@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -4602,11 +4603,18 @@ public class MatchActive {
                                         fBoard = new FastBoard(p);
                                 }
 
-                                String title = plugin.getScoreboardConfig().getTitle(getMatch().getMinigame().name());
-                                if (title != null) {
-                                        title = title.replace("%prefix%", plugin.getLanguage().getTagPlugin());
-                                }
-                                fBoard.updateTitle(title);
+                               String title = plugin.getScoreboardConfig().getTitle(getMatch().getMinigame().name());
+                               if (title != null) {
+                                       title = title.replace("%prefix%", plugin.getLanguage().getTagPlugin());
+                                       if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+                                               try {
+                                                       title = PlaceholderAPI.setPlaceholders(p, title);
+                                               } catch (Exception e) {
+                                                       // ignore placeholder errors
+                                               }
+                                       }
+                               }
+                               fBoard.updateTitle(title);
 
                                 fBoard.updateLines(UtilsRandomEvents.prepareLines(plugin, this, p));
 
