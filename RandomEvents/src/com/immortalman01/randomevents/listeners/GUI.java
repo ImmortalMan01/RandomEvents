@@ -405,11 +405,15 @@ public class GUI implements Listener {
                                return;
                        }
 
-                     int topSize = event.getView().getTopInventory().getSize();
-                     int slot = event.getSlot();
-                     if (slot < 0 || slot >= topSize) {
-                             return;
-                     }
+                    int topSize = event.getView().getTopInventory().getSize();
+                    // Use raw slot to handle modern server versions where
+                    // InventoryClickEvent#getSlot() may be relative to the
+                    // clicked inventory. Raw slot is always the index within
+                    // the open view so it correctly maps to our GUI slots.
+                    int slot = event.getRawSlot();
+                    if (slot < 0 || slot >= topSize) {
+                            return;
+                    }
 
                     ItemStack icon = event.getCurrentItem();
                     int pos = slot;
