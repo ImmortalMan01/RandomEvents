@@ -38,6 +38,7 @@ import com.immortalman01.randomevents.commands.GenericCommand;
 import com.immortalman01.randomevents.config.Configuration;
 import com.immortalman01.randomevents.config.ReventConfig;
 import com.immortalman01.randomevents.config.ScoreboardPBALLTKConfig;
+import com.immortalman01.randomevents.config.ScoreboardConfig;
 import com.immortalman01.randomevents.language.LanguageMessages;
 import com.immortalman01.randomevents.listeners.Chat;
 import com.immortalman01.randomevents.listeners.Death;
@@ -114,6 +115,7 @@ public class RandomEvents extends JavaPlugin {
         private ReventConfig reventConfig;
 
         private ScoreboardPBALLTKConfig scoreboardPBALLTKConfig;
+        private ScoreboardConfig scoreboardConfig;
 
 	private HikariCP hikari;
 
@@ -306,6 +308,7 @@ public class RandomEvents extends JavaPlugin {
                 reventConfig = new ReventConfig(this);
                 reventConfig.inicializaVariables();
                 scoreboardPBALLTKConfig = new ScoreboardPBALLTKConfig(this);
+                scoreboardConfig = new ScoreboardConfig(this);
 
         }
 
@@ -725,6 +728,10 @@ public class RandomEvents extends JavaPlugin {
 
         public ScoreboardPBALLTKConfig getScoreboardPBALLTKConfig() {
                 return scoreboardPBALLTKConfig;
+        }
+
+        public ScoreboardConfig getScoreboardConfig() {
+                return scoreboardConfig;
         }
 
 	public HikariCP getHikari() {
