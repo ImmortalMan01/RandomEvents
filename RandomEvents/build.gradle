@@ -15,7 +15,6 @@ dependencies {
     compileOnly 'commons-lang:commons-lang:2.6'
     compileOnly 'com.github.booksaw:BetterTeams:4.13.2'
     implementation 'dev.respark.licensegate:license-gate:1.0.4'
-    implementation 'org.json:json:20240303'
     compileOnly project(':stubs')
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     testImplementation 'org.mockito:mockito-core:5.11.0'
@@ -36,6 +35,9 @@ jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from('.') {
         include 'plugin.yml','config.yml','defaultConfig.yml','messages.yml','messages_tr.yml','Luzverde2.nbs','luzverde.nbs','scoreboard.yml','scoreboard_tr.yml'
+    }
+    from {
+        configurations.runtimeClasspath.findAll { it.name.endsWith('.jar') }.collect { zipTree(it) }
     }
 }
 
