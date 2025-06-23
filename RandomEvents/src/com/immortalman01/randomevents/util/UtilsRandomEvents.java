@@ -3027,10 +3027,10 @@ public class UtilsRandomEvents {
                        long secondsPBALLTK = (matchActive.getEndDate() - new Date().getTime()) / 1000;
                       int goal = matchActive.getMatch().getKillGoal() != null ? matchActive.getMatch().getKillGoal() : 0;
                       Map<Integer, Integer> teamScores = matchActive.createTeamPoints();
-                      int blueKills = teamScores.getOrDefault(1, 0);
-                      int redKills = teamScores.getOrDefault(0, 0);
-                      int blueLives = goal > 0 ? Math.max(goal - blueKills, 0) : blueKills;
-                      int redLives = goal > 0 ? Math.max(goal - redKills, 0) : redKills;
+                     int blueKills = teamScores.getOrDefault(1, 0);
+                     int redKills = teamScores.getOrDefault(0, 0);
+                     int blueLives = goal > 0 ? Math.max(goal + matchActive.getExtraLives(1) - redKills, 0) : redKills;
+                     int redLives = goal > 0 ? Math.max(goal + matchActive.getExtraLives(0) - blueKills, 0) : blueKills;
                        int kills = matchActive.getPuntuacion().getOrDefault(player.getName(), 0);
                        int online = matchActive.getPlayerHandler().getPlayersObj().size();
                        int max = matchActive.getMatch().getAmountPlayers() != null ? matchActive.getMatch().getAmountPlayers() : 0;
@@ -3877,6 +3877,16 @@ public class UtilsRandomEvents {
                 metaS.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                 strong.setItemMeta(metaS);
                 inv.setItem(6, strong);
+
+                ItemStack lives = new ItemStack(Material.WHEAT);
+                ItemMeta metaL = lives.getItemMeta();
+                metaL.setDisplayName(plugin.getLanguage().getKillcoinsAddLivesName());
+                metaL.setLore(plugin.getLanguage().getKillcoinsAddLivesLore());
+                metaL.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+                metaL.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                metaL.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+                lives.setItemMeta(metaL);
+                inv.setItem(7, lives);
                 return inv;
         }
 

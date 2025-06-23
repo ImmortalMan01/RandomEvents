@@ -286,6 +286,8 @@ public class LanguageMessages {
        private List<String> killcoinsTripleShootLore;
        private String killcoinsStrongArmName;
        private List<String> killcoinsStrongArmLore;
+       private String killcoinsAddLivesName;
+       private List<String> killcoinsAddLivesLore;
        private String actionbarKillcoins;
        private String actionbarTripleShoot;
        private String actionbarStrongArm;
@@ -6181,6 +6183,46 @@ public class LanguageMessages {
 
        public void setKillcoinsStrongArmLore(List<String> killcoinsStrongArmLore) {
                this.killcoinsStrongArmLore = killcoinsStrongArmLore;
+       }
+
+       public String getKillcoinsAddLivesName() {
+               String s = killcoinsAddLivesName;
+               try {
+                       Matcher match = pattern.matcher(s);
+                       Map<String, ChatColor> mapa = new HashMap<String, ChatColor>();
+                       while (match.find()) {
+                               String color = s.substring(match.start() + 1, match.end());
+                               Method method = ChatColor.class.getMethod("of", String.class);
+                               ChatColor chatc = (ChatColor) method.invoke(null, color);
+                               mapa.put("&" + color, chatc);
+                       }
+                       for (Entry<String, ChatColor> ent : mapa.entrySet()) {
+                               s = s.replaceAll(ent.getKey(), ent.getValue() + "");
+                       }
+                       s = ChatColor.translateAlternateColorCodes('&', s);
+               } catch (Exception e) {
+                       s = s.replaceAll("&", "§");
+               }
+               s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+               return s;
+       }
+
+       public void setKillcoinsAddLivesName(String killcoinsAddLivesName) {
+               this.killcoinsAddLivesName = killcoinsAddLivesName;
+       }
+
+       public List<String> getKillcoinsAddLivesLore() {
+               List<String> lista = new ArrayList<String>();
+               if (killcoinsAddLivesLore != null) {
+                       for (String s : killcoinsAddLivesLore) {
+                               lista.add(ChatColor.translateAlternateColorCodes('&', s));
+                       }
+               }
+               return lista;
+       }
+
+       public void setKillcoinsAddLivesLore(List<String> killcoinsAddLivesLore) {
+               this.killcoinsAddLivesLore = killcoinsAddLivesLore;
        }
 
         public String getKillcoinsSnowballsReceived() {
