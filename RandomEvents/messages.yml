@@ -208,6 +208,8 @@ killcoins.itemName: "&6&lKill Coins"
 killcoins.moreSnowballsName: "&cMore Snowballs"
 killcoins.moreSnowballsLore: "&7You will receive 32 extra snowballs.;&7Cost: &a2 Killcoins;&aClick to activate!"
 actionbar.killcoins: "Killcoins: %coins%"
+killcoins.snowballsReceived: "&aYou received 32 extra snowballs!"
+killcoins.notEnough: "&cYou don't have enough Killcoins!"
 team.chosen: "You joined the %team_color%%team_name% team"
 kit.defaultName: "&6&lKit: %kit_name%"
 kit.defaultLore:

@@ -510,9 +510,11 @@ public class GUI implements Listener {
                                        p.getInventory().addItem(new ItemStack(Material.SNOWBALL, 32));
                                        p.getInventory().setItem(8, active.getKillCoinItem(p));
                                        UtilsRandomEvents.playSound(plugin, p, XSound.ENTITY_PLAYER_LEVELUP);
+                                       p.sendMessage(plugin.getLanguage().getKillcoinsSnowballsReceived());
                                        p.closeInventory();
                                } else {
                                        UtilsRandomEvents.playSound(plugin, p, XSound.ENTITY_VILLAGER_HURT);
+                                       p.sendMessage(plugin.getLanguage().getKillcoinsNotEnough());
                                }
                        }
                }
