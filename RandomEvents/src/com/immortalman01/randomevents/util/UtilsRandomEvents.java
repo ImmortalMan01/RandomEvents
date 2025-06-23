@@ -3868,7 +3868,7 @@ public class UtilsRandomEvents {
                 triple.setItemMeta(metaT);
                 inv.setItem(5, triple);
 
-                ItemStack strong = new ItemStack(Material.DIAMOND);
+                ItemStack strong = new ItemStack(Material.BEACON);
                 ItemMeta metaS = strong.getItemMeta();
                 metaS.setDisplayName(plugin.getLanguage().getKillcoinsStrongArmName());
                 metaS.setLore(plugin.getLanguage().getKillcoinsStrongArmLore());
