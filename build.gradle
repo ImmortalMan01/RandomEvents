@@ -1,8 +1,10 @@
 subprojects {
     apply plugin: 'java'
 
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    // Use Java 17 to remain compatible with the shading plugin
+    // and with both Minecraft 1.20 and 1.21 runtimes
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 
     tasks.withType(JavaCompile).configureEach {
         // Use UTF-8 so source files with special characters compile correctly
