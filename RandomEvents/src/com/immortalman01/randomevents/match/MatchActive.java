@@ -144,10 +144,11 @@ public class MatchActive {
         private Map<Player, Integer> snowballAmmo;
         private Map<Player, Integer> snowballMagazinesLeft;
 
-        private Map<Player, Integer> killCoins;
+       private Map<Player, Integer> killCoins;
 
-        private Map<Player, Long> tripleShoot;
+       private Map<Player, Long> tripleShoot;
        private Map<Player, Long> strongArm;
+       private Map<Integer, Integer> extraLives;
 
         private BukkitRunnable ammoTask;
 
@@ -242,11 +243,12 @@ public class MatchActive {
                 this.cooldownJump = new HashMap<Player, Long>();
                 this.cooldownShoot = new HashMap<Player, Long>();
                 this.snowballAmmo = new HashMap<Player, Integer>();
-                this.snowballMagazinesLeft = new HashMap<Player, Integer>();
-                this.killCoins = new HashMap<Player, Integer>();
-                this.tripleShoot = new HashMap<Player, Long>();
+               this.snowballMagazinesLeft = new HashMap<Player, Integer>();
+               this.killCoins = new HashMap<Player, Integer>();
+               this.tripleShoot = new HashMap<Player, Long>();
                this.strongArm = new HashMap<Player, Long>();
-                this.killCoins = new HashMap<Player, Integer>();
+               this.extraLives = new HashMap<Integer, Integer>();
+               this.killCoins = new HashMap<Player, Integer>();
 		counter = 0;
 		teams = Boolean.FALSE;
 
@@ -338,10 +340,11 @@ public class MatchActive {
                 this.cooldownJump = new HashMap<Player, Long>();
                 this.cooldownShoot = new HashMap<Player, Long>();
                 this.snowballAmmo = new HashMap<Player, Integer>();
-                this.snowballMagazinesLeft = new HashMap<Player, Integer>();
-                this.tripleShoot = new HashMap<Player, Long>();
+               this.snowballMagazinesLeft = new HashMap<Player, Integer>();
+               this.tripleShoot = new HashMap<Player, Long>();
                this.strongArm = new HashMap<Player, Long>();
-                teams = Boolean.FALSE;
+               this.extraLives = new HashMap<Integer, Integer>();
+               teams = Boolean.FALSE;
 		tries = 0;
 
 	}
@@ -5412,6 +5415,22 @@ public class MatchActive {
 
        public void setStrongArm(Map<Player, Long> strongArm) {
                this.strongArm = strongArm;
+       }
+
+       public void addExtraLives(int team, int amount) {
+               extraLives.put(team, extraLives.getOrDefault(team, 0) + amount);
+       }
+
+       public int getExtraLives(int team) {
+               return extraLives.getOrDefault(team, 0);
+       }
+
+       public Map<Integer, Integer> getExtraLives() {
+               return extraLives;
+       }
+
+       public void setExtraLives(Map<Integer, Integer> extraLives) {
+               this.extraLives = extraLives;
        }
 
         public BukkitRunnable getAmmoTask() {

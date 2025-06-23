@@ -2043,7 +2043,13 @@ public class Death implements Listener {
                                                                 if (goal != null && goal > 0) {
                                                                         java.util.Map<Integer, Integer> teamPoints = plugin.getMatchActive().createTeamPoints();
                                                                         for (java.util.Map.Entry<Integer, Integer> ent : teamPoints.entrySet()) {
-                                                                                if (ent.getValue() >= goal) {
+                                                                                int required = goal;
+                                                                                if (ent.getKey() == 0) {
+                                                                                        required += plugin.getMatchActive().getExtraLives(1);
+                                                                                } else if (ent.getKey() == 1) {
+                                                                                        required += plugin.getMatchActive().getExtraLives(0);
+                                                                                }
+                                                                                if (ent.getValue() >= required) {
                                                                                         java.util.List<org.bukkit.entity.Player> winners = new java.util.ArrayList<>(plugin.getMatchActive().getPlayerHandler().getEquipos().get(ent.getKey()));
                                                                                         plugin.getMatchActive().finalizaPartida(winners, Boolean.FALSE, Boolean.FALSE);
                                                                                         return;
