@@ -34,6 +34,8 @@ sourceSets {
 
 
 jar {
+    // produce a slim jar for compiling against other modules
+    archiveClassifier.set('plain')
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from('.') {
         include 'plugin.yml','config.yml','defaultConfig.yml','messages.yml','messages_tr.yml','Luzverde2.nbs','luzverde.nbs','scoreboard.yml','scoreboard_tr.yml'
@@ -47,6 +49,10 @@ shadowJar {
         include 'plugin.yml','config.yml','defaultConfig.yml','messages.yml','messages_tr.yml','Luzverde2.nbs','luzverde.nbs','scoreboard.yml','scoreboard_tr.yml'
     }
 }
+
+// ensure the shaded jar is built as part of the normal build
+build.dependsOn shadowJar
+shadowJar.mustRunAfter jar
 
 test {
     useJUnitPlatform()
