@@ -1040,7 +1040,7 @@ public class Chat implements Listener {
                                        case KITS:
                                                 try {
                                                         if (message.trim().startsWith("-")) {
-                                                                Integer remove = Integer.valueOf(message.trim().substring(1));
+                                                                Integer remove = Integer.valueOf(message.trim().substring(1).trim());
                                                                 if (remove > 0 && remove <= match.getKits().size()) {
                                                                         String kitName = match.getKits().remove(remove.intValue() - 1);
                                                                         plugin.getPlayersCreation().remove(player.getName());
