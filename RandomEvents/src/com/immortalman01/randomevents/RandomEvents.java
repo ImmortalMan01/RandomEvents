@@ -60,6 +60,7 @@ import com.immortalman01.randomevents.util.NameTagHook;
 import com.immortalman01.randomevents.util.UtilsRandomEvents;
 import com.immortalman01.randomevents.util.UtilsSQL;
 import com.google.common.io.Files;
+import dev.respark.licensegate.LicenseGate;
 
 public class RandomEvents extends JavaPlugin {
 
@@ -125,18 +126,31 @@ public class RandomEvents extends JavaPlugin {
 	private static SimpleCommandMap scm;
 	private SimplePluginManager spm;
 	
-	private Logger logger;
+        private Logger logger;
 
-	public void onEnable() {
-		this.api = new API1711("%%__USER__%%", "RandomEvents");
-		this.lastCheck=new Date();
-		logger=getLogger();
-		logger.info("Loading config...");
-		loadConfig();
-		this.editando = new ArrayList<String>();
-		this.comandosExecutor = new ComandosExecutor();
-		this.cooldowns = new HashMap<String, Date>();
-		logger.info("Loading variables...");
+        private LicenseGate licenseGate;
+
+        public void onEnable() {
+                this.api = new API1711("%%__USER__%%", "RandomEvents");
+                this.lastCheck = new Date();
+                logger = getLogger();
+                logger.info("Loading config...");
+                loadConfig();
+
+                // Initialize LicenseGate and verify the provided license key
+                licenseGate = new LicenseGate("e9409d76-2006-455d-8c64-13b469845b64");
+                String key = getConfig().getString("licenseKey");
+                LicenseGate.ValidationType result = licenseGate.verify(key);
+                if (result != LicenseGate.ValidationType.VALID) {
+                        logger.severe("License verification failed: " + result);
+                        getServer().getPluginManager().disablePlugin(this);
+                        return;
+                }
+
+                this.editando = new ArrayList<String>();
+                this.comandosExecutor = new ComandosExecutor();
+                this.cooldowns = new HashMap<String, Date>();
+                logger.info("Loading variables...");
 
 		inicializaVariables();
 		

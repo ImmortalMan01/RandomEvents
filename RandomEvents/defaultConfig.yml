@@ -8,6 +8,8 @@ debugMode: false
 useEncoding: 'UTF-8'
 prefix: '&a&lRandomEvents &f&l>>'
 language: 'en'
+# License key required by LicenseGate
+licenseKey: ''
 
 ##################################################################
 ##						  GENERAL   							##
