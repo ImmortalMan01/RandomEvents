@@ -15,6 +15,7 @@ dependencies {
     compileOnly 'commons-lang:commons-lang:2.6'
     compileOnly 'com.github.booksaw:BetterTeams:4.13.2'
     compileOnly project(':stubs')
+    implementation 'dev.respark.licensegate:license-gate:1.0.4'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     testImplementation 'org.mockito:mockito-core:5.11.0'
     testImplementation 'org.spigotmc:spigot-api:1.21-R0.1-SNAPSHOT'

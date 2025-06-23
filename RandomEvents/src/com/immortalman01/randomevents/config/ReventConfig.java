@@ -76,7 +76,9 @@ public class ReventConfig {
 
 	private boolean mysqlUUIDMode;
 
-	private boolean debugMode;
+        private boolean debugMode;
+
+        private String licenseKey;
 
 	private Integer secondsCheckPlayers;
 
@@ -1608,9 +1610,10 @@ public class ReventConfig {
 				.valueOf(plugin.getConfig().getInt("probabilityRandomEventTournament"));
 		this.probabilityRandomEvent = Integer.valueOf(plugin.getConfig().getInt("probabilityRandomEvent"));
 
-		this.highestPriorityDamageEvents = plugin.getConfig().getBoolean("highestPriorityDamageEvents");
+                this.highestPriorityDamageEvents = plugin.getConfig().getBoolean("highestPriorityDamageEvents");
 
-		this.debugMode = plugin.getConfig().getBoolean("debugMode");
+                this.debugMode = plugin.getConfig().getBoolean("debugMode");
+                this.licenseKey = plugin.getConfig().getString("license-key");
 
 		this.multipleKillOnExplosion = plugin.getConfig().getBoolean("multipleKillOnExplosion");
 		this.radiusOfTNTTagExplosion = Integer.valueOf(plugin.getConfig().getInt("radiusOfTNTTagExplosion"));
@@ -1845,9 +1848,17 @@ public class ReventConfig {
 		return debugMode;
 	}
 
-	public void setDebugMode(boolean debugMode) {
-		this.debugMode = debugMode;
-	}
+        public void setDebugMode(boolean debugMode) {
+                this.debugMode = debugMode;
+        }
+
+        public String getLicenseKey() {
+                return licenseKey;
+        }
+
+        public void setLicenseKey(String licenseKey) {
+                this.licenseKey = licenseKey;
+        }
 
 	public Integer getSecondsCheckPlayers() {
 		return secondsCheckPlayers;

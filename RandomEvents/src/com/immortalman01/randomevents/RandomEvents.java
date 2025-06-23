@@ -60,6 +60,7 @@ import com.immortalman01.randomevents.util.NameTagHook;
 import com.immortalman01.randomevents.util.UtilsRandomEvents;
 import com.immortalman01.randomevents.util.UtilsSQL;
 import com.google.common.io.Files;
+import dev.respark.licensegate.LicenseGate;
 
 public class RandomEvents extends JavaPlugin {
 
@@ -125,7 +126,8 @@ public class RandomEvents extends JavaPlugin {
 	private static SimpleCommandMap scm;
 	private SimplePluginManager spm;
 	
-	private Logger logger;
+        private Logger logger;
+        private LicenseGate licenseGate;
 
 	public void onEnable() {
 		this.api = new API1711("%%__USER__%%", "RandomEvents");
@@ -136,9 +138,24 @@ public class RandomEvents extends JavaPlugin {
 		this.editando = new ArrayList<String>();
 		this.comandosExecutor = new ComandosExecutor();
 		this.cooldowns = new HashMap<String, Date>();
-		logger.info("Loading variables...");
+                logger.info("Loading variables...");
 
-		inicializaVariables();
+                inicializaVariables();
+
+                licenseGate = new LicenseGate("e9409d76-2006-455d-8c64-13b469845b64");
+                String licenseKey = reventConfig.getLicenseKey();
+                if (licenseKey == null || licenseKey.isEmpty()) {
+                        getLogger().severe("License key is missing in config.yml");
+                        getServer().getPluginManager().disablePlugin(this);
+                        return;
+                }
+
+                LicenseGate.ValidationType validation = licenseGate.verify(licenseKey);
+                if (!validation.isValid()) {
+                        getLogger().severe("License verification failed: " + validation);
+                        getServer().getPluginManager().disablePlugin(this);
+                        return;
+                }
 		
 		if (getReventConfig().isMysqlEnabled()) {
 			logger.info("Enabling mysql...");
