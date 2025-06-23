@@ -517,6 +517,20 @@ public class GUI implements Listener {
                                        p.sendMessage(plugin.getLanguage().getKillcoinsNotEnough());
                                }
                        }
+               } else if (item.getType() == Material.DIAMOND && plugin.getLanguage().getKillcoinsTripleShootName().equals(item.getItemMeta().getDisplayName())) {
+                       MatchActive active = plugin.getMatchActive();
+                       if (active != null && active.getMatch().getMinigame() == MinigameType.PAINTBALL_TOP_KILL) {
+                               if (active.getKillCoins(p) >= 3) {
+                                       active.addKillCoin(p, -3);
+                                       active.activateTripleShoot(p);
+                                       p.getInventory().setItem(8, active.getKillCoinItem(p));
+                                       UtilsRandomEvents.playSound(plugin, p, XSound.ENTITY_PLAYER_LEVELUP);
+                                       p.closeInventory();
+                               } else {
+                                       UtilsRandomEvents.playSound(plugin, p, XSound.ENTITY_VILLAGER_HURT);
+                                       p.sendMessage(plugin.getLanguage().getKillcoinsNotEnough());
+                               }
+                       }
                }
 
        }

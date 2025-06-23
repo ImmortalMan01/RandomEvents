@@ -146,6 +146,8 @@ public class MatchActive {
 
         private Map<Player, Integer> killCoins;
 
+        private Map<Player, Long> tripleShoot;
+
         private BukkitRunnable ammoTask;
 
 	private long endDate;
@@ -241,6 +243,7 @@ public class MatchActive {
                 this.snowballAmmo = new HashMap<Player, Integer>();
                 this.snowballMagazinesLeft = new HashMap<Player, Integer>();
                 this.killCoins = new HashMap<Player, Integer>();
+                this.tripleShoot = new HashMap<Player, Long>();
                 this.killCoins = new HashMap<Player, Integer>();
 		counter = 0;
 		teams = Boolean.FALSE;
@@ -334,6 +337,7 @@ public class MatchActive {
                 this.cooldownShoot = new HashMap<Player, Long>();
                 this.snowballAmmo = new HashMap<Player, Integer>();
                 this.snowballMagazinesLeft = new HashMap<Player, Integer>();
+                this.tripleShoot = new HashMap<Player, Long>();
                 teams = Boolean.FALSE;
 		tries = 0;
 
@@ -4816,6 +4820,22 @@ public class MatchActive {
                 return it;
         }
 
+        public void activateTripleShoot(Player p) {
+                tripleShoot.put(p, System.currentTimeMillis() + 30000);
+        }
+
+        public boolean hasTripleShoot(Player p) {
+                Long end = tripleShoot.get(p);
+                if (end == null) {
+                        return false;
+                }
+                if (System.currentTimeMillis() > end) {
+                        tripleShoot.remove(p);
+                        return false;
+                }
+                return true;
+        }
+
 	public void addPainted(Player p, List<Location> locations) {
 		if (getPlayerHandler().getPaintedLocations().containsKey(p)) {
 			getPlayerHandler().getPaintedLocations().get(p).addAll(locations);
@@ -5342,6 +5362,14 @@ public class MatchActive {
 
         public void setKillCoins(Map<Player, Integer> killCoins) {
                 this.killCoins = killCoins;
+        }
+
+        public Map<Player, Long> getTripleShoot() {
+                return tripleShoot;
+        }
+
+        public void setTripleShoot(Map<Player, Long> tripleShoot) {
+                this.tripleShoot = tripleShoot;
         }
 
         public BukkitRunnable getAmmoTask() {

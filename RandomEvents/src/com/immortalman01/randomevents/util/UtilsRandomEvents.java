@@ -3857,6 +3857,16 @@ public class UtilsRandomEvents {
                 meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                 snow.setItemMeta(meta);
                 inv.setItem(4, snow);
+
+                ItemStack triple = new ItemStack(Material.DIAMOND);
+                ItemMeta metaT = triple.getItemMeta();
+                metaT.setDisplayName(plugin.getLanguage().getKillcoinsTripleShootName());
+                metaT.setLore(plugin.getLanguage().getKillcoinsTripleShootLore());
+                metaT.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+                metaT.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                metaT.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+                triple.setItemMeta(metaT);
+                inv.setItem(5, triple);
                 return inv;
         }
 
