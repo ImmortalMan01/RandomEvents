@@ -3887,6 +3887,16 @@ public class UtilsRandomEvents {
                 metaL.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                 lives.setItemMeta(metaL);
                 inv.setItem(7, lives);
+
+                ItemStack fury = new ItemStack(Material.DIAMOND_BLOCK);
+                ItemMeta metaF = fury.getItemMeta();
+                metaF.setDisplayName(plugin.getLanguage().getKillcoinsFuryModeName());
+                metaF.setLore(plugin.getLanguage().getKillcoinsFuryModeLore());
+                metaF.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+                metaF.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                metaF.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+                fury.setItemMeta(metaF);
+                inv.setItem(8, fury);
                 return inv;
         }
 

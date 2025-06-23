@@ -148,6 +148,7 @@ public class MatchActive {
 
        private Map<Player, Long> tripleShoot;
        private Map<Player, Long> strongArm;
+       private Map<Player, Long> furyMode;
        private Map<Integer, Integer> extraLives;
 
         private BukkitRunnable ammoTask;
@@ -247,6 +248,7 @@ public class MatchActive {
                this.killCoins = new HashMap<Player, Integer>();
                this.tripleShoot = new HashMap<Player, Long>();
                this.strongArm = new HashMap<Player, Long>();
+               this.furyMode = new HashMap<Player, Long>();
                this.extraLives = new HashMap<Integer, Integer>();
                this.killCoins = new HashMap<Player, Integer>();
 		counter = 0;
@@ -4873,6 +4875,22 @@ public class MatchActive {
                return true;
        }
 
+       public void activateFuryMode(Player p) {
+               furyMode.put(p, System.currentTimeMillis() + 25000);
+       }
+
+       public boolean hasFuryMode(Player p) {
+               Long end = furyMode.get(p);
+               if (end == null) {
+                       return false;
+               }
+               if (System.currentTimeMillis() > end) {
+                       furyMode.remove(p);
+                       return false;
+               }
+               return true;
+       }
+
 	public void addPainted(Player p, List<Location> locations) {
 		if (getPlayerHandler().getPaintedLocations().containsKey(p)) {
 			getPlayerHandler().getPaintedLocations().get(p).addAll(locations);
@@ -5415,6 +5433,14 @@ public class MatchActive {
 
        public void setStrongArm(Map<Player, Long> strongArm) {
                this.strongArm = strongArm;
+       }
+
+       public Map<Player, Long> getFuryMode() {
+               return furyMode;
+       }
+
+       public void setFuryMode(Map<Player, Long> furyMode) {
+               this.furyMode = furyMode;
        }
 
        public void addExtraLives(int team, int amount) {
