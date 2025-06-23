@@ -3888,7 +3888,7 @@ public class UtilsRandomEvents {
         public static Inventory createGUIKillcoins(RandomEvents plugin) {
                 Inventory inv = Bukkit.createInventory(new RandomEventsHolder(RandomEventsHolder.GuiType.KILLCOINS), 9,
                                 plugin.getLanguage().getKillcoinsGuiName());
-                ItemStack snow = new ItemStack(Material.SNOWBALL, 32);
+                ItemStack snow = new ItemStack(Material.SNOWBALL, 16);
                 ItemMeta meta = snow.getItemMeta();
                 meta.setDisplayName(plugin.getLanguage().getKillcoinsMoreSnowballsName());
                 meta.setLore(plugin.getLanguage().getKillcoinsMoreSnowballsLore());

@@ -507,7 +507,8 @@ public class GUI implements Listener {
                        if (active != null && active.getMatch().getMinigame() == MinigameType.PAINTBALL_TOP_KILL) {
                                if (active.getKillCoins(p) >= 2) {
                                        active.addKillCoin(p, -2);
-                                       p.getInventory().addItem(new ItemStack(Material.SNOWBALL, 32));
+                                       ItemStack snow = new ItemStack(Material.SNOWBALL, 16);
+                                       p.getInventory().addItem(snow.clone(), snow.clone());
                                        p.getInventory().setItem(8, active.getKillCoinItem(p));
                                        UtilsRandomEvents.playSound(plugin, p, XSound.ENTITY_PLAYER_LEVELUP);
                                        p.sendMessage(plugin.getLanguage().getKillcoinsSnowballsReceived());
