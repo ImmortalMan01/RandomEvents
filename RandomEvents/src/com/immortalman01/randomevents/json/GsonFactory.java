@@ -9,6 +9,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
+import com.google.gson.JsonParseException;
 import java.io.IOException;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -594,6 +595,12 @@ public class GsonFactory {
                 } catch (Exception ignored) {
                     w = Bukkit.getWorld(worldName);
                 }
+            }
+            if (w == null) {
+                if (Bukkit.getWorlds().isEmpty()) {
+                    throw new JsonParseException("Cannot deserialize location without any worlds loaded!");
+                }
+                w = Bukkit.getWorlds().get(0);
             }
             return new Location(w,
                     Double.parseDouble((String) keys.get(X)),
