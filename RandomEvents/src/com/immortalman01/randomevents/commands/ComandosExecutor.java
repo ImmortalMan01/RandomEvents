@@ -290,7 +290,7 @@ public class ComandosExecutor {
 
 	public void deleteRandomEvent(RandomEvents plugin, Player player, String number) {
 		try {
-			Match match = plugin.getMatches().get(Integer.valueOf(number));
+                        Match match = UtilsRandomEvents.findMatchById(plugin, Integer.valueOf(number));
 			if (match != null) {
 				UtilsRandomEvents.borraMatch(plugin, match, player);
 			} else {
@@ -306,7 +306,7 @@ public class ComandosExecutor {
 
 	public void disableRandomEvent(RandomEvents plugin, Player player, String number) {
 		try {
-			Match match = plugin.getMatches().get(Integer.valueOf(number));
+                        Match match = UtilsRandomEvents.findMatchById(plugin, Integer.valueOf(number));
 			if (match != null) {
 				UtilsRandomEvents.disableMatch(plugin, match, player);
 			} else {
@@ -322,7 +322,7 @@ public class ComandosExecutor {
 
 	public void enableRandomEvent(RandomEvents plugin, Player player, String number) {
 		try {
-			Match match = plugin.getMatches().get(Integer.valueOf(number));
+                        Match match = UtilsRandomEvents.findMatchById(plugin, Integer.valueOf(number));
 			if (match != null) {
 				UtilsRandomEvents.enableMatch(plugin, match, player);
 			} else {
@@ -338,7 +338,7 @@ public class ComandosExecutor {
 
 	public void disableRandomEventSchedule(RandomEvents plugin, Player player, String number) {
 		try {
-			Match match = plugin.getMatches().get(Integer.valueOf(number));
+                        Match match = UtilsRandomEvents.findMatchById(plugin, Integer.valueOf(number));
 			if (match != null) {
 				UtilsRandomEvents.disableMatchSchedule(plugin, match, player);
 			} else {
@@ -354,7 +354,7 @@ public class ComandosExecutor {
 
 	public void enableRandomEventSchedule(RandomEvents plugin, Player player, String number) {
 		try {
-			Match match = plugin.getMatches().get(Integer.valueOf(number));
+                        Match match = UtilsRandomEvents.findMatchById(plugin, Integer.valueOf(number));
 			if (match != null) {
 				UtilsRandomEvents.enableMatchSchedule(plugin, match, player);
 			} else {
@@ -373,16 +373,16 @@ public class ComandosExecutor {
 		for (Match m : plugin.getMatches()) {
 			if (player != null) {
 
-				player.sendMessage(((m.getEnabled() == null || m.getEnabled()) ? "§6" : "§c") + "§l"
-						+ plugin.getMatches().indexOf(m) + " - " + m.getMinigame().getMessage(plugin) + " -> "
-						+ m.getName().replaceAll(" ", "_") + " ( Min: " + m.getAmountPlayersMin() + ", Max: "
-						+ m.getAmountPlayers() + ") "
-						+ ((m.getEnabledSchedule() == null || m.getEnabledSchedule()) ? "" : "§c(Schedule Disabled)"));
-			} else {
-				plugin.getLoggerP().info(plugin.getMatches().indexOf(m) + " - " + m.getMinigame().getMessage(plugin)
-						+ " -> " + m.getName().replaceAll(" ", "_") + " ( Min: " + m.getAmountPlayersMin() + ", Max: "
-						+ m.getAmountPlayers() + ") "
-						+ ((m.getEnabledSchedule() == null || m.getEnabledSchedule()) ? "" : "§c(Schedule Disabled)"));
+                                player.sendMessage(((m.getEnabled() == null || m.getEnabled()) ? "§6" : "§c") + "§l"
+                                                + m.getId() + " - " + m.getMinigame().getMessage(plugin) + " -> "
+                                                + m.getName().replaceAll(" ", "_") + " ( Min: " + m.getAmountPlayersMin() + ", Max: "
+                                                + m.getAmountPlayers() + ") "
+                                                + ((m.getEnabledSchedule() == null || m.getEnabledSchedule()) ? "" : "§c(Schedule Disabled)"));
+                        } else {
+                                plugin.getLoggerP().info(m.getId() + " - " + m.getMinigame().getMessage(plugin)
+                                                + " -> " + m.getName().replaceAll(" ", "_") + " ( Min: " + m.getAmountPlayersMin() + ", Max: "
+                                                + m.getAmountPlayers() + ") "
+                                                + ((m.getEnabledSchedule() == null || m.getEnabledSchedule()) ? "" : "§c(Schedule Disabled)"));
 			}
 		}
 
@@ -524,7 +524,7 @@ public class ComandosExecutor {
 		if (plugin.getMatchActive() == null) {
 			try {
 
-				Match m = plugin.getMatches().get(Integer.valueOf(number));
+                                Match m = UtilsRandomEvents.findMatchById(plugin, Integer.valueOf(number));
 				if (m.getEnabled() == null || m.getEnabled()) {
 					if (!plugin.getReventConfig().getNeedSpecificPermissionStartRevent()
 							|| player.hasPermission("randomevent.start." + UtilsRandomEvents.getMatchNameByMatch(m))) {
@@ -620,7 +620,7 @@ public class ComandosExecutor {
 	public void editRandomEvent(RandomEvents plugin, Player player, String number) {
 		try {
 
-			Match m = plugin.getMatches().get(Integer.valueOf(number));
+                        Match m = UtilsRandomEvents.findMatchById(plugin, Integer.valueOf(number));
 			plugin.getPlayerMatches().put(player.getName(), m);
 			plugin.getEditando().add(player.getName());
 			player.sendMessage(UtilsRandomEvents.enviaInfoCreacion(m, player, plugin));
@@ -634,7 +634,7 @@ public class ComandosExecutor {
 	public void tpRandomEvent(RandomEvents plugin, Player player, String number) {
 		try {
 
-			Match m = plugin.getMatches().get(Integer.valueOf(number));
+                        Match m = UtilsRandomEvents.findMatchById(plugin, Integer.valueOf(number));
 			if (m.getSpawns().isEmpty()) {
 				player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getInvalidInput());
 
@@ -780,8 +780,12 @@ public class ComandosExecutor {
 	public void scheduleRandomEvent(RandomEvents plugin, Player player, String day, String hour, String minute,
 			String idMatch) {
 		try {
-			Schedule s = new Schedule(DayWeek.getByValues(day).getPosition(), Integer.valueOf(hour),
-					Integer.valueOf(minute), plugin.getMatches().get(Integer.valueOf(idMatch)).getName());
+                        Match selected = UtilsRandomEvents.findMatchById(plugin, Integer.valueOf(idMatch));
+                        if (selected == null) {
+                                throw new IllegalArgumentException();
+                        }
+                        Schedule s = new Schedule(DayWeek.getByValues(day).getPosition(), Integer.valueOf(hour),
+                                        Integer.valueOf(minute), selected.getName());
 
 			UtilsRandomEvents.terminaCreacionSchedule(plugin, player, s);
 
