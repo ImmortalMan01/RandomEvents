@@ -90,6 +90,8 @@ killcoins.itemName: '&6&lKill Paraları'
 killcoins.moreSnowballsName: '&cDaha Fazla Kar Topu'
 killcoins.moreSnowballsLore: '&732 ekstra kartopu alacaksın.;&7Maliyet: &a2 Killcoin;&aAktifleştirmek için tıkla!'
 actionbar.killcoins: 'Killcoinler: %coins%'
+killcoins.snowballsReceived: '&a32 ekstra kartopu aldınız!'
+killcoins.notEnough: '&cKillcoin miktarı yetersiz!'
 team.chosen: '%team_name% takımını seçtiniz'
 kit.defaultName: '&6&lKit: %kit_name%'
 kit.defaultLore:

@@ -281,6 +281,8 @@ public class LanguageMessages {
         private String killcoinsMoreSnowballsName;
         private String killcoinsMoreSnowballsLore;
         private String actionbarKillcoins;
+        private String killcoinsSnowballsReceived;
+        private String killcoinsNotEnough;
 
 	private String creditsGuiPage;
 
@@ -6039,6 +6041,22 @@ public class LanguageMessages {
 
         public void setKillcoinsMoreSnowballsLore(String killcoinsMoreSnowballsLore) {
                 this.killcoinsMoreSnowballsLore = killcoinsMoreSnowballsLore;
+        }
+
+        public String getKillcoinsSnowballsReceived() {
+                return colorize(killcoinsSnowballsReceived);
+        }
+
+        public void setKillcoinsSnowballsReceived(String killcoinsSnowballsReceived) {
+                this.killcoinsSnowballsReceived = killcoinsSnowballsReceived;
+        }
+
+        public String getKillcoinsNotEnough() {
+                return colorize(killcoinsNotEnough);
+        }
+
+        public void setKillcoinsNotEnough(String killcoinsNotEnough) {
+                this.killcoinsNotEnough = killcoinsNotEnough;
         }
 
         public String getActionbarKillcoins() {

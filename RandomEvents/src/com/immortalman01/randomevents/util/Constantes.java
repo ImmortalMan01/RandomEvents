@@ -511,6 +511,8 @@ public class Constantes {
                 KILLCOINS_MORE_SNOWBALLS_NAME("killcoinsMoreSnowballsName", "killcoins.moreSnowballsName", "&cMore Snowballs"),
                 KILLCOINS_MORE_SNOWBALLS_LORE("killcoinsMoreSnowballsLore", "killcoins.moreSnowballsLore", "&7You will receive 32 extra snowballs.;&7Cost: &a2 Killcoins;&aClick to activate!"),
                 ACTIONBAR_KILLCOINS("actionbarKillcoins", "actionbar.killcoins", "Killcoins: %coins%"),
+                KILLCOINS_SNOWBALLS_RECEIVED("killcoinsSnowballsReceived", "killcoins.snowballsReceived", "&aYou received 32 extra snowballs!"),
+                KILLCOINS_NOT_ENOUGH("killcoinsNotEnough", "killcoins.notEnough", "&cYou don't have enough Killcoins!"),
 
 		KIT_DEFAULT_NAME("kitDefaultName", "kit.defaultName", "&6&lKit: %kit_name%"),
 
