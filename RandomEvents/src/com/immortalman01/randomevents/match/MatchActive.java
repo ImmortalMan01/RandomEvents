@@ -147,6 +147,7 @@ public class MatchActive {
         private Map<Player, Integer> killCoins;
 
         private Map<Player, Long> tripleShoot;
+       private Map<Player, Long> strongArm;
 
         private BukkitRunnable ammoTask;
 
@@ -244,6 +245,7 @@ public class MatchActive {
                 this.snowballMagazinesLeft = new HashMap<Player, Integer>();
                 this.killCoins = new HashMap<Player, Integer>();
                 this.tripleShoot = new HashMap<Player, Long>();
+               this.strongArm = new HashMap<Player, Long>();
                 this.killCoins = new HashMap<Player, Integer>();
 		counter = 0;
 		teams = Boolean.FALSE;
@@ -338,6 +340,7 @@ public class MatchActive {
                 this.snowballAmmo = new HashMap<Player, Integer>();
                 this.snowballMagazinesLeft = new HashMap<Player, Integer>();
                 this.tripleShoot = new HashMap<Player, Long>();
+               this.strongArm = new HashMap<Player, Long>();
                 teams = Boolean.FALSE;
 		tries = 0;
 
@@ -4754,13 +4757,20 @@ public class MatchActive {
                                         UtilsRandomEvents.sendActionBar(plugin, pl, msg);
                                 }
 
-                                if (hasTripleShoot(pl)) {
-                                        long timeLeft = (getTripleShoot().get(pl) - System.currentTimeMillis()) / 1000;
-                                        if (timeLeft < 0) timeLeft = 0;
-                                        String tsMsg = plugin.getLanguage().getActionbarTripleShoot()
-                                                        .replace("%time%", String.valueOf(timeLeft));
-                                        UtilsRandomEvents.sendActionBar(plugin, pl, tsMsg);
-                                }
+                               if (hasTripleShoot(pl)) {
+                                       long timeLeft = (getTripleShoot().get(pl) - System.currentTimeMillis()) / 1000;
+                                       if (timeLeft < 0) timeLeft = 0;
+                                       String tsMsg = plugin.getLanguage().getActionbarTripleShoot()
+                                                       .replace("%time%", String.valueOf(timeLeft));
+                                       UtilsRandomEvents.sendActionBar(plugin, pl, tsMsg);
+                               }
+                               if (hasStrongArm(pl)) {
+                                       long timeLeft = (getStrongArm().get(pl) - System.currentTimeMillis()) / 1000;
+                                       if (timeLeft < 0) timeLeft = 0;
+                                       String saMsg = plugin.getLanguage().getActionbarStrongArm()
+                                                       .replace("%time%", String.valueOf(timeLeft));
+                                       UtilsRandomEvents.sendActionBar(plugin, pl, saMsg);
+                               }
                         }
                 }
 
@@ -4843,6 +4853,22 @@ public class MatchActive {
                 }
                 return true;
         }
+
+       public void activateStrongArm(Player p) {
+               strongArm.put(p, System.currentTimeMillis() + 30000);
+       }
+
+       public boolean hasStrongArm(Player p) {
+               Long end = strongArm.get(p);
+               if (end == null) {
+                       return false;
+               }
+               if (System.currentTimeMillis() > end) {
+                       strongArm.remove(p);
+                       return false;
+               }
+               return true;
+       }
 
 	public void addPainted(Player p, List<Location> locations) {
 		if (getPlayerHandler().getPaintedLocations().containsKey(p)) {
@@ -5379,6 +5405,14 @@ public class MatchActive {
         public void setTripleShoot(Map<Player, Long> tripleShoot) {
                 this.tripleShoot = tripleShoot;
         }
+
+       public Map<Player, Long> getStrongArm() {
+               return strongArm;
+       }
+
+       public void setStrongArm(Map<Player, Long> strongArm) {
+               this.strongArm = strongArm;
+       }
 
         public BukkitRunnable getAmmoTask() {
                 return ammoTask;

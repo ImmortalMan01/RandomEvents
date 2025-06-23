@@ -439,12 +439,20 @@ public class Use implements Listener {
                                                                v.setX(v.getX() + (Math.random() - 0.5) * 0.2);
                                                                v.setY(v.getY() + (Math.random() - 0.5) * 0.1);
                                                                v.setZ(v.getZ() + (Math.random() - 0.5) * 0.2);
+                                                               if (plugin.getMatchActive().hasStrongArm(p)) {
+                                                                       v.multiply(2);
+                                                               }
                                                                sb.setVelocity(v);
                                                        }
                                                }
+
+                                               if (plugin.getMatchActive().getMatch().getMinigame() == MinigameType.PAINTBALL_TOP_KILL
+                                                               && plugin.getMatchActive().hasStrongArm(p)) {
+                                                       snowball.setVelocity(snowball.getVelocity().multiply(2));
+                                               }
                                        }
                                }
-			} else if (evt.getEntity() instanceof EnderPearl) {
+                        } else if (evt.getEntity() instanceof EnderPearl) {
 				EnderPearl ep = (EnderPearl) evt.getEntity();
 				List<Entity> pearls = new ArrayList<Entity>();
 				if (ep != null && ep.getShooter() != null) {
