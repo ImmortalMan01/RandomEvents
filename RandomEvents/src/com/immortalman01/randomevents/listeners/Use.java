@@ -431,6 +431,11 @@ public class Use implements Listener {
                                                }
 
                                                if (plugin.getMatchActive().getMatch().getMinigame() == MinigameType.PAINTBALL_TOP_KILL
+                                                               && plugin.getMatchActive().hasFuryMode(p)) {
+                                                       p.getInventory().addItem(XMaterial.SNOWBALL.parseItem());
+                                               }
+
+                                               if (plugin.getMatchActive().getMatch().getMinigame() == MinigameType.PAINTBALL_TOP_KILL
                                                                && plugin.getMatchActive().hasTripleShoot(p)) {
                                                        for (int i = 0; i < 2; i++) {
                                                                Snowball sb = p.getWorld().spawn(snowball.getLocation(), Snowball.class);

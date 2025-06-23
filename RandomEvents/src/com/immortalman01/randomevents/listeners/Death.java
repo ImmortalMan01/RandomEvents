@@ -1891,14 +1891,18 @@ public class Death implements Listener {
 
 	}
 
-	private void checkSnowBallDamage(Player player, Player damager, EntityDamageByEntityEvent ev) {
+        private void checkSnowBallDamage(Player player, Player damager, EntityDamageByEntityEvent ev) {
 
-		Location pLoc = damager.getLocation();
-		Location playerLoc = player.getLocation();
-		pLoc.setWorld(playerLoc.getWorld());
-		Integer distancia = Double.valueOf(pLoc.distance(playerLoc)).intValue();
-		if (plugin.getMatchActive().getEquipo(player) != null && plugin.getMatchActive().getEquipo(damager) != null
-				&& plugin.getMatchActive().getEquipo(player).equals(plugin.getMatchActive().getEquipo(damager))) {
+                Location pLoc = damager.getLocation();
+                Location playerLoc = player.getLocation();
+                pLoc.setWorld(playerLoc.getWorld());
+                Integer distancia = Double.valueOf(pLoc.distance(playerLoc)).intValue();
+                if (plugin.getMatchActive().hasFuryMode(player)) {
+                        ev.setCancelled(true);
+                        return;
+                }
+                if (plugin.getMatchActive().getEquipo(player) != null && plugin.getMatchActive().getEquipo(damager) != null
+                                && plugin.getMatchActive().getEquipo(player).equals(plugin.getMatchActive().getEquipo(damager))) {
 			ev.setCancelled(true);
 		} else {
 			if (plugin.getMatchActive().getPlayerHandler().getPlayers().contains(damager.getName())) {

@@ -517,6 +517,8 @@ public class Constantes {
                 KILLCOINS_STRONG_ARM_LORE("killcoinsStrongArmLore", "killcoins.strongArmLore", "&7You will throw snowballs at high speed.;;&7Duration: &a30s;&7Cost: &a3 Killcoins;;&aClick to activate!"),
                 KILLCOINS_ADD_LIVES_NAME("killcoinsAddLivesName", "killcoins.addLivesName", "&c+3 Lives"),
                 KILLCOINS_ADD_LIVES_LORE("killcoinsAddLivesLore", "killcoins.addLivesLore", "&7Regain 3 Lives for your team.;;&7Cost: &a4 Killcoins;;&aClick to activate!"),
+                KILLCOINS_FURY_MODE_NAME("killcoinsFuryModeName", "killcoins.furyModeName", "&cFury Mode"),
+                KILLCOINS_FURY_MODE_LORE("killcoinsFuryModeLore", "killcoins.furyModeLore", "&7You will be immune to snowballs, and you won't consume them.;;&7Duration: &a25s;&7Cost: &a30 Killcoins;;&aClick to activate!"),
                 ACTIONBAR_KILLCOINS("actionbarKillcoins", "actionbar.killcoins", "Killcoins: %coins%"),
                 ACTIONBAR_TRIPLE_SHOOT("actionbarTripleShoot", "actionbar.tripleShoot", "&cYour Triple Shoot killstreak expires in %time% seconds!"),
                 ACTIONBAR_STRONG_ARM("actionbarStrongArm", "actionbar.strongArm", "&cYour Strong Arm killstreak expires in %time% seconds!"),
