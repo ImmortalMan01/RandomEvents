@@ -540,7 +540,8 @@ public class GsonFactory {
  
         private static Type seriType = new TypeToken<Map<String, Object>>(){}.getType();
  
-        private static String UUID = "uuid";
+        private static String WORLD = "world";
+        private static String UUID_OLD = "uuid";
         private static String X = "x";
         private static String Y = "y";
         private static String Z = "z";
@@ -568,7 +569,7 @@ public class GsonFactory {
         private String getRaw (Location location) {
             Map<String, Object> serial = new HashMap<String, Object>();
             
-            serial.put(UUID, location.getWorld()!=null && location.getWorld().getUID()!=null ?location.getWorld().getUID().toString():null);
+            serial.put(WORLD, location.getWorld()!=null ? location.getWorld().getName() : null);
             serial.put(X, Double.toString(location.getX()));
             serial.put(Y, Double.toString(location.getY()));
             serial.put(Z, Double.toString(location.getZ()));
@@ -579,9 +580,27 @@ public class GsonFactory {
  
         private Location fromRaw (String raw) {
             Map<String, Object> keys = g.fromJson(raw, seriType);
-            World w =	Bukkit.getWorld(java.util.UUID.fromString((String) keys.get(UUID))); 
-            return new Location(w, Double.parseDouble((String) keys.get(X)), Double.parseDouble((String) keys.get(Y)), Double.parseDouble((String) keys.get(Z)),
-                    Float.parseFloat((String) keys.get(YAW)), Float.parseFloat((String) keys.get(PITCH)));
+            Object worldObj = keys.containsKey(WORLD) ? keys.get(WORLD) : keys.get(UUID_OLD);
+            World w = null;
+            if (worldObj != null) {
+                String worldName = worldObj.toString();
+                try {
+                    // fallback for old files storing UUID
+                    if (worldName.matches("[0-9a-fA-F-]{36}")) {
+                        w = Bukkit.getWorld(java.util.UUID.fromString(worldName));
+                    } else {
+                        w = Bukkit.getWorld(worldName);
+                    }
+                } catch (Exception ignored) {
+                    w = Bukkit.getWorld(worldName);
+                }
+            }
+            return new Location(w,
+                    Double.parseDouble((String) keys.get(X)),
+                    Double.parseDouble((String) keys.get(Y)),
+                    Double.parseDouble((String) keys.get(Z)),
+                    Float.parseFloat((String) keys.get(YAW)),
+                    Float.parseFloat((String) keys.get(PITCH)));
         }
     }
  
