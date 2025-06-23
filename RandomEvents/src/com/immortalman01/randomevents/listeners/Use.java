@@ -238,11 +238,18 @@ public class Use implements Listener {
 									plugin.getMatchActive().getPlayerHandler().getPlayersObj(), plugin);
 							UtilsRandomEvents.playSound(plugin, player, XSound.ENTITY_PLAYER_LEVELUP);
 
-						} else if (player.getInventory().getItemInMainHand().equals(plugin.getReventConfig().getVanishItem())) {
-							evt.setCancelled(true);
-							UtilsRandomEvents.hidePlayers(player,
-									plugin.getMatchActive().getPlayerHandler().getPlayersObj(), plugin);
-							UtilsRandomEvents.playSound(plugin, player, XSound.ENTITY_PLAYER_LEVELUP);
+                                                } else if (player.getInventory().getItemInMainHand().equals(plugin.getReventConfig().getVanishItem())) {
+                                                        evt.setCancelled(true);
+                                                        UtilsRandomEvents.hidePlayers(player,
+                                                                        plugin.getMatchActive().getPlayerHandler().getPlayersObj(), plugin);
+                                                        UtilsRandomEvents.playSound(plugin, player, XSound.ENTITY_PLAYER_LEVELUP);
+
+                                                } else if (plugin.getMatchActive().getMatch().getMinigame() == MinigameType.PAINTBALL_TOP_KILL
+                                                                && player.getInventory().getItemInMainHand().getType() == Material.GOLD_NUGGET
+                                                                && player.getInventory().getItemInMainHand().hasItemMeta()
+                                                                && plugin.getLanguage().getKillcoinsItemName().equals(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName())) {
+                                                        evt.setCancelled(true);
+                                                        player.openInventory(UtilsRandomEvents.createGUIKillcoins(plugin));
 
                                                 } else if (player.getInventory().getItemInMainHand().getType() == (XMaterial.STONE_HOE.parseMaterial())
                                                                 && plugin.getMatchActive().getMatch().getMinigame().equals(MinigameType.SPLEGG)) {
@@ -950,7 +957,9 @@ public class Use implements Listener {
                 if (plugin.getMatchActive() != null
                                 && plugin.getMatchActive().getPlayerHandler().getPlayers().contains(player.getName())
                                 && (!plugin.getMatchActive().getPlaying()
-                                                || plugin.getMatchActive().getMatch().getMinigame() == MinigameType.BLOCK_PARTY)) {
+                                                || plugin.getMatchActive().getMatch().getMinigame() == MinigameType.BLOCK_PARTY
+                                                || (plugin.getMatchActive().getMatch().getMinigame() == MinigameType.PAINTBALL_TOP_KILL
+                                                                && evt.getItemDrop().getItemStack().getType() == Material.GOLD_NUGGET))) {
                         evt.setCancelled(true);
                 }
         }

@@ -10,7 +10,7 @@ import org.bukkit.inventory.InventoryHolder;
 public class RandomEventsHolder implements InventoryHolder {
 
     /** Type of GUI this holder represents. */
-    public enum GuiType { STATS, CREDITS, KITS, TEAMS }
+    public enum GuiType { STATS, CREDITS, KITS, TEAMS, KILLCOINS }
 
     private final GuiType type;
 

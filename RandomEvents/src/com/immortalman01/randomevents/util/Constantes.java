@@ -504,7 +504,13 @@ public class Constantes {
 
 		KIT_ITEM_NAME("kitItemName", "kit.itemName", "&6&lKits"),
 
-		TEAM_ITEM_NAME("teamItemName", "team.itemName", "&6&lTeam"),
+                TEAM_ITEM_NAME("teamItemName", "team.itemName", "&6&lTeam"),
+
+                KILLCOINS_GUI_NAME("killcoinsGuiName", "killcoins.guiName", "&6&lKill Coin Shop"),
+                KILLCOINS_ITEM_NAME("killcoinsItemName", "killcoins.itemName", "&6&lKill Coins"),
+                KILLCOINS_MORE_SNOWBALLS_NAME("killcoinsMoreSnowballsName", "killcoins.moreSnowballsName", "&cMore Snowballs"),
+                KILLCOINS_MORE_SNOWBALLS_LORE("killcoinsMoreSnowballsLore", "killcoins.moreSnowballsLore", "&7You will receive 32 extra snowballs.;&7Cost: &a2 Killcoins;&aClick to activate!"),
+                ACTIONBAR_KILLCOINS("actionbarKillcoins", "actionbar.killcoins", "Killcoins: %coins%"),
 
 		KIT_DEFAULT_NAME("kitDefaultName", "kit.defaultName", "&6&lKit: %kit_name%"),
 
