@@ -534,7 +534,7 @@ public class GUI implements Listener {
                                        p.sendMessage(plugin.getLanguage().getKillcoinsNotEnough());
                                }
                        }
-               } else if (item.getType() == Material.DIAMOND && plugin.getLanguage().getKillcoinsStrongArmName().equals(item.getItemMeta().getDisplayName())) {
+                } else if (item.getType() == Material.BEACON && plugin.getLanguage().getKillcoinsStrongArmName().equals(item.getItemMeta().getDisplayName())) {
                        MatchActive active = plugin.getMatchActive();
                        if (active != null && active.getMatch().getMinigame() == MinigameType.PAINTBALL_TOP_KILL) {
                                if (active.getKillCoins(p) >= 3) {
