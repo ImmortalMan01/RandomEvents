@@ -140,8 +140,15 @@ public class RandomEvents extends JavaPlugin {
                 // Initialize LicenseGate and verify the provided license key
                 licenseGate = new LicenseGate("e9409d76-2006-455d-8c64-13b469845b64");
                 String key = getConfig().getString("licenseKey");
+                if (key == null || key.isEmpty()) {
+                        logger.severe("License key is missing in config.yml. Plugin will be disabled.");
+                        getServer().getPluginManager().disablePlugin(this);
+                        return;
+                }
+
                 LicenseGate.ValidationType result = licenseGate.verify(key);
-                if (result != LicenseGate.ValidationType.VALID) {
+                logger.info("License validation result: " + result);
+                if (!result.isValid()) {
                         logger.severe("License verification failed: " + result);
                         getServer().getPluginManager().disablePlugin(this);
                         return;

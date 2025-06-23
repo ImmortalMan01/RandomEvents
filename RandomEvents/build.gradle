@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 archivesBaseName = 'RandomEvents'
@@ -32,6 +33,11 @@ sourceSets {
 }
 
 jar {
+    enabled = false
+}
+
+shadowJar {
+    archiveClassifier.set('')
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from('.') {
         include 'plugin.yml','config.yml','defaultConfig.yml','messages.yml','messages_tr.yml','Luzverde2.nbs','luzverde.nbs','scoreboard.yml','scoreboard_tr.yml'
