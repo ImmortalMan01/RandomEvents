@@ -119,7 +119,12 @@ public class RandomEvents extends JavaPlugin {
 
 	private NameTagHook nametagHook;
 
-	private Scoreboard colorBoard;
+        private Scoreboard colorBoard;
+
+        /**
+         * Next available unique identifier for newly created events.
+         */
+        private int nextMatchId = 1;
 
 	private CmdExecutor cmdExecutor;
 	private static SimpleCommandMap scm;
@@ -294,9 +299,9 @@ public class RandomEvents extends JavaPlugin {
 		getLogger().info(" Author immortalman01 - desactivado");
 	}
 
-	public void inicializaVariables() {
-		updateConfig();
-		this.playerMatches = new HashMap<String, Match>();
+        public void inicializaVariables() {
+                updateConfig();
+                this.playerMatches = new HashMap<String, Match>();
 		this.playersCreation = new HashMap<String, Integer>();
 		this.playerWaterDrop = new HashMap<String, WaterDropStep>();
 		this.playersCreationWaterDrop = new HashMap<String, Integer>();
@@ -306,6 +311,7 @@ public class RandomEvents extends JavaPlugin {
                 reventConfig = new ReventConfig(this);
                 reventConfig.inicializaVariables();
                 scoreboardConfig = new ScoreboardConfig(this);
+                this.nextMatchId = 1;
 
         }
 
@@ -747,9 +753,17 @@ public class RandomEvents extends JavaPlugin {
 		return colorBoard;
 	}
 
-	public void setColorBoard(Scoreboard colorBoard) {
-		this.colorBoard = colorBoard;
-	}
+        public void setColorBoard(Scoreboard colorBoard) {
+                this.colorBoard = colorBoard;
+        }
+
+        public int getNextMatchId() {
+                return nextMatchId;
+        }
+
+        public void setNextMatchId(int nextMatchId) {
+                this.nextMatchId = nextMatchId;
+        }
 
 	public CmdExecutor getCmdExecutor() {
 		return cmdExecutor;

@@ -15,9 +15,12 @@ import com.immortalman01.randomevents.match.utils.InventoryPers;
 
 public class Match implements Comparable<Match> {
 
-	private String name;
-	
-	private String permission;
+        private String name;
+
+        private String permission;
+
+        /** Unique identifier of the event. */
+        private Integer id;
 
 	private InventoryPers inventory;
 
@@ -703,9 +706,17 @@ public class Match implements Comparable<Match> {
 		return permission;
 	}
 
-	public void setPermission(String permission) {
-		this.permission = permission;
-	}
+        public void setPermission(String permission) {
+                this.permission = permission;
+        }
+
+        public Integer getId() {
+                return id;
+        }
+
+        public void setId(Integer id) {
+                this.id = id;
+        }
 
 	public List<String> getCommandsOnStart() {
 		return commandsOnStart;

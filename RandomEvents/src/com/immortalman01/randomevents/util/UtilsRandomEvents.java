@@ -168,7 +168,12 @@ public class UtilsRandomEvents {
                }
                if (match == null)
                        match = plugin.getPlayerMatches().get(player.getName());
-		try {
+
+               if (match.getId() == null) {
+                       match.setId(plugin.getNextMatchId());
+                       plugin.setNextMatchId(plugin.getNextMatchId() + 1);
+               }
+               try {
 			String json = UtilidadesJson.fromMatchToJSON(plugin, match);
 			if (json != null) {
                             File dataFolder = new File(plugin.getDataFolder(), "events");
@@ -1038,15 +1043,31 @@ public class UtilsRandomEvents {
 				Charset sc = Charset.forName(plugin.getReventConfig().getUseEncoding());
 
 				br = new BufferedReader(new InputStreamReader(fr, sc));
-				Match match = UtilidadesJson.fromJSONToMatch(plugin, br);
-				if (match != null) {
-					if (match.getInventory() != null) {
-						match = UtilsRandomEvents.convertInventoryToKits(plugin, match);
-						matchToConvert.add(match);
-					}
+                                Match match = UtilidadesJson.fromJSONToMatch(plugin, br);
+                                if (match != null) {
+                                        if (match.getId() == null) {
+                                                match.setId(plugin.getNextMatchId());
+                                                plugin.setNextMatchId(plugin.getNextMatchId() + 1);
+                                                try (PrintWriter pw = new PrintWriter(
+                                                                new OutputStreamWriter(new FileOutputStream(file, false),
+                                                                                Charset.forName(plugin.getReventConfig().getUseEncoding())))) {
+                                                        pw.println(UtilidadesJson.fromMatchToJSON(plugin, match));
+                                                } catch (Exception e) {
+                                                        plugin.getLoggerP().info(e.getMessage());
+                                                }
+                                        } else {
+                                                if (match.getId() >= plugin.getNextMatchId()) {
+                                                        plugin.setNextMatchId(match.getId() + 1);
+                                                }
+                                        }
 
-					listaPartidas.add(match);
-				}
+                                        if (match.getInventory() != null) {
+                                                match = UtilsRandomEvents.convertInventoryToKits(plugin, match);
+                                                matchToConvert.add(match);
+                                        }
+
+                                        listaPartidas.add(match);
+                                }
 
 			} catch (FileNotFoundException e) {
 				plugin.getLoggerP().info(e.getMessage());
@@ -1613,15 +1634,34 @@ public class UtilsRandomEvents {
 		return result;
 	}
 
-	public static Match findMatch(RandomEvents plugin, String matchName) {
-		Match m = null;
-		for (Match match : plugin.getMatches()) {
-			if (match.getName().equals(matchName)) {
-				m = match;
-			}
-		}
-		return m;
-	}
+        public static Match findMatch(RandomEvents plugin, String matchName) {
+                Match m = null;
+                for (Match match : plugin.getMatches()) {
+                        if (match.getName().equals(matchName)) {
+                                m = match;
+                        }
+                }
+                return m;
+        }
+
+        /**
+         * Locate a match by its unique identifier.
+         *
+         * @param plugin the plugin instance
+         * @param id     the match id
+         * @return the match or {@code null} if not found
+         */
+        public static Match findMatchById(RandomEvents plugin, Integer id) {
+                if (id == null) {
+                        return null;
+                }
+                for (Match match : plugin.getMatches()) {
+                        if (id.equals(match.getId())) {
+                                return match;
+                        }
+                }
+                return null;
+        }
 
 	public static Location getRandomLocation(RandomEvents plugin, Cuboid cuboid, MatchActive matchActive) {
 		Integer difX = Double.valueOf(cuboid.getMaxX()).intValue() - Double.valueOf(cuboid.getMinX()).intValue();
