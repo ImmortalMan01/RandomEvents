@@ -274,7 +274,13 @@ public class LanguageMessages {
 
 	private String guiCMD;
 
-	private String teamItemName;
+        private String teamItemName;
+
+        private String killcoinsGuiName;
+        private String killcoinsItemName;
+        private String killcoinsMoreSnowballsName;
+        private String killcoinsMoreSnowballsLore;
+        private String actionbarKillcoins;
 
 	private String creditsGuiPage;
 
@@ -5939,9 +5945,127 @@ public class LanguageMessages {
 		return s;
 	}
 
-	public void setTeamItemName(String teamItemName) {
-		this.teamItemName = teamItemName;
-	}
+        public void setTeamItemName(String teamItemName) {
+                this.teamItemName = teamItemName;
+        }
+
+        public String getKillcoinsGuiName() {
+                String s = killcoinsGuiName;
+                try {
+                        Matcher match = pattern.matcher(s);
+                        Map<String, ChatColor> mapa = new HashMap<String, ChatColor>();
+                        while (match.find()) {
+                                String color = s.substring(match.start() + 1, match.end());
+                                Method method = ChatColor.class.getMethod("of", String.class);
+                                ChatColor chatc = (ChatColor) method.invoke(null, color);
+                                mapa.put("&" + color, chatc);
+                        }
+                        for (Entry<String, ChatColor> ent : mapa.entrySet()) {
+                                s = s.replaceAll(ent.getKey(), ent.getValue() + "");
+                        }
+                        s = ChatColor.translateAlternateColorCodes('&', s);
+                } catch (Exception e) {
+                        s = s.replaceAll("&", "§");
+                }
+                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+                return s;
+        }
+
+        public void setKillcoinsGuiName(String killcoinsGuiName) {
+                this.killcoinsGuiName = killcoinsGuiName;
+        }
+
+        public String getKillcoinsItemName() {
+                String s = killcoinsItemName;
+                try {
+                        Matcher match = pattern.matcher(s);
+                        Map<String, ChatColor> mapa = new HashMap<String, ChatColor>();
+                        while (match.find()) {
+                                String color = s.substring(match.start() + 1, match.end());
+                                Method method = ChatColor.class.getMethod("of", String.class);
+                                ChatColor chatc = (ChatColor) method.invoke(null, color);
+                                mapa.put("&" + color, chatc);
+                        }
+                        for (Entry<String, ChatColor> ent : mapa.entrySet()) {
+                                s = s.replaceAll(ent.getKey(), ent.getValue() + "");
+                        }
+                        s = ChatColor.translateAlternateColorCodes('&', s);
+                } catch (Exception e) {
+                        s = s.replaceAll("&", "§");
+                }
+                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+                return s;
+        }
+
+        public void setKillcoinsItemName(String killcoinsItemName) {
+                this.killcoinsItemName = killcoinsItemName;
+        }
+
+        public String getKillcoinsMoreSnowballsName() {
+                String s = killcoinsMoreSnowballsName;
+                try {
+                        Matcher match = pattern.matcher(s);
+                        Map<String, ChatColor> mapa = new HashMap<String, ChatColor>();
+                        while (match.find()) {
+                                String color = s.substring(match.start() + 1, match.end());
+                                Method method = ChatColor.class.getMethod("of", String.class);
+                                ChatColor chatc = (ChatColor) method.invoke(null, color);
+                                mapa.put("&" + color, chatc);
+                        }
+                        for (Entry<String, ChatColor> ent : mapa.entrySet()) {
+                                s = s.replaceAll(ent.getKey(), ent.getValue() + "");
+                        }
+                        s = ChatColor.translateAlternateColorCodes('&', s);
+                } catch (Exception e) {
+                        s = s.replaceAll("&", "§");
+                }
+                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+                return s;
+        }
+
+        public void setKillcoinsMoreSnowballsName(String killcoinsMoreSnowballsName) {
+                this.killcoinsMoreSnowballsName = killcoinsMoreSnowballsName;
+        }
+
+        public List<String> getKillcoinsMoreSnowballsLore() {
+                List<String> lista = new ArrayList<String>();
+                if (killcoinsMoreSnowballsLore != null) {
+                        for (String s : killcoinsMoreSnowballsLore.split(";")) {
+                                lista.add(ChatColor.translateAlternateColorCodes('&', s));
+                        }
+                }
+                return lista;
+        }
+
+        public void setKillcoinsMoreSnowballsLore(String killcoinsMoreSnowballsLore) {
+                this.killcoinsMoreSnowballsLore = killcoinsMoreSnowballsLore;
+        }
+
+        public String getActionbarKillcoins() {
+                String s = actionbarKillcoins;
+                try {
+                        Matcher match = pattern.matcher(s);
+                        Map<String, ChatColor> mapa = new HashMap<String, ChatColor>();
+                        while (match.find()) {
+                                String color = s.substring(match.start() + 1, match.end());
+                                Method method = ChatColor.class.getMethod("of", String.class);
+                                ChatColor chatc = (ChatColor) method.invoke(null, color);
+                                mapa.put("&" + color, chatc);
+                        }
+                        for (Entry<String, ChatColor> ent : mapa.entrySet()) {
+                                s = s.replaceAll(ent.getKey(), ent.getValue() + "");
+                        }
+                        s = ChatColor.translateAlternateColorCodes('&', s);
+                } catch (Exception e) {
+                        s = s.replaceAll("&", "§");
+                }
+                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+                return s;
+        }
+
+        public void setActionbarKillcoins(String actionbarKillcoins) {
+                this.actionbarKillcoins = actionbarKillcoins;
+        }
 
 	public String getTeamGuiName() {
 		String s = teamGuiName;

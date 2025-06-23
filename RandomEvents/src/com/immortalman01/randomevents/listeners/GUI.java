@@ -18,12 +18,14 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.Material;
 
 import com.immortalman01.randomevents.RandomEvents;
 import com.immortalman01.randomevents.api.events.ReventSpawnEvent;
 import com.immortalman01.randomevents.match.Kit;
 import com.immortalman01.randomevents.match.Match;
 import com.immortalman01.randomevents.match.MatchActive;
+import com.immortalman01.randomevents.match.enums.MinigameType;
 import com.immortalman01.randomevents.util.Constantes;
 import com.immortalman01.randomevents.util.InventoryUtils;
 import com.immortalman01.randomevents.util.UtilsRandomEvents;
@@ -90,6 +92,8 @@ public class GUI implements Listener {
                                        holder = new RandomEventsHolder(RandomEventsHolder.GuiType.KITS);
                                } else if (title.equals(plugin.getLanguage().getTeamGuiName())) {
                                        holder = new RandomEventsHolder(RandomEventsHolder.GuiType.TEAMS);
+                               } else if (title.equals(plugin.getLanguage().getKillcoinsGuiName())) {
+                                       holder = new RandomEventsHolder(RandomEventsHolder.GuiType.KILLCOINS);
                                }
                        }
                }
@@ -115,6 +119,9 @@ public class GUI implements Listener {
                                break;
                        case TEAMS:
                                useTeamGUI(event);
+                               break;
+                       case KILLCOINS:
+                               useKillcoinsGUI(event);
                                break;
                        default:
                                break;
@@ -474,6 +481,40 @@ public class GUI implements Listener {
 
                } catch (Exception e) {
                        plugin.getLoggerP().info(e.toString());
+               }
+
+       }
+
+       private void useKillcoinsGUI(InventoryClickEvent event) {
+               if (!(event.getWhoClicked() instanceof Player)) {
+                       return;
+               }
+
+               if (!clickedTopInventory(event)) {
+                       return;
+               }
+
+               event.setCancelled(true);
+
+               Player p = (Player) event.getWhoClicked();
+               ItemStack item = event.getCurrentItem();
+               if (item == null || !item.hasItemMeta()) {
+                       return;
+               }
+
+               if (item.getType() == Material.SNOWBALL && plugin.getLanguage().getKillcoinsMoreSnowballsName().equals(item.getItemMeta().getDisplayName())) {
+                       MatchActive active = plugin.getMatchActive();
+                       if (active != null && active.getMatch().getMinigame() == MinigameType.PAINTBALL_TOP_KILL) {
+                               if (active.getKillCoins(p) >= 2) {
+                                       active.addKillCoin(p, -2);
+                                       p.getInventory().addItem(new ItemStack(Material.SNOWBALL, 32));
+                                       p.getInventory().setItem(8, active.getKillCoinItem(p));
+                                       UtilsRandomEvents.playSound(plugin, p, XSound.ENTITY_PLAYER_LEVELUP);
+                                       p.closeInventory();
+                               } else {
+                                       UtilsRandomEvents.playSound(plugin, p, XSound.ENTITY_VILLAGER_HURT);
+                               }
+                       }
                }
 
        }

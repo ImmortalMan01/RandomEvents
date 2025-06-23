@@ -3806,7 +3806,7 @@ public class UtilsRandomEvents {
 		return inv;
 	}
 
-       public static Inventory createGUITeams(Player p, Integer page, RandomEvents plugin, MatchActive matchActive) {
+        public static Inventory createGUITeams(Player p, Integer page, RandomEvents plugin, MatchActive matchActive) {
 
                Inventory inv = Bukkit.createInventory(new RandomEventsHolder(RandomEventsHolder.GuiType.TEAMS), 9,
                                plugin.getLanguage().getTeamGuiName());
@@ -3842,8 +3842,23 @@ public class UtilsRandomEvents {
 			}
 
 		}
-		return inv;
-	}
+                return inv;
+        }
+
+        public static Inventory createGUIKillcoins(RandomEvents plugin) {
+                Inventory inv = Bukkit.createInventory(new RandomEventsHolder(RandomEventsHolder.GuiType.KILLCOINS), 9,
+                                plugin.getLanguage().getKillcoinsGuiName());
+                ItemStack snow = new ItemStack(Material.SNOWBALL, 32);
+                ItemMeta meta = snow.getItemMeta();
+                meta.setDisplayName(plugin.getLanguage().getKillcoinsMoreSnowballsName());
+                meta.setLore(plugin.getLanguage().getKillcoinsMoreSnowballsLore());
+                meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+                meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+                snow.setItemMeta(meta);
+                inv.setItem(4, snow);
+                return inv;
+        }
 
         private static Integer sizeGUIKits(List<Kit> kitsAvailable) {
                 int total = kitsAvailable.size();

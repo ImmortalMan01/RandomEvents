@@ -38,6 +38,7 @@ import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
@@ -143,6 +144,8 @@ public class MatchActive {
         private Map<Player, Integer> snowballAmmo;
         private Map<Player, Integer> snowballMagazinesLeft;
 
+        private Map<Player, Integer> killCoins;
+
         private BukkitRunnable ammoTask;
 
 	private long endDate;
@@ -237,6 +240,8 @@ public class MatchActive {
                 this.cooldownShoot = new HashMap<Player, Long>();
                 this.snowballAmmo = new HashMap<Player, Integer>();
                 this.snowballMagazinesLeft = new HashMap<Player, Integer>();
+                this.killCoins = new HashMap<Player, Integer>();
+                this.killCoins = new HashMap<Player, Integer>();
 		counter = 0;
 		teams = Boolean.FALSE;
 
@@ -4206,7 +4211,11 @@ public class MatchActive {
 
                         p.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 20, 2));
 
-		}
+                        if (match.getMinigame() == MinigameType.PAINTBALL_TOP_KILL) {
+                                p.getInventory().setItem(8, getKillCoinItem(p));
+                        }
+
+                }
 
 	}
 
@@ -4713,6 +4722,18 @@ public class MatchActive {
                         }
                 }
 
+                if (getMatch().getMinigame() == MinigameType.PAINTBALL_TOP_KILL) {
+                        for (Player pl : getPlayerHandler().getPlayersObj()) {
+                                ItemStack inHand = pl.getInventory().getItemInMainHand();
+                                if (inHand != null && inHand.getType() == Material.GOLD_NUGGET && inHand.hasItemMeta()
+                                                && plugin.getLanguage().getKillcoinsItemName().equals(inHand.getItemMeta().getDisplayName())) {
+                                        String msg = plugin.getLanguage().getActionbarKillcoins()
+                                                        .replace("%coins%", String.valueOf(getKillCoins(pl)));
+                                        UtilsRandomEvents.sendActionBar(plugin, pl, msg);
+                                }
+                        }
+                }
+
         }
 
         public void initializeSnowballAmmo() {
@@ -4751,15 +4772,31 @@ public class MatchActive {
                 return true;
         }
 
-	public void givePoint(Player p, Integer point) {
-		if (getPuntuacion().containsKey(p.getName())) {
-			getPuntuacion().put(p.getName(), getPuntuacion().get(p.getName()) + point);
+        public void givePoint(Player p, Integer point) {
+                if (getPuntuacion().containsKey(p.getName())) {
+                        getPuntuacion().put(p.getName(), getPuntuacion().get(p.getName()) + point);
 
-		} else {
-			getPuntuacion().put(p.getName(), point);
-		}
+                } else {
+                        getPuntuacion().put(p.getName(), point);
+                }
 
-	}
+        }
+
+        public void addKillCoin(Player p, int amount) {
+                killCoins.put(p, killCoins.getOrDefault(p, 0) + amount);
+        }
+
+        public int getKillCoins(Player p) {
+                return killCoins.getOrDefault(p, 0);
+        }
+
+        public ItemStack getKillCoinItem(Player p) {
+                ItemStack it = new ItemStack(Material.GOLD_NUGGET, Math.max(1, getKillCoins(p)));
+                ItemMeta meta = it.getItemMeta();
+                meta.setDisplayName(plugin.getLanguage().getKillcoinsItemName());
+                it.setItemMeta(meta);
+                return it;
+        }
 
 	public void addPainted(Player p, List<Location> locations) {
 		if (getPlayerHandler().getPaintedLocations().containsKey(p)) {
@@ -5279,6 +5316,14 @@ public class MatchActive {
 
         public void setSnowballMagazinesLeft(Map<Player, Integer> snowballMagazinesLeft) {
                 this.snowballMagazinesLeft = snowballMagazinesLeft;
+        }
+
+        public Map<Player, Integer> getKillCoins() {
+                return killCoins;
+        }
+
+        public void setKillCoins(Map<Player, Integer> killCoins) {
+                this.killCoins = killCoins;
         }
 
         public BukkitRunnable getAmmoTask() {
