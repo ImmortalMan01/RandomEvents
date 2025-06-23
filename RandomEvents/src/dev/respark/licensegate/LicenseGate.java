@@ -1,6 +1,7 @@
 package dev.respark.licensegate;
 
-import org.json.JSONObject;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -130,16 +131,16 @@ public class LicenseGate {
     public ValidationType verify(String licenseKey, String scope, String metadata) {
         try {
             String challenge = this.useChallenges ? String.valueOf(System.currentTimeMillis()) : null;
-            JSONObject response = requestServer(buildUrl(licenseKey, scope, metadata, challenge));
+            JsonObject response = requestServer(buildUrl(licenseKey, scope, metadata, challenge));
 
             if (response.has("error") || !response.has("result")) {
-                if (debug) System.out.println("Error: " + response.getString("error"));
+                if (debug) System.out.println("Error: " + response.get("error").getAsString());
                 return ValidationType.SERVER_ERROR;
             }
 
             // Non-valid response don't need a signed challenge
-            if (response.has("valid") && !response.getBoolean("valid")) {
-                ValidationType result = ValidationType.valueOf(response.getString("result"));
+            if (response.has("valid") && !response.get("valid").getAsBoolean()) {
+                ValidationType result = ValidationType.valueOf(response.get("result").getAsString());
                 if (result == ValidationType.VALID) {
                     return ValidationType.SERVER_ERROR;
                 } else {
@@ -153,13 +154,13 @@ public class LicenseGate {
                     return ValidationType.FAILED_CHALLENGE;
                 }
 
-                if (!verifyChallenge(challenge, response.getString("signedChallenge"))) {
+                if (!verifyChallenge(challenge, response.get("signedChallenge").getAsString())) {
                     if (debug) System.out.println("Error: Challenge verification failed");
                     return ValidationType.FAILED_CHALLENGE;
                 }
             }
 
-            return ValidationType.valueOf(response.getString("result"));
+            return ValidationType.valueOf(response.get("result").getAsString());
         } catch (IOException e) {
             if (debug) e.printStackTrace();
             return ValidationType.CONNECTION_ERROR;
@@ -218,7 +219,7 @@ public class LicenseGate {
         return validationServer + "/license/" + userId + "/" + licenseKey + "/verify" + queryString;
     }
 
-    private JSONObject requestServer(String urlStr) throws IOException {
+    private JsonObject requestServer(String urlStr) throws IOException {
         URL url = new URL(urlStr);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
@@ -246,7 +247,7 @@ public class LicenseGate {
             }
 
             // Parse JSON response
-            return new JSONObject(jsonStr);
+            return JsonParser.parseString(jsonStr).getAsJsonObject();
         }
     }
 
