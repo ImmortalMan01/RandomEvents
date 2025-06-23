@@ -511,6 +511,8 @@ public class Constantes {
                 KILLCOINS_ITEM_NAME("killcoinsItemName", "killcoins.itemName", "&6&lKill Coins"),
                 KILLCOINS_MORE_SNOWBALLS_NAME("killcoinsMoreSnowballsName", "killcoins.moreSnowballsName", "&cMore Snowballs"),
                 KILLCOINS_MORE_SNOWBALLS_LORE("killcoinsMoreSnowballsLore", "killcoins.moreSnowballsLore", "&7You will receive 32 extra snowballs.;&7Cost: &a2 Killcoins;&aClick to activate!"),
+                KILLCOINS_TRIPLE_SHOOT_NAME("killcoinsTripleShootName", "killcoins.tripleShootName", "&cTriple Shoot"),
+                KILLCOINS_TRIPLE_SHOOT_LORE("killcoinsTripleShootLore", "killcoins.tripleShootLore", "&7You will throw 3 snowballs at a time.;;&7Duration: &a30s;&7Cost: &a3 Killcoins;;&aClick to activate!"),
                 ACTIONBAR_KILLCOINS("actionbarKillcoins", "actionbar.killcoins", "Killcoins: %coins%"),
                 KILLCOINS_SNOWBALLS_RECEIVED("killcoinsSnowballsReceived", "killcoins.snowballsReceived", "&aYou received 32 extra snowballs!"),
                 KILLCOINS_NOT_ENOUGH("killcoinsNotEnough", "killcoins.notEnough", "&cYou don't have enough Killcoins!"),

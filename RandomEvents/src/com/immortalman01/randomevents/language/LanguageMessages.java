@@ -281,6 +281,8 @@ public class LanguageMessages {
         private String killcoinsItemName;
         private String killcoinsMoreSnowballsName;
         private List<String> killcoinsMoreSnowballsLore;
+        private String killcoinsTripleShootName;
+        private List<String> killcoinsTripleShootLore;
         private String actionbarKillcoins;
         private String killcoinsSnowballsReceived;
         private String killcoinsNotEnough;
@@ -6068,6 +6070,46 @@ public class LanguageMessages {
 
         public void setKillcoinsMoreSnowballsLore(List<String> killcoinsMoreSnowballsLore) {
                 this.killcoinsMoreSnowballsLore = killcoinsMoreSnowballsLore;
+        }
+
+        public String getKillcoinsTripleShootName() {
+                String s = killcoinsTripleShootName;
+                try {
+                        Matcher match = pattern.matcher(s);
+                        Map<String, ChatColor> mapa = new HashMap<String, ChatColor>();
+                        while (match.find()) {
+                                String color = s.substring(match.start() + 1, match.end());
+                                Method method = ChatColor.class.getMethod("of", String.class);
+                                ChatColor chatc = (ChatColor) method.invoke(null, color);
+                                mapa.put("&" + color, chatc);
+                        }
+                        for (Entry<String, ChatColor> ent : mapa.entrySet()) {
+                                s = s.replaceAll(ent.getKey(), ent.getValue() + "");
+                        }
+                        s = ChatColor.translateAlternateColorCodes('&', s);
+                } catch (Exception e) {
+                        s = s.replaceAll("&", "§");
+                }
+                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+                return s;
+        }
+
+        public void setKillcoinsTripleShootName(String killcoinsTripleShootName) {
+                this.killcoinsTripleShootName = killcoinsTripleShootName;
+        }
+
+        public List<String> getKillcoinsTripleShootLore() {
+                List<String> lista = new ArrayList<String>();
+                if (killcoinsTripleShootLore != null) {
+                        for (String s : killcoinsTripleShootLore) {
+                                lista.add(ChatColor.translateAlternateColorCodes('&', s));
+                        }
+                }
+                return lista;
+        }
+
+        public void setKillcoinsTripleShootLore(List<String> killcoinsTripleShootLore) {
+                this.killcoinsTripleShootLore = killcoinsTripleShootLore;
         }
 
         public String getKillcoinsSnowballsReceived() {
