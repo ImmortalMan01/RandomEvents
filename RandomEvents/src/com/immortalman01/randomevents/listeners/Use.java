@@ -422,11 +422,13 @@ public class Use implements Listener {
 				if (snowball.getShooter() != null && snowball.getShooter() instanceof Player) {
 					Player p = (Player) snowball.getShooter();
                                         if (plugin.getMatchActive().getPlayerHandler().getPlayers().contains(p.getName())) {
-                                                if (plugin.getReventConfig().isInfiniteSnowballs()
-                                                                && !plugin.getMatchActive().getMatch().getMinigame()
-                                                                                .equals(MinigameType.SPLEEF)) {
-                                                        p.getInventory().addItem(XMaterial.SNOWBALL.parseItem());
-                                                }
+                                               if (plugin.getReventConfig().isInfiniteSnowballs()
+                                                               && !plugin.getMatchActive().getMatch().getMinigame()
+.equals(MinigameType.SPLEEF)
+                                                               && !plugin.getMatchActive().getMatch().getMinigame()
+.equals(MinigameType.PAINTBALL_TOP_KILL)) {
+                                                       p.getInventory().addItem(XMaterial.SNOWBALL.parseItem());
+                                               }
                                         }
 				}
 			} else if (evt.getEntity() instanceof EnderPearl) {
