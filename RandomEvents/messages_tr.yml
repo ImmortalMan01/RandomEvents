@@ -235,6 +235,7 @@ creation.cancelOfMatchCreation: Olay oluşturma iptal edildi
 creation.lacksInfoCreation: Etkinlik oluşturulamıyor, bilgi yok, alanları tekrar kontrol
   ediyor
 creation.tooManySpawns: Tüm gereken doğma noktaları zaten ayarlandı
+creation.spawnsReset: Arena spawnları sıfırlandı. Yeniden ayarlayın
 comun.shrink: Harita Sınırı %time% saniye içinde daralıyor
 comun.refill: Sandıklar yeniden dolduruldu.
 comun.refillTime: 'Sandıkların yenilenme süresi:'

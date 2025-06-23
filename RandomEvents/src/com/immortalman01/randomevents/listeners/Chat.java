@@ -673,6 +673,9 @@ public class Chat implements Listener {
                                                         actua = Boolean.FALSE;
                                                         if (c.equals(Creacion.ARENA_SPAWNS)) {
                                                                 match.setSpawns(new ArrayList<Location>());
+                                                                if (plugin.getEditando().contains(player.getName())) {
+                                                                        player.sendMessage(plugin.getLanguage().getSpawnsReset());
+                                                                }
                                                         }
                                                 } else {
                                                         c = Creacion.getByPosition(position);
