@@ -265,6 +265,7 @@ public class ReventConfig {
         private String useEncoding;
 
         private String prefix;
+       private String licenseKey;
 
 	private boolean snowballSpleef;
 
@@ -546,7 +547,8 @@ public class ReventConfig {
                 if (useEncoding.equals("UTF_8")) {
                         useEncoding = "UTF-8";
                 }
-                this.prefix = plugin.getConfig().getString("prefix");
+               this.prefix = plugin.getConfig().getString("prefix");
+               this.licenseKey = plugin.getConfig().getString("licenseKey");
                 this.cmdAlias = new ArrayList<String>();
 		for (String ali : plugin.getConfig().getString("cmdAlias").split(";")) {
 			cmdAlias.add(ali);
@@ -2464,6 +2466,14 @@ public class ReventConfig {
         public void setPrefix(String prefix) {
                 this.prefix = prefix;
         }
+
+       public String getLicenseKey() {
+               return licenseKey;
+       }
+
+       public void setLicenseKey(String licenseKey) {
+               this.licenseKey = licenseKey;
+       }
 
 	public boolean isSnowballSpleef() {
 		return snowballSpleef;

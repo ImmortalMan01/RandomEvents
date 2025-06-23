@@ -60,6 +60,7 @@ import com.immortalman01.randomevents.util.NameTagHook;
 import com.immortalman01.randomevents.util.UtilsRandomEvents;
 import com.immortalman01.randomevents.util.UtilsSQL;
 import com.google.common.io.Files;
+import dev.respark.licensegate.LicenseGate;
 
 public class RandomEvents extends JavaPlugin {
 
@@ -127,16 +128,29 @@ public class RandomEvents extends JavaPlugin {
 	
 	private Logger logger;
 
-	public void onEnable() {
-		this.api = new API1711("%%__USER__%%", "RandomEvents");
-		this.lastCheck=new Date();
-		logger=getLogger();
-		logger.info("Loading config...");
-		loadConfig();
-		this.editando = new ArrayList<String>();
-		this.comandosExecutor = new ComandosExecutor();
-		this.cooldowns = new HashMap<String, Date>();
-		logger.info("Loading variables...");
+        public void onEnable() {
+                this.api = new API1711("%%__USER__%%", "RandomEvents");
+                this.lastCheck=new Date();
+                logger=getLogger();
+                logger.info("Loading config...");
+                loadConfig();
+               String license = getConfig().getString("licenseKey");
+               if(license==null || license.isEmpty()){
+                       getLogger().severe("No license key provided. Disabling plugin.");
+                       getServer().getPluginManager().disablePlugin(this);
+                       return;
+               }
+               LicenseGate licenseGate = new LicenseGate("e9409d76-2006-455d-8c64-13b469845b64");
+               LicenseGate.ValidationType lresult = licenseGate.verify(license);
+               if(lresult != LicenseGate.ValidationType.VALID){
+                       getLogger().severe("License validation failed: "+lresult);
+                       getServer().getPluginManager().disablePlugin(this);
+                       return;
+               }
+                this.editando = new ArrayList<String>();
+                this.comandosExecutor = new ComandosExecutor();
+                this.cooldowns = new HashMap<String, Date>();
+                logger.info("Loading variables...");
 
 		inicializaVariables();
 		
