@@ -607,13 +607,17 @@ public class Death implements Listener {
 							UtilsRandomEvents.playSound(plugin, player, XSound.ENTITY_VILLAGER_DEATH);
 
 							UtilsRandomEvents.playSound(plugin, damager, XSound.ENTITY_PLAYER_LEVELUP);
-                                                        if (plugin.getMatchActive().getPuntuacion().containsKey(damager.getName())) {
-                                                                plugin.getMatchActive().getPuntuacion().put(damager.getName(),
-                                                                                plugin.getMatchActive().getPuntuacion().get(damager.getName()) + 1);
+                                                                if (plugin.getMatchActive().getPuntuacion().containsKey(damager.getName())) {
+                                                                        plugin.getMatchActive().getPuntuacion().put(damager.getName(),
+                                                                               plugin.getMatchActive().getPuntuacion().get(damager.getName()) + 1);
 
-                                                        } else {
-                                                                plugin.getMatchActive().getPuntuacion().put(damager.getName(), 1);
-                                                        }
+                                                                } else {
+                                                                        plugin.getMatchActive().getPuntuacion().put(damager.getName(), 1);
+                                                                }
+                                                                plugin.getMatchActive().addKillCoin(damager, 1);
+                                                                damager.getInventory().setItem(8, plugin.getMatchActive().getKillCoinItem(damager));
+                                                        plugin.getMatchActive().addKillCoin(damager, 1);
+                                                        damager.getInventory().setItem(8, plugin.getMatchActive().getKillCoinItem(damager));
                                                         if (plugin.getMatchActive().getMatch().getMinigame() == MinigameType.PAINTBALL_TOP_KILL) {
                                                                 plugin.getMatchActive().addKillCoin(damager, 1);
                                                                 damager.getInventory().setItem(8, plugin.getMatchActive().getKillCoinItem(damager));
@@ -1942,6 +1946,8 @@ public class Death implements Listener {
 							} else {
 								plugin.getMatchActive().getPuntuacion().put(damager.getName(), 1);
 							}
+                                                        plugin.getMatchActive().addKillCoin(damager, 1);
+                                                        damager.getInventory().setItem(8, plugin.getMatchActive().getKillCoinItem(damager));
 							UtilsRandomEvents.mandaMensaje(plugin,
 									plugin.getMatchActive().getPlayerHandler().getPlayersSpectators(),
 									plugin.getLanguage().getPvpKill().replaceAll("%victim%", player.getName())
@@ -2017,6 +2023,8 @@ public class Death implements Listener {
 								} else {
 									plugin.getMatchActive().getPuntuacion().put(damager.getName(), 1);
 								}
+                                                                plugin.getMatchActive().addKillCoin(damager, 1);
+                                                                damager.getInventory().setItem(8, plugin.getMatchActive().getKillCoinItem(damager));
 								UtilsRandomEvents.mandaMensaje(plugin,
 										plugin.getMatchActive().getPlayerHandler().getPlayersSpectators(),
 										plugin.getLanguage().getPvpKill().replaceAll("%victim%", player.getName())
