@@ -1366,8 +1366,17 @@ public class MatchActive {
                 Map<Integer, Integer> teamPoints = createTeamPoints();
                 int blueKills = teamPoints.getOrDefault(1, 0);
                 int redKills = teamPoints.getOrDefault(0, 0);
-                int winningTeam = blueKills > redKills ? 1 : 0;
-                String winningTeamName = winningTeam == 1 ? "&9Blue" : "&cRed";
+                String msgTemplate;
+                String winningTeamName = "";
+                if (blueKills > redKills) {
+                        winningTeamName = "&9Blue";
+                        msgTemplate = plugin.getLanguage().getPaintballTopKillSummary();
+                } else if (redKills > blueKills) {
+                        winningTeamName = "&cRed";
+                        msgTemplate = plugin.getLanguage().getPaintballTopKillSummary();
+                } else {
+                        msgTemplate = plugin.getLanguage().getPaintballTopKillTieSummary();
+                }
 
                 Map<String, Integer> sorted = UtilsRandomEvents.sortByValue(puntuacion, true);
                 String top1Name = "None";
@@ -1396,7 +1405,7 @@ public class MatchActive {
 
                 for (Player pl : getPlayerHandler().getPlayersTotalObj()) {
                         int playerKills = puntuacion.getOrDefault(pl.getName(), 0);
-                        String msg = plugin.getLanguage().getPaintballTopKillSummary()
+                        String msg = msgTemplate
                                         .replace("%winningTeamName%", winningTeamName)
                                         .replace("%blue_kills%", String.valueOf(blueKills))
                                         .replace("%red_kills%", String.valueOf(redKills))

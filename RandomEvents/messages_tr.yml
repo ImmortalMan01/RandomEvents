@@ -269,6 +269,17 @@ match.paintballTopKillSummary: |-
   &7- &3%top3_name% &7(%top3_kills% öldürme)
 
   &fSenin Öldürme Sayın: &e%player_kills%
+match.paintballTopKillTieSummary: |-
+  &f&l---------------------------------------------
+  &eBerabere!
+  &9Mavi Takım: &f%blue_kills% &7- &cKırmızı Takım: &f%red_kills%
+
+  &f&lTop Öldürmeler
+  &7- &a%top1_name% &7(%top1_kills% öldürme)
+  &7- &b%top2_name% &7(%top2_kills% öldürme)
+  &7- &3%top3_name% &7(%top3_kills% öldürme)
+
+  &fSenin Öldürme Sayın: &e%player_kills%
   &f&l---------------------------------------------
 comun.disposeLeatherItems: Güvenlik nedeniyle lütfen etkinliğe girmeden önce deri eşyalarınızı bırakın
 comun.clearInventory: "&c&lRandomEvent'e katılmadan önce envanteri temizleyin"

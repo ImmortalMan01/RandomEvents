@@ -48,7 +48,7 @@ public class LanguageMessages {
         } catch (Exception e) {
             s = s.replaceAll("&", "§");
         }
-        s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+        s = s.replaceAll("\\\n", Constantes.SALTO_LINEA);
         return s;
     }
 
@@ -118,6 +118,7 @@ public class LanguageMessages {
         private String eventStopped;
         private String eventEnded;
         private String paintballTopKillSummary;
+        private String paintballTopKillTieSummary;
         private String tournamentCancelled;
         private String resetCoinsAll;
 	private String resetTriesAll;
@@ -613,7 +614,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -640,7 +641,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -667,7 +668,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -694,7 +695,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 
 	}
@@ -721,7 +722,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -747,7 +748,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -773,7 +774,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -799,7 +800,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -825,7 +826,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -851,7 +852,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -877,7 +878,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -903,7 +904,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -929,7 +930,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -955,7 +956,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -982,7 +983,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 
 		return s;
 	}
@@ -1009,7 +1010,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1035,7 +1036,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1061,7 +1062,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1087,7 +1088,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1113,7 +1114,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1139,7 +1140,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1165,7 +1166,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1191,7 +1192,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1217,7 +1218,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1243,7 +1244,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1269,7 +1270,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1295,7 +1296,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1321,7 +1322,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1347,7 +1348,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1373,7 +1374,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1399,7 +1400,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1425,7 +1426,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1451,7 +1452,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1477,7 +1478,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1503,7 +1504,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1529,7 +1530,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1555,7 +1556,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1581,7 +1582,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1607,7 +1608,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1633,7 +1634,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1659,7 +1660,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1685,7 +1686,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1711,7 +1712,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1737,7 +1738,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1763,7 +1764,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1789,7 +1790,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1815,7 +1816,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1845,7 +1846,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1871,7 +1872,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1897,7 +1898,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1923,7 +1924,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1949,7 +1950,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -1975,7 +1976,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2001,7 +2002,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2027,7 +2028,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2053,7 +2054,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2075,7 +2076,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2097,7 +2098,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2119,7 +2120,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2141,7 +2142,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2163,7 +2164,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2185,7 +2186,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2207,7 +2208,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2229,7 +2230,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2251,7 +2252,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2273,7 +2274,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2299,7 +2300,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2325,7 +2326,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2351,7 +2352,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2377,7 +2378,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2403,7 +2404,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2429,7 +2430,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2455,7 +2456,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2477,7 +2478,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2499,7 +2500,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2521,7 +2522,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2543,7 +2544,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2565,7 +2566,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2591,7 +2592,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2617,7 +2618,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2643,7 +2644,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2805,7 +2806,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
@@ -2831,7 +2832,7 @@ public class LanguageMessages {
                 } catch (Exception e) {
                         s = s.replaceAll("&", "§");
                 }
-                s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+                s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
@@ -2857,12 +2858,38 @@ public class LanguageMessages {
                 } catch (Exception e) {
                         s = s.replaceAll("&", "§");
                 }
-                s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+                s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
+                return s;
+        }
+
+        public String getPaintballTopKillTieSummary() {
+                String s = paintballTopKillTieSummary;
+                try {
+                        Matcher match = pattern.matcher(s);
+                        Map<String, ChatColor> mapa = new HashMap<String, ChatColor>();
+                        while (match.find()) {
+                                String color = s.substring(match.start() + 1, match.end());
+                                Method method = ChatColor.class.getMethod("of", String.class);
+                                ChatColor chatc = (ChatColor) method.invoke(null, color);
+                                mapa.put("&" + color, chatc);
+                        }
+                        for (Entry<String, ChatColor> ent : mapa.entrySet()) {
+                                s = s.replaceAll(ent.getKey(), ent.getValue() + "");
+                        }
+                        s = ChatColor.translateAlternateColorCodes('&', s);
+                } catch (Exception e) {
+                        s = s.replaceAll("&", "§");
+                }
+                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
         public void setPaintballTopKillSummary(String paintballTopKillSummary) {
                 this.paintballTopKillSummary = paintballTopKillSummary;
+        }
+
+        public void setPaintballTopKillTieSummary(String paintballTopKillTieSummary) {
+                this.paintballTopKillTieSummary = paintballTopKillTieSummary;
         }
 
 	public String getClearInventory() {
@@ -2883,7 +2910,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2909,7 +2936,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2935,7 +2962,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2961,7 +2988,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -2987,7 +3014,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3013,7 +3040,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3039,7 +3066,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3065,7 +3092,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3091,7 +3118,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3117,7 +3144,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3143,7 +3170,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3169,7 +3196,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3195,7 +3222,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3221,7 +3248,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3247,7 +3274,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3273,7 +3300,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3299,7 +3326,7 @@ public class LanguageMessages {
                 } catch (Exception e) {
                         s = s.replaceAll("&", "§");
                 }
-                s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+                s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
@@ -3325,7 +3352,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3391,7 +3418,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3417,7 +3444,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3443,7 +3470,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3469,7 +3496,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3495,7 +3522,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3521,7 +3548,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3547,7 +3574,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3573,7 +3600,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3599,7 +3626,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3625,7 +3652,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3651,7 +3678,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3677,7 +3704,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3703,7 +3730,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3729,7 +3756,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3755,7 +3782,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3781,7 +3808,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3807,7 +3834,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3833,7 +3860,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3859,7 +3886,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3885,7 +3912,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3911,7 +3938,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3937,7 +3964,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3963,7 +3990,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -3989,7 +4016,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4015,7 +4042,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4041,7 +4068,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4067,7 +4094,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
@@ -4089,7 +4116,7 @@ public class LanguageMessages {
                 } catch (Exception e) {
                         s = s.replaceAll("&", "§");
                 }
-                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+                s = s.replaceAll("\\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
@@ -4119,7 +4146,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4145,7 +4172,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4174,7 +4201,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4200,7 +4227,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4226,7 +4253,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4252,7 +4279,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4278,7 +4305,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4304,7 +4331,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4330,7 +4357,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4356,7 +4383,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4382,7 +4409,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4408,7 +4435,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4434,7 +4461,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4460,7 +4487,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4486,7 +4513,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4512,7 +4539,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4538,7 +4565,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4564,7 +4591,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4590,7 +4617,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4616,7 +4643,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4642,7 +4669,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4668,7 +4695,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4694,7 +4721,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4720,7 +4747,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4746,7 +4773,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4772,7 +4799,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4798,7 +4825,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4823,7 +4850,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4897,7 +4924,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4919,7 +4946,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4941,7 +4968,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4967,7 +4994,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -4993,7 +5020,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5019,7 +5046,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5045,7 +5072,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5071,7 +5098,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5105,7 +5132,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5131,7 +5158,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5153,7 +5180,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5175,7 +5202,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5197,7 +5224,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5219,7 +5246,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5241,7 +5268,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5287,7 +5314,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5309,7 +5336,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5331,7 +5358,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5353,7 +5380,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5375,7 +5402,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5417,7 +5444,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5443,7 +5470,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5469,7 +5496,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5495,7 +5522,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5521,7 +5548,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5547,7 +5574,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5573,7 +5600,7 @@ public class LanguageMessages {
                 } catch (Exception e) {
                         s = s.replaceAll("&", "§");
                 }
-                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+                s = s.replaceAll("\\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
@@ -5599,7 +5626,7 @@ public class LanguageMessages {
                 } catch (Exception e) {
                         s = s.replaceAll("&", "§");
                 }
-                s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+                s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
@@ -5625,7 +5652,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5651,7 +5678,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5677,7 +5704,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5703,7 +5730,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5757,7 +5784,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5783,7 +5810,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-                s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+                s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
@@ -5805,7 +5832,7 @@ public class LanguageMessages {
                 } catch (Exception e) {
                         s = s.replaceAll("&", "§");
                 }
-                s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+                s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
@@ -5827,7 +5854,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5849,7 +5876,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5943,7 +5970,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -5969,7 +5996,7 @@ public class LanguageMessages {
                 } catch (Exception e) {
                         s = s.replaceAll("&", "§");
                 }
-                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+                s = s.replaceAll("\\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
@@ -5995,7 +6022,7 @@ public class LanguageMessages {
                 } catch (Exception e) {
                         s = s.replaceAll("&", "§");
                 }
-                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+                s = s.replaceAll("\\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
@@ -6021,7 +6048,7 @@ public class LanguageMessages {
                 } catch (Exception e) {
                         s = s.replaceAll("&", "§");
                 }
-                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+                s = s.replaceAll("\\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
@@ -6077,7 +6104,7 @@ public class LanguageMessages {
                 } catch (Exception e) {
                         s = s.replaceAll("&", "§");
                 }
-                s = s.replaceAll("\\n", Constantes.SALTO_LINEA);
+                s = s.replaceAll("\\\n", Constantes.SALTO_LINEA);
                 return s;
         }
 
@@ -6103,7 +6130,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6129,7 +6156,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6151,7 +6178,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6173,7 +6200,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6195,7 +6222,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6217,7 +6244,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6239,7 +6266,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6261,7 +6288,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6283,7 +6310,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6305,7 +6332,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6327,7 +6354,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6349,7 +6376,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6371,7 +6398,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6393,7 +6420,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6415,7 +6442,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6437,7 +6464,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6459,7 +6486,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6481,7 +6508,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6503,7 +6530,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6525,7 +6552,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6547,7 +6574,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6569,7 +6596,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6591,7 +6618,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6613,7 +6640,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6635,7 +6662,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6657,7 +6684,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6679,7 +6706,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6705,7 +6732,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6727,7 +6754,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6749,7 +6776,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6771,7 +6798,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6793,7 +6820,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6815,7 +6842,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6841,7 +6868,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6863,7 +6890,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6885,7 +6912,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6907,7 +6934,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6929,7 +6956,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6951,7 +6978,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6973,7 +7000,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -6999,7 +7026,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -7021,7 +7048,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -7047,7 +7074,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -7293,7 +7320,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -7315,7 +7342,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -7337,7 +7364,7 @@ public class LanguageMessages {
 		} catch (Exception e) {
 			s = s.replaceAll("&", "§");
 		}
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -7373,7 +7400,7 @@ public class LanguageMessages {
 			s = s.replaceAll("&", "§");
 		}
 
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
@@ -7397,7 +7424,7 @@ public class LanguageMessages {
 			s = s.replaceAll("&", "§");
 		}
 
-		s = s.replaceAll("\\\\n", Constantes.SALTO_LINEA);
+		s = s.replaceAll("\\\\\n", Constantes.SALTO_LINEA);
 		return s;
 	}
 
