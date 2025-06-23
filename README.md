@@ -13,8 +13,9 @@ RandomEvents, Minecraft sunucuları için rastgele mini oyunlar ve turnuvalar d�
 ## Kurulum
 1. Projeyi indirin veya derlenmiş jar dosyasını `plugins/` klasörüne yerleştirin.
 2. Eklenti **Spigot 1.21** veya daha yeni bir sürüm gerektirir. Sunucunuzu uygun sürümde başlatın.
-3. Spigot (veya türevi) sunucunuzu başlatın. İlk çalıştırmada `RandomEvents` klasöründe **config.yml** dosyası oluşacaktır.
-4. `config.yml` içindeki ayarları ihtiyaçlarınıza göre düzenleyin. Örnek yapılandırmanın ilk bölümü aşağıdadır:
+3. Spigot (veya türevi) sunucunuzu başlatın. İlk çalıştırmada `RandomEvents` klasöründe **config.yml** ve **license.yml** dosyaları oluşacaktır.
+4. `license.yml` dosyasındaki `license-key` alanına geçerli lisans anahtarınızı girin. Lisans doğrulanamazsa eklenti çalışmayacaktır.
+5. `config.yml` içindeki ayarları ihtiyaçlarınıza göre düzenleyin. Örnek yapılandırmanın ilk bölümü aşağıdadır:
 
 ```yml
 ##################################################################

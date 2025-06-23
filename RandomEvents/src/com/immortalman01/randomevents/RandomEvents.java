@@ -60,6 +60,7 @@ import com.immortalman01.randomevents.util.NameTagHook;
 import com.immortalman01.randomevents.util.UtilsRandomEvents;
 import com.immortalman01.randomevents.util.UtilsSQL;
 import com.google.common.io.Files;
+import com.immortalman01.randomevents.license.LicenseVerifier;
 
 public class RandomEvents extends JavaPlugin {
 
@@ -125,14 +126,22 @@ public class RandomEvents extends JavaPlugin {
 	private static SimpleCommandMap scm;
 	private SimplePluginManager spm;
 	
-	private Logger logger;
+        private Logger logger;
 
-	public void onEnable() {
-		this.api = new API1711("%%__USER__%%", "RandomEvents");
-		this.lastCheck=new Date();
-		logger=getLogger();
-		logger.info("Loading config...");
-		loadConfig();
+        public void onEnable() {
+                this.api = new API1711("%%__USER__%%", "RandomEvents");
+                this.lastCheck=new Date();
+                logger=getLogger();
+                // Load and verify plugin license
+                Configuration licenseConfig = new Configuration(this, "license.yml");
+                String licenseKey = licenseConfig.getString("license-key");
+                if (licenseKey == null || licenseKey.isEmpty() || !LicenseVerifier.verify(this, licenseKey)) {
+                        logger.severe("License verification failed. Disabling plugin.");
+                        getServer().getPluginManager().disablePlugin(this);
+                        return;
+                }
+                logger.info("Loading config...");
+                loadConfig();
 		this.editando = new ArrayList<String>();
 		this.comandosExecutor = new ComandosExecutor();
 		this.cooldowns = new HashMap<String, Date>();
