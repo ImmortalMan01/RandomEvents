@@ -1313,6 +1313,15 @@ public class MatchActive {
                                 // Teleport winners back to spawn after rewards
                                 echaDePartida(player, false, true, true, false, false, false);
                         }
+
+                        // Ensure remaining players are also teleported to spawn
+                        List<Player> remaining = new ArrayList<Player>(getPlayerHandler().getPlayersObj());
+                        for (Player p : remaining) {
+                                if ((ganadores != null && ganadores.contains(p)) || specs.contains(p)) {
+                                        continue;
+                                }
+                                echaDePartida(p, false, true, true, false, false, false);
+                        }
 			if (getPlayerHandler().getPlayerContador() != null) {
 				UtilsRandomEvents.removeGlow(plugin, getPlayerHandler().getPlayerContador(),
 						getPlayerHandler().getPlayersTotalObj());
