@@ -435,7 +435,11 @@ public class Use implements Listener {
                                                        for (int i = 0; i < 2; i++) {
                                                                Snowball sb = p.getWorld().spawn(snowball.getLocation(), Snowball.class);
                                                                sb.setShooter(p);
-                                                               sb.setVelocity(snowball.getVelocity());
+                                                               Vector v = snowball.getVelocity().clone();
+                                                               v.setX(v.getX() + (Math.random() - 0.5) * 0.2);
+                                                               v.setY(v.getY() + (Math.random() - 0.5) * 0.1);
+                                                               v.setZ(v.getZ() + (Math.random() - 0.5) * 0.2);
+                                                               sb.setVelocity(v);
                                                        }
                                                }
                                        }

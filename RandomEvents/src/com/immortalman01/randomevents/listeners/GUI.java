@@ -523,6 +523,9 @@ public class GUI implements Listener {
                                if (active.getKillCoins(p) >= 3) {
                                        active.addKillCoin(p, -3);
                                        active.activateTripleShoot(p);
+                                       UtilsRandomEvents.sendActionBar(plugin, p,
+                                                       plugin.getLanguage().getActionbarTripleShoot()
+                                                                       .replace("%time%", "30"));
                                        p.getInventory().setItem(8, active.getKillCoinItem(p));
                                        UtilsRandomEvents.playSound(plugin, p, XSound.ENTITY_PLAYER_LEVELUP);
                                        p.closeInventory();

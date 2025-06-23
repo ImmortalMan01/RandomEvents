@@ -4753,6 +4753,14 @@ public class MatchActive {
                                                         .replace("%coins%", String.valueOf(getKillCoins(pl)));
                                         UtilsRandomEvents.sendActionBar(plugin, pl, msg);
                                 }
+
+                                if (hasTripleShoot(pl)) {
+                                        long timeLeft = (getTripleShoot().get(pl) - System.currentTimeMillis()) / 1000;
+                                        if (timeLeft < 0) timeLeft = 0;
+                                        String tsMsg = plugin.getLanguage().getActionbarTripleShoot()
+                                                        .replace("%time%", String.valueOf(timeLeft));
+                                        UtilsRandomEvents.sendActionBar(plugin, pl, tsMsg);
+                                }
                         }
                 }
 
