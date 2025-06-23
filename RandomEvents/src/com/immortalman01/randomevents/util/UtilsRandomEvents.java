@@ -23,6 +23,7 @@ import com.immortalman01.randomevents.util.ItemsAdderUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -156,6 +157,41 @@ public class UtilsRandomEvents {
                return sanitized;
        }
 
+       /**
+        * Calculates the smallest positive match id that is not currently used.
+        *
+        * @param matches the collection of existing matches
+        * @return the next available identifier
+        */
+       public static int calculateNextMatchId(Collection<Match> matches) {
+               Set<Integer> usedIds = new HashSet<Integer>();
+               for (Match m : matches) {
+                       if (m.getId() != null) {
+                               usedIds.add(m.getId());
+                       }
+               }
+               int id = 1;
+               while (usedIds.contains(id)) {
+                       id++;
+               }
+               return id;
+       }
+
+       /**
+        * Calculates the next available match id using the plugin's current
+        * matches list.
+        *
+        * @param plugin the plugin instance
+        * @return the next available id
+        */
+       public static int calculateNextMatchId(RandomEvents plugin) {
+               List<Match> matches = plugin.getMatches();
+               if (matches == null) {
+                       matches = Collections.emptyList();
+               }
+               return calculateNextMatchId(matches);
+       }
+
 	//
 	public static void terminaCreacionMatch(RandomEvents plugin, Player player) {
 		terminaCreacionMatch(plugin, player, null);
@@ -169,9 +205,12 @@ public class UtilsRandomEvents {
                if (match == null)
                        match = plugin.getPlayerMatches().get(player.getName());
 
+               if (plugin.getMatches() == null) {
+                       plugin.setMatches(new ArrayList<Match>());
+               }
+
                if (match.getId() == null) {
-                       match.setId(plugin.getNextMatchId());
-                       plugin.setNextMatchId(plugin.getNextMatchId() + 1);
+                       match.setId(calculateNextMatchId(plugin));
                }
                try {
 			String json = UtilidadesJson.fromMatchToJSON(plugin, match);
@@ -215,12 +254,13 @@ public class UtilsRandomEvents {
 					}
 
 				}
-				if (matchAux == null) {
-					plugin.getMatches().add(match);
-				} else {
-					plugin.getMatches().set(plugin.getMatches().indexOf(matchAux), match);
-				}
-				if (player != null) {
+                                if (matchAux == null) {
+                                        plugin.getMatches().add(match);
+                                } else {
+                                        plugin.getMatches().set(plugin.getMatches().indexOf(matchAux), match);
+                                }
+                                plugin.setNextMatchId(calculateNextMatchId(plugin));
+                                if (player != null) {
 
 					player.sendMessage(
 							plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getEndOfArenaCreation());
@@ -421,8 +461,9 @@ public class UtilsRandomEvents {
 
 	public static void disableMatch(RandomEvents plugin, Match match, Player player) {
 		if (match.getEnabled() == null || match.getEnabled()) {
-			plugin.getMatches().remove(match);
-			plugin.getMatchesAvailable().remove(match);
+                        plugin.getMatches().remove(match);
+                        plugin.getMatchesAvailable().remove(match);
+                        plugin.setNextMatchId(calculateNextMatchId(plugin));
 			match.setEnabled(Boolean.FALSE);
 			try {
 				String json = UtilidadesJson.fromMatchToJSON(plugin, match);
@@ -591,15 +632,16 @@ public class UtilsRandomEvents {
                                             match.getMinigame().getCodigo() + "_"
                                                             + sanitizeFileName(match.getName().replaceAll("<color>", "§"))
                                                             + ".json");
-			if (bossFile.exists()) {
-				bossFile.delete();
-			}
-			plugin.getMatches().remove(match);
-			plugin.getMatchesAvailable().remove(match);
+                        if (bossFile.exists()) {
+                                bossFile.delete();
+                        }
+                        plugin.getMatches().remove(match);
+                        plugin.getMatchesAvailable().remove(match);
+                        plugin.setNextMatchId(calculateNextMatchId(plugin));
 
-			if (player != null) {
-				player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getEventDeleted());
-			}
+                        if (player != null) {
+                                player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getEventDeleted());
+                        }
 
 		} catch (Exception e) {
 			plugin.getLoggerP().info(e.getMessage());
@@ -1046,18 +1088,13 @@ public class UtilsRandomEvents {
                                 Match match = UtilidadesJson.fromJSONToMatch(plugin, br);
                                 if (match != null) {
                                         if (match.getId() == null) {
-                                                match.setId(plugin.getNextMatchId());
-                                                plugin.setNextMatchId(plugin.getNextMatchId() + 1);
+                                                match.setId(calculateNextMatchId(listaPartidas));
                                                 try (PrintWriter pw = new PrintWriter(
                                                                 new OutputStreamWriter(new FileOutputStream(file, false),
                                                                                 Charset.forName(plugin.getReventConfig().getUseEncoding())))) {
                                                         pw.println(UtilidadesJson.fromMatchToJSON(plugin, match));
                                                 } catch (Exception e) {
                                                         plugin.getLoggerP().info(e.getMessage());
-                                                }
-                                        } else {
-                                                if (match.getId() >= plugin.getNextMatchId()) {
-                                                        plugin.setNextMatchId(match.getId() + 1);
                                                 }
                                         }
 
@@ -1086,9 +1123,10 @@ public class UtilsRandomEvents {
 		for (Match m : matchToConvert) {
 			UtilsRandomEvents.terminaCreacionMatch(plugin, null, m);
 		}
-		Collections.sort(listaPartidas);
-		return listaPartidas;
-	}
+                Collections.sort(listaPartidas);
+                plugin.setNextMatchId(calculateNextMatchId(listaPartidas));
+                return listaPartidas;
+        }
 
 	private static Match convertInventoryToKits(RandomEvents plugin, Match match) {
 		Kit kit = new Kit();
