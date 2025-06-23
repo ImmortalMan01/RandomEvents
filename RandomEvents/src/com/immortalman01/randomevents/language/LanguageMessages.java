@@ -279,7 +279,7 @@ public class LanguageMessages {
         private String killcoinsGuiName;
         private String killcoinsItemName;
         private String killcoinsMoreSnowballsName;
-        private String killcoinsMoreSnowballsLore;
+        private List<String> killcoinsMoreSnowballsLore;
         private String actionbarKillcoins;
         private String killcoinsSnowballsReceived;
         private String killcoinsNotEnough;
@@ -6030,16 +6030,16 @@ public class LanguageMessages {
         }
 
         public List<String> getKillcoinsMoreSnowballsLore() {
-                List<String> lista = new ArrayList<String>();
+                List<String> lista = new ArrayList<>();
                 if (killcoinsMoreSnowballsLore != null) {
-                        for (String s : killcoinsMoreSnowballsLore.split(";")) {
-                                lista.add(ChatColor.translateAlternateColorCodes('&', s));
+                        for (String s : killcoinsMoreSnowballsLore) {
+                                lista.add(colorize(s));
                         }
                 }
                 return lista;
         }
 
-        public void setKillcoinsMoreSnowballsLore(String killcoinsMoreSnowballsLore) {
+        public void setKillcoinsMoreSnowballsLore(List<String> killcoinsMoreSnowballsLore) {
                 this.killcoinsMoreSnowballsLore = killcoinsMoreSnowballsLore;
         }
 
