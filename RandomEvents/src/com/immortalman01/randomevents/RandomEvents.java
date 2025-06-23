@@ -39,6 +39,7 @@ import com.immortalman01.randomevents.config.Configuration;
 import com.immortalman01.randomevents.config.ReventConfig;
 import com.immortalman01.randomevents.config.ScoreboardConfig;
 import com.immortalman01.randomevents.language.LanguageMessages;
+import com.immortalman01.randomevents.license.LicenseGateValidator;
 import com.immortalman01.randomevents.listeners.Chat;
 import com.immortalman01.randomevents.listeners.Death;
 import com.immortalman01.randomevents.listeners.GUI;
@@ -131,6 +132,11 @@ public class RandomEvents extends JavaPlugin {
 		this.api = new API1711("%%__USER__%%", "RandomEvents");
 		this.lastCheck=new Date();
 		logger=getLogger();
+                if(!new com.immortalman01.randomevents.license.LicenseGateValidator("e9409d76-2006-455d-8c64-13b469845b64").validate()) {
+                        getLogger().severe("License validation failed! Disabling plugin.");
+                        getServer().getPluginManager().disablePlugin(this);
+                        return;
+                }
 		logger.info("Loading config...");
 		loadConfig();
 		this.editando = new ArrayList<String>();
