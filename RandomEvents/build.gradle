@@ -16,6 +16,7 @@ dependencies {
     compileOnly 'com.github.booksaw:BetterTeams:4.13.2'
     compileOnly project(':stubs')
     implementation 'dev.respark.licensegate:license-gate:1.0.4'
+    implementation 'org.json:json:20240303'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     testImplementation 'org.mockito:mockito-core:5.11.0'
     testImplementation 'org.spigotmc:spigot-api:1.21-R0.1-SNAPSHOT'
@@ -33,6 +34,9 @@ sourceSets {
 
 jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
     from('.') {
         include 'plugin.yml','config.yml','defaultConfig.yml','messages.yml','messages_tr.yml','Luzverde2.nbs','luzverde.nbs','scoreboard.yml','scoreboard_tr.yml'
     }
