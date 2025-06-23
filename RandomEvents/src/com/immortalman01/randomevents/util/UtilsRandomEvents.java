@@ -3867,6 +3867,16 @@ public class UtilsRandomEvents {
                 metaT.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                 triple.setItemMeta(metaT);
                 inv.setItem(5, triple);
+
+                ItemStack strong = new ItemStack(Material.DIAMOND);
+                ItemMeta metaS = strong.getItemMeta();
+                metaS.setDisplayName(plugin.getLanguage().getKillcoinsStrongArmName());
+                metaS.setLore(plugin.getLanguage().getKillcoinsStrongArmLore());
+                metaS.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+                metaS.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                metaS.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+                strong.setItemMeta(metaS);
+                inv.setItem(6, strong);
                 return inv;
         }
 
