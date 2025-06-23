@@ -137,8 +137,8 @@ public class RandomEvents extends JavaPlugin {
                 logger.info("Loading config...");
                 loadConfig();
 
-                // Initialize LicenseGate and verify the provided license key
-                licenseGate = new LicenseGate("e9409d76-2006-455d-8c64-13b469845b64");
+                // Initialize LicenseGate with debug logging enabled and verify the provided license key
+                licenseGate = new LicenseGate("e9409d76-2006-455d-8c64-13b469845b64").debug();
                 String key = getConfig().getString("licenseKey");
                 if (key == null || key.isEmpty()) {
                         logger.severe("License key is missing in config.yml. Plugin will be disabled.");
@@ -146,6 +146,7 @@ public class RandomEvents extends JavaPlugin {
                         return;
                 }
 
+                logger.info("Verifying LicenseGate key...");
                 LicenseGate.ValidationType result = licenseGate.verify(key);
                 logger.info("License validation result: " + result);
                 if (!result.isValid()) {

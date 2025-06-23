@@ -32,8 +32,12 @@ sourceSets {
     }
 }
 
+
 jar {
-    enabled = false
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from('.') {
+        include 'plugin.yml','config.yml','defaultConfig.yml','messages.yml','messages_tr.yml','Luzverde2.nbs','luzverde.nbs','scoreboard.yml','scoreboard_tr.yml'
+    }
 }
 
 shadowJar {
