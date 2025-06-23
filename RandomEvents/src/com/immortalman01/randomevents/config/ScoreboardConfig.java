@@ -8,7 +8,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class ScoreboardConfig extends Configuration {
 
     public ScoreboardConfig(JavaPlugin plugin) {
-        super(plugin, "scoreboard.yml");
+        super(plugin, plugin.getConfig().getString("language", "en").equalsIgnoreCase("tr")
+                ? "scoreboard_tr.yml" : "scoreboard.yml");
     }
 
     public List<String> getLayout(String key) {
