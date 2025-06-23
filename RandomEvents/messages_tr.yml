@@ -247,10 +247,10 @@ match.alreadyPlayingMatch: Başlarsa maçı terk edemezsin
 match.matchBegun: Etkinlik başladı, şimdi katılamıyorsun
 match.matches: 'Maçlar:'
 match.alreadyMatch: Biri hala çalışırken başka bir etkinlik oluşturamazsınız
-announce.announceFirst: "████████\n████████\n████████ Rastgele olay\n████████ %type%\n████████ [%players%/%neededPlayers%] \n████████ %clickhere% \n████████\n████████"
-announce.announceNext: Rastgele Olay >>%type% %clickhere% [%players%/%neededPlayers%]
-announce.announceFirstTournament: "████████\n████████\n████████ Turnuva rastgele etkinliği\n████████\n████████ [%players%/%neededPlayers%] \n████████ %clickhere% \n████████\n████████"
-announce.announceNextTournament: Turnuva Rastgele Etkinlik >> %clickhere% [%players%/%neededPlayers%]
+announce.announceFirst: "\n&f████████\n&f█&8██████&f█\n&f█&8█&f█████&f█  &5&lRastgele Etkinlik\n&f█&8█&f██&8███&f█  &c%type%\n&f█&8█&f████&8█&f█  &8[ &a%players%/%neededPlayers% &8] \n&f█&8█&f████&8█&f█  %clickhere% \n&f█&8██████&f█\n&f████████"
+announce.announceNext: "&6&lRastgele Etkinlik &e&l>> &c%type% %clickhere% &8[ &a%players%/%neededPlayers% &8] "
+announce.announceFirstTournament: "\n&f████████\n&f█&8██████&f█\n&f█&8█&f█████&f█  &5&lTurnuva Rastgele Etkinlik\n&f█&8█&f██&8███&f█  \n&f█&8█&f████&8█&f█  &8[ &a%players%/%neededPlayers% &8] \n&f█&8█&f████&8█&f█  %clickhere% \n&f█&8██████&f█\n&f████████"
+announce.announceNextTournament: "&6&lTurnuva Rastgele Etkinlik &e&l>>  %clickhere% &8[ &a%players%/%neededPlayers% &8] "
 announce.clickHere: "&b[Katılmak için buraya tıklayın]"
 announce.raceTournament: Oyuncu %player% hedefe ulaştı ( %players% / %neededPlayers% )
 announce.youBeast: Sen canavarsın, arenaya ışınlanana kadar bekle
@@ -279,13 +279,13 @@ comun.secondsFormat: '% saniye% s'
 match.showAlone: Yalnız oynuyorsun, iyi şanslar!
 match.showTeam: 'Ekibiniz: %players%'
 match.timeRemaining: '%minutes% Kalan'
-match.nowPoints: Şimdi %points% puanınız var
-match.nowGems: Oyuncu %player% şimdi %points% Gems var
+match.nowPoints: "&6&lŞimdi &e&l%points% &6&lpuanınız var"
+match.nowGems: "&6&lOyuncu &e&l%player% &6&lşimdi &e&l%points% &6&lGems var"
 match.nowProtected: "&6&lŞimdi 3 saniye korunuyorsunuz"
-match.matchBeginSoon: Rastgele olay yakında başlayacak
-match.lostGems: '%player% Tüm Taşları Kaybetti'
+match.matchBeginSoon: "&6&lRastgele Etkinlik yakında başlayacak"
+match.lostGems: '&e&l%player% &6&lTüm Taşları Kaybetti'
 match.greenRedLightMove: "&a&lHAREKET"
-match.greenRedLightStop: DURMAK
+match.greenRedLightStop: "&c&lDURMAK"
 match.playerWinning: Oyuncu %player% yeterli mücevher var, onu öldür ya da maç bitecek
 match.playerWinningSeconds: '%player% %seconds% saniye içinde kazanır'
 match.bombSeconds: Bomba %seconds% saniye içinde patlar
