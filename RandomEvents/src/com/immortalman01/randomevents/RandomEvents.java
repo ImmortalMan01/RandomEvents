@@ -294,13 +294,15 @@ public class RandomEvents extends JavaPlugin {
 		return scm;
 	}
 
-	public void onDisable() {
-		UtilsRandomEvents.terminaCreacionBannedPlayers(this, reventConfig.getBannedPlayers());
-		UtilsRandomEvents.terminaCreacionDisabledPlayers(this, reventConfig.getDisabledPlayers());
-		
-		if (reventConfig.isMysqlEnabled() && hikari != null) {
-			hikari.close();
-		}
+        public void onDisable() {
+                if (reventConfig != null) {
+                        UtilsRandomEvents.terminaCreacionBannedPlayers(this, reventConfig.getBannedPlayers());
+                        UtilsRandomEvents.terminaCreacionDisabledPlayers(this, reventConfig.getDisabledPlayers());
+
+                        if (reventConfig.isMysqlEnabled() && hikari != null) {
+                                hikari.close();
+                        }
+                }
 		if (matchActive != null) {
 			matchActive.reiniciaValoresPartida(false);
 		}
