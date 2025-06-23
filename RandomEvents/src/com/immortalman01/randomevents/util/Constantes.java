@@ -180,10 +180,13 @@ public class Constantes {
 		CMD_RESET_WINS_GAME("resetWinsGame", "menu.admin.resetWinsGame",
 				"   &6/revent resetwinsgame <game>:\n          &e-> Reset all wins for a game "),
 
-		CMD_RESET_WINS_GAME_PLAYER("resetWinsGamePlayer", "menu.admin.resetWinsGamePlayer",
-				"   &6/revent resetwins <game> <player>:\n          &e-> Reset all wins for a game and a player "),
+                CMD_RESET_WINS_GAME_PLAYER("resetWinsGamePlayer", "menu.admin.resetWinsGamePlayer",
+                                "   &6/revent resetwins <game> <player>:\n          &e-> Reset all wins for a game and a player "),
 
-		CMD_RELOAD("reload", "menu.admin.reload", "   &6/revent reload:\n          &e-> Reload the plugin"),
+                CMD_SET_LICENSE("setLicense", "menu.admin.setLicense",
+                                "   &6/revent setlicense <key>:\n          &e-> Set plugin license key"),
+
+                CMD_RELOAD("reload", "menu.admin.reload", "   &6/revent reload:\n          &e-> Reload the plugin"),
 
 		TAG_PLUGIN("tagPlugin", "tagPlugin", "&a&lRandomEvents &f&l>>"),
 
@@ -261,7 +264,9 @@ public class Constantes {
                 CANCEL_TIP("cancelTip", "creation.cancel_tip",
                                 "&7Type 'Cancel' at any time to exit setup"),
 
-		PLUGIN_RELOAD("pluginReload", "comun.pluginReload", "&6&lPlugin reloaded!"),
+                PLUGIN_RELOAD("pluginReload", "comun.pluginReload", "&6&lPlugin reloaded!"),
+
+                LICENSE_SET("licenseSet", "comun.licenseSet", "&6&lLicense key saved!"),
 
 		MATCH_FULL("matchFull", "match.matchFull", "&c&lThe match is already full"),
 

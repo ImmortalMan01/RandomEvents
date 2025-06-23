@@ -4,6 +4,7 @@ comun.invalidCmd: '&c&lGeçersiz komut, geçerli komutları görmek için /rando
   yazın'
 comun.noPermission: '&c&lBunu yapmak için izniniz yok!'
 comun.pluginReload: '&6&lEklenti yeniden yüklendi!'
+comun.licenseSet: '&6&lLisans anahtarı kaydedildi!'
 match.matchFull: '&c&lOyun zaten dolu'
 match.waitingForPlayers: '&6&lOyuncular bekleniyor. ( %players% / %neededPlayers%
   )'
@@ -217,6 +218,7 @@ menu.admin.resetWinsGame: "/revent resetwinsgame <Mamam>:\n          -> Bir oyun
 menu.admin.resetWinsGamePlayer: "/revent resetwins <A2 oyun> <oyuncu>:\n         \
   \ -> Bir oyun ve oyuncu için tüm kazançları sıfırlayın"
 menu.admin.reload: "/revent yeniden yükleme:\n          -> Eklentiyi yeniden yükleyin"
+menu.admin.setLicense: "/revent setlicense <anahtar>:\n          -> Lisans anahtarını kaydet"
 tagPlugin: "&a&lRandomEvents &f&l>>"
 tagChat: "&f[&eRandomEvents&f]"
 comun.banPlayer: Oyuncu %player% %time% tarihine kadar yasaklandı

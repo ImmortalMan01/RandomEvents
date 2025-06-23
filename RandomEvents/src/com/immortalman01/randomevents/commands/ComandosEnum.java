@@ -117,9 +117,11 @@ public enum ComandosEnum {
 	
 	CMD_RESET_WINS_GAME("resetwinsgame", 2, "randomevent.admin.resetwins", "getResetWinsGame", "resetWinsGame", true, true),
 	
-	CMD_RESET_WINS_GAME_PLAYER("resetwins", 3, "randomevent.admin.resetwins", "getResetWinsGamePlayer", "resetWins", true, true),
-	
-	CMD_RELOAD("reload", 1, "randomevent.admin.reload", "getReload", "reloadPlugin", true, true);
+        CMD_RESET_WINS_GAME_PLAYER("resetwins", 3, "randomevent.admin.resetwins", "getResetWinsGamePlayer", "resetWins", true, true),
+
+        CMD_SET_LICENSE("setlicense", 2, "randomevent.admin.setlicense", "getSetLicense", "setLicenseKey", true, true),
+
+        CMD_RELOAD("reload", 1, "randomevent.admin.reload", "getReload", "reloadPlugin", true, true);
 
 	private String aliase;
 

@@ -661,11 +661,20 @@ public class ComandosExecutor {
 
 	}
 
-	public void reloadPlugin(RandomEvents plugin, Player player) {
-		plugin.doingReload();
-		if (player != null)
-			player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getPluginReload());
-	}
+        public void reloadPlugin(RandomEvents plugin, Player player) {
+                plugin.doingReload();
+                if (player != null)
+                        player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getPluginReload());
+        }
+
+        public void setLicenseKey(RandomEvents plugin, Player player, String key) {
+                plugin.getConfig().set("license-key", key.trim());
+                plugin.getConfig().saveData();
+                plugin.getReventConfig().setLicenseKey(key.trim());
+                if (player != null) {
+                        player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getSetLicense());
+                }
+        }
 
 	public void spawnSet(RandomEvents plugin, Player player) {
 		plugin.setSpawn(player.getLocation());

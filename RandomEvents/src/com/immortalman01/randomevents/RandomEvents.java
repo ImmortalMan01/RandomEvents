@@ -788,9 +788,14 @@ public class RandomEvents extends JavaPlugin {
 		return lastCheck;
 	}
 
-	public void setLastCheck(Date lastCheck) {
-		this.lastCheck = lastCheck;
-	}
+        public void setLastCheck(Date lastCheck) {
+                this.lastCheck = lastCheck;
+        }
+
+        public LicenseGate getLicenseGate() {
+                return licenseGate;
+        }
+
 	
 
 }
