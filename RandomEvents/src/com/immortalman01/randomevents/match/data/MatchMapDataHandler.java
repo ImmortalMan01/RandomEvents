@@ -32,28 +32,37 @@ public class MatchMapDataHandler {
 
         private Map<Location, BlockData> blockPlaced;
 
-	private Set<Fireball> fireballs;
+        private Set<Fireball> fireballs;
 
-	private List<Location> blockPartyBlocks;
+        private List<Location> blockPartyBlocks;
+
+        /**
+         * Snapshot of the blocks inside the map region when the match starts. This
+         * allows restoring the map even if some changes were not tracked during the
+         * game (e.g. explosions or other events). It is a simple location to
+         * BlockData mapping.
+         */
+        private Map<Location, BlockData> originalBlocks;
 
 	private List<Location> locationsGlasses;
 	
 	private List<List<Location>> locationsPlatforms;
 
-	public MatchMapDataHandler() {
-		super();
-		this.blockDisappear = new HashMap<Location, Long>();
+        public MatchMapDataHandler() {
+                super();
+                this.blockDisappear = new HashMap<Location, Long>();
                 this.blockDisappeared = new HashMap<Location, BlockData>();
-		this.blockDisappearedType = new HashMap<Location, Material>();
+                this.blockDisappearedType = new HashMap<Location, Material>();
                 this.blockPlaced = new HashMap<Location, BlockData>();
-		this.checkpoints = new HashMap<String, Location>();
-		this.chests = new ArrayList<Location>();
-		this.fireballs = new HashSet<Fireball>();
-		this.blockPartyBlocks = new ArrayList<Location>();
-		this.locationsGlasses = new ArrayList<Location>();
-		this.locationsPlatforms = new ArrayList<>();
+                this.checkpoints = new HashMap<String, Location>();
+                this.chests = new ArrayList<Location>();
+                this.fireballs = new HashSet<Fireball>();
+                this.blockPartyBlocks = new ArrayList<Location>();
+                this.locationsGlasses = new ArrayList<Location>();
+                this.locationsPlatforms = new ArrayList<>();
+                this.originalBlocks = new HashMap<Location, BlockData>();
 
-	}
+        }
 
 	public List<List<Location>> getLocationsPlatforms() {
 		return locationsPlatforms;
@@ -148,8 +157,46 @@ public class MatchMapDataHandler {
 
 	}
 
-	public List<Location> getBlockPartyBlocks() {
-		return blockPartyBlocks;
-	}
+        public List<Location> getBlockPartyBlocks() {
+                return blockPartyBlocks;
+        }
+
+        public Map<Location, BlockData> getOriginalBlocks() {
+                return originalBlocks;
+        }
+
+        public void setOriginalBlocks(Map<Location, BlockData> originalBlocks) {
+                this.originalBlocks = originalBlocks;
+        }
+
+        /**
+         * Capture a snapshot of all blocks inside the current cuboid region. This
+         * should be invoked when the match starts before any blocks are modified.
+         */
+        public void captureOriginalState() {
+                if (cuboid == null) {
+                        return;
+                }
+                originalBlocks.clear();
+                for (int x = (int) Math.floor(cuboid.getMinX()); x <= cuboid.getMaxX(); x++) {
+                        for (int y = (int) Math.floor(cuboid.getMinY()); y <= cuboid.getMaxY(); y++) {
+                                for (int z = (int) Math.floor(cuboid.getMinZ()); z <= cuboid.getMaxZ(); z++) {
+                                        Location l = new Location(cuboid.getWorld(), x, y, z);
+                                        originalBlocks.put(l, l.getBlock().getBlockData().clone());
+                                }
+                        }
+                }
+        }
+
+        /**
+         * Restore all blocks captured by {@link #captureOriginalState()} back into the
+         * world.
+         */
+        public void restoreOriginalState() {
+                for (Map.Entry<Location, BlockData> e : originalBlocks.entrySet()) {
+                        e.getKey().getBlock().setBlockData(e.getValue());
+                }
+                originalBlocks.clear();
+        }
 
 }
