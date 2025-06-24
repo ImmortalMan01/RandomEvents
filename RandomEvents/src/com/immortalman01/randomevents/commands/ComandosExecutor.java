@@ -2,7 +2,9 @@ package com.immortalman01.randomevents.commands;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -368,11 +370,14 @@ public class ComandosExecutor {
 
 	}
 
-	public void showRandomEvents(RandomEvents plugin, Player player) {
-		player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getMatches());
-		for (Match m : plugin.getMatches()) {
-			if (player != null) {
+        public void showRandomEvents(RandomEvents plugin, Player player) {
+                player.sendMessage(plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getMatches());
 
+                List<Match> matches = new ArrayList<>(plugin.getMatches());
+                matches.sort(Comparator.comparingInt(Match::getId));
+
+                for (Match m : matches) {
+                        if (player != null) {
                                 player.sendMessage(((m.getEnabled() == null || m.getEnabled()) ? "§6" : "§c") + "§l"
                                                 + m.getId() + " - " + m.getMinigame().getMessage(plugin) + " -> "
                                                 + m.getName().replaceAll(" ", "_") + " ( Min: " + m.getAmountPlayersMin() + ", Max: "
@@ -383,10 +388,10 @@ public class ComandosExecutor {
                                                 + " -> " + m.getName().replaceAll(" ", "_") + " ( Min: " + m.getAmountPlayersMin() + ", Max: "
                                                 + m.getAmountPlayers() + ") "
                                                 + ((m.getEnabledSchedule() == null || m.getEnabledSchedule()) ? "" : "§c(Schedule Disabled)"));
-			}
-		}
+                        }
+                }
 
-	}
+        }
 
         public void showKits(RandomEvents plugin, Player player) {
                 player.sendMessage(plugin.getLanguage().getTagPlugin() + "§e§lKits");
