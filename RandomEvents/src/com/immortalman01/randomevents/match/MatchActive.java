@@ -221,13 +221,15 @@ public class MatchActive {
 		this.gema = new ItemStack(XMaterial.EMERALD.parseMaterial());
 		this.setForzada(forzada);
 
-		if (getMapHandler().getCuboid() != null) {
-			getMapHandler().setActualCuboid(new Cuboid(
-					new Location(getMapHandler().getCuboid().getWorld(), getMapHandler().getCuboid().getMaxX(),
-							getMapHandler().getCuboid().getMaxY(), getMapHandler().getCuboid().getMaxZ()),
-					new Location(getMapHandler().getCuboid().getWorld(), getMapHandler().getCuboid().getMinX(),
-							getMapHandler().getCuboid().getMinY(), getMapHandler().getCuboid().getMinZ())));
-		}
+                if (getMapHandler().getCuboid() != null) {
+                        getMapHandler().setActualCuboid(new Cuboid(
+                                        new Location(getMapHandler().getCuboid().getWorld(), getMapHandler().getCuboid().getMaxX(),
+                                                        getMapHandler().getCuboid().getMaxY(), getMapHandler().getCuboid().getMaxZ()),
+                                        new Location(getMapHandler().getCuboid().getWorld(), getMapHandler().getCuboid().getMinX(),
+                                                        getMapHandler().getCuboid().getMinY(), getMapHandler().getCuboid().getMinZ())));
+                        // Capture original map state for a proper reset when the event ends
+                        getMapHandler().captureOriginalState();
+                }
 		tries = 0;
 		damageCounter = 0;
 		this.waterDrops = new ArrayList<WaterDropStepActive>();
@@ -332,13 +334,15 @@ public class MatchActive {
 		}
 		this.setForzada(forzada);
 
-		if (getMapHandler().getCuboid() != null) {
-			getMapHandler().setActualCuboid(new Cuboid(
-					new Location(getMapHandler().getCuboid().getWorld(), getMapHandler().getCuboid().getMaxX(),
-							getMapHandler().getCuboid().getMaxY(), getMapHandler().getCuboid().getMaxZ()),
-					new Location(getMapHandler().getCuboid().getWorld(), getMapHandler().getCuboid().getMinX(),
-							getMapHandler().getCuboid().getMinY(), getMapHandler().getCuboid().getMinZ())));
-		}
+                if (getMapHandler().getCuboid() != null) {
+                        getMapHandler().setActualCuboid(new Cuboid(
+                                        new Location(getMapHandler().getCuboid().getWorld(), getMapHandler().getCuboid().getMaxX(),
+                                                        getMapHandler().getCuboid().getMaxY(), getMapHandler().getCuboid().getMaxZ()),
+                                        new Location(getMapHandler().getCuboid().getWorld(), getMapHandler().getCuboid().getMinX(),
+                                                        getMapHandler().getCuboid().getMinY(), getMapHandler().getCuboid().getMinZ())));
+                        // Capture original map state for a proper reset when the event ends
+                        getMapHandler().captureOriginalState();
+                }
                 this.cooldownJump = new HashMap<Player, Long>();
                 this.cooldownShoot = new HashMap<Player, Long>();
                 this.snowballAmmo = new HashMap<Player, Integer>();
@@ -1548,6 +1552,10 @@ public class MatchActive {
                 for (Entry<Location, BlockData> entrada : getMapHandler().getBlockPlaced().entrySet()) {
                         plugin.getApi().convertBlock(entrada.getKey(), entrada.getValue());
                 }
+
+                // In case some changes were missed during gameplay, restore the original
+                // snapshot captured at the beginning of the match
+                getMapHandler().restoreOriginalState();
 
                 if (plugin.getReventConfig().isDebugMode()) {
                         plugin.getLoggerP().info("Restoring blocks: disappeared="
