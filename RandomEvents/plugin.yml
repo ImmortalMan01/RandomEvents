@@ -1,7 +1,7 @@
 name: RandomEvents
 main: com.immortalman01.randomevents.RandomEvents
 version: 2.9.5
-api-version: 1.21
+api-version: 1.20
 # Removed hard dependency on Lib1711 as the required
 # functionality is now bundled directly with the plugin
 softdepend: [CrackShot, PlaceholderAPI, WorldEdit, WorldGuard, Multiworld, Multiverse-Core, NametagEdit, LibsDisguises, NoteBlockAPI, Citizens, BetterTeams]
