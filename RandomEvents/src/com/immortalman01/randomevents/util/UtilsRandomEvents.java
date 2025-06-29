@@ -60,6 +60,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
+import com.immortalman01.randomevents.util.CompatibilityUtils;
 
 import com.immortalman01.randomevents.RandomEvents;
 import com.immortalman01.randomevents.match.Kit;
@@ -1314,7 +1315,9 @@ public class UtilsRandomEvents {
         // p.sendMessage(message);
 
 	public static void tiraCohete(Location l) {
-                Firework fw = (Firework) l.getWorld().spawnEntity(l, EntityType.FIREWORK_ROCKET);
+                Firework fw = (Firework) l.getWorld().spawnEntity(
+                                l,
+                                CompatibilityUtils.getEntityType("FIREWORK_ROCKET", "FIREWORK"));
 		FireworkMeta fwm = fw.getFireworkMeta();
 
 		Random r = new Random();
@@ -1864,7 +1867,8 @@ public class UtilsRandomEvents {
 				itemMeta.setLore(lore);
 
                                 itemMeta.getItemFlags().add(ItemFlag.HIDE_ATTRIBUTES);
-                                itemMeta.getItemFlags().add(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                                ItemFlag flag = CompatibilityUtils.getHideAdditionalTooltipFlag();
+                                if (flag != null) itemMeta.getItemFlags().add(flag);
                                 itemMeta.getItemFlags().add(ItemFlag.HIDE_ENCHANTS);
 
 				item.setItemMeta(itemMeta);
@@ -1904,7 +1908,8 @@ public class UtilsRandomEvents {
 			lore.add(plugin.getLanguage().getStatsWinsRatio() + ratio.toPlainString());
 			itemMeta.setLore(lore);
                         itemMeta.getItemFlags().add(ItemFlag.HIDE_ATTRIBUTES);
-                        itemMeta.getItemFlags().add(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                        ItemFlag flag2 = CompatibilityUtils.getHideAdditionalTooltipFlag();
+                        if (flag2 != null) itemMeta.getItemFlags().add(flag2);
                         itemMeta.getItemFlags().add(ItemFlag.HIDE_ENCHANTS);
 			item.setItemMeta(itemMeta);
 			inv.setItem(position, item);
@@ -3810,7 +3815,8 @@ public class UtilsRandomEvents {
 			}
 			cabezaMeta.setLore(lore);
                         cabezaMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-                        cabezaMeta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                        ItemFlag flag3 = CompatibilityUtils.getHideAdditionalTooltipFlag();
+                        if (flag3 != null) cabezaMeta.addItemFlags(flag3);
                         cabezaMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 			cabeza.setItemMeta(cabezaMeta);
 			inv.setItem(i - (page * 36), cabeza);
@@ -3863,7 +3869,8 @@ public class UtilsRandomEvents {
 					cabezaMeta.setLore(plugin.getLanguage().getKitDefaultLore());
 				}
                                 cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ATTRIBUTES);
-                                cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                                ItemFlag flag4 = CompatibilityUtils.getHideAdditionalTooltipFlag();
+                                if (flag4 != null) cabezaMeta.getItemFlags().add(flag4);
                                 cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ENCHANTS);
 
 				cabeza.setItemMeta(cabezaMeta);
@@ -3912,9 +3919,10 @@ public class UtilsRandomEvents {
 
 				cabezaMeta.setLore(lore);
 
-                                cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ATTRIBUTES);
-                                cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
-                                cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ENCHANTS);
+                cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ATTRIBUTES);
+                ItemFlag flag5 = CompatibilityUtils.getHideAdditionalTooltipFlag();
+                if (flag5 != null) cabezaMeta.getItemFlags().add(flag5);
+                cabezaMeta.getItemFlags().add(ItemFlag.HIDE_ENCHANTS);
 				cabeza.setItemMeta(cabezaMeta);
 				inv.setItem(i, cabeza);
 			}
@@ -3931,7 +3939,8 @@ public class UtilsRandomEvents {
                 meta.setDisplayName(plugin.getLanguage().getKillcoinsMoreSnowballsName());
                 meta.setLore(plugin.getLanguage().getKillcoinsMoreSnowballsLore());
                 meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-                meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                ItemFlag flag6 = CompatibilityUtils.getHideAdditionalTooltipFlag();
+                if (flag6 != null) meta.addItemFlags(flag6);
                 meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                 snow.setItemMeta(meta);
                 inv.setItem(4, snow);
@@ -3941,7 +3950,8 @@ public class UtilsRandomEvents {
                 metaT.setDisplayName(plugin.getLanguage().getKillcoinsTripleShootName());
                 metaT.setLore(plugin.getLanguage().getKillcoinsTripleShootLore());
                 metaT.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-                metaT.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                ItemFlag flag7 = CompatibilityUtils.getHideAdditionalTooltipFlag();
+                if (flag7 != null) metaT.addItemFlags(flag7);
                 metaT.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                 triple.setItemMeta(metaT);
                 inv.setItem(5, triple);
@@ -3951,7 +3961,8 @@ public class UtilsRandomEvents {
                 metaS.setDisplayName(plugin.getLanguage().getKillcoinsStrongArmName());
                 metaS.setLore(plugin.getLanguage().getKillcoinsStrongArmLore());
                 metaS.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-                metaS.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                ItemFlag flag8 = CompatibilityUtils.getHideAdditionalTooltipFlag();
+                if (flag8 != null) metaS.addItemFlags(flag8);
                 metaS.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                 strong.setItemMeta(metaS);
                 inv.setItem(6, strong);
@@ -3961,7 +3972,8 @@ public class UtilsRandomEvents {
                 metaL.setDisplayName(plugin.getLanguage().getKillcoinsAddLivesName());
                 metaL.setLore(plugin.getLanguage().getKillcoinsAddLivesLore());
                 metaL.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-                metaL.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                ItemFlag flag9 = CompatibilityUtils.getHideAdditionalTooltipFlag();
+                if (flag9 != null) metaL.addItemFlags(flag9);
                 metaL.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                 lives.setItemMeta(metaL);
                 inv.setItem(7, lives);
@@ -3971,7 +3983,8 @@ public class UtilsRandomEvents {
                 metaF.setDisplayName(plugin.getLanguage().getKillcoinsFuryModeName());
                 metaF.setLore(plugin.getLanguage().getKillcoinsFuryModeLore());
                 metaF.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-                metaF.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                ItemFlag flag10 = CompatibilityUtils.getHideAdditionalTooltipFlag();
+                if (flag10 != null) metaF.addItemFlags(flag10);
                 metaF.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                 fury.setItemMeta(metaF);
                 inv.setItem(8, fury);
@@ -4211,8 +4224,9 @@ Integer probabilidad = parseProbability(trozosComandos[1]);
 
 	public static void invinciblePlayer(Player player, RandomEvents plugin) {
 		if (plugin.getReventConfig().getInvincibleAfterGame() > 0) {
-                        player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE,
-                                        plugin.getReventConfig().getInvincibleAfterGame(), 20));
+                player.addPotionEffect(new PotionEffect(
+                                CompatibilityUtils.getPotionEffect("RESISTANCE", "DAMAGE_RESISTANCE"),
+                                plugin.getReventConfig().getInvincibleAfterGame(), 20));
 		}
 
 	}

@@ -12,6 +12,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import com.immortalman01.randomevents.util.CompatibilityUtils;
 
 import com.immortalman01.randomevents.RandomEvents;
 import com.immortalman01.randomevents.api.events.ReventSpawnEvent;
@@ -743,7 +744,9 @@ public class ComandosExecutor {
 						UtilsRandomEvents.teleportaPlayer(player,
 								plugin.getMatchActive().getMapHandler().getCheckpoints().get(player.getName()), plugin);
                                                 if (plugin.getReventConfig().getRaceSlowEffect())
-                                                        player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 60, 99));
+                                                player.addPotionEffect(new PotionEffect(
+                                                                CompatibilityUtils.getPotionEffect("SLOWNESS", "SLOW"),
+                                                                60, 99));
 
 					}
 				} else {
