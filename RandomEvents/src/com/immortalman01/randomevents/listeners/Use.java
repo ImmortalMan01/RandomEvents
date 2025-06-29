@@ -60,6 +60,7 @@ import com.immortalman01.randomevents.match.enums.MinigameType;
 import com.immortalman01.randomevents.match.enums.Petos;
 import com.immortalman01.randomevents.util.Constantes;
 import com.immortalman01.randomevents.util.UtilsRandomEvents;
+import com.immortalman01.randomevents.util.CompatibilityUtils;
 import com.immortalman01.util.enums.Particle1711;
 import com.immortalman01.util.enums.ParticleDisplay;
 import com.immortalman01.util.enums.XMaterial;
@@ -220,7 +221,9 @@ public class Use implements Listener {
 								player.getInventory().remove(player.getInventory().getItemInMainHand());
 								player.updateInventory();
 							}
-                                                        player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 60, 5));
+                                                        player.addPotionEffect(new PotionEffect(
+                                                                        CompatibilityUtils.getPotionEffect("RESISTANCE", "DAMAGE_RESISTANCE"),
+                                                                        60, 5));
 							player.sendMessage(
 									plugin.getLanguage().getTagPlugin() + plugin.getLanguage().getNowProtected());
 						} else if (player.getInventory().getItemInMainHand().equals(plugin.getReventConfig().getCheckpointItem())) {
@@ -230,7 +233,9 @@ public class Use implements Listener {
 									plugin.getMatchActive().getMapHandler().getCheckpoints().get(player.getName()),
 									plugin);
                                                         if(plugin.getReventConfig().getRaceSlowEffect())
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 60, 99));
+            player.addPotionEffect(new PotionEffect(
+                            CompatibilityUtils.getPotionEffect("SLOWNESS", "SLOW"),
+                            60, 99));
 
 						} else if (player.getInventory().getItemInMainHand().equals(plugin.getReventConfig().getEndVanishItem())) {
 							evt.setCancelled(true);

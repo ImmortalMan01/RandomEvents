@@ -37,6 +37,7 @@ import org.bukkit.entity.Horse;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
+import com.immortalman01.randomevents.util.CompatibilityUtils;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.block.data.BlockData;
@@ -1982,7 +1983,9 @@ public class MatchActive {
 
                         }
                         initializeSnowballAmmo();
-                        PotionEffect pot = new PotionEffect(PotionEffectType.HASTE, 240, 99);
+                        PotionEffect pot = new PotionEffect(
+                                        CompatibilityUtils.getPotionEffect("HASTE", "FAST_DIGGING"),
+                                        240, 99);
 			UtilsRandomEvents.applyPotionEffects(pot, getPlayerHandler().getPlayersObj());
 
 			task = new BukkitRunnable() {
@@ -2527,16 +2530,16 @@ public class MatchActive {
 			for (Player p : getPlayerHandler().getPlayersObj()) {
 				iniciaPlayer(p);
 
-				Boat boat = null;
-				if (getMatch().getEntitySpawns() == null || getMatch().getEntitySpawns().isEmpty()) {
-					boat = (Boat) p.getWorld().spawnEntity(p.getLocation(), EntityType.BOAT);
-					boat.setPassenger(p);
+                                Boat boat = null;
+                                if (getMatch().getEntitySpawns() == null || getMatch().getEntitySpawns().isEmpty()) {
+                                        boat = (Boat) p.getWorld().spawnEntity(p.getLocation(), CompatibilityUtils.getBoatEntity());
+                                        boat.setPassenger(p);
 
-				} else {
-					boat = (Boat) p.getWorld().spawnEntity(
-							match.getEntitySpawns().get(getPlayerHandler().getPlayersObj().indexOf(p)),
-							EntityType.BOAT);
-				}
+                                } else {
+                                        boat = (Boat) p.getWorld().spawnEntity(
+                                                        match.getEntitySpawns().get(getPlayerHandler().getPlayersObj().indexOf(p)),
+                                                        CompatibilityUtils.getBoatEntity());
+                                }
 
 				getMobs().add(boat);
 				getPets().put(p.getName(), boat);
@@ -4247,7 +4250,9 @@ public class MatchActive {
 				removePotionsEffects(p);
 			}
 
-                        p.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 20, 2));
+                        p.addPotionEffect(new PotionEffect(
+                                        CompatibilityUtils.getPotionEffect("RESISTANCE", "DAMAGE_RESISTANCE"),
+                                        20, 2));
 
                         if (match.getMinigame() == MinigameType.PAINTBALL_TOP_KILL) {
                                 p.getInventory().setItem(8, getKillCoinItem(p));
